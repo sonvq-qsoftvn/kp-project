@@ -1,0 +1,257 @@
+[10-Dec-2013 07:40:48] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home3/kpasappc/public_html/admin/export.php:3) in /home3/kpasappc/public_html/admin/export.php on line 4
+[09-Jan-2014 05:08:10] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home3/kpasappc/public_html/admin/ajax_add_temp_multievent.php on line 28
+[16-Jan-2014 03:58:38] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home3/kpasappc/public_html/admin/ajax_add_temp_multievent.php on line 81
+[05-Feb-2014 05:31:31] PHP Parse error:  syntax error, unexpected T_IF in /home3/kpasappc/public_html/admin/sub_events.php on line 1220
+[05-Feb-2014 05:31:41] PHP Parse error:  syntax error, unexpected T_IF in /home3/kpasappc/public_html/admin/sub_events.php on line 1220
+[13-Mar-2014 05:19:32 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/edit_page.php on line 276
+[19-Mar-2014 04:05:23 America/Denver] PHP Warning:  include(): Failed opening 'include/user_inc.php' for inclusion (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home3/kpasappc/public_html/admin/newsletter.php on line 5
+[19-Mar-2014 04:05:23 America/Denver] PHP Fatal error:  Class 'user' not found in /home3/kpasappc/public_html/admin/newsletter.php on line 6
+[19-Mar-2014 10:30:56 America/Denver] PHP Parse error:  syntax error, unexpected '", "' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 20
+[19-Mar-2014 10:34:05 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 22
+[19-Mar-2014 10:35:05 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 22
+[19-Mar-2014 10:37:00 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 22
+[19-Mar-2014 10:41:50 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 21
+[19-Mar-2014 10:55:44 America/Denver] PHP Parse error:  syntax error, unexpected '.' in /home3/kpasappc/public_html/admin/newsletter.php on line 22
+[19-Mar-2014 11:08:20 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/newsletter.php on line 24
+[19-Mar-2014 11:10:08 America/Denver] PHP Parse error:  syntax error, unexpected '"<br>"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 25
+[19-Mar-2014 11:12:28 America/Denver] PHP Parse error:  syntax error, unexpected '.' in /home3/kpasappc/public_html/admin/newsletter.php on line 20
+[19-Mar-2014 11:13:11 America/Denver] PHP Parse error:  syntax error, unexpected '.' in /home3/kpasappc/public_html/admin/newsletter.php on line 20
+[19-Mar-2014 19:39:57 America/Denver] PHP Parse error:  syntax error, unexpected '.' in /home3/kpasappc/public_html/admin/newsletter.php on line 29
+[19-Mar-2014 19:44:14 America/Denver] PHP Parse error:  syntax error, unexpected '", <a href='"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 24
+[19-Mar-2014 19:45:06 America/Denver] PHP Parse error:  syntax error, unexpected '", <a href='"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 24
+[19-Mar-2014 20:53:27 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/newsletter.php on line 2
+[19-Mar-2014 20:55:10 America/Denver] PHP Parse error:  syntax error, unexpected 'generator' (T_STRING), expecting :: (T_PAAMAYIM_NEKUDOTAYIM) in /home3/kpasappc/public_html/admin/newsletter.php on line 1
+[26-Mar-2014 12:31:29 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/newsletter.php on line 29
+[26-Mar-2014 12:32:18 America/Denver] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 27
+[26-Mar-2014 12:34:47 America/Denver] PHP Parse error:  syntax error, unexpected '"<a href='"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 23
+[26-Mar-2014 12:36:14 America/Denver] PHP Parse error:  syntax error, unexpected '/' in /home3/kpasappc/public_html/admin/newsletter.php on line 31
+[26-Mar-2014 12:37:25 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/newsletter.php on line 31
+[26-Mar-2014 12:38:50 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/newsletter.php on line 31
+[26-Mar-2014 12:43:54 America/Denver] PHP Parse error:  syntax error, unexpected '>' in /home3/kpasappc/public_html/admin/newsletter.php on line 25
+[26-Mar-2014 12:46:42 America/Denver] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 24
+[26-Mar-2014 12:47:35 America/Denver] PHP Parse error:  syntax error, unexpected 'g' (T_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 27
+[26-Mar-2014 12:57:23 America/Denver] PHP Parse error:  syntax error, unexpected 'g' (T_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/newsletter.php on line 26
+[22-Apr-2014 14:09:11 America/Denver] PHP Warning:  POST Content-Length of 13699505 bytes exceeds the limit of 10485760 bytes in Unknown on line 0
+[07-May-2014 10:37:42 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home3/kpasappc/public_html/admin/newsletter.php on line 27
+[07-May-2014 10:38:09 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home3/kpasappc/public_html/admin/newsletter.php on line 27
+[07-May-2014 10:39:20 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/newsletter.php on line 24
+[07-May-2014 10:40:15 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/newsletter.php on line 23
+[07-May-2014 10:41:05 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home3/kpasappc/public_html/admin/newsletter.php on line 26
+[27-May-2014 23:52:14 America/Denver] PHP Parse error:  syntax error, unexpected '!', expecting ',' or ';' in /home3/kpasappc/public_html/admin/edit_event.php on line 1152
+[27-May-2014 23:52:22 America/Denver] PHP Parse error:  syntax error, unexpected '!', expecting ',' or ';' in /home3/kpasappc/public_html/admin/edit_event.php on line 1152
+[27-May-2014 23:52:31 America/Denver] PHP Parse error:  syntax error, unexpected '!', expecting ',' or ';' in /home3/kpasappc/public_html/admin/edit_event.php on line 1152
+[28-May-2014 06:20:44 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home3/kpasappc/public_html/admin/edit_event.php on line 154
+[12-Jun-2014 01:01:46 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/list_gallery.php on line 245
+[12-Jun-2014 01:01:49 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/list_gallery.php on line 245
+[12-Jun-2014 01:01:51 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/list_gallery.php on line 245
+[12-Jun-2014 01:03:53 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/list_gallery.php on line 245
+[12-Jun-2014 01:03:56 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/list_gallery.php on line 245
+[13-Jun-2014 06:27:16 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/add-gallery.php on line 246
+[13-Jun-2014 06:27:18 America/Denver] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/admin/add-gallery.php on line 246
+[13-Jun-2014 06:49:03 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add-gallery.php on line 354
+[13-Jun-2014 07:07:35 America/Denver] PHP Parse error:  syntax error, unexpected ''gal' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home3/kpasappc/public_html/admin/add-gallery.php on line 354
+[17-Jun-2014 04:04:53 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add-gallery.php on line 352
+[17-Jun-2014 04:06:44 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add-gallery.php on line 352
+[17-Jun-2014 04:45:54 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add-gallery.php on line 363
+[17-Jun-2014 08:27:48 America/Denver] PHP Parse error:  syntax error, unexpected 'color' (T_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 366
+[17-Jun-2014 08:27:49 America/Denver] PHP Parse error:  syntax error, unexpected 'color' (T_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 366
+[17-Jun-2014 08:27:49 America/Denver] PHP Parse error:  syntax error, unexpected 'color' (T_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 366
+[17-Jun-2014 08:36:21 America/Denver] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 365
+[17-Jun-2014 08:36:25 America/Denver] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 365
+[17-Jun-2014 08:36:36 America/Denver] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 365
+[17-Jun-2014 08:36:46 America/Denver] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 365
+[17-Jun-2014 08:37:26 America/Denver] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home3/kpasappc/public_html/admin/add-gallery.php on line 365
+[18-Jun-2014 05:40:47 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/delete_gallery.php on line 24
+[23-Jun-2014 05:04:19 America/Denver] PHP Notice:  Undefined variable: obj_base_path in /home3/kpasappc/public_html/admin/fancybox_video.php on line 5
+[23-Jun-2014 05:04:19 America/Denver] PHP Fatal error:  Call to a member function base_path() on a non-object in /home3/kpasappc/public_html/admin/fancybox_video.php on line 5
+[30-Jun-2014 03:32:37] PHP Parse error:  syntax error, unexpected $end in /home3/kpasappc/public_html/admin/edit_event.php on line 323
+[30-Jun-2014 03:34:39] PHP Parse error:  syntax error, unexpected $end in /home3/kpasappc/public_html/admin/edit_event.php on line 155
+[30-Jun-2014 03:35:07] PHP Parse error:  syntax error, unexpected $end in /home3/kpasappc/public_html/admin/edit_event.php on line 155
+[03-Jul-2014 03:18:33 America/Denver] PHP Parse error:  syntax error, unexpected '$objsociallist' (T_VARIABLE), expecting ',' or ';' in /home3/kpasappc/public_html/admin/add_promotion.php on line 221
+[03-Jul-2014 03:18:34 America/Denver] PHP Parse error:  syntax error, unexpected '$objsociallist' (T_VARIABLE), expecting ',' or ';' in /home3/kpasappc/public_html/admin/add_promotion.php on line 221
+[03-Jul-2014 03:18:34 America/Denver] PHP Parse error:  syntax error, unexpected '$objsociallist' (T_VARIABLE), expecting ',' or ';' in /home3/kpasappc/public_html/admin/add_promotion.php on line 221
+[03-Jul-2014 03:18:38 America/Denver] PHP Parse error:  syntax error, unexpected '$objsociallist' (T_VARIABLE), expecting ',' or ';' in /home3/kpasappc/public_html/admin/add_promotion.php on line 221
+[03-Jul-2014 08:17:14 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/add_promotion.php on line 244
+[03-Jul-2014 08:17:17 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/add_promotion.php on line 244
+[03-Jul-2014 08:17:20 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/add_promotion.php on line 244
+[03-Jul-2014 08:17:21 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/add_promotion.php on line 244
+[03-Jul-2014 08:17:53 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/add_promotion.php on line 241
+[03-Jul-2014 08:17:56 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/add_promotion.php on line 241
+[04-Jul-2014 04:24:42 America/Denver] PHP Notice:  Undefined variable: obj_base_path in /home3/kpasappc/public_html/admin/add-ad.php on line 8
+[04-Jul-2014 04:24:42 America/Denver] PHP Fatal error:  Call to a member function base_path() on a non-object in /home3/kpasappc/public_html/admin/add-ad.php on line 8
+[04-Jul-2014 04:24:50 America/Denver] PHP Notice:  Undefined variable: obj_base_path in /home3/kpasappc/public_html/admin/add-ad.php on line 8
+[04-Jul-2014 04:24:50 America/Denver] PHP Fatal error:  Call to a member function base_path() on a non-object in /home3/kpasappc/public_html/admin/add-ad.php on line 8
+[04-Jul-2014 05:02:11 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home3/kpasappc/public_html/admin/add_promotion.php on line 266
+[04-Jul-2014 05:15:23 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/add_promotion.php on line 291
+[04-Jul-2014 05:15:25 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/add_promotion.php on line 291
+[04-Jul-2014 05:15:26 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/add_promotion.php on line 291
+[04-Jul-2014 05:15:27 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/add_promotion.php on line 291
+[05-Jul-2014 15:22:15 America/Denver] PHP Parse error:  syntax error, unexpected '=' in /home3/kpasappc/public_html/admin/add-ad.php on line 43
+[07-Jul-2014 09:16:10 America/Denver] PHP Fatal error:  Call to undefined function ptint_r() in /home3/kpasappc/public_html/admin/add-ad.php on line 3
+[07-Jul-2014 09:16:15 America/Denver] PHP Fatal error:  Call to undefined function ptint_r() in /home3/kpasappc/public_html/admin/add-ad.php on line 3
+[11-Jul-2014 01:34:01 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add_promo_schedule.php on line 364
+[11-Jul-2014 01:34:07 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add_promo_schedule.php on line 364
+[11-Jul-2014 03:12:31 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add_promotion.php on line 404
+[11-Jul-2014 03:12:37 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/add_promotion.php on line 404
+[14-Jul-2014 08:33:36 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF), expecting ',' or ';' in /home3/kpasappc/public_html/admin/edit-ad.php on line 48
+[17-Jul-2014 07:07:12 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/report.php on line 214
+[17-Jul-2014 07:07:19 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/report.php on line 214
+[17-Jul-2014 07:47:17 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home3/kpasappc/public_html/admin/edit-ad.php on line 886
+[17-Jul-2014 07:47:23 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home3/kpasappc/public_html/admin/edit-ad.php on line 886
+[17-Jul-2014 07:48:00 America/Denver] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home3/kpasappc/public_html/admin/edit-ad.php on line 886
+[17-Jul-2014 14:27:28 America/Denver] PHP Parse error:  syntax error, unexpected '$call_to_action_length_k' (T_VARIABLE), expecting ',' or ';' in /home3/kpasappc/public_html/admin/edit-ad.php on line 873
+[17-Jul-2014 14:28:52 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/edit-ad.php on line 103
+[17-Jul-2014 14:30:59 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/edit-ad.php on line 103
+[18-Jul-2014 07:15:40 America/Denver] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home3/kpasappc/public_html/admin/report.php on line 52
+[22-Jul-2014 03:35:19 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 223
+[22-Jul-2014 03:35:23 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 223
+[22-Jul-2014 03:36:03 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 224
+[22-Jul-2014 03:36:04 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 224
+[22-Jul-2014 03:36:11 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 224
+[22-Jul-2014 03:36:25 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 224
+[22-Jul-2014 03:36:27 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 224
+[22-Jul-2014 03:37:00 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/report.php on line 224
+[22-Jul-2014 05:31:45 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/report.php on line 285
+[22-Jul-2014 05:32:01 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/report.php on line 285
+[22-Jul-2014 05:33:17 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/report.php on line 285
+[11-Aug-2014 12:03:21 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/list_page.php on line 203
+[11-Aug-2014 12:03:31 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/list_page.php on line 203
+[11-Aug-2014 12:05:09 America/Denver] PHP Parse error:  syntax error, unexpected ';' in /home3/kpasappc/public_html/admin/list_page.php on line 203
+[14-Aug-2014 02:39:27 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 91
+[14-Aug-2014 02:39:45 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 91
+[14-Aug-2014 02:42:06 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 91
+[14-Aug-2014 02:58:31 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:58:34 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:58:57 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:58:59 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:59:09 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:59:37 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:59:38 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:59:48 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[14-Aug-2014 02:59:49 America/Denver] PHP Parse error:  syntax error, unexpected 'admin_id' (T_STRING) in /home3/kpasappc/public_html/admin/report.php on line 92
+[18-Aug-2014 00:11:18 America/Denver] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home3/kpasappc/public_html/admin/edit_event.php on line 2063
+[18-Aug-2014 05:54:45 America/Denver] PHP Notice:  Undefined variable: xml in /home3/kpasappc/public_html/admin/create_sitemap_xml.php on line 27
+[18-Aug-2014 05:54:47 America/Denver] PHP Notice:  Undefined variable: xml in /home3/kpasappc/public_html/admin/create_sitemap_xml.php on line 27
+[18-Aug-2014 05:54:49 America/Denver] PHP Notice:  Undefined variable: xml in /home3/kpasappc/public_html/admin/create_sitemap_xml.php on line 27
+[18-Aug-2014 05:54:51 America/Denver] PHP Notice:  Undefined variable: xml in /home3/kpasappc/public_html/admin/create_sitemap_xml.php on line 27
+[18-Aug-2014 05:55:20 America/Denver] PHP Notice:  Undefined variable: xml in /home3/kpasappc/public_html/admin/create_sitemap_xml.php on line 27
+[18-Aug-2014 05:55:28 America/Denver] PHP Notice:  Undefined variable: xml in /home3/kpasappc/public_html/admin/create_sitemap_xml.php on line 27
+[19-Aug-2014 07:50:58 America/Denver] PHP Parse error:  syntax error, unexpected ''<?xml version="1.0" encoding=' (T_ENCAPSED_AND_WHITESPACE) in /home3/kpasappc/public_html/admin/sitemap.php on line 43
+[21-Aug-2014 08:49:04 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 300
+[21-Aug-2014 08:49:47 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 300
+[21-Aug-2014 08:50:45 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:52:54 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:53:48 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:53:50 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:53:54 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:53:58 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:54:45 America/Denver] PHP Parse error:  syntax error, unexpected end of file in /home3/kpasappc/public_html/admin/sitemap.php on line 270
+[21-Aug-2014 08:54:57 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:56:22 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 301
+[21-Aug-2014 08:56:49 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 302
+[21-Aug-2014 08:57:09 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 302
+[21-Aug-2014 08:57:31 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 302
+[21-Aug-2014 08:57:39 America/Denver] PHP Parse error:  syntax error, unexpected '{' in /home3/kpasappc/public_html/admin/sitemap.php on line 303
+[10-Oct-2014 18:55:07 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[10-Oct-2014 18:55:59 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[10-Oct-2014 18:57:24 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[14-Oct-2014 20:37:44 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[14-Oct-2014 20:39:16 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[14-Oct-2014 20:40:49 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[14-Oct-2014 21:43:05 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[09-Nov-2014 17:21:39 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[09-Nov-2014 17:22:47 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[09-Nov-2014 17:24:19 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[10-Nov-2014 10:26:55 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[10-Nov-2014 10:29:20 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[10-Nov-2014 10:31:35 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[10-Nov-2014 10:32:40 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Nov-2014 14:40:28 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[11-Feb-2015 08:12:20 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[11-Feb-2015 08:18:02 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[04-Mar-2015 21:18:47 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[04-Mar-2015 21:19:42 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[04-Mar-2015 21:21:36 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[04-Mar-2015 22:06:21 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[26-Mar-2015 21:34:56 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[26-Mar-2015 21:35:42 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[26-Mar-2015 21:38:12 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[26-Mar-2015 21:39:00 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[26-Mar-2015 21:39:39 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[26-May-2015 14:25:01 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 00:21:44 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 05:25:09 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 05:25:26 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 05:32:07 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 05:40:05 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 06:12:29 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 08:07:49 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 08:13:19 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[16-Sep-2015 08:17:38 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 00:39:40 America/Denver] PHP Parse error:  syntax error, unexpected 'center' (T_STRING) in /home3/kpasappc/public_html/admin/list_gallery.php on line 273
+[17-Sep-2015 00:39:42 America/Denver] PHP Parse error:  syntax error, unexpected 'center' (T_STRING) in /home3/kpasappc/public_html/admin/list_gallery.php on line 273
+[17-Sep-2015 00:39:46 America/Denver] PHP Parse error:  syntax error, unexpected 'center' (T_STRING) in /home3/kpasappc/public_html/admin/list_gallery.php on line 273
+[17-Sep-2015 00:40:56 America/Denver] PHP Parse error:  syntax error, unexpected 'media_url' (T_STRING), expecting ',' or ';' in /home3/kpasappc/public_html/admin/list_gallery.php on line 272
+[17-Sep-2015 00:49:35 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 00:51:00 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 00:57:11 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:03:32 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:08:55 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:21:19 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:24:28 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:26:29 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:32:26 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:38:20 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:51:24 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 01:53:55 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 02:16:20 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:25:10 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:34:30 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:36:26 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:42:11 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:45:43 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:49:45 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:50:29 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:50:40 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:54:17 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:57:06 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 03:59:28 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:03:31 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:03:49 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:05:19 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:05:39 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:10:47 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:13:16 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:14:13 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:15:55 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:16:26 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:18:58 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:18:59 America/Denver] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home3/kpasappc/public_html/admin/add-gallery.php on line 69
+[17-Sep-2015 04:19:05 America/Denver] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home3/kpasappc/public_html/admin/add-gallery.php on line 69
+[17-Sep-2015 04:19:25 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home3/kpasappc/public_html/admin/add-gallery.php on line 69
+[17-Sep-2015 04:23:57 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:25:36 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 04:50:33 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:26:11 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:30:08 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:35:11 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:35:31 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:35:33 America/Denver] PHP Notice:  Undefined index: gallery_media in /home3/kpasappc/public_html/admin/process_gallery.php on line 4
+[17-Sep-2015 05:35:33 America/Denver] PHP Notice:  Undefined variable: obj_base_path in /home3/kpasappc/public_html/admin/process_gallery.php on line 25
+[17-Sep-2015 05:35:33 America/Denver] PHP Fatal error:  Call to a member function base_path() on a non-object in /home3/kpasappc/public_html/admin/process_gallery.php on line 25
+[17-Sep-2015 05:35:48 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:35:50 America/Denver] PHP Notice:  Undefined index: gallery_media in /home3/kpasappc/public_html/admin/process_gallery.php on line 4
+[17-Sep-2015 05:35:50 America/Denver] PHP Notice:  Undefined variable: obj_base_path in /home3/kpasappc/public_html/admin/process_gallery.php on line 25
+[17-Sep-2015 05:35:50 America/Denver] PHP Fatal error:  Call to a member function base_path() on a non-object in /home3/kpasappc/public_html/admin/process_gallery.php on line 25
+[17-Sep-2015 05:37:57 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:38:29 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 05:39:24 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 06:02:13 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[17-Sep-2015 07:54:31 America/Denver] PHP Parse error:  syntax error, unexpected '?>' in /home3/kpasappc/public_html/admin/list_events.php on line 189
+[17-Sep-2015 07:54:36 America/Denver] PHP Parse error:  syntax error, unexpected '?>' in /home3/kpasappc/public_html/admin/list_events.php on line 189
+[18-Sep-2015 08:27:56 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[18-Sep-2015 08:28:46 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[23-Sep-2015 23:31:28 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[25-Sep-2015 16:35:41 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[01-Oct-2015 18:21:40 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[01-Oct-2015 18:37:35 America/Denver] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0

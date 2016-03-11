@@ -1,0 +1,6 @@
+[01-Feb-2016 10:56:00 America/Mazatlan] PHP Fatal error:  Call to undefined function mime_content_type() in /home/kpasappc/public_html/pinterest/Pinterest.class.php on line 415
+[01-Feb-2016 10:56:06 America/Mazatlan] PHP Fatal error:  Call to undefined function mime_content_type() in /home/kpasappc/public_html/pinterest/Pinterest.class.php on line 415
+[01-Feb-2016 10:57:05 America/Mazatlan] PHP Fatal error:  Call to undefined function mime_content_type() in /home/kpasappc/public_html/pinterest/Pinterest.class.php on line 415
+[01-Feb-2016 11:05:14 America/Mazatlan] PHP Fatal error:  Call to undefined function finfo_open() in /home/kpasappc/public_html/pinterest/Pinterest.class.php on line 413
+[01-Feb-2016 11:23:50 America/Mazatlan] PHP Fatal error:  Call to undefined function finfo_open() in /home/kpasappc/public_html/pinterest/Pinterest.class.php on line 413
+[01-Feb-2016 11:32:50 America/Mazatlan] PHP Fatal error:  Call to undefined function finfo_open() in /home/kpasappc/public_html/pinterest/Pinterest.class.php on line 413

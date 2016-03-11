@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<head>	
+	<title>Date Axes</title>
+    <link class="include" rel="stylesheet" type="text/css" href="../jquery.jqplot.min.css" />
+    <link rel="stylesheet" type="text/css" href="examples.min.css" />
+    <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.min.css" />
+    <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemejqPlot.min.css" />
+  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../excanvas.js"></script><![endif]-->
+    <script class="include" type="text/javascript" src="../jquery.min.js"></script>
+     <script class="include" type="text/javascript" src="../jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shCore.min.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+<!-- End Don't touch this! -->
+<!-- Additional plugins go here -->
+    <script class="include" language="javascript" type="text/javascript" src="../plugins/jqplot.dateAxisRenderer.min.js"></script>
+<!-- End additional plugins -->
+	<script type="text/javascript" src="example.min.js"></script>
+	<script class="code" type="text/javascript">
+		$(document).ready(function(){
+		  var line1=[['2008-08-12 12:00AM',116], ['2008-08-13 12:00AM',6.5], ['2008-08-14 12:00AM',5.7], ['2008-08-15 12:00AM',9], ['2008-08-16 12:00AM',8.2], ['2008-08-17 12:00AM',8.2], ['2008-08-18 12:00AM',8.2], ['2008-08-19 12:00AM',8.2], ['2008-08-20 12:00AM',8.2], ['2008-08-21 12:00AM',8.2], ['2008-08-22 12:00AM',8.2], ['2008-08-23 12:00AM',8.2], ['2008-08-24 12:00AM',8.2], ['2008-08-25 12:00AM',20]];
+		  var plot1 = $.jqplot('chart1', [line1], {
+			title:'Two Week Snapshot',
+			axes:{
+				xaxis:{
+					renderer:$.jqplot.DateAxisRenderer,
+					tickOptions:{formatString:'%b %e'}, 
+				}
+			},
+			series:[{lineWidth:4, markerOptions:{style:'square'}}]
+		  });
+		});
+</script>   
+</head>
+<body>
+<div id="chart1" style="height:300px; width:750px;"></div>
+</body>
+</html>

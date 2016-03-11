@@ -1,0 +1,67 @@
+# Use PHP5.4 as default
+AddHandler application/x-httpd-php54 .php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+#RewriteRule ^dashboard/ dashboard.php
+#RewriteRule ^event1/(.*)/step/(.*) event1.php?event_id=$1&step=$2
+RewriteRule ^event/(.*)/lang/(.*) event.php?event_id=$1&lang=$2
+RewriteRule ^event/(.*) event.php?event_id=$1
+
+RewriteRule ^(.*)/event/(.*)/gallery/(.*) fancy_share.php?lang=$1&event_id=$2&media_id=$3
+RewriteRule ^(.*)/evento/(.*)/galeria/(.*) fancy_share.php?lang=$1&event_id=$2&media_id=$3
+#RewriteRule ^fancy_share/(.*)/event/(.*) fancy_share.php?lang=$1&media_id=$2
+
+RewriteRule ^(.*)/event/(.*)/bookings/(.*) booking_share.php?lang=$1&event_name=$2&event_id=$3
+RewriteRule ^(.*)/evento/(.*)/bookings/(.*) booking_share.php?lang=$1&event_name=$2&event_id=$3
+
+RewriteRule ^(.*)/event/(.*)/savedevent/(.*) savedevent_share.php?lang=$1&event_name=$2&event_id=$3
+RewriteRule ^(.*)/evento/(.*)/savedevent/(.*) savedevent_share.php?lang=$1&event_name=$2&event_id=$3
+
+RewriteRule ^eventPage/(.*)/multi/(.*)/lang/(.*) event.php?event_id=$1&multi_id=$2&lang=$3
+RewriteRule ^eventPage/(.*)/(.*)$ event.php?event_id=$1&multi_id=$2
+
+RewriteRule ^events/(.*)/sub_id/(.*) event.php?event_id=$1&sub_id=$2
+
+#might be this url is not working 
+RewriteRule ^aboutkpasapp/(.*) about.php?page_id=$1
+RewriteRule ^about/(.*) about.php?page_id=$1
+#might be this url is not working
+
+
+#working url 
+RewriteRule ^en/about_kpasapp/(.*) about.php?page_id=$1
+RewriteRule ^es/acerca_de_kpasapp/(.*) about.php?page_id=$1
+#working url 
+
+RewriteRule ^(.*)/blog/(.*)/(.*) blog.php?lang=$1&page_id=$2&title=$3
+RewriteRule ^(.*)/about_kp/(.*) cms.php?lang=$1&page_id=$2
+RewriteRule ^(.*)/about_baja_sur/(.*) cms.php?lang=$1&page_id=$2
+
+RewriteRule ^en/about-baja-sur/(.*) cms.php?page_id=$1
+RewriteRule ^es/acerca-de-baja-california-sur/(.*) cms.php?page_id=$1
+
+RewriteRule ^(.*)/news/ what_up.php?lang=$1
+RewriteRule ^(.*)/resources/ resources.php?lang=$1
+
+RewriteRule ^venue/(.*) venue.php?venue_id=$1
+RewriteRule ^registration/ registration.php
+RewriteRule ^activate_user/(.*) activate_user.php?user_id=$1
+RewriteRule ^savedevents/(.*) savedevents.php?saved_id=$1
+#RewriteRule ^bookings/(.*) bookings.php
+RewriteRule ^thankyou/ thankyou.php
+RewriteRule ^subevent/(.*)/sub_id/(.*) subevent.php?event_id=$1&sub_id=$2
+
+#RewriteRule ^payment/(.*) payment.php?event_id=$1
+RewriteRule ^payment/(.*)/attempt/(.*) payment.php?event_id=$1&attempt_id=$2
+RewriteRule ^sub_payment/(.*)/sub_id/(.*) sub_payment.php?event_id=$1&sub_id=$2
+
+RewriteRule ^payment-receipt/(.*) payment-receipt.php?event=$1
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+

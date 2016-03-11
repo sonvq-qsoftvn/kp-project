@@ -1,0 +1,11 @@
+<head>
+    <?php echo $this->Html->css('../frontend/dtpckr/jquery.datepick');?>
+    <?php echo $this->Html->script('../frontend/dtpckr/jquery.min.js');?>
+    <?php echo $this->Html->script('../frontend/dtpckr/jquery.plugin.js');?>
+    <?php echo $this->Html->script('../frontend/dtpckr/jquery.datepick.js');?>
+
+
+
+</head>
+<body>
+<h3><a href="<?php echo BASE_URL;?>registerclinicmanager">Sign Up As Clinic Manager</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="<?php echo BASE_URL;?>register">Sign Up As General User</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="<?php echo BASE_URL;?>login">Sign In</a>&nbsp;&nbsp;&nbsp;</h3>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//kpasapp.com/kpasapp.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:geo="http://www.google.com/geo/schemas/sitemap/1.0" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://kpasapp.com/en/about_kpasapp/feature</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/feature"/>
+    <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/funciones"/>
+  </url>
+  <url>
+    <loc>http://kpasapp.com/es/acerca_de_kpasapp/funciones</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/feature"/>
+     <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/funciones"/>
+  </url>
+  
+  <url>
+    <loc>http://kpasapp.com/en/about_kpasapp/plan-pricing</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/plan-pricing"/>
+    <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/planes-precios"/>
+  </url>
+  <url>
+    <loc>http://kpasapp.com/es/acerca_de_kpasapp/planes-precios</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/plan-pricing"/>
+     <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/planes-precios"/>
+  </url>
+  
+  <url>
+    <loc>http://kpasapp.com/en/about_kpasapp/event_goers</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/event_goers"/>
+    <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/publico"/>
+  </url>
+  <url>
+    <loc>http://kpasapp.com/es/acerca_de_kpasapp/publico</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/event_goers"/>
+     <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/publico"/>
+  </url>
+  
+  <url>
+    <loc>http://kpasapp.com/en/about_kpasapp/event_professionals</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/event_professionals"/>
+    <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/profesionales_de_eventos"/>
+  </url>
+  <url>
+    <loc>http://kpasapp.com/es/acerca_de_kpasapp/profesionales_de_eventos</loc>
+    <xml:link rel="alternate" hreflang="en" href="http://kpasapp.com/en/about_kpasapp/event_professionals"/>
+    <xml:link rel="alternate" hreflang="es" href="http://kpasapp.com/es/acerca_de_kpasapp/profesionales_de_eventos"/>
+  </url>
+</urlset>

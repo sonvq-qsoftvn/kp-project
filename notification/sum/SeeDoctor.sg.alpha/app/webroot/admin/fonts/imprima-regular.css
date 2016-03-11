@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'ImprimaRegular';
+    src: url('imprima-regular.eot');
+    src: url('imprima-regular.eot') format('embedded-opentype'),
+         url('imprima-regular.woff') format('woff'),
+         url('imprima-regular.ttf') format('truetype'),
+         url('imprima-regular.svg#ImprimaRegular') format('svg');
+}

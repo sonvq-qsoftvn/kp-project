@@ -1,0 +1,31 @@
+# Use PHP5.4 as default
+AddHandler application/x-httpd-php54 .php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+#RewriteRule ^dashboard/ dashboard.php
+#RewriteRule ^event1/(.*)/step/(.*) event1.php?event_id=$1&step=$2
+RewriteRule ^event/(.*) event.php?event_id=$1
+RewriteRule ^eventPage/(.*)/(.*)$ event.php?event_id=$1&multi_id=$2
+RewriteRule ^events/(.*)/sub_id/(.*) event.php?event_id=$1&sub_id=$2
+RewriteRule ^aboutkpasapp/(.*) about.php?page_id=$1
+RewriteRule ^about/(.*) about.php?page_id=$1
+RewriteRule ^venue/(.*) venue.php?venue_id=$1
+RewriteRule ^registration/ registration.php
+RewriteRule ^activate_user/(.*) activate_user.php?user_id=$1
+RewriteRule ^savedevents/(.*) savedevents.php?saved_id=$1
+RewriteRule ^thankyou/ thankyou.php
+RewriteRule ^subevent/(.*)/sub_id/(.*) subevent.php?event_id=$1&sub_id=$2
+
+RewriteRule ^payment/(.*) payment.php?event_id=$1
+RewriteRule ^sub_payment/(.*)/sub_id/(.*) sub_payment.php?event_id=$1&sub_id=$2
+
+RewriteRule ^payment-receipt/(.*) payment-receipt.php?event=$1
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+

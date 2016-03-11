@@ -1,0 +1,35 @@
+.error {
+     color:rgb(253, 42, 2);
+     font-weight: normal;
+}
+
+.page_top_error{
+     color: rgb(253, 42, 2);
+     font: 15px/20px "OpenSansSemibold";
+     background: #F5E6C6;
+     padding: 10px;
+     border-radius: 5px;
+     border: 1px solid #837C7C;
+     margin-bottom: 20px;
+}
+
+.page_top_success{
+     color: rgb(43, 112, 34);
+     font: 15px/20px "OpenSansSemibold";
+     background: #D8ECBE;
+     padding: 10px;
+     border-radius: 5px;
+     border: 1px solid #837C7C;
+     margin-bottom: 20px;
+}
+.login-butt-new{
+     background: none repeat scroll 0 0 #FFEA00;
+     border: 1px solid #D4CF00;
+     font: 21px/24px "OpenSansRegular";
+     margin: 0;
+     padding: 8px 24px;
+}
+.new_padding{
+     padding-top: 0 !important;
+     padding-bottom: 30px !important;
+}

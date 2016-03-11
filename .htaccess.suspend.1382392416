@@ -1,0 +1,24 @@
+# Use PHP54CGI as default
+AddHandler fcgid54-script .php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+#RewriteRule ^dashboard/ dashboard.php
+#RewriteRule ^event1/(.*)/step/(.*) event1.php?event_id=$1&step=$2
+RewriteRule ^event/(.*) event.php?event_id=$1
+RewriteRule ^events/(.*)/sub_id/(.*) event.php?event_id=$1&sub_id=$2
+RewriteRule ^aboutkpasapp/(.*) about.php?page_id=$1
+RewriteRule ^about/(.*) about.php?page_id=$1
+RewriteRule ^venue/(.*) venue.php?venue_id=$1
+RewriteRule ^registration/ registration.php
+RewriteRule ^activate_user/(.*) activate_user.php?user_id=$1
+RewriteRule ^savedevents/(.*) savedevents.php?saved_id=$1
+RewriteRule ^thankyou/ thankyou.php
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+

@@ -1,0 +1,77 @@
+RewriteEngine On	
+
+#RewriteBase /admin
+RewriteRule ^add-meta  add_meta.php
+RewriteRule ^meta-list  meta_list.php
+RewriteRule ^dashboard/ dashboard.php
+RewriteRule ^add-client add_clients.php
+
+RewriteRule ^report/(.*) report.php?event_id=$1
+RewriteRule ^event-provisional-report provisional_report.php
+RewriteRule ^event-final-report event_final_report.php
+
+RewriteRule ^events/ events.php
+RewriteRule ^event-list list_events.php
+RewriteRule ^add-gallery/(.*) add-gallery.php?event_id=$1
+RewriteRule ^gallery-list/(.*) list_gallery.php?event_id=$1
+#RewriteRule ^delete-gallery/(.*) delete_gallery.php?id=$1
+RewriteRule ^list-tickets/(.*) list_tickets.php?event_id=$1
+RewriteRule ^edit-event/(.*) edit_event.php?id=$1
+#RewriteRule ^edit-gallery/(.*) edit-gallery.php?media_id=$1
+RewriteRule ^event/(.*)/edit-gallery/(.*) edit-gallery.php?event_id=$1&media_id=$2
+
+RewriteRule ^promotion-list/event/(.*) list_promotion.php?event_id=$1
+RewriteRule ^add-promotion/event/(.*) add_promotion.php?event_id=$1
+RewriteRule ^event/(.*)/edit-promotion/(.*) edit_promotion.php?event_id=$1&social_id=$2
+RewriteRule ^add-promo-schedule/event/(.*) add_promo_schedule.php?event_id=$1
+
+RewriteRule ^add-ad/ add_ad.php
+RewriteRule ^ad-list/ ad_list.php
+RewriteRule ^delete-ad/(.*) delete_ad.php?id=$1
+RewriteRule ^edit-ad/(.*) edit-ad.php?ad_id=$1
+RewriteRule ^edit-meta/(.*) edit_meta.php?id=$1
+RewriteRule ^sitemap sitemap.php
+
+RewriteRule ^delete-meta/(.*) delete_meta.php?id=$1
+
+
+
+RewriteRule ^preview-event/(.*) preview_event.php?event_id=$1
+RewriteRule ^preview-ticket/(.*) preview_ticket.php?ticket_id=$1
+RewriteRule ^edit-ticket/(.*) edit_ticket.php?id=$1&event_id=$2
+RewriteRule ^add-tickets/(.*) add_ticket.php?event_id=$1
+RewriteRule ^duplicate-event/(.*) events_duplicate.php?id=$1
+RewriteRule ^venue-list/(.*) list_venues.php	
+RewriteRule ^edit-venue/(.*) editvenue.php?venue_id=$1
+RewriteRule ^delete-venue/(.*) delete_venue.php?venue_id=$1
+RewriteRule ^delete-page/(.*) delete_page.php?venue_id=$1
+RewriteRule ^duplicate-venue/(.*) duplicate_venue.php?venue_id=$1
+RewriteRule ^sub-events-edit/(.*) sub_events_edit.php?event_id=$1
+
+RewriteRule ^edit_page/(.*) edit_page.php?page_id=$1
+
+RewriteRule ^sub-events/(.*) sub_events.php?event_id=$1
+
+RewriteRule ^add_category/ add_category.php
+RewriteRule ^edit_category/(.*) edit_category.php?id=$1
+RewriteRule ^edit_sub_category/(.*) edit_sub_category.php?id=$1
+RewriteRule ^state-list/([^/]*)/?(.*)$ list_state.php?action=$1&id=$2
+RewriteRule ^list_city/([^/]*)/?(.*)$ list_city.php?action=$1&id=$2
+RewriteRule ^edit_state/(.*) edit_state.php?id=$1
+RewriteRule ^edit_city/(.*) edit_city.php?id=$1
+RewriteRule ^del/([^/]*)/?(.*)$ del.php?id=$1&todo=$2
+RewriteRule ^edit-performer/(.*) edit_addperformer.php?performer_id=$1
+RewriteRule ^duplicate_performer/(.*) duplicate_performer.php?performer_id=$1
+
+RewriteRule ^list_personal_user/([^/]*)/?(.*)/(.*)$ list_personal_user.php?action=$1&id=$2&emailid=$3
+RewriteRule ^list_profession_user/([^/]*)/?(.*)/(.*)$ list_profession_user.php?action=$1&id=$2&emailid=$3
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]	
+
+
+
+
+
+
+
+

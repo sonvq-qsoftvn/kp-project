@@ -1,0 +1,3263 @@
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='//kpasapp.com/kpasapp.xsl'?>
+<urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:image='http://www.google.com/schemas/sitemap-image/1.1' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9' xmlns:video='http://www.google.com/schemas/sitemap-video/1.1' xmlns:geo='http://www.google.com/geo/schemas/sitemap/1.0' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'>
+<url>
+<loc>http://localhost/kapp/en/venue/381/rockstone-tavern-eatery</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/381/rockstone-tavern-eatery'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/381/rockstone-tavern-eatery'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/381/rockstone-tavern-eatery</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/381/rockstone-tavern-eatery'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/381/rockstone-tavern-eatery'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/380/san-jos-viejo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/380/san-jos-viejo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/380/san-jos-viejo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/380/san-jos-viejo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/380/san-jos-viejo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/380/san-jos-viejo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/379/moo-do-chon-sin-abr-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/379/moo-do-chon-sin-abr-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/379/moo-do-chon-sin-abr-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/379/moo-do-chon-sin-abr-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/379/moo-do-chon-sin-abr-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/379/moo-do-chon-sin-abr-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/378/hotel-rancho-pescadero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/378/hotel-rancho-pescadero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/378/hotel-rancho-pescadero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/378/hotel-rancho-pescadero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/378/hotel-rancho-pescadero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/378/hotel-rancho-pescadero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/377/la-quinta-don-alfredo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/377/la-quinta-don-alfredo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/377/la-quinta-don-alfredo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/377/la-quinta-don-alfredo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/377/la-quinta-don-alfredo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/377/la-quinta-don-alfredo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/376/hotel-casa-blanca</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/376/hotel-casa-blanca'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/376/hotel-casa-blanca'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/376/hotel-casa-blanca</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/376/hotel-casa-blanca'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/376/hotel-casa-blanca'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/375/galery-el-faro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/375/galery-el-faro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/375/galer-a-el-faro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/375/galer-a-el-faro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/375/galery-el-faro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/375/galer-a-el-faro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/374/elementary-school-meliton-alb-ez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/374/elementary-school-meliton-alb-ez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/374/escuela-primaria-melit-n-alba-ez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/374/escuela-primaria-melit-n-alba-ez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/374/elementary-school-meliton-alb-ez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/374/escuela-primaria-melit-n-alba-ez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/373/galer-a-hugo-aguilar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/373/galer-a-hugo-aguilar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/373/galer-a-hugo-aguilar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/373/galer-a-hugo-aguilar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/373/galer-a-hugo-aguilar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/373/galer-a-hugo-aguilar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/372/casa-tamarindos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/372/casa-tamarindos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/372/casa-tamarindos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/372/casa-tamarindos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/372/casa-tamarindos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/372/casa-tamarindos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/371/cabo-del-sol</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/371/cabo-del-sol'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/371/cabo-del-sol'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/371/cabo-del-sol</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/371/cabo-del-sol'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/371/cabo-del-sol'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/370/ay-ay-ay</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/370/ay-ay-ay'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/370/ay-ay-ay'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/370/ay-ay-ay</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/370/ay-ay-ay'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/370/ay-ay-ay'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/369/el-coromuel-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/369/el-coromuel-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/369/el-coromuel'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/369/el-coromuel</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/369/el-coromuel-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/369/el-coromuel'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/368/cinepolis-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/368/cinepolis-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/368/cinepolis-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/368/cinepolis-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/368/cinepolis-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/368/cinepolis-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/366/chileno-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/366/chileno-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/366/playa-el-chileno'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/366/playa-el-chileno</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/366/chileno-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/366/playa-el-chileno'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/365/huerto-del-sol</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/365/huerto-del-sol'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/365/huerto-del-sol'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/365/huerto-del-sol</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/365/huerto-del-sol'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/365/huerto-del-sol'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/364/arroyo-puente-8-de-octubre</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/364/arroyo-puente-8-de-octubre'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/364/arroyo-puente-8-de-octubre'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/364/arroyo-puente-8-de-octubre</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/364/arroyo-puente-8-de-octubre'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/364/arroyo-puente-8-de-octubre'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/363/hacienda-beach-club-residences</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/363/hacienda-beach-club-residences'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/363/hacienda-beach-club-residences'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/363/hacienda-beach-club-residences</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/363/hacienda-beach-club-residences'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/363/hacienda-beach-club-residences'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/362/playa-conchalito</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/362/playa-conchalito'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/362/playa-conchalito'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/362/playa-conchalito</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/362/playa-conchalito'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/362/playa-conchalito'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/361/crit</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/361/crit'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/361/crit'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/361/crit</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/361/crit'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/361/crit'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/360/cbtis-62</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/360/cbtis-62'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/360/cbtis-62'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/360/cbtis-62</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/360/cbtis-62'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/360/cbtis-62'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/359/cobach-3-plantel-esterito</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/359/cobach-3-plantel-esterito'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/359/cobach-3-plantel-esterito'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/359/cobach-3-plantel-esterito</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/359/cobach-3-plantel-esterito'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/359/cobach-3-plantel-esterito'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/358/hotel-oasis</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/358/hotel-oasis'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/358/hotel-oasis'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/358/hotel-oasis</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/358/hotel-oasis'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/358/hotel-oasis'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/357/real-inn-guadalajara-expo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/357/real-inn-guadalajara-expo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/357/real-inn-guadalajara-expo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/357/real-inn-guadalajara-expo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/357/real-inn-guadalajara-expo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/357/real-inn-guadalajara-expo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/355/wing-s-army</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/355/wing-s-army'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/355/wing-s-army'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/355/wing-s-army</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/355/wing-s-army'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/355/wing-s-army'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/354/isla-esp-ritu-santo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/354/isla-esp-ritu-santo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/354/isla-esp-ritu-santo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/354/isla-esp-ritu-santo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/354/isla-esp-ritu-santo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/354/isla-esp-ritu-santo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/353/med-sport-center</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/353/med-sport-center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/353/med-sport-center'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/353/med-sport-center</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/353/med-sport-center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/353/med-sport-center'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/352/-academy-of-yoga-zantory</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/352/-academy-of-yoga-zantory'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/352/-academia-de-yoga-zantory'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/352/-academia-de-yoga-zantory</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/352/-academy-of-yoga-zantory'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/352/-academia-de-yoga-zantory'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/351/plaza-portales</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/351/plaza-portales'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/351/plaza-portales'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/351/plaza-portales</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/351/plaza-portales'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/351/plaza-portales'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/350/las-ventanas-al-paraiso</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/350/las-ventanas-al-paraiso'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/350/las-ventanas-al-paraiso'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/350/las-ventanas-al-paraiso</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/350/las-ventanas-al-paraiso'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/350/las-ventanas-al-paraiso'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/349/yoga-salon-gabriela-delgadillo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/349/yoga-salon-gabriela-delgadillo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/349/salon-de-yoga-gabriela-delgadillo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/349/salon-de-yoga-gabriela-delgadillo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/349/yoga-salon-gabriela-delgadillo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/349/salon-de-yoga-gabriela-delgadillo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/348/cobach-04</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/348/cobach-04'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/348/cobach-04'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/348/cobach-04</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/348/cobach-04'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/348/cobach-04'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/347/library-justo-sierra</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/347/library-justo-sierra'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/347/biblioteca-justo-sierra'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/347/biblioteca-justo-sierra</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/347/library-justo-sierra'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/347/biblioteca-justo-sierra'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/346/junkieland</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/346/junkieland'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/346/junkieland'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/346/junkieland</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/346/junkieland'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/346/junkieland'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/345/centro-de-reinsercion-social</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/345/centro-de-reinsercion-social'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/345/centro-de-reinsercion-social'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/345/centro-de-reinsercion-social</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/345/centro-de-reinsercion-social'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/345/centro-de-reinsercion-social'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/344/clinica-1-imss</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/344/clinica-1-imss'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/344/clinica-1-imss'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/344/clinica-1-imss</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/344/clinica-1-imss'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/344/clinica-1-imss'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/343/-municipal-delegation</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/343/-municipal-delegation'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/343/delegaci-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/343/delegaci-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/343/-municipal-delegation'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/343/delegaci-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/342/san-isidro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/342/san-isidro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/342/san-isidro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/342/san-isidro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/342/san-isidro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/342/san-isidro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/341/centro-de-convenciones-y-expresi-n-cultural-de-sudcalifornia</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/341/centro-de-convenciones-y-expresi-n-cultural-de-sudcalifornia'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/341/centro-de-convenciones-y-expresi-n-cultural-de-sudcalifornia'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/341/centro-de-convenciones-y-expresi-n-cultural-de-sudcalifornia</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/341/centro-de-convenciones-y-expresi-n-cultural-de-sudcalifornia'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/341/centro-de-convenciones-y-expresi-n-cultural-de-sudcalifornia'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/340/restaurant-nim</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/340/restaurant-nim'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/340/restaurante-nim'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/340/restaurante-nim</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/340/restaurant-nim'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/340/restaurante-nim'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/339/riviera-ensenada</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/339/riviera-ensenada'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/339/riviera-ensenada'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/339/riviera-ensenada</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/339/riviera-ensenada'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/339/riviera-ensenada'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/338/solomon-s-landing-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/338/solomon-s-landing-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/338/solomon-s-landing-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/338/solomon-s-landing-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/338/solomon-s-landing-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/338/solomon-s-landing-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/337/hotel-mision-catavina</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/337/hotel-mision-catavina'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/337/hotel-mision-catavina'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/337/hotel-mision-catavina</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/337/hotel-mision-catavina'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/337/hotel-mision-catavina'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/336/paseo-de-los-heroes-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/336/paseo-de-los-heroes-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/336/paseo-de-los-heroes-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/336/paseo-de-los-heroes-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/336/paseo-de-los-heroes-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/336/paseo-de-los-heroes-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/335/comunidad-de-san-juan</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/335/comunidad-de-san-juan'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/335/comunidad-de-san-juan'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/335/comunidad-de-san-juan</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/335/comunidad-de-san-juan'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/335/comunidad-de-san-juan'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/334/reading-room-majanain</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/334/reading-room-majanain'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/334/sala-de-lectura-majanain'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/334/sala-de-lectura-majanain</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/334/reading-room-majanain'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/334/sala-de-lectura-majanain'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/333/educational-community-john-paul-ii</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/333/educational-community-john-paul-ii'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/333/comunidad-educativa-juan-pablo-ii'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/333/comunidad-educativa-juan-pablo-ii</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/333/educational-community-john-paul-ii'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/333/comunidad-educativa-juan-pablo-ii'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/332/auditorium-crea-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/332/auditorium-crea-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/332/auditorio-de-crea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/332/auditorio-de-crea</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/332/auditorium-crea-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/332/auditorio-de-crea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/331/-comunidad-de-san-nicol-s-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/331/-comunidad-de-san-nicol-s-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/331/-comunidad-de-san-nicol-s-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/331/-comunidad-de-san-nicol-s-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/331/-comunidad-de-san-nicol-s-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/331/-comunidad-de-san-nicol-s-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/330/esc-prim-urb-prof-jer-nimo-ahumada-armenta</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/330/esc-prim-urb-prof-jer-nimo-ahumada-armenta'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/330/esc-prim-urb-prof-jer-nimo-ahumada-armenta'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/330/esc-prim-urb-prof-jer-nimo-ahumada-armenta</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/330/esc-prim-urb-prof-jer-nimo-ahumada-armenta'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/330/esc-prim-urb-prof-jer-nimo-ahumada-armenta'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/329/volunteer-firefighters-cabo-san-lucas-b-c-s-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/329/volunteer-firefighters-cabo-san-lucas-b-c-s-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/329/bomberos-voluntarios-cabo-san-lucas-b-c-s-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/329/bomberos-voluntarios-cabo-san-lucas-b-c-s-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/329/volunteer-firefighters-cabo-san-lucas-b-c-s-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/329/bomberos-voluntarios-cabo-san-lucas-b-c-s-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/328/greenland-kindergarten</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/328/greenland-kindergarten'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/328/greenland-kindergarten'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/328/greenland-kindergarten</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/328/greenland-kindergarten'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/328/greenland-kindergarten'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/327/instituto-tecnol-gico-de-estudios-superiores-de-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/327/instituto-tecnol-gico-de-estudios-superiores-de-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/327/instituto-tecnol-gico-de-estudios-superiores-de-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/327/instituto-tecnol-gico-de-estudios-superiores-de-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/327/instituto-tecnol-gico-de-estudios-superiores-de-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/327/instituto-tecnol-gico-de-estudios-superiores-de-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/326/el-granero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/326/el-granero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/326/el-granero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/326/el-granero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/326/el-granero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/326/el-granero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/325/restaurantthe-spontaneous</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/325/restaurantthe-spontaneous'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/325/restaurante-el-espontaneo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/325/restaurante-el-espontaneo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/325/restaurantthe-spontaneous'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/325/restaurante-el-espontaneo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/324/hotel-zar-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/324/hotel-zar-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/324/hotel-zar-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/324/hotel-zar-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/324/hotel-zar-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/324/hotel-zar-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/323/dubai-night-club</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/323/dubai-night-club'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/323/dubai-night-club'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/323/dubai-night-club</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/323/dubai-night-club'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/323/dubai-night-club'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/322/mar-y-pe-a-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/322/mar-y-pe-a-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/322/mar-y-pe-a-restaurante'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/322/mar-y-pe-a-restaurante</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/322/mar-y-pe-a-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/322/mar-y-pe-a-restaurante'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/321/don-sanchez-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/321/don-sanchez-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/321/don-sanchez-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/321/don-sanchez-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/321/don-sanchez-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/321/don-sanchez-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/320/cabo-fitness-club</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/320/cabo-fitness-club'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/320/cabo-fitness-club'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/320/cabo-fitness-club</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/320/cabo-fitness-club'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/320/cabo-fitness-club'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/319/hard-rock-cafe</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/319/hard-rock-cafe'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/319/hard-rock-cafe'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/319/hard-rock-cafe</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/319/hard-rock-cafe'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/319/hard-rock-cafe'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/318/iglesia-de-nuestra-se-ora-de-farima</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/318/iglesia-de-nuestra-se-ora-de-farima'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/318/iglesia-de-nuestra-se-ora-de-farima'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/318/iglesia-de-nuestra-se-ora-de-farima</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/318/iglesia-de-nuestra-se-ora-de-farima'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/318/iglesia-de-nuestra-se-ora-de-farima'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/317/san-javier</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/317/san-javier'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/317/san-javier'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/317/san-javier</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/317/san-javier'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/317/san-javier'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/316/universidad-aut-noma-de-baja-california-sur</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/316/universidad-aut-noma-de-baja-california-sur'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/316/universidad-aut-noma-de-baja-california-sur'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/316/universidad-aut-noma-de-baja-california-sur</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/316/universidad-aut-noma-de-baja-california-sur'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/316/universidad-aut-noma-de-baja-california-sur'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/315/firefighters-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/315/firefighters-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/315/bomberos-voluntarios-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/315/bomberos-voluntarios-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/315/firefighters-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/315/bomberos-voluntarios-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/314/somos-musica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/314/somos-musica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/314/somos-musica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/314/somos-musica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/314/somos-musica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/314/somos-musica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/313/mi-ensalada-bar-and-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/313/mi-ensalada-bar-and-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/313/mi-ensalada-bar-and-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/313/mi-ensalada-bar-and-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/313/mi-ensalada-bar-and-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/313/mi-ensalada-bar-and-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/312/educa-sex</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/312/educa-sex'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/312/educa-sex'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/312/educa-sex</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/312/educa-sex'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/312/educa-sex'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/311/la-morante-art-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/311/la-morante-art-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/311/la-morante-art-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/311/la-morante-art-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/311/la-morante-art-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/311/la-morante-art-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/310/tecnoeventos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/310/tecnoeventos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/310/tecnoeventos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/310/tecnoeventos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/310/tecnoeventos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/310/tecnoeventos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/309/cerro-de-la-bandera</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/309/cerro-de-la-bandera'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/309/cerro-de-la-bandera'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/309/cerro-de-la-bandera</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/309/cerro-de-la-bandera'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/309/cerro-de-la-bandera'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/308/gea-reading-room</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/308/gea-reading-room'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/308/sala-de-lectura-gea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/308/sala-de-lectura-gea</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/308/gea-reading-room'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/308/sala-de-lectura-gea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/307/centro-municipal-de-las-artes</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/307/centro-municipal-de-las-artes'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/307/centro-municipal-de-las-artes'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/307/centro-municipal-de-las-artes</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/307/centro-municipal-de-las-artes'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/307/centro-municipal-de-las-artes'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/306/isla-san-marcos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/306/isla-san-marcos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/306/isla-san-marcos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/306/isla-san-marcos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/306/isla-san-marcos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/306/isla-san-marcos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/305/san-ignacio</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/305/san-ignacio'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/305/san-ignacio'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/305/san-ignacio</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/305/san-ignacio'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/305/san-ignacio'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/304/palmilla-golf-club-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/304/palmilla-golf-club-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/304/palmilla-golf-club-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/304/palmilla-golf-club-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/304/palmilla-golf-club-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/304/palmilla-golf-club-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/303/casa-santa-brigida</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/303/casa-santa-brigida'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/303/casa-santa-brigida'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/303/casa-santa-brigida</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/303/casa-santa-brigida'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/303/casa-santa-brigida'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/302/villa-del-palmar-beach-resort-spa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/302/villa-del-palmar-beach-resort-spa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/302/villa-del-palmar-beach-resort-spa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/302/villa-del-palmar-beach-resort-spa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/302/villa-del-palmar-beach-resort-spa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/302/villa-del-palmar-beach-resort-spa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/301/reading-room-el-rincon-de-las-letras</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/301/reading-room-el-rincon-de-las-letras'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/301/sala-de-lectura-el-rincon-de-las-letras'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/301/sala-de-lectura-el-rincon-de-las-letras</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/301/reading-room-el-rincon-de-las-letras'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/301/sala-de-lectura-el-rincon-de-las-letras'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/300/tianguis-vintage</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/300/tianguis-vintage'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/300/tianguis-vintage'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/300/tianguis-vintage</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/300/tianguis-vintage'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/300/tianguis-vintage'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/299/the-bar-co-singlar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/299/the-bar-co-singlar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/299/the-bar-co-singlar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/299/the-bar-co-singlar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/299/the-bar-co-singlar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/299/the-bar-co-singlar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/298/la-palapa-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/298/la-palapa-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/298/la-palapa-beach'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/298/la-palapa-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/298/la-palapa-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/298/la-palapa-beach'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/297/playa-central-beach-club-la-ventana</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/297/playa-central-beach-club-la-ventana'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/297/playa-central-beach-club-la-ventana'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/297/playa-central-beach-club-la-ventana</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/297/playa-central-beach-club-la-ventana'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/297/playa-central-beach-club-la-ventana'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/296/taller-de-danza-expresi-n-y-movimiento-de-carlos-lim-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/296/taller-de-danza-expresi-n-y-movimiento-de-carlos-lim-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/296/taller-de-danza-expresi-n-y-movimiento-de-carlos-lim-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/296/taller-de-danza-expresi-n-y-movimiento-de-carlos-lim-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/296/taller-de-danza-expresi-n-y-movimiento-de-carlos-lim-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/296/taller-de-danza-expresi-n-y-movimiento-de-carlos-lim-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/295/universidad-mundial-campus-los-cabos-b-c-s-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/295/universidad-mundial-campus-los-cabos-b-c-s-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/295/universidad-mundial-campus-los-cabos-b-c-s-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/295/universidad-mundial-campus-los-cabos-b-c-s-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/295/universidad-mundial-campus-los-cabos-b-c-s-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/295/universidad-mundial-campus-los-cabos-b-c-s-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/294/instituto-tecnologico-la-paz-s-c-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/294/instituto-tecnologico-la-paz-s-c-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/294/instituto-tecnologico-la-paz-s-c-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/294/instituto-tecnologico-la-paz-s-c-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/294/instituto-tecnologico-la-paz-s-c-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/294/instituto-tecnologico-la-paz-s-c-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/293/cancha-p-blica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/293/cancha-p-blica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/293/cancha-p-blica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/293/cancha-p-blica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/293/cancha-p-blica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/293/cancha-p-blica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/292/la-matanza-bcs</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/292/la-matanza-bcs'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/292/la-matanza-bcs'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/292/la-matanza-bcs</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/292/la-matanza-bcs'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/292/la-matanza-bcs'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/291/akbal-oxlahun-holistico-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/291/akbal-oxlahun-holistico-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/291/akbal-oxlahun-holistico-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/291/akbal-oxlahun-holistico-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/291/akbal-oxlahun-holistico-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/291/akbal-oxlahun-holistico-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/290/desperados</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/290/desperados'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/290/desperados'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/290/desperados</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/290/desperados'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/290/desperados'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/289/piso-vacio</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/289/piso-vacio'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/289/piso-vacio'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/289/piso-vacio</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/289/piso-vacio'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/289/piso-vacio'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/288/cerro-de-la-z</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/288/cerro-de-la-z'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/288/cerro-de-la-z'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/288/cerro-de-la-z</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/288/cerro-de-la-z'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/288/cerro-de-la-z'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/287/dana-s-diner</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/287/dana-s-diner'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/287/dana-s-diner'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/287/dana-s-diner</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/287/dana-s-diner'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/287/dana-s-diner'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/286/la-gitana-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/286/la-gitana-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/286/la-gitana-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/286/la-gitana-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/286/la-gitana-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/286/la-gitana-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/285/mirador-guaycura</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/285/mirador-guaycura'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/285/mirador-guaycura'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/285/mirador-guaycura</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/285/mirador-guaycura'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/285/mirador-guaycura'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/284/n-mada</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/284/n-mada'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/284/n-mada'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/284/n-mada</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/284/n-mada'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/284/n-mada'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/283/puerto-san-carlos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/283/puerto-san-carlos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/283/puerto-san-carlos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/283/puerto-san-carlos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/283/puerto-san-carlos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/283/puerto-san-carlos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/282/cecyt-04</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/282/cecyt-04'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/282/cecyt-04'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/282/cecyt-04</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/282/cecyt-04'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/282/cecyt-04'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/281/jard-n-de-ni-os-lugarda-pedr-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/281/jard-n-de-ni-os-lugarda-pedr-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/281/jard-n-de-ni-os-lugarda-pedr-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/281/jard-n-de-ni-os-lugarda-pedr-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/281/jard-n-de-ni-os-lugarda-pedr-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/281/jard-n-de-ni-os-lugarda-pedr-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/280/hotel-deals-atlantic-city-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/280/hotel-deals-atlantic-city-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/280/hotel-deals-atlantic-city-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/280/hotel-deals-atlantic-city-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/280/hotel-deals-atlantic-city-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/280/hotel-deals-atlantic-city-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/279/gum-gimnacio-de-usos-m-ltiples-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/279/gum-gimnacio-de-usos-m-ltiples-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/279/gum-gimnacio-de-usos-m-ltiples-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/279/gum-gimnacio-de-usos-m-ltiples-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/279/gum-gimnacio-de-usos-m-ltiples-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/279/gum-gimnacio-de-usos-m-ltiples-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/278/centro-de-artes-tradiciones-y-culturas-populares-de-baja-california-sur</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/278/centro-de-artes-tradiciones-y-culturas-populares-de-baja-california-sur'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/278/centro-de-artes-tradiciones-y-culturas-populares-de-baja-california-sur'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/278/centro-de-artes-tradiciones-y-culturas-populares-de-baja-california-sur</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/278/centro-de-artes-tradiciones-y-culturas-populares-de-baja-california-sur'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/278/centro-de-artes-tradiciones-y-culturas-populares-de-baja-california-sur'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/277/ayuntamiento-palacio-municipal-city-hall</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/277/ayuntamiento-palacio-municipal-city-hall'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/277/ayuntamiento-palacio-municipal-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/277/ayuntamiento-palacio-municipal-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/277/ayuntamiento-palacio-municipal-city-hall'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/277/ayuntamiento-palacio-municipal-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/276/la-mexicanada</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/276/la-mexicanada'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/276/la-mexicanada'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/276/la-mexicanada</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/276/la-mexicanada'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/276/la-mexicanada'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/275/parish-of-nuestra-se-ora-de-loreto</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/275/parish-of-nuestra-se-ora-de-loreto'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/275/parroquia-nuestra-se-ora-de-loreto'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/275/parroquia-nuestra-se-ora-de-loreto</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/275/parish-of-nuestra-se-ora-de-loreto'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/275/parroquia-nuestra-se-ora-de-loreto'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/274/la-curva-km-100</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/274/la-curva-km-100'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/274/la-curva-km-100'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/274/la-curva-km-100</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/274/la-curva-km-100'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/274/la-curva-km-100'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/273/frente-popular-cabe-o</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/273/frente-popular-cabe-o'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/273/frente-popular-cabe-o'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/273/frente-popular-cabe-o</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/273/frente-popular-cabe-o'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/273/frente-popular-cabe-o'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/272/municipal-arts-centre</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/272/municipal-arts-centre'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/272/centro-municipal-de-las-artes'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/272/centro-municipal-de-las-artes</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/272/municipal-arts-centre'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/272/centro-municipal-de-las-artes'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/269/alcaravea</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/269/alcaravea'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/269/alcaravea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/269/alcaravea</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/269/alcaravea'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/269/alcaravea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/268/rancho-el-refugio-ca-on-de-san-dionisio-sierra-la-laguna</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/268/rancho-el-refugio-ca-on-de-san-dionisio-sierra-la-laguna'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/268/rancho-el-refugio-ca-on-de-san-dionisio-sierra-la-laguna'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/268/rancho-el-refugio-ca-on-de-san-dionisio-sierra-la-laguna</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/268/rancho-el-refugio-ca-on-de-san-dionisio-sierra-la-laguna'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/268/rancho-el-refugio-ca-on-de-san-dionisio-sierra-la-laguna'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/267/cabaret</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/267/cabaret'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/267/cabaret'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/267/cabaret</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/267/cabaret'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/267/cabaret'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/266/auditorio-municipal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/266/auditorio-municipal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/266/auditorio-municipal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/266/auditorio-municipal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/266/auditorio-municipal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/266/auditorio-municipal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/265/galer-a-de-todos-santos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/265/galer-a-de-todos-santos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/265/galer-a-de-todos-santos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/265/galer-a-de-todos-santos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/265/galer-a-de-todos-santos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/265/galer-a-de-todos-santos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/264/la-esquina</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/264/la-esquina'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/264/la-esquina'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/264/la-esquina</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/264/la-esquina'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/264/la-esquina'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/263/the-palapa-society-of-todos-santos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/263/the-palapa-society-of-todos-santos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/263/la-sociedad-de-la-palapa-a-c-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/263/la-sociedad-de-la-palapa-a-c-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/263/the-palapa-society-of-todos-santos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/263/la-sociedad-de-la-palapa-a-c-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/262/galery-of-ida-victoria-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/262/galery-of-ida-victoria-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/262/galer-a-de-ida-victoria-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/262/galer-a-de-ida-victoria-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/262/galery-of-ida-victoria-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/262/galer-a-de-ida-victoria-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/261/city-club</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/261/city-club'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/261/city-club'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/261/city-club</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/261/city-club'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/261/city-club'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/260/center</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/260/center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/260/centro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/260/centro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/260/center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/260/centro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/259/community-la-playa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/259/community-la-playa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/259/comunidad-la-playa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/259/comunidad-la-playa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/259/community-la-playa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/259/comunidad-la-playa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/258/puerto-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/258/puerto-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/258/puerto-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/258/puerto-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/258/puerto-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/258/puerto-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/257/rancho-sol-de-mayo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/257/rancho-sol-de-mayo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/257/rancho-sol-de-mayo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/257/rancho-sol-de-mayo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/257/rancho-sol-de-mayo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/257/rancho-sol-de-mayo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/256/anchor-storage</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/256/anchor-storage'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/256/anchor-storage'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/256/anchor-storage</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/256/anchor-storage'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/256/anchor-storage'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/255/biblioteca-publica-municipal-dr-sergio-noyola-miranda</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/255/biblioteca-publica-municipal-dr-sergio-noyola-miranda'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/255/biblioteca-publica-municipal-dr-sergio-noyola-miranda'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/255/biblioteca-publica-municipal-dr-sergio-noyola-miranda</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/255/biblioteca-publica-municipal-dr-sergio-noyola-miranda'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/255/biblioteca-publica-municipal-dr-sergio-noyola-miranda'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/254/cetmar-21</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/254/cetmar-21'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/254/cetmar-21'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/254/cetmar-21</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/254/cetmar-21'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/254/cetmar-21'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/253/hotel-pericue-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/253/hotel-pericue-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/253/hotel-pericue-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/253/hotel-pericue-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/253/hotel-pericue-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/253/hotel-pericue-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/252/las-varitas-cabo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/252/las-varitas-cabo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/252/las-varitas-cabo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/252/las-varitas-cabo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/252/las-varitas-cabo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/252/las-varitas-cabo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/251/hotal-grand-plaza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/251/hotal-grand-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/251/hotal-grand-plaza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/251/hotal-grand-plaza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/251/hotal-grand-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/251/hotal-grand-plaza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/250/el-capit-n-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/250/el-capit-n-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/250/el-capit-n-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/250/el-capit-n-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/250/el-capit-n-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/250/el-capit-n-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/249/casa-de-la-cultura-del-estado</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/249/casa-de-la-cultura-del-estado'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/249/casa-de-la-cultura-del-estado'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/249/casa-de-la-cultura-del-estado</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/249/casa-de-la-cultura-del-estado'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/249/casa-de-la-cultura-del-estado'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/248/la-divina-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/248/la-divina-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/248/la-divina-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/248/la-divina-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/248/la-divina-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/248/la-divina-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/247/palacio-municipal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/247/palacio-municipal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/247/palacio-municipal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/247/palacio-municipal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/247/palacio-municipal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/247/palacio-municipal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/246/prana-del-mar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/246/prana-del-mar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/246/prana-del-mar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/246/prana-del-mar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/246/prana-del-mar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/246/prana-del-mar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/245/unidad-cultural-jes-s-castro-ag-ndez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/245/unidad-cultural-jes-s-castro-ag-ndez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/245/unidad-cultural-jes-s-castro-ag-ndez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/245/unidad-cultural-jes-s-castro-ag-ndez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/245/unidad-cultural-jes-s-castro-ag-ndez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/245/unidad-cultural-jes-s-castro-ag-ndez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/244/historical-archive-pablo-l-martinez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/244/historical-archive-pablo-l-martinez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/244/archivo-hist-rico-pablo-l-mart-nez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/244/archivo-hist-rico-pablo-l-mart-nez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/244/historical-archive-pablo-l-martinez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/244/archivo-hist-rico-pablo-l-mart-nez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/243/galeria-de-arte-tonantzin</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/243/galeria-de-arte-tonantzin'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/243/galeria-de-arte-tonantzin'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/243/galeria-de-arte-tonantzin</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/243/galeria-de-arte-tonantzin'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/243/galeria-de-arte-tonantzin'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/242/perla-negra-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/242/perla-negra-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/242/perla-negra-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/242/perla-negra-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/242/perla-negra-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/242/perla-negra-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/241/universidad-mundial</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/241/universidad-mundial'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/241/universidad-mundial'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/241/universidad-mundial</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/241/universidad-mundial'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/241/universidad-mundial'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/240/epi-campus-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/240/epi-campus-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/240/epi-campus-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/240/epi-campus-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/240/epi-campus-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/240/epi-campus-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/239/zocalo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/239/zocalo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/239/zocalo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/239/zocalo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/239/zocalo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/239/zocalo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/238/centro-cultural-tijuana</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/238/centro-cultural-tijuana'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/238/centro-cultural-tijuana'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/238/centro-cultural-tijuana</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/238/centro-cultural-tijuana'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/238/centro-cultural-tijuana'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/237/-gora-de-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/237/-gora-de-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/237/-gora-de-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/237/-gora-de-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/237/-gora-de-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/237/-gora-de-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/236/marriot-reforma</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/236/marriot-reforma'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/236/marriot-reforma'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/236/marriot-reforma</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/236/marriot-reforma'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/236/marriot-reforma'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/235/instituto-miguel-ngel-herrera-a-c-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/235/instituto-miguel-ngel-herrera-a-c-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/235/instituto-miguel-ngel-herrera-a-c-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/235/instituto-miguel-ngel-herrera-a-c-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/235/instituto-miguel-ngel-herrera-a-c-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/235/instituto-miguel-ngel-herrera-a-c-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/234/restaurante-el-jard-n-secreto</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/234/restaurante-el-jard-n-secreto'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/234/restaurante-el-jard-n-secreto'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/234/restaurante-el-jard-n-secreto</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/234/restaurante-el-jard-n-secreto'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/234/restaurante-el-jard-n-secreto'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/233/sala-de-lectura-pap-memo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/233/sala-de-lectura-pap-memo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/233/sala-de-lectura-pap-memo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/233/sala-de-lectura-pap-memo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/233/sala-de-lectura-pap-memo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/233/sala-de-lectura-pap-memo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/232/plaza-salvatierra</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/232/plaza-salvatierra'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/232/plaza-salvatierra'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/232/plaza-salvatierra</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/232/plaza-salvatierra'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/232/plaza-salvatierra'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/231/sala-de-lectura-don-quijote-de-la-mancha</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/231/sala-de-lectura-don-quijote-de-la-mancha'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/231/sala-de-lectura-don-quijote-de-la-mancha'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/231/sala-de-lectura-don-quijote-de-la-mancha</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/231/sala-de-lectura-don-quijote-de-la-mancha'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/231/sala-de-lectura-don-quijote-de-la-mancha'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/230/ciclovia</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/230/ciclovia'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/230/ciclovia'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/230/ciclovia</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/230/ciclovia'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/230/ciclovia'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/229/el-zarape</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/229/el-zarape'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/229/el-zarape'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/229/el-zarape</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/229/el-zarape'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/229/el-zarape'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/228/dezert-track-lagunitas-track</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/228/dezert-track-lagunitas-track'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/228/dezert-track-lagunitas-track'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/228/dezert-track-lagunitas-track</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/228/dezert-track-lagunitas-track'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/228/dezert-track-lagunitas-track'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/227/campanario-music-drinks</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/227/campanario-music-drinks'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/227/campanario-music-drinks'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/227/campanario-music-drinks</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/227/campanario-music-drinks'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/227/campanario-music-drinks'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/226/instituto-sudcaliforniano-de-cultura</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/226/instituto-sudcaliforniano-de-cultura'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/226/instituto-sudcaliforniano-de-cultura'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/226/instituto-sudcaliforniano-de-cultura</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/226/instituto-sudcaliforniano-de-cultura'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/226/instituto-sudcaliforniano-de-cultura'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/225/smartlife</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/225/smartlife'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/225/smartlife'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/225/smartlife</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/225/smartlife'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/225/smartlife'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/224/arena-california</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/224/arena-california'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/224/arena-california'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/224/arena-california</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/224/arena-california'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/224/arena-california'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/223/cancha-deportiva-y-de-usos-m-ltiples</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/223/cancha-deportiva-y-de-usos-m-ltiples'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/223/cancha-deportiva-y-de-usos-m-ltiples'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/223/cancha-deportiva-y-de-usos-m-ltiples</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/223/cancha-deportiva-y-de-usos-m-ltiples'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/223/cancha-deportiva-y-de-usos-m-ltiples'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/222/san-miguel-de-comond-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/222/san-miguel-de-comond-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/222/san-miguel-de-comond-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/222/san-miguel-de-comond-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/222/san-miguel-de-comond-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/222/san-miguel-de-comond-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/221/galer-a-de-arte-carlos-olachea</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/221/galer-a-de-arte-carlos-olachea'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/221/galer-a-de-arte-carlos-olachea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/221/galer-a-de-arte-carlos-olachea</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/221/galer-a-de-arte-carlos-olachea'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/221/galer-a-de-arte-carlos-olachea'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/220/hotel-casa-costa-azul-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/220/hotel-casa-costa-azul-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/220/hotel-casa-costa-azul-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/220/hotel-casa-costa-azul-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/220/hotel-casa-costa-azul-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/220/hotel-casa-costa-azul-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/219/universidad-de-tijuana-campus-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/219/universidad-de-tijuana-campus-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/219/universidad-de-tijuana-campus-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/219/universidad-de-tijuana-campus-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/219/universidad-de-tijuana-campus-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/219/universidad-de-tijuana-campus-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/218/jungle-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/218/jungle-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/218/jungle-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/218/jungle-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/218/jungle-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/218/jungle-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/217/main-plaza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/217/main-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/217/plaza-central'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/217/plaza-central</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/217/main-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/217/plaza-central'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/215/plaza-soleil</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/215/plaza-soleil'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/215/plaza-soleil'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/215/plaza-soleil</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/215/plaza-soleil'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/215/plaza-soleil'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/214/canaco</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/214/canaco'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/214/canaco'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/214/canaco</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/214/canaco'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/214/canaco'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/213/galeria-la-medusa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/213/galeria-la-medusa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/213/galeria-la-medusa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/213/galeria-la-medusa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/213/galeria-la-medusa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/213/galeria-la-medusa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/211/buey-cup-coffee-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/211/buey-cup-coffee-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/211/buey-cup-coffee-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/211/buey-cup-coffee-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/211/buey-cup-coffee-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/211/buey-cup-coffee-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/210/estadio-don-koll</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/210/estadio-don-koll'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/210/estadio-don-koll'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/210/estadio-don-koll</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/210/estadio-don-koll'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/210/estadio-don-koll'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/209/museo-regional-de-antropolog-a-e-historia-de-baja-california-sur</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/209/museo-regional-de-antropolog-a-e-historia-de-baja-california-sur'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/209/museo-regional-de-antropolog-a-e-historia-de-baja-california-sur'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/209/museo-regional-de-antropolog-a-e-historia-de-baja-california-sur</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/209/museo-regional-de-antropolog-a-e-historia-de-baja-california-sur'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/209/museo-regional-de-antropolog-a-e-historia-de-baja-california-sur'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/208/auditorio-leonardo-gastelum</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/208/auditorio-leonardo-gastelum'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/208/auditorio-leonardo-gastelum'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/208/auditorio-leonardo-gastelum</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/208/auditorio-leonardo-gastelum'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/208/auditorio-leonardo-gastelum'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/207/hotel-me-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/207/hotel-me-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/207/hotel-me-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/207/hotel-me-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/207/hotel-me-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/207/hotel-me-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/206/van-wormer-resorts</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/206/van-wormer-resorts'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/206/van-wormer-resorts'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/206/van-wormer-resorts</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/206/van-wormer-resorts'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/206/van-wormer-resorts'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/205/el-mangle</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/205/el-mangle'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/205/el-mangle'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/205/el-mangle</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/205/el-mangle'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/205/el-mangle'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/204/quinta-del-sol-by-solmar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/204/quinta-del-sol-by-solmar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/204/quinta-del-sol-by-solmar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/204/quinta-del-sol-by-solmar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/204/quinta-del-sol-by-solmar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/204/quinta-del-sol-by-solmar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/202/karuna-tea-house</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/202/karuna-tea-house'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/202/karuna-tea-house'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/202/karuna-tea-house</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/202/karuna-tea-house'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/202/karuna-tea-house'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/201/franco-s-house</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/201/franco-s-house'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/201/casa-de-franco'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/201/casa-de-franco</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/201/franco-s-house'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/201/casa-de-franco'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/200/parque-cuauhtemoc</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/200/parque-cuauhtemoc'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/200/parque-cuauhtemoc-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/200/parque-cuauhtemoc-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/200/parque-cuauhtemoc'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/200/parque-cuauhtemoc-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/199/manoma</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/199/manoma'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/199/manoma'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/199/manoma</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/199/manoma'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/199/manoma'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/198/chill-n-grill</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/198/chill-n-grill'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/198/chill-n-grill'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/198/chill-n-grill</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/198/chill-n-grill'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/198/chill-n-grill'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/197/plaza-sendero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/197/plaza-sendero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/197/plaza-sendero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/197/plaza-sendero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/197/plaza-sendero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/197/plaza-sendero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/195/sunset-da-mona-lisa-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/195/sunset-da-mona-lisa-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/195/sunset-da-mona-lisa-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/195/sunset-da-mona-lisa-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/195/sunset-da-mona-lisa-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/195/sunset-da-mona-lisa-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/194/explanada-de-la-cancha-p-blica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/194/explanada-de-la-cancha-p-blica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/194/explanada-de-la-cancha-p-blica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/194/explanada-de-la-cancha-p-blica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/194/explanada-de-la-cancha-p-blica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/194/explanada-de-la-cancha-p-blica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/193/puerto-paraiso</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/193/puerto-paraiso'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/193/puerto-paraiso'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/193/puerto-paraiso</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/193/puerto-paraiso'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/193/puerto-paraiso'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/192/plaza-p-blica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/192/plaza-p-blica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/192/plaza-p-blica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/192/plaza-p-blica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/192/plaza-p-blica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/192/plaza-p-blica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/191/hotel-miramar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/191/hotel-miramar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/191/hotel-miramar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/191/hotel-miramar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/191/hotel-miramar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/191/hotel-miramar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/190/hotel-seven-crown-centro-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/190/hotel-seven-crown-centro-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/190/hotel-seven-crown-centro-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/190/hotel-seven-crown-centro-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/190/hotel-seven-crown-centro-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/190/hotel-seven-crown-centro-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/189/cerrito-del-timbre</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/189/cerrito-del-timbre'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/189/cerrito-del-timbre'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/189/cerrito-del-timbre</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/189/cerrito-del-timbre'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/189/cerrito-del-timbre'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/188/plaza-amelia-wilkes</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/188/plaza-amelia-wilkes'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/188/plaza-amelia-wilkes'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/188/plaza-amelia-wilkes</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/188/plaza-amelia-wilkes'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/188/plaza-amelia-wilkes'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/187/unidep</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/187/unidep'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/187/unidep'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/187/unidep</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/187/unidep'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/187/unidep'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/185/uabcs-campus-loreto</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/185/uabcs-campus-loreto'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/185/uabcs-campus-loreto'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/185/uabcs-campus-loreto</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/185/uabcs-campus-loreto'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/185/uabcs-campus-loreto'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/183/teatro-del-imss</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/183/teatro-del-imss'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/183/teatro-del-imss'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/183/teatro-del-imss</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/183/teatro-del-imss'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/183/teatro-del-imss'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/182/cabo-wabo-cantina</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/182/cabo-wabo-cantina'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/182/cabo-wabo-cantina'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/182/cabo-wabo-cantina</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/182/cabo-wabo-cantina'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/182/cabo-wabo-cantina'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/181/home-depot-plaza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/181/home-depot-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/181/home-depot-plaza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/181/home-depot-plaza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/181/home-depot-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/181/home-depot-plaza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/180/ventanas-residences</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/180/ventanas-residences'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/180/ventanas-residences'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/180/ventanas-residences</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/180/ventanas-residences'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/180/ventanas-residences'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/179/gimnasio-auditorio-jorge-campos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/179/gimnasio-auditorio-jorge-campos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/179/gimnasio-auditorio-jorge-campos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/179/gimnasio-auditorio-jorge-campos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/179/gimnasio-auditorio-jorge-campos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/179/gimnasio-auditorio-jorge-campos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/178/caf-coraz-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/178/caf-coraz-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/178/caf-coraz-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/178/caf-coraz-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/178/caf-coraz-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/178/caf-coraz-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/177/vidasoul-vinorama</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/177/vidasoul-vinorama'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/177/vidasoul-vinorama'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/177/vidasoul-vinorama</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/177/vidasoul-vinorama'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/177/vidasoul-vinorama'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/176/verde-arena</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/176/verde-arena'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/176/verde-arena'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/176/verde-arena</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/176/verde-arena'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/176/verde-arena'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/175/huerta-los-tamarindos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/175/huerta-los-tamarindos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/175/huerta-los-tamarindos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/175/huerta-los-tamarindos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/175/huerta-los-tamarindos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/175/huerta-los-tamarindos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/174/estebans-karaoke</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/174/estebans-karaoke'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/174/estebans-karaoke'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/174/estebans-karaoke</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/174/estebans-karaoke'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/174/estebans-karaoke'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/173/hotel-playa-grande</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/173/hotel-playa-grande'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/173/hotel-playa-grande'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/173/hotel-playa-grande</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/173/hotel-playa-grande'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/173/hotel-playa-grande'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/172/palmas-altas-campground</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/172/palmas-altas-campground'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/172/palmas-altas-campground'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/172/palmas-altas-campground</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/172/palmas-altas-campground'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/172/palmas-altas-campground'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/171/jard-n-velasco</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/171/jard-n-velasco'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/171/jard-n-velasco'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/171/jard-n-velasco</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/171/jard-n-velasco'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/171/jard-n-velasco'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/168/clandestino</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/168/clandestino'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/168/clandestino'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/168/clandestino</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/168/clandestino'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/168/clandestino'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/167/bel-air-collection-resort-and-spa-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/167/bel-air-collection-resort-and-spa-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/167/bel-air-collection-resort-and-spa-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/167/bel-air-collection-resort-and-spa-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/167/bel-air-collection-resort-and-spa-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/167/bel-air-collection-resort-and-spa-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/166/cetmar-31</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/166/cetmar-31'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/166/cetmar-31'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/166/cetmar-31</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/166/cetmar-31'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/166/cetmar-31'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/165/rancho-punta-san-cristobal-asupmatoma</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/165/rancho-punta-san-cristobal-asupmatoma'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/165/rancho-punta-san-cristobal-asupmatoma'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/165/rancho-punta-san-cristobal-asupmatoma</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/165/rancho-punta-san-cristobal-asupmatoma'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/165/rancho-punta-san-cristobal-asupmatoma'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/164/puerto-escondido</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/164/puerto-escondido'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/164/puerto-escondido'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/164/puerto-escondido</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/164/puerto-escondido'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/164/puerto-escondido'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/163/teatro-ju-rez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/163/teatro-ju-rez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/163/teatro-ju-rez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/163/teatro-ju-rez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/163/teatro-ju-rez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/163/teatro-ju-rez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/162/la-mision-loreto-hotel</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/162/la-mision-loreto-hotel'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/162/la-mision-loreto-hotel'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/162/la-mision-loreto-hotel</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/162/la-mision-loreto-hotel'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/162/la-mision-loreto-hotel'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/161/playa-san-pedrito</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/161/playa-san-pedrito'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/161/playa-san-pedrito'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/161/playa-san-pedrito</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/161/playa-san-pedrito'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/161/playa-san-pedrito'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/160/the-barn</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/160/the-barn'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/160/the-barn'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/160/the-barn</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/160/the-barn'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/160/the-barn'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/159/buzzards</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/159/buzzards'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/159/buzzards'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/159/buzzards</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/159/buzzards'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/159/buzzards'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/158/hotel-los-patios</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/158/hotel-los-patios'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/158/hotel-los-patios'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/158/hotel-los-patios</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/158/hotel-los-patios'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/158/hotel-los-patios'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/157/hotel-holiday-inn-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/157/hotel-holiday-inn-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/157/hotel-holiday-inn-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/157/hotel-holiday-inn-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/157/hotel-holiday-inn-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/157/hotel-holiday-inn-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/156/gimnasio-polideportivo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/156/gimnasio-polideportivo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/156/gimnasio-polideportivo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/156/gimnasio-polideportivo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/156/gimnasio-polideportivo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/156/gimnasio-polideportivo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/155/uma-yoga-sanctuary</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/155/uma-yoga-sanctuary'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/155/uma-yoga-sanctuary'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/155/uma-yoga-sanctuary</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/155/uma-yoga-sanctuary'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/155/uma-yoga-sanctuary'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/154/playa-el-tecolote</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/154/playa-el-tecolote'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/154/playa-el-tecolote'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/154/playa-el-tecolote</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/154/playa-el-tecolote'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/154/playa-el-tecolote'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/153/playa-el-coromuel</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/153/playa-el-coromuel'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/153/playa-el-coromuel'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/153/playa-el-coromuel</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/153/playa-el-coromuel'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/153/playa-el-coromuel'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/152/the-office</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/152/the-office'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/152/the-office'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/152/the-office</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/152/the-office'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/152/the-office'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/151/biblioteca-p-blica-carlos-leyva</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/151/biblioteca-p-blica-carlos-leyva'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/151/biblioteca-p-blica-carlos-leyva'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/151/biblioteca-p-blica-carlos-leyva</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/151/biblioteca-p-blica-carlos-leyva'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/151/biblioteca-p-blica-carlos-leyva'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/150/instituto-tecnol-gico-de-ciudad-constituci-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/150/instituto-tecnol-gico-de-ciudad-constituci-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/150/instituto-tecnol-gico-de-ciudad-constituci-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/150/instituto-tecnol-gico-de-ciudad-constituci-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/150/instituto-tecnol-gico-de-ciudad-constituci-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/150/instituto-tecnol-gico-de-ciudad-constituci-n'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/149/casa-amarilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/149/casa-amarilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/149/casa-amarilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/149/casa-amarilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/149/casa-amarilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/149/casa-amarilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/148/rancho-la-rosa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/148/rancho-la-rosa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/148/rancho-la-rosa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/148/rancho-la-rosa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/148/rancho-la-rosa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/148/rancho-la-rosa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/147/baja-bio-sana</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/147/baja-bio-sana'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/147/baja-bio-sana'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/147/baja-bio-sana</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/147/baja-bio-sana'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/147/baja-bio-sana'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/146/parque-piedras-y-p-jaros</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/146/parque-piedras-y-p-jaros'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/146/parque-piedras-y-p-jaros'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/146/parque-piedras-y-p-jaros</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/146/parque-piedras-y-p-jaros'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/146/parque-piedras-y-p-jaros'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/145/biblioteca-p-blica-leopoldo-ramos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/145/biblioteca-p-blica-leopoldo-ramos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/145/biblioteca-p-blica-leopoldo-ramos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/145/biblioteca-p-blica-leopoldo-ramos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/145/biblioteca-p-blica-leopoldo-ramos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/145/biblioteca-p-blica-leopoldo-ramos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/144/santa-anita</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/144/santa-anita'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/144/santa-anita'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/144/santa-anita</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/144/santa-anita'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/144/santa-anita'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/143/malecon</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/143/malecon'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/143/malecon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/143/malecon</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/143/malecon'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/143/malecon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/142/playa-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/142/playa-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/142/playa-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/142/playa-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/142/playa-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/142/playa-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/141/estadio-guaycuras</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/141/estadio-guaycuras'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/141/estadio-guaycuras'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/141/estadio-guaycuras</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/141/estadio-guaycuras'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/141/estadio-guaycuras'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/140/syriaccus-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/140/syriaccus-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/140/syriaccus-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/140/syriaccus-bar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/140/syriaccus-bar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/140/syriaccus-bar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/139/lienzo-charro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/139/lienzo-charro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/139/lienzo-charro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/139/lienzo-charro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/139/lienzo-charro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/139/lienzo-charro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/138/playa-el-tule</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/138/playa-el-tule'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/138/playa-el-tule'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/138/playa-el-tule</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/138/playa-el-tule'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/138/playa-el-tule'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/136/casa-de-la-danza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/136/casa-de-la-danza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/136/casa-de-la-danza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/136/casa-de-la-danza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/136/casa-de-la-danza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/136/casa-de-la-danza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/134/la-ribera-centro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/134/la-ribera-centro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/134/la-ribera-centro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/134/la-ribera-centro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/134/la-ribera-centro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/134/la-ribera-centro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/133/8-cascadas-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/133/8-cascadas-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/133/playa-8-cascadas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/133/playa-8-cascadas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/133/8-cascadas-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/133/playa-8-cascadas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/129/pista-juan-luis-loco-sandoval</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/129/pista-juan-luis-loco-sandoval'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/129/pista-juan-luis-loco-sandoval'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/129/pista-juan-luis-loco-sandoval</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/129/pista-juan-luis-loco-sandoval'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/129/pista-juan-luis-loco-sandoval'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/128/el-ameyal-hotel-wellness-center</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/128/el-ameyal-hotel-wellness-center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/128/el-ameyal-hotel-wellness-center'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/128/el-ameyal-hotel-wellness-center</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/128/el-ameyal-hotel-wellness-center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/128/el-ameyal-hotel-wellness-center'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/127/centro-tlaneci</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/127/centro-tlaneci'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/127/centro-tlaneci'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/127/centro-tlaneci</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/127/centro-tlaneci'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/127/centro-tlaneci'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/126/teatro-de-la-ciudad-miguel-lomeli-cese-a</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/126/teatro-de-la-ciudad-miguel-lomeli-cese-a'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/126/teatro-de-la-ciudad-miguel-lomeli-cese-a'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/126/teatro-de-la-ciudad-miguel-lomeli-cese-a</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/126/teatro-de-la-ciudad-miguel-lomeli-cese-a'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/126/teatro-de-la-ciudad-miguel-lomeli-cese-a'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/125/missions-museum</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/125/missions-museum'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/125/museo-de-las-misiones'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/125/museo-de-las-misiones</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/125/missions-museum'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/125/museo-de-las-misiones'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/124/plaza-the-shoppes-la-paz-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/124/plaza-the-shoppes-la-paz-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/124/plaza-the-shoppes-la-paz-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/124/plaza-the-shoppes-la-paz-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/124/plaza-the-shoppes-la-paz-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/124/plaza-the-shoppes-la-paz-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/123/casa-de-la-cultura-loreto-bcs</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/123/casa-de-la-cultura-loreto-bcs'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/123/casa-de-la-cultura-loreto-bcs'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/123/casa-de-la-cultura-loreto-bcs</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/123/casa-de-la-cultura-loreto-bcs'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/123/casa-de-la-cultura-loreto-bcs'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/122/callej-n-ignacio-ba-uelos-cabezud</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/122/callej-n-ignacio-ba-uelos-cabezud'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/122/callej-n-ignacio-ba-uelos-cabezud'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/122/callej-n-ignacio-ba-uelos-cabezud</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/122/callej-n-ignacio-ba-uelos-cabezud'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/122/callej-n-ignacio-ba-uelos-cabezud'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/121/sala-de-conciertos-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/121/sala-de-conciertos-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/121/sala-de-conciertos-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/121/sala-de-conciertos-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/121/sala-de-conciertos-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/121/sala-de-conciertos-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/120/plaza-juarez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/120/plaza-juarez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/120/plaza-juarez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/120/plaza-juarez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/120/plaza-juarez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/120/plaza-juarez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/118/hotel-el-ganzo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/118/hotel-el-ganzo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/118/hotel-el-ganzo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/118/hotel-el-ganzo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/118/hotel-el-ganzo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/118/hotel-el-ganzo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/117/hotel-casa-tota</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/117/hotel-casa-tota'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/117/hotel-casa-tota'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/117/hotel-casa-tota</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/117/hotel-casa-tota'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/117/hotel-casa-tota'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/116/raices-y-brasos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/116/raices-y-brasos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/116/raices-y-brasos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/116/raices-y-brasos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/116/raices-y-brasos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/116/raices-y-brasos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/115/el-tezal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/115/el-tezal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/115/el-tezal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/115/el-tezal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/115/el-tezal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/115/el-tezal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/114/escuela-de-m-sica-del-estado</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/114/escuela-de-m-sica-del-estado'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/114/escuela-de-m-sica-del-estado'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/114/escuela-de-m-sica-del-estado</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/114/escuela-de-m-sica-del-estado'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/114/escuela-de-m-sica-del-estado'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/113/organic-market-5-de-febrero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/113/organic-market-5-de-febrero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/113/mercado-organico-5-de-febrero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/113/mercado-organico-5-de-febrero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/113/organic-market-5-de-febrero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/113/mercado-organico-5-de-febrero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/112/organic-market-madero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/112/organic-market-madero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/112/mercado-organico-madero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/112/mercado-organico-madero</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/112/organic-market-madero'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/112/mercado-organico-madero'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/111/lo-bodega-de-todos-santos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/111/lo-bodega-de-todos-santos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/111/lo-bodega-de-todos-santos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/111/lo-bodega-de-todos-santos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/111/lo-bodega-de-todos-santos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/111/lo-bodega-de-todos-santos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/110/el-triunfo-center</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/110/el-triunfo-center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/110/el-triunfo-centro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/110/el-triunfo-centro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/110/el-triunfo-center'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/110/el-triunfo-centro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/109/plaza-el-pescador-sjc</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/109/plaza-el-pescador-sjc'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/109/plaza-el-pescador-sjc'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/109/plaza-el-pescador-sjc</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/109/plaza-el-pescador-sjc'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/109/plaza-el-pescador-sjc'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/108/hotel-guaycura</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/108/hotel-guaycura'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/108/hotel-guaycura'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/108/hotel-guaycura</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/108/hotel-guaycura'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/108/hotel-guaycura'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/107/the-distillery</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/107/the-distillery'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/107/the-distillery'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/107/the-distillery</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/107/the-distillery'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/107/the-distillery'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/106/rubys</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/106/rubys'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/106/rubys'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/106/rubys</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/106/rubys'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/106/rubys'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/105/uabcs</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/105/uabcs'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/105/uabcs'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/105/uabcs</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/105/uabcs'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/105/uabcs'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/103/centro-cultural-prof-n-stor-ag-ndez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/103/centro-cultural-prof-n-stor-ag-ndez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/103/centro-cultural-prof-n-stor-ag-ndez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/103/centro-cultural-prof-n-stor-ag-ndez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/103/centro-cultural-prof-n-stor-ag-ndez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/103/centro-cultural-prof-n-stor-ag-ndez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/102/teatro-marquez-de-leon</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/102/teatro-marquez-de-leon'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/102/teatro-marquez-de-leon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/102/teatro-marquez-de-leon</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/102/teatro-marquez-de-leon'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/102/teatro-marquez-de-leon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/101/plaza-del-pueblo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/101/plaza-del-pueblo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/101/playa-los-barilles'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/101/playa-los-barilles</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/101/plaza-del-pueblo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/101/playa-los-barilles'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/100/los-barilles-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/100/los-barilles-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/100/playa-los-barilles'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/100/playa-los-barilles</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/100/los-barilles-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/100/playa-los-barilles'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/99/barcel-grand-faro-los-cabos-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/99/barcel-grand-faro-los-cabos-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/99/barcel-grand-faro-los-cabos-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/99/barcel-grand-faro-los-cabos-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/99/barcel-grand-faro-los-cabos-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/99/barcel-grand-faro-los-cabos-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/97/costa-baja-resort-spa-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/97/costa-baja-resort-spa-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/97/costa-baja-resort-spa-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/97/costa-baja-resort-spa-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/97/costa-baja-resort-spa-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/97/costa-baja-resort-spa-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/96/hotel-california</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/96/hotel-california'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/96/hotel-california'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/96/hotel-california</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/96/hotel-california'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/96/hotel-california'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/95/hilton-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/95/hilton-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/95/hilton-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/95/hilton-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/95/hilton-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/95/hilton-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/94/hyatt-ziva-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/94/hyatt-ziva-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/94/hyatt-ziva-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/94/hyatt-ziva-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/94/hyatt-ziva-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/94/hyatt-ziva-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/93/villa-marcella</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/93/villa-marcella'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/93/villa-marcella'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/93/villa-marcella</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/93/villa-marcella'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/93/villa-marcella'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/92/club-campestre-san-jose</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/92/club-campestre-san-jose'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/92/club-campestre-san-jose'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/92/club-campestre-san-jose</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/92/club-campestre-san-jose'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/92/club-campestre-san-jose'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/88/cem-centro-empresarial-mexicano-de-capacitacion-continua</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/88/cem-centro-empresarial-mexicano-de-capacitacion-continua'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/88/cem-centro-empresarial-mexicano-de-capacitacion-continua'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/88/cem-centro-empresarial-mexicano-de-capacitacion-continua</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/88/cem-centro-empresarial-mexicano-de-capacitacion-continua'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/88/cem-centro-empresarial-mexicano-de-capacitacion-continua'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/87/montessori-educarte-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/87/montessori-educarte-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/87/montessori-educarte-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/87/montessori-educarte-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/87/montessori-educarte-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/87/montessori-educarte-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/85/inner-flow-yoga-studio</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/85/inner-flow-yoga-studio'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/85/inner-flow-yoga-studio'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/85/inner-flow-yoga-studio</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/85/inner-flow-yoga-studio'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/85/inner-flow-yoga-studio'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/83/club-cascadas-de-baja</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/83/club-cascadas-de-baja'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/83/club-cascadas-de-baja'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/83/club-cascadas-de-baja</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/83/club-cascadas-de-baja'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/83/club-cascadas-de-baja'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/82/puerta-vieja-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/82/puerta-vieja-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/82/puerta-vieja-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/82/puerta-vieja-restaurant</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/82/puerta-vieja-restaurant'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/82/puerta-vieja-restaurant'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/81/plaza-le-n-cota-collins</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/81/plaza-le-n-cota-collins'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/81/plaza-le-n-cota-collins'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/81/plaza-le-n-cota-collins</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/81/plaza-le-n-cota-collins'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/81/plaza-le-n-cota-collins'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/80/baja-junkies</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/80/baja-junkies'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/80/baja-junkies'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/80/baja-junkies</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/80/baja-junkies'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/80/baja-junkies'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/79/recollection-centers-yo-reciclo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/79/recollection-centers-yo-reciclo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/79/centros-de-acopio-yo-reciclo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/79/centros-de-acopio-yo-reciclo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/79/recollection-centers-yo-reciclo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/79/centros-de-acopio-yo-reciclo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/76/plaza-paseo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/76/plaza-paseo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/76/plaza-paseo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/76/plaza-paseo</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/76/plaza-paseo'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/76/plaza-paseo'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/75/el-encanto-inn</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/75/el-encanto-inn'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/75/el-encanto-inn'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/75/el-encanto-inn</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/75/el-encanto-inn'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/75/el-encanto-inn'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/74/hotel-araiza-inn-palmira</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/74/hotel-araiza-inn-palmira'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/74/hotel-araiza-inn-palmira'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/74/hotel-araiza-inn-palmira</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/74/hotel-araiza-inn-palmira'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/74/hotel-araiza-inn-palmira'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/73/mandala-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/73/mandala-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/73/mandala-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/73/mandala-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/73/mandala-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/73/mandala-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/67/hotel-sheraton-hacienda-del-mar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/67/hotel-sheraton-hacienda-del-mar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/67/hotel-sheraton-hacienda-del-mar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/67/hotel-sheraton-hacienda-del-mar</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/67/hotel-sheraton-hacienda-del-mar'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/67/hotel-sheraton-hacienda-del-mar'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/66/rancho-el-pirul</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/66/rancho-el-pirul'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/66/rancho-el-pirul'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/66/rancho-el-pirul</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/66/rancho-el-pirul'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/66/rancho-el-pirul'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/65/esperanza-auberge-resort</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/65/esperanza-auberge-resort'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/65/esperanza-auberge-resort'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/65/esperanza-auberge-resort</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/65/esperanza-auberge-resort'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/65/esperanza-auberge-resort'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/64/hotel-grand-mayan</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/64/hotel-grand-mayan'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/64/hotel-grand-mayan'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/64/hotel-grand-mayan</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/64/hotel-grand-mayan'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/64/hotel-grand-mayan'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/63/golf-club-punta-sur-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/63/golf-club-punta-sur-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/63/campo-punta-sur-golf-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/63/campo-punta-sur-golf-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/63/golf-club-punta-sur-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/63/campo-punta-sur-golf-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/62/marina-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/62/marina-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/62/marina-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/62/marina-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/62/marina-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/62/marina-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/59/rock-brew-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/59/rock-brew-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/59/rock-brew-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/59/rock-brew-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/59/rock-brew-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/59/rock-brew-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/58/flora-farm</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/58/flora-farm'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/58/flora-farm'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/58/flora-farm</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/58/flora-farm'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/58/flora-farm'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/57/250-km-off-road-comondu-circuit-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/57/250-km-off-road-comondu-circuit-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/57/ruta-de-off-road-comondu-250km'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/57/ruta-de-off-road-comondu-250km</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/57/250-km-off-road-comondu-circuit-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/57/ruta-de-off-road-comondu-250km'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/46/hotel-palmas-de-cortez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/46/hotel-palmas-de-cortez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/46/hotel-palmas-de-cortez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/46/hotel-palmas-de-cortez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/46/hotel-palmas-de-cortez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/46/hotel-palmas-de-cortez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/45/walmart-plaza-plaza-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/45/walmart-plaza-plaza-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/45/walmart-plaza-plaza-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/45/walmart-plaza-plaza-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/45/walmart-plaza-plaza-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/45/walmart-plaza-plaza-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/44/circoteka-centro-cultural-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/44/circoteka-centro-cultural-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/44/circoteka-centro-cultural-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/44/circoteka-centro-cultural-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/44/circoteka-centro-cultural-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/44/circoteka-centro-cultural-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/43/parque-gral-meliton-albanez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/43/parque-gral-meliton-albanez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/43/parque-gral-melit-n-alba-ez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/43/parque-gral-melit-n-alba-ez</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/43/parque-gral-meliton-albanez'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/43/parque-gral-melit-n-alba-ez'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/42/teatro-de-la-ciudad-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/42/teatro-de-la-ciudad-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/42/teatro-de-la-ciudad-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/42/teatro-de-la-ciudad-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/42/teatro-de-la-ciudad-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/42/teatro-de-la-ciudad-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/41/palacio-de-gobierno</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/41/palacio-de-gobierno'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/41/palacio-de-gobierno'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/41/palacio-de-gobierno</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/41/palacio-de-gobierno'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/41/palacio-de-gobierno'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/40/kiosko-en-el-malec-n</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/40/kiosko-en-el-malec-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/40/kiosko-en-el-malecon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/40/kiosko-en-el-malecon</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/40/kiosko-en-el-malec-n'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/40/kiosko-en-el-malecon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/39/centro-cultural-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/39/centro-cultural-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/39/centro-cultural-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/39/centro-cultural-la-paz</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/39/centro-cultural-la-paz'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/39/centro-cultural-la-paz'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/38/malecon</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/38/malecon'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/38/malecon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/38/malecon</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/38/malecon'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/38/malecon'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/37/casa-de-cultura-municipal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/37/casa-de-cultura-municipal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/37/casa-de-cultura-municipal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/37/casa-de-cultura-municipal</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/37/casa-de-cultura-municipal'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/37/casa-de-cultura-municipal'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/36/cicimar-centro-interdisciplinario-de-ciencias-marinas-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/36/cicimar-centro-interdisciplinario-de-ciencias-marinas-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/36/cicimar-centro-interdisciplinario-de-ciencias-marinas-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/36/cicimar-centro-interdisciplinario-de-ciencias-marinas-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/36/cicimar-centro-interdisciplinario-de-ciencias-marinas-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/36/cicimar-centro-interdisciplinario-de-ciencias-marinas-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/35/alianza-francesa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/35/alianza-francesa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/35/alianza-francesa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/35/alianza-francesa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/35/alianza-francesa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/35/alianza-francesa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/33/baja-cantina-medano</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/33/baja-cantina-medano'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/33/baja-cantina-medano'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/33/baja-cantina-medano</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/33/baja-cantina-medano'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/33/baja-cantina-medano'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/32/hotel-westin-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/32/hotel-westin-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/32/hotel-westin-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/32/hotel-westin-los-cabos</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/32/hotel-westin-los-cabos'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/32/hotel-westin-los-cabos'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/31/casa-de-la-cultura-sjd</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/31/casa-de-la-cultura-sjd'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/31/casa-de-la-cultura-sjd'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/31/casa-de-la-cultura-sjd</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/31/casa-de-la-cultura-sjd'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/31/casa-de-la-cultura-sjd'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/30/one-only-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/30/one-only-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/30/one-only-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/30/one-only-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/30/one-only-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/30/one-only-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/29/restaurant-market-at-one-only-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/29/restaurant-market-at-one-only-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/29/restaurant-market-at-one-only-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/29/restaurant-market-at-one-only-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/29/restaurant-market-at-one-only-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/29/restaurant-market-at-one-only-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/28/estadio-de-basebol</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/28/estadio-de-basebol'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/28/estadio-de-basebol'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/28/estadio-de-basebol</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/28/estadio-de-basebol'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/28/estadio-de-basebol'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/27/plaza-mijares</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/27/plaza-mijares'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/27/plaza-mijares'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/27/plaza-mijares</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/27/plaza-mijares'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/27/plaza-mijares'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/26/centro-historico</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/26/centro-historico'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/26/centro-historico'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/26/centro-historico</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/26/centro-historico'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/26/centro-historico'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/25/costa-azul-zippers-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/25/costa-azul-zippers-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/25/costa-azul-zippers-beach'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/25/costa-azul-zippers-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/25/costa-azul-zippers-beach'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/25/costa-azul-zippers-beach'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/24/tsegyalgar-west-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/24/tsegyalgar-west-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/24/tsegyalgar-west-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/24/tsegyalgar-west-</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/24/tsegyalgar-west-'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/24/tsegyalgar-west-'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/22/central-plaza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/22/central-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/22/central-plaza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/22/central-plaza</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/22/central-plaza'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/22/central-plaza'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/18/hotel-buena-vista-beach-resort</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/18/hotel-buena-vista-beach-resort'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/18/hotel-buena-vista-beach-resort'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/18/hotel-buena-vista-beach-resort</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/18/hotel-buena-vista-beach-resort'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/18/hotel-buena-vista-beach-resort'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/16/huerta-maria</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/16/huerta-maria'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/16/huerta-maria'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/16/huerta-maria</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/16/huerta-maria'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/16/huerta-maria'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/15/the-shoppes-at-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/15/the-shoppes-at-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/15/the-shoppes-at-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/15/the-shoppes-at-palmilla</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/15/the-shoppes-at-palmilla'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/15/the-shoppes-at-palmilla'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/14/el-squid-roe</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/14/el-squid-roe'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/14/el-squid-roe'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/14/el-squid-roe</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/14/el-squid-roe'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/14/el-squid-roe'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/13/mar-a-dentro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/13/mar-a-dentro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/13/mar-a-dentro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/13/mar-a-dentro</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/13/mar-a-dentro'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/13/mar-a-dentro'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/12/nikki-beach-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/12/nikki-beach-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/12/nikki-beach-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/12/nikki-beach-cabo-san-lucas</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/12/nikki-beach-cabo-san-lucas'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/12/nikki-beach-cabo-san-lucas'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/11/wyndham-cabo-san-lucas-resort</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/11/wyndham-cabo-san-lucas-resort'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/11/wyndham-cabo-san-lucas-resort'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/11/wyndham-cabo-san-lucas-resort</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/11/wyndham-cabo-san-lucas-resort'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/11/wyndham-cabo-san-lucas-resort'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/10/pueblo-bonito-pacifica-resort-spa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/10/pueblo-bonito-pacifica-resort-spa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/10/pueblo-bonito-pacifica-resort-spa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/10/pueblo-bonito-pacifica-resort-spa</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/10/pueblo-bonito-pacifica-resort-spa'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/10/pueblo-bonito-pacifica-resort-spa'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/7/art-district</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/7/art-district'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/7/art-district'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/7/art-district</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/7/art-district'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/7/art-district'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/6/pabell-n-cultural-de-la-republica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/6/pabell-n-cultural-de-la-republica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/6/pabell-n-cultural-de-la-republica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/6/pabell-n-cultural-de-la-republica</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/6/pabell-n-cultural-de-la-republica'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/6/pabell-n-cultural-de-la-republica'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/3/playa-medano</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/3/playa-medano'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/3/medano-beach'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/3/medano-beach</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/3/playa-medano'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/3/medano-beach'/>
+</url>
+<url>
+<loc>http://localhost/kapp/en/venue/1/ramuri</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/1/ramuri'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/1/ramuri'/>
+</url>
+<url>
+<loc>http://localhost/kapp/es/venue/1/ramuri</loc>
+<xml:link rel='alternate' hreflang='en' href='http://localhost/kapp/en/venue/1/ramuri'/>
+<xml:link rel='alternate' hreflang='es' href='http://localhost/kapp/es/venue/1/ramuri'/>
+</url>
+</urlset>

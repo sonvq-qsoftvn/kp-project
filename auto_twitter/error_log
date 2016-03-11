@@ -1,0 +1,8 @@
+[16-Jul-2014 01:55:43 America/Denver] PHP Notice:  Use of undefined constant codebird - assumed 'codebird' in /home3/kpasappc/public_html/auto_twitter/index.php on line 2
+[16-Jul-2014 01:55:43 America/Denver] PHP Fatal error:  require(): Failed opening required 'codebird' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home3/kpasappc/public_html/auto_twitter/index.php on line 2
+[16-Jul-2014 01:56:13 America/Denver] PHP Notice:  Use of undefined constant codebird - assumed 'codebird' in /home3/kpasappc/public_html/auto_twitter/index.php on line 2
+[16-Jul-2014 01:56:13 America/Denver] PHP Fatal error:  require(): Failed opening required 'codebird' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home3/kpasappc/public_html/auto_twitter/index.php on line 2
+[16-Jul-2014 01:56:46 America/Denver] PHP Notice:  Use of undefined constant codebird - assumed 'codebird' in /home3/kpasappc/public_html/auto_twitter/index.php on line 2
+[16-Jul-2014 01:56:46 America/Denver] PHP Fatal error:  require(): Failed opening required 'codebird' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home3/kpasappc/public_html/auto_twitter/index.php on line 2
+[16-Jul-2014 01:56:53 America/Denver] PHP Notice:  Use of undefined constant codebird - assumed 'codebird' in /home3/kpasappc/public_html/auto_twitter/index.php on line 2
+[16-Jul-2014 01:56:53 America/Denver] PHP Fatal error:  require(): Failed opening required 'codebird' (include_path='.:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear') in /home3/kpasappc/public_html/auto_twitter/index.php on line 2

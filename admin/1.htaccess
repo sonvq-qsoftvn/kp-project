@@ -1,0 +1,39 @@
+Options +FollowSymLinks
+RewriteEngine  on
+
+#RewriteBase /admin
+
+#RewriteRule ^.*$ event.php
+
+#RewriteRule ^event/.*/step/1$ event.php?event_id=$l&step=1
+#RewriteRule ^event/.*/step/2$ event.php?event_id=$l&step=2
+RewriteRule ^event/(.*)/step/(.*) event.php?event_id=$1&step=$2
+RewriteRule ^event/(.*) event.php?event_id=$1
+RewriteRule ^scheme/(.*) scheme.php?template_id=$1
+RewriteRule ^question/(.*) question.php?question_id=$1
+RewriteRule ^coupon/(.*) coupon.php?coupon_id=$1
+RewriteRule ^user/create user.php?create=yes
+RewriteRule ^user/(.*) user.php?admin_id=$1
+RewriteRule ^venue/(.*)/edit venue.php?venue_id=$1
+
+RewriteRule ^reports/builder/(.*)/page/(.*) reports.php?event_id=$1&builder=yes&page=$2
+RewriteRule ^reports/builder/(.*) reports.php?event_id=$1&builder=yes
+RewriteRule ^sale/(.*) sale.php?order_id=$1
+RewriteRule ^index/msg/(.*) index.php?msg=$1
+RewriteRule ^forget/msg/(.*) forget.php?msg=$1
+RewriteRule ^recover/(.*) recover.php?recover_pass=$1
+RewriteRule ^events/(.*)/page/(.*) events.php?keyword=$1&page=$2
+RewriteRule ^events/page/(.*) events.php?page=$1
+RewriteRule ^print/reports/(.*) print-reports.php?event_id=$1
+RewriteRule ^scan/(.*) scan.php?event_id=$1
+RewriteRule ^print/checkin/reports/(.*) print-checkin-reports.php?event_id=$1
+RewriteRule ^customers/page/(.*) customers.php?page=$1
+RewriteRule ^customer/(.*) customer.php?user_id=$1
+RewriteRule ^promote/social social.php
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+#RewriteRule ^event/.*$ event.php?id=$l
+
+
+

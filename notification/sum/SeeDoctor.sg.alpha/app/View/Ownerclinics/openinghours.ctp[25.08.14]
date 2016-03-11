@@ -1,0 +1,172 @@
+
+<div class="row-fluid">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="<?php echo BASE_URL;?>clinicmanager/dashboard">Home</a> <span class="divider">/</span>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASE_URL;?>clinicmanager/clinics">Clinics</a> <span class="divider">/</span>
+                    </li>
+                    <li class='active disabled'>
+                        <a href="#" >Set Opening Hours</a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+<?php
+if($msg!=array())
+{
+?>
+<div class="alert alert-error">
+                        <a class="close" data-dismiss="alert" href="#">×</a>
+                        <h4 class="alert-heading">Failure!</h4>
+                        <ul>
+                                    
+                        <?php
+                        foreach($msg as $k=>$v)
+                        {
+                        ?>
+                                                <li><?php echo $v;?></li>
+                                    
+                        <?php
+                                    
+                        }
+                        ?>
+                        </ul>
+            </div>
+<?php
+}
+?>
+<section id="utopia-wizard-form" class="utopia-widget utopia-form-box">
+    <div class="utopia-widget-title">
+        <?php
+            echo $this->Html->image('../admin/img/icons2/paragraph_justify.png',array('class'=>'utopia-widget-icon'));
+        ?>
+        
+        <span>Set Opening Hours Form</span>
+    </div>
+
+    <div class="row-fluid">
+        <div class="utopia-widget-content">
+            <div class="span12 utopia-form-freeSpace">
+                <div class="sample-form">
+                    <?php echo $this->Form->create('Clinic',$settings=array('class'=>'form-horizontal','id'=>'validation','name'=>'validation','enctype'=>'multipart/form-data')); ?>
+                    
+                        <fieldset>
+                            <?php
+                            $days_arr[1]='Monday';
+                            $days_arr[2]='Tuesday';
+                            $days_arr[3]='Wednesday';
+                            $days_arr[4]='Thrusday';
+                            $days_arr[5]='Friday';
+                            $days_arr[6]='Saturday';
+                            $days_arr[7]='Sunday';
+                            foreach($days_arr as $k=>$v)
+                            {
+                            ?>
+                                <div class="control-group">
+                                    <label class="control-label" for="name"><?php echo $v;?>:</label>
+    
+                                    <div class="controls">
+                                        <div class="control-group">
+                                            <!--<label class="control-label" for="number_of_<?php echo $k;?>_slots">Total Slots</label>-->
+    
+                                            <input  type="hidden" id='number_of_<?php echo $k;?>_slots'  name='number_of_<?php echo $k;?>_slots' value='<?php echo count($slots_arr[$k]);?>'>
+                                            <div class="controls">
+                                                <button class="span2" style="width:150px;" type="button" id='number_of_<?php echo $k;?>_slots'  name='number_of_<?php echo $k;?>_slots' value='<?php echo count($slots_arr[$k]);?>' onclick="setslots('<?php echo $k;?>');">Add Time Slot</button>
+                                             </div>
+                                           
+                                            
+                                            
+                                            <div class="controls" id='day_<?php echo $k;?>_slots'>
+                                                <table border=0 cellspacing='5' cellpadding=12>
+                                                
+                                                <?php
+                                                    if(count($slots_arr[$k]))
+                                                    {
+                                                        foreach($slots_arr[$k] as $key=>$each_slot)
+                                                        {
+                                                            $my_count=$key+1;
+                                                            ?>
+                                                            <tr><th colspan=2 style='text-align: left;font-size: large;'>Slot <?php echo $my_count;?></th></tr>
+                                                            <tr><td>From :</td><td><select name='from_hours_<?php echo $k.'_'.$my_count;?>'><?php for($i=0;$i<=23;$i++){?><option <?php if($i==$each_slot['Openinghour']['fromhour']){?>selected='selected'<?php }?>><?php echo $i;?></option><?php }?></select><select name='from_minutes_<?php echo $k.'_'.$my_count;?>'><?php for($i=0;$i<=59;$i++){?><option <?php if($i==$each_slot['Openinghour']['fromminutes']){?>selected='selected'<?php }?>><?php echo $i;?></option><?php }?></select></td></tr>
+                                                            <tr><td>To :</td><td><select name='to_hours<?php echo $k.'_'.$my_count;?>'><?php for($i=0;$i<=23;$i++){?><option <?php if($i==$each_slot['Openinghour']['tohour']){?>selected='selected'<?php }?>><?php echo $i;?></option><?php }?></select><select name='to_minutes<?php echo $k.'_'.$my_count;?>'><?php for($i=0;$i<=59;$i++){?><option <?php if($i==$each_slot['Openinghour']['tominutes']){?>selected='selected'<?php }?>><?php echo $i;?></option><?php }?></select></td></tr>
+                                                    
+                                                            <?php
+                                                        }
+                                                        
+                                                    }
+                                                ?>
+                                                </table>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            <?php
+                            }
+                            ?>
+                            
+                            <div class="utopia-from-action">
+                                <button class="btn btn-primary span5" type="submit" >Save changes</button>
+                               <button class="btn span5" type="button" onclick="window.location.href='<?php echo BASE_URL;?>clinicmanager/clinics'">Cancel</button>
+                            </div>
+                        </fieldset>
+                    <?php echo $this->Form->end(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type='text/javascript'>
+    function setslots(k)
+   {    
+       var i=document.getElementById('number_of_'+k+'_slots').value;
+       
+       //var i=1;
+        
+       if (i=='' || i=='0')
+        {
+            i=1;
+        }
+        
+            txt="<table border=0 cellspacing='5' cellpadding=12>";
+            for(c=1;c<=i;c++)
+        {
+            txt+="<tr><th colspan=2 style='text-align: left;font-size: large;'>Slot "+c+"</th></tr><tr><td>From :</td><td><select name='from_hours_"+k+"_"+c+"' >";
+            for(ai=0;ai<=23;ai++)
+            {
+                txt+="<option>"+ai+"</option>";
+            }
+            txt+="</select><select name='from_minutes_"+k+"_"+c+"' >";
+            for(bi=0;bi<=59;bi++)
+            {
+                txt+="<option>"+bi+"</option>";
+            }
+            txt+="</select></td></tr>";
+            
+            txt+="<tr><td>To :</td><td><select name='to_hours_"+k+"_"+c+"' >";
+            for(ai=0;ai<=23;ai++)
+            {
+                txt+="<option>"+ai+"</option>";
+            }
+            txt+="</select><select name='to_minutes_"+k+"_"+c+"' >";
+            for(bi=0;bi<=59;bi++)
+            {
+                txt+="<option>"+bi+"</option>";
+            }
+            txt+="</select></td></tr>";
+           
+        }
+        txt+="</table>";
+        
+        document.getElementById('day_'+k+'_slots').innerHTML=txt;
+        i++;
+        
+        document.getElementById('number_of_'+k+'_slots').value=i;
+        
+        
+    }
+</script>

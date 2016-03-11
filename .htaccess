@@ -1,0 +1,192 @@
+# Use PHP5.4 as default
+#AddHandler application/x-httpd-php54 .php
+
+
+# 480 weeks
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+ 
+# 2 DAYS
+<FilesMatch "\.(xml|txt)$">
+Header set Cache-Control "max-age=172800, public, must-revalidate"
+</FilesMatch>
+ 
+# 2 HOURS
+<FilesMatch "\.(html|htm)$">
+Header set Cache-Control "max-age=7200, must-revalidate"
+</FilesMatch>
+
+# compress text, html, javascript, css, xml:
+AddOutputFilterByType DEFLATE text/text
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE image/svg+xml
+# remove browser bugs
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+Header append Vary User-Agent
+AddType x-font/otf .otf
+AddType x-font/ttf .ttf
+AddType x-font/eot .eot
+AddType x-font/woff .woff
+AddType image/x-icon .ico
+AddType image/svg+xml .svg
+
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType text/css "access 1 month"
+ExpiresByType text/html "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+# BEGIN Remove Last-Modified Header
+<IfModule mod_headers.c>
+  Header unset Last-Modified
+</IfModule>
+# END Remove Last-Modified Header
+
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+#RewriteRule ^dashboard/ dashboard.php
+#RewriteRule ^event1/(.*)/step/(.*) event1.php?event_id=$1&step=$2 
+
+#RewriteRule ^event_fb_share/(.*) test_multi_fb_share.php?lang=$1
+#RewriteRule ^evento_fb_cuota/(.*) test_multi_fb_share.php?lang=$1
+
+RewriteRule ^event/(.*)/lang/(.*) event.php?event_id=$1&lang=$2
+
+RewriteRule ^en/event/(.*)/(.*)/(.*)/(.*)/(.*) event.php?lang=en&event_id=$1&state=$2&county=$3&city=$4&eventname=$5
+RewriteRule ^es/evento/(.*)/(.*)/(.*)/(.*)/(.*) event.php?lang=es&event_id=$1&state=$2&county=$3&city=$4&eventname=$5
+
+RewriteRule ^en/event/(.*)/(.*)/(.*)/(.*) event.php?lang=en&event_id=$1&state=$2&county=$3&eventname=$4
+RewriteRule ^es/evento/(.*)/(.*)/(.*)/(.*) event.php?lang=es&event_id=$1&state=$2&county=$3&eventname=$4
+
+
+RewriteRule ^en/event/(.*)/(.*) event.php?lang=en&event_id=$1&eventname=$2
+RewriteRule ^es/evento/(.*)/(.*) event.php?lang=es&event_id=$1&eventname=$2
+
+
+RewriteRule ^event/(.*)/en/(.*) event.php?lang=en&event_id=$1&eventname=$2
+RewriteRule ^evento/(.*)/es/(.*) event.php?lang=es&event_id=$1&eventname=$2
+
+RewriteRule ^files/event/(.*)/(.*) files/event/$1/$2
+RewriteRule ^event/(.*) event.php?event_id=$1
+
+RewriteRule ^(.*)/event/(.*)/gallery/(.*) fancy_share.php?lang=$1&event_id=$2&media_id=$3
+RewriteRule ^(.*)/evento/(.*)/galeria/(.*) fancy_share.php?lang=$1&event_id=$2&media_id=$3
+#RewriteRule ^fancy_share/(.*)/event/(.*) fancy_share.php?lang=$1&media_id=$2
+
+RewriteRule ^(.*)/event/(.*)/bookings/(.*) booking_share.php?lang=$1&event_name=$2&event_id=$3
+RewriteRule ^(.*)/evento/(.*)/bookings/(.*) booking_share.php?lang=$1&event_name=$2&event_id=$3
+
+RewriteRule ^(.*)/event/(.*)/savedevent/(.*) savedevent_share.php?lang=$1&event_name=$2&event_id=$3
+RewriteRule ^(.*)/evento/(.*)/savedevent/(.*) savedevent_share.php?lang=$1&event_name=$2&event_id=$3
+
+RewriteRule ^eventPage/(.*)/multi/(.*)/lang/(.*) event.php?event_id=$1&multi_id=$2&lang=$3
+RewriteRule ^eventPage/(.*)/(.*)$ event.php?event_id=$1&multi_id=$2
+
+RewriteRule ^events/(.*)/sub_id/(.*) event.php?event_id=$1&sub_id=$2
+
+#might be this url is not working 
+RewriteRule ^aboutkpasapp/(.*) about.php?page_id=$1
+RewriteRule ^about/(.*) about.php?page_id=$1
+#might be this url is not working
+
+
+#working url 
+RewriteRule ^en/about-kpasapp/(.*) about.php?page_id=$1
+RewriteRule ^es/acerca-de-kpasapp/(.*) about.php?page_id=$1
+#working url 
+
+RewriteRule ^(.*)/blog/(.*)/(.*) blog.php?lang=$1&page_id=$2&title=$3
+RewriteRule ^(.*)/about_kp/(.*) cms.php?lang=$1&page_id=$2
+RewriteRule ^(.*)/about_baja_sur/(.*) cms.php?lang=$1&page_id=$2
+
+RewriteRule ^en/about-baja-sur/(.*) cms.php?page_id=$1
+RewriteRule ^es/acerca-de-baja-california-sur/(.*) cms.php?page_id=$1
+
+RewriteRule ^(.*)/terms-conditions-privacy-policy/ terms_and_condition.php?lang=$1
+RewriteRule ^(.*)/terminos-y-condiciones-pol-ticas-de-privacidad/ terms_and_condition.php?lang=$1
+
+RewriteRule ^(.*)/contact-us/ contact_us.php?lang=$1
+RewriteRule ^(.*)/contactenos/ contact_us.php?lang=$1
+
+
+RewriteRule ^(.*)/news/ what_up.php?lang=$1
+RewriteRule ^(.*)/resources/ resources.php?lang=$1
+
+RewriteRule ^venue/(.*) venue.php?venue_id=$1
+
+RewriteRule ^en/venue/([0-9]+)/(.*)/(.*)/(.*)/(.*)$ venue.php?lang=en&venue_id=$1&state_name=$2&county_name=$3&city_name=$4&venue_name=$5
+RewriteRule ^es/lugares/([0-9]+)/(.*)/(.*)/(.*)/(.*)$ venue.php?lang=es&venue_id=$1&state_name=$2&county_name=$3&city_name=$4&venue_name=$5
+RewriteRule ^en/venue/([0-9]+)/(.*) venue.php?lang=en&venue_id=$1&venue_name=$2
+RewriteRule ^es/lugares/([0-9]+)/(.*) venue.php?lang=es&venue_id=$1&venue_name=$2
+
+
+
+RewriteRule ^registration/ registration.php
+RewriteRule ^activate_user/(.*) activate_user.php?user_id=$1
+RewriteRule ^savedevents/(.*) savedevents.php?saved_id=$1
+#RewriteRule ^bookings/(.*) bookings.php
+RewriteRule ^thankyou/ thankyou.php 
+RewriteRule ^subevent/(.*)/sub_id/(.*) subevent.php?event_id=$1&sub_id=$2
+
+#RewriteRule ^payment/(.*) payment.php?event_id=$1
+RewriteRule ^payment/(.*)/attempt/(.*) payment.php?event_id=$1&attempt_id=$2
+RewriteRule ^sub_payment/(.*)/sub_id/(.*) sub_payment.php?event_id=$1&sub_id=$2
+
+RewriteRule ^payment-receipt/(.*) payment-receipt.php?event=$1
+
+
+RewriteRule ^(.*)/home index.php?lang=$1
+RewriteRule ^(.*)/inicio index.php?lang=$1
+
+
+#RewriteRule ^test_event/(.*)/(.*)/(.*) test_event.php?event_id=$1&lang=$2&eventname=$3
+#RewriteRule ^test_evento/(.*)/(.*)/(.*) test_event.php?event_id=$1&lang=$2&eventname=$3
+
+#RewriteRule ^redirect_blog/(.*)/(.*)/(.*) redirect_blog.php?page_id=$1&lang=$2&title=$3
+#RewriteRule ^redirect_blog/(.*)/(.*)/(.*) redirect_blog.php?page_id=$1&lang=$2&title=$3
+
+#RewriteRule ^index/(.*) index.php?lang=$1
+#RewriteRule ^(([^/]/)*[^.]+\.(html?|php))?$ /$1?language=en [QSA,L]
+
+#RewriteRule ^(.*)$ http://kpasapp.com/$1 [R=301,L]
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L] 
+
+RewriteCond %{HTTP_HOST} ^162\.214\.0\.134
+RewriteRule ^(.*)$ http://www.kpasapp.com/ [R=301,L]
+
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+
+
+
+

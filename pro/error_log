@@ -1,0 +1,12 @@
+[20-Nov-2013 06:30:04 America/Denver] PHP Notice:  Undefined index: paymentType in /home3/kpasappc/public_html/pro/pay.php on line 20
+[20-Nov-2013 06:30:04 America/Denver] PHP Notice:  Undefined variable: obj_base_path in /home3/kpasappc/public_html/pro/pay.php on line 25
+[20-Nov-2013 06:30:04 America/Denver] PHP Fatal error:  Call to a member function base_path() on a non-object in /home3/kpasappc/public_html/pro/pay.php on line 25
+[14-Jan-2014 03:30:39] PHP Parse error:  syntax error, unexpected '<' in /home3/kpasappc/public_html/pro/pay.php on line 27
+[16-Jan-2014 03:15:42] PHP Parse error:  syntax error, unexpected $end in /home3/kpasappc/public_html/pro/pay.php on line 177
+[16-Jan-2014 03:15:54] PHP Parse error:  syntax error, unexpected $end in /home3/kpasappc/public_html/pro/pay.php on line 177
+[23-Jan-2014 04:52:19] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'class/db_mysql.inc' for inclusion (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/kpasappc/public_html/include/user_inc.php on line 4
+[23-Jan-2014 04:52:19] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'class/user_class.php' for inclusion (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/kpasappc/public_html/include/user_inc.php on line 5
+[23-Jan-2014 04:52:19] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'class/pagination.class.php' for inclusion (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/kpasappc/public_html/include/user_inc.php on line 6
+[23-Jan-2014 04:52:19] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'class/class.phpmailer.php' for inclusion (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/kpasappc/public_html/include/user_inc.php on line 7
+[23-Jan-2014 04:52:19] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'include/pdf_barcode/Barcode.php' for inclusion (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/kpasappc/public_html/include/user_inc.php on line 11
+[23-Jan-2014 04:52:19] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required 'include/pdf_barcode/alphapdf.php' (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/kpasappc/public_html/include/user_inc.php on line 12

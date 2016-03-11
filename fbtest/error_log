@@ -1,0 +1,13 @@
+[14-Jul-2014 02:18:22 America/Denver] PHP Fatal error:  Class 'Facebook' not found in /home3/kpasappc/public_html/fbtest/test.php on line 21
+[14-Jul-2014 02:21:49 America/Denver] PHP Fatal error:  Uncaught OAuthException: This IP can't make requests for that application.
+  thrown in /home3/kpasappc/public_html/fbtest/facebook/src/base_facebook.php on line 1325
+[14-Jul-2014 02:21:57 America/Denver] PHP Fatal error:  Uncaught OAuthException: This IP can't make requests for that application.
+  thrown in /home3/kpasappc/public_html/fbtest/facebook/src/base_facebook.php on line 1325
+[14-Jul-2014 02:22:09 America/Denver] PHP Fatal error:  Uncaught OAuthException: This IP can't make requests for that application.
+  thrown in /home3/kpasappc/public_html/fbtest/facebook/src/base_facebook.php on line 1325
+[14-Jul-2014 02:57:56 America/Denver] PHP Fatal error:  Uncaught OAuthException: This IP can't make requests for that application.
+  thrown in /home3/kpasappc/public_html/fbtest/facebook/src/base_facebook.php on line 1325
+[14-Jul-2014 04:58:18 America/Denver] PHP Fatal error:  Uncaught OAuthException: This IP can't make requests for that application.
+  thrown in /home3/kpasappc/public_html/fbtest/facebook/src/base_facebook.php on line 1325
+[14-Jul-2014 05:26:38 America/Denver] PHP Fatal error:  Uncaught OAuthException: This IP can't make requests for that application.
+  thrown in /home3/kpasappc/public_html/fbtest/facebook/src/base_facebook.php on line 1325
