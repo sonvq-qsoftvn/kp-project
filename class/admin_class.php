@@ -798,6 +798,39 @@ function allEventList($limit,$venue_state = false,$venue_county = false,$venue_c
 	$this->query($sql);
 }
 
+function allEventListWithPromo($limit,$venue_state = false,$venue_county = false,$venue_city = false,$venue = false,$show_pastevent = false, $userType = -1)			
+{
+	$whereClause = '';
+	if($venue_state)
+		$whereClause = " AND A.venue_state = '".$venue_state."'";	
+	
+	if($venue_county)
+		$whereClause .= " AND A.venue_county = '".$venue_county."'";	
+	
+	if($venue_city)
+		$whereClause .= " AND  A.venue_city = '".$venue_city."'";	
+	
+	if($venue)
+		$whereClause .= " AND  event_venue = '".$venue."'";	
+		
+	if($show_pastevent==0)	
+		$whereClause .= " AND ( event_start_date_time >= now() OR ( r_span_end >= now() AND recurring = 1) )";	
+		
+    if ($userType != -1) {
+        if($userType != 2 && $userType != 3) {
+            $whereClause .= " AND  B.admin_id = '".$_SESSION['ses_user_id']."'";	
+        }
+    } else {
+        if($_SESSION['ses_user_id']!=1) {
+            $whereClause .= " AND  B.admin_id = '".$_SESSION['ses_user_id']."'";
+        }
+    }
+	
+	$sql="SELECT CASE WHEN P.dpost1 IS NULL THEN 0 ELSE 1 END AS has_promo, A.venue_name,C.city_name,S.county_name,B.*, P.dpost1, P.dpost2, P.dpost3, P.dpost4, P.dpost5 FROM ".$this->prefix()."venue AS A, ".$this->prefix()."city AS C, ".$this->prefix()."county S, ".$this->prefix()."general_events AS B LEFT JOIN ".$this->prefix()."event_promo_instruction AS P ON B.event_id = P.event_id WHERE A.venue_id = B.event_venue AND C.id = A.venue_city AND S.id = A.venue_county $whereClause ORDER BY S.county_name,C.city_name,A.venue_name,B.event_start_date_time ASC $limit";
+
+	$this->query($sql);
+}
+
 function allEventListCount($venue_state = false,$venue_county = false,$venue_city = false,$venue = false,$show_pastevent = false, $userType = -1)			
 {
 	$whereClause = '';
@@ -3334,6 +3367,15 @@ function getCartId($unique_id)
 	return $this->query($sql);
   }
   
+  function getScheduleEvent($date = null) {
+        if ($date != null) {
+            $sql = "SELECT * FROM " . $this->prefix() . "event_promo_schedule where DATE(date_time) = '$date'";
+        } else {
+            $sql = "SELECT * FROM " . $this->prefix() . "event_promo_schedule where DATE(date_time) = CURDATE();";
+        }
+        return $this->query($sql);
+  }
+  
   function getPhotoByEventId($event_id)
 {
 	$sql = "SELECT * FROM `".$this->prefix()."general_events` WHERE event_id='" . $event_id . "'";
@@ -3349,6 +3391,12 @@ function getCartId($unique_id)
     
     function saveAdsSpotlight($ad_id, $spotlight) {
         $sql="UPDATE ".$this->prefix()."ad SET spotlight=".$spotlight." WHERE ad_id=" . $ad_id;
+    
+        $rs=$this->query($sql);
+    }
+    
+    function updateScheduleEventToPublished($promoScheduleId) {
+        $sql="UPDATE ".$this->prefix()."event_promo_schedule SET published=1 WHERE id=" . $promoScheduleId;
     
         $rs=$this->query($sql);
     }
