@@ -16,7 +16,7 @@ class facebookStatus {
     protected $_appID = "445192265673724";
     protected $_appSecret = "41f5bccae260641bce323da48eb35776";
     // For bcs.kpasapp
-    protected $_accessToken = "CAAGU5mbaKZCwBAOk1UZBW6ZA2M4OwnwZCYCZCJUBfpFZBS5h5TXezOyL22pGLPircEyWiZBjYaQ7PiduPa38doAON7mzZBf6OqA2wnQ8fKhZAVKNEkB9TFOx3aRD5jgCd9omZABSaFDqBCg03WPwzQlCZAbmTUu6xMBEILhZC5N0agxdb5qQdR8EZA5C3";
+    protected $_accessToken = "CAAGU5mbaKZCwBABKdZAZApiopoH0UE4lOpvH7aBQRaLE2c4Bt6tNVsKYrpPZAQYskXRqurUkGirjpynonL2wSz2emXbn8nps0lLlNU2A6T7xUdrJBbkl3DvNJgW0YGhTM7Ee2NTI6jraSG4crlorxK1WB7h2PxZAZAwGLyviSkhCydzkcMqqDv4rRdEjW3vYgZD";
     
     
     // marcel.lavabre app
@@ -26,13 +26,13 @@ class facebookStatus {
     protected $_accessToken1 = "CAAXps0Gs0j8BALJQDwPgqVGkGZBABl0nSxLLcAs1gwMEi0lgllZBqsmZCeQxH2ZCPoxFx5lgP1k0diXwYYK5HBidwC8VLupCedolFMWuHzkiLnnZA17xyvtZBNjrRBpQkGUg3fmvF1lfGf7GufKgOEeFUax29yh4NSuPjD47WAAQmQhiCvdUuDkqlST8QWrHQZD";
     
     // For master.kpasapp
-    protected $_pageAccessToken = "CAAGU5mbaKZCwBAFodtvVM2v16wKKoqitlPd1LBPI9A6b95RRbiKZC69ex8ZCWOEEHjzG3mbvORNe2CNlpzZAblSem5VQsyz7sEZAInMupByvEfNjcnNlEDgVTfZBT2g6pgllRAAzhc8bd88qxfTInCQWUvR6rTWJ6QLppoyoAoHDrEtLR3cHDT";
+    protected $_pageAccessToken = "CAAGU5mbaKZCwBACzZBbbyHZB399cZBho5EFLUAsiur9HtAPyrJ5kZCQe6OWuIBVxTxZB5zZBv0RpP3ZCz6cxmMf1XzpLtuueHurXRqOTjTWfFc92VM6u36Kv6p1G2x4VgC56CIZCM9UzvkYTxJ0CxqbyrCovyhlzKa3e4pMPI8h3pQcN1cf8nKcOK";
     
     // For EventsLosCabos
-    protected $_pageAccessToken2 = "CAAGU5mbaKZCwBAAV0Emo0F7HXt85VBBRZAZAuZC0zDzKk6XVR6sCeG2YpLdu0ZApylJZCgSs68YJZB3aomc1jL1DscdEKJvqYDi29xZANNa1wVUt6GL5MXMaekvXSAmJC2h2Oittz0DeVR6qYx8kQAeUOUqpnP3xpG8gJLbwT3lB9kAJWTbH7z9j";
+    protected $_pageAccessToken2 = "CAAGU5mbaKZCwBAJeZAXvSMPBg5n5Rit7nZBhJFPffW3JtIk8fBb8eZApfI1USAo7g25wu8lU1ylx3OU7geB5Iv0sdE3o1chW9iGikfOrlD5HB61UABfr7SYZC438jTGjwOC5NHU7JgBHeUy0ZBDZC1b2onBsqCw1Tu2o8pExreDdlgWlnKbsKeH";
 
     // For Kpasappcom-Eventos-Los-Cabos-1570388476613467
-    protected $_pageAccessToken3 = "CAAGU5mbaKZCwBADgy31LK9Hkoq1RQnKp3m9BiZA5G6zKAg2bw1W4KxwXLsKCuCZBr95aUvpYrwGDYWxRaBwmoc3Eg2M8hQY6jVdVbFDd8nNOPgRgy76DZCqLBSKrJ3TVr0ufwQ5fLQ40ehf41YUtCXLATI5Sdu5k9Y2ZC0EZCULBmSQFjmH85Y";
+    protected $_pageAccessToken3 = "CAAGU5mbaKZCwBAI42exr6ZA6o6rg1rZBFh2m0FKyDVgJ5WbcLbxZCPC23CuZAAdZBEIp95KdJGINwEIpWfmqdjTg7xoZAuV6cc9iWswT2XzUd1bh0UjKY0GJlvl1vqDWJiv7r4SpUMYZAmavHt1uut8PZA40sK4jMevt5MmvRTkNZCIy4umBnYKrjq";
     
     protected $_defaultGraphVersion = "v2.5";
     
