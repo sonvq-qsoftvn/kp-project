@@ -38,7 +38,6 @@ define("AD_SAVE_CREATE_FUNC","Save & Create a new function");
 define("AD_SAVE_EXIT","Save & Exit");
 define("AD_RECURRENCES","Recurrences");
 define("AD_EVENT_REPEAT","This event repeats");
-define("AD_SELECT","Select");
 define("AD_DAILY","Daily");
 define("AD_WEEKLY","Weekly");
 define("AD_MONTHLY","Monthly");
@@ -135,6 +134,7 @@ define("AD_MENU_LOGOUT","Logout");
 define("AD_SHOW_PAST_EVENTS","Show past events");
 define("AD_DATE_AND_TIME","Date & Time");
 define("AD_MENU_NEWSLETTER_BLOG","Newsletter/Blog");
+define("AD_MENU_NEWSLETTER_BLOG_GENERATION","Generate Newsletter/Blog");
 define("AD_MENU_PAGES","Pages");
 define("AD_MENU_EVENT_CATEGORY","Event Category");
 define("AD_MENU_DATABASE","Database");
@@ -199,7 +199,8 @@ define("AD_MENU_CLIENT_MANAGEMENT","Client Management");
 define("AD_USERNAME","Username");
 define("AD_PASSWORD","Password");
 define("AD_FORGOT_YOUR_PASS","Forgot Your Password");
-
+define("AD_MENU_SOCIAL_SHARE", "Social Share");
+define("AD_MESSAGE", "Message");
 
 
 

@@ -20,20 +20,22 @@ if(isset($_REQUEST['submit'])) /*save for media image*/
 		$city=$_POST['city'];
 		$zip=$_POST['zip'];
         $email=$_POST['email'];
-        
-
+		$tel=$_POST['tel'];
+		$cell=$_POST['cell'];
+          
                 
         $objectClientPdo = new pdoDatabase();
-        $result = $objectClientPdo->insertAdsClient($business_name); 
+		$result = $objectClientPdo->insertAdsClient($business_name,$cont_f_name,$cont_l_name,$address,$city,$zip,$email,$tel,$cell); //insert  data into kcp_ad_clients
+		
         if ($result) {		
             header("location:".$obj_base_path->base_path()."/admin/list-client");
-            $msg="Client Successfully Added.";
-            $_SESSION['msg']=$msg;
+                    $msg="Client Successfully Added.";
+                    $_SESSION['msg']=$msg;
             exit();
         } else {
             header("location:".$obj_base_path->base_path()."/admin/add-client");
-            $msg="An error occurs, please try again later!";
-            $_SESSION['msg']=$msg;
+                    $msg="An error occurs, please try again later!";
+                    $_SESSION['msg']=$msg;
             exit();
         }
        
@@ -103,6 +105,22 @@ if(isset($_REQUEST['submit'])) /*save for media image*/
 		  
                     <div>
 
+                        <form name="frm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  enctype="multipart/form-data" class="clients-form">
+                            <fieldset>
+                                <div class="table_wrapper">
+                                    <div class="table_wrapper_inner">														
+                                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="sptable">
+                                            <tr>
+                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Business Name ::</td>
+                                                <td width="84%">
+                                                    <input type="text" name="business_name" id="business_name" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Contact First Name ::</td>
+                                                <td width="84%">
+                                                    <input type="text" name="cont_f_name" id="cont_f_name" />
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Contact Lirst Name ::</td>
@@ -111,7 +129,36 @@ if(isset($_REQUEST['submit'])) /*save for media image*/
                                                 </td>
                                             </tr>
                                             <tr>
-
+                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Address ::</td>
+                                                <td width="84%">
+                                                    <textarea name="address" id="address" rows="4" cols="50"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">City ::</td>
+                                                <td width="84%">
+                                                    <input type="text" name="city" id="city" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Zip ::</td>
+                                                <td width="84%">
+                                                    <input type="text" name="zip" id="zip" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Email ::</td>
+                                                <td width="84%">
+                                                    <input type="text" name="email" id="email" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Tel ::</td>
+                                                <td width="84%">
+                                                    <input type="text" name="tel" id="tel" />
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Cell ::</td>
                                                 <td width="84%">
                                                     <input type="text" name="cell" id="cell" />
@@ -124,17 +171,7 @@ if(isset($_REQUEST['submit'])) /*save for media image*/
                                             </tr>
                                         </table>
                                     </div>
-                                </div>			
-                      <tr>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="16%" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 10px;">Cell ::</td>
-                                                <td width="84%">
-                                                    <input type="text" name="cell" id="cell" />
-                                                </td>
-                                            </tr>
-                                            <tr>
+                                </div>											
                             </fieldset>
                         </form>
                     </div>

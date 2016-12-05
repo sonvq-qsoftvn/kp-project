@@ -41,6 +41,37 @@ $objfeatureimage=new user;
 $objCommon = new Common();
 $objVenueLocation = new user;
 
+$objright_banner = new user;
+
+if ($_SESSION['langSessId'] == "eng") {
+
+    $lang_param_id = "en";
+
+    $objright_banner->all_ad_image($lang_param_id);
+} elseif ($_SESSION['langSessId'] == "spn") {
+
+
+    $lang_param_id = "es";
+
+    $objright_banner->all_ad_image($lang_param_id);
+}
+
+$arrayAds = array();
+$singleAds = array();
+while($rows = $objright_banner->next_record()) {
+
+	$singleAds['ad_size'] = $objright_banner->f('ad_size');
+	$singleAds['position_id'] = $objright_banner->f('position_id');
+	$singleAds['ad_text'] = $objright_banner->f('ad_text');
+	$singleAds['link_url'] = $objright_banner->f('link_url');
+	$singleAds['call_to_action'] = $objright_banner->f('call_to_action');
+	$singleAds['ad_title'] = $objright_banner->f('ad_title');
+	$singleAds['ad_image_name'] = $objright_banner->f('ad_image_name');
+
+	$arrayAds[] = $singleAds;
+}
+$global_ads_id = 0;
+
 if($sub_id != ''){
 $obj_chk->check_access($_REQUEST['sub_id']);
 $obj_chk->next_record();
@@ -541,6 +572,10 @@ $tweet_image =  $obj_base_path->base_path()."/files/event/large/".$objEvent->f('
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/style99.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/header-frontend.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/pagination.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="<?php echo $obj_base_path->base_path(); ?>/js/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $obj_base_path->base_path(); ?>/js/slick/slick-theme.css"/>
+<link href="<?php echo $obj_base_path->base_path(); ?>/js/slick/my-slick.css" rel="stylesheet" type="text/css" />
 <!----------STYLE SHEET END-------------->
 
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>
@@ -1607,7 +1642,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <div id="map-canvas" style="height: 100%; width: 100%;"></div>
 
-			
+	
 <!-- removed from here -->				
 			<iframe class="alignleft" scrolling="no" frameborder="0" style="border:0px;margin-right:5px;padding:0px;" src="<?php //echo $obj_base_path->base_path().'/google_map.php?add='.$add;?>" width="100%" height="100%"></iframe>
                             <script type="text/javascript">
@@ -1650,7 +1685,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <div class="clear"></div>
                       </div>
                       <div class="rightpart" style="width: 344px;">
-                        
+
 			<form name="frm" id="frm" method="post">
                         <input type="hidden" name="action" value="cart" />
                         <input type="hidden" name="frm_event_id" id="frm_event_id" value="" />
@@ -1674,13 +1709,23 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			if($_REQUEST['sub_id'] == ''){?>
                           
 			<?php if($objEvent->f('sub_events') == 1){?>
-										
+						
 			<div class="select_box1">
+
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="select_table1">
+
                 <tr>
                     <td colspan="4">
                        <div class="heading">
-                            <?php if($obj_ticket->num_rows()) { echo SELECT_TICKETS; } else { echo NO_TICKETS_AVAILABLE; }?>
+                           <?php if($objEvent->f('all_access') == 1) : ?>
+                                <?php if($obj_ticket->num_rows()) : ?>
+                                    <?php echo SELECT_TICKETS; ?>
+                                <?php else : ?>
+                                    <?php echo TICKET_RESERVATION_REQUIRED; ?>    
+                                <?php endif; ?>
+                           <?php elseif ($objEvent->f('all_access') == 0) : ?>
+                                <?php echo NO_TICKETS_AVAILABLE; ?>
+                           <?php endif; ?>                           
                        </div>
                     </td>
                 </tr>
@@ -1711,7 +1756,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				 <input type="hidden" name="frm_mx_price<?php echo $count;?>" id="frm_mx_price<?php echo $count;?>" value="" />
 				 <input type="hidden" name="frm_us_price<?php echo $count;?>" id="frm_us_price<?php echo $count;?>" value="" />
 				 <input type="hidden" name="frm_us_tid<?php echo $count;?>" id="frm_us_tid<?php echo $count;?>" value="" />
-				 
+
 				 <?php
 				     }
 				else
@@ -1726,6 +1771,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				?>
 				 
 			     </td>
+
 			     <td width="66%" style="padding-left: 6px;"><?php if($_SESSION['langSessId']=='eng') { echo $obj_ticket->f('ticket_name_en'); } else { echo $obj_ticket->f('ticket_name_sp');}?></td>
 			     <td width="3%" style="padding-right: 4px;"><a href="#showticketdes<?php echo $obj_ticket->f('ticket_id'); ?>" id="ticket_des<?php echo $obj_ticket->f('ticket_id'); ?>">
 				 <img src="<?php echo $obj_base_path->base_path(); ?>/images/select_table_img1.png" border="0" /></a></td>
@@ -1744,6 +1790,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			   </tr>
 			   <script type="text/javascript">
 			     $(document).ready(function() {
+
+$('body').css
 				 $("#ticket_des<?php echo $obj_ticket->f('ticket_id'); ?>").fancybox({ 
 				 'hideOnOverlayClick':false,
 				 'hideOnContentClick':false
@@ -1792,15 +1840,24 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			{
 			?>
 			  <div class="select_box1">
-					
+
                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="select_table1">
                               <tr>
                                 <td colspan="4">
                                     <div class="heading">
-                                        <?php if($obj_ticket->num_rows()) { echo SELECT_TICKETS; } else { echo NO_TICKETS_AVAILABLE; }?>
+                                        <?php if($objEvent->f('all_access') == 1) : ?>
+                                            <?php if($obj_ticket->num_rows()) : ?>
+                                                <?php echo SELECT_TICKETS; ?>
+                                            <?php else : ?>
+                                                <?php echo TICKET_RESERVATION_REQUIRED; ?>    
+                                            <?php endif; ?>
+                                       <?php elseif ($objEvent->f('all_access') == 0) : ?>
+                                            <?php echo NO_TICKETS_AVAILABLE; ?>
+                                       <?php endif; ?>
                                     </div>
                                 </td>
                               </tr>
+
                               <?php 
                               $obj_expire->getTicketByExp($event_id); 
 				if($obj_expire->num_rows()){  
@@ -1809,6 +1866,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					      $count=1;
                                     while($obj_ticket->next_record()){
                               ?>
+
                               <tr>
                                 <td width="10%">
                                 <?php 
@@ -1834,7 +1892,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                     <input type="hidden" name="frm_mx_price<?php echo $count;?>" id="frm_mx_price<?php echo $count;?>" value="" />
                                     <input type="hidden" name="frm_us_price<?php echo $count;?>" id="frm_us_price<?php echo $count;?>" value="" />
                                     <input type="hidden" name="frm_us_tid<?php echo $count;?>" id="frm_us_tid<?php echo $count;?>" value="" />
-                                    
+
                                     <?php
                                     	}
 						else
@@ -1849,6 +1907,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					?>
                                     
                                 </td>
+
                                 <td width="66%" style="padding-left: 6px;"><?php if($_SESSION['langSessId']=='eng') { echo $obj_ticket->f('ticket_name_en'); } else { echo $obj_ticket->f('ticket_name_sp');}?></td>
                                 <td width="3%" style="padding-right: 4px;"><a href="#showticketdes<?php echo $obj_ticket->f('ticket_id'); ?>" id="ticket_des<?php echo $obj_ticket->f('ticket_id'); ?>">
                                     <img src="<?php echo $obj_base_path->base_path(); ?>/images/select_table_img1.png" border="0" /></a></td>
@@ -1865,6 +1924,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                     
                                 <?php /*?><?php if($_SESSION['langSessId']=='eng') { ?>$<?php echo $obj_ticket->f('price_us'); } else { echo $obj_ticket->f('price_mx');}?><?php */?></div></td>
                               </tr>
+
                               <script type="text/javascript">
                                 $(document).ready(function() {
                                     $("#ticket_des<?php echo $obj_ticket->f('ticket_id'); ?>").fancybox({ 
@@ -1878,6 +1938,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                     <?php if($_SESSION['langSessId']=='eng') { echo $obj_ticket->f('description_en'); } else { echo $obj_ticket->f('description_sp');}?>
                                 </div>
                               </div>
+                                    					
                               <?php
                                     $count++;
 				}
@@ -1908,6 +1969,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                   
                           </table>
                           </div>
+
 			  <?php
 				}
 			  ?>
@@ -1921,6 +1983,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                 <div><a href="javascript:void(0);" onclick="save();"><img src="<?php echo $obj_base_path->base_path(); ?>/images/spainreser_btn.gif" /></a></div>
                              <?php } ?>  
                              </div>
+
 				<?php 
 				      } 
 			      } 
@@ -1931,13 +1994,22 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				      $obj_sub_ticket_img->subgetTicketById($_REQUEST['sub_id'],$objsub_event->f('parent_id')); 
 				      
 			      ?>
+
                          <div class="select_box1">
 				
                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="select_table1">
                               <tr>
                                 <td colspan="4">
                                     <div class="heading">
-                                        <?php if($obj_sub_ticket->num_rows()) { echo SELECT_TICKETS; } else { echo NO_TICKETS_AVAILABLE; }?>
+                                        <?php if($objEvent->f('all_access') == 1) : ?>
+                                            <?php if($obj_ticket->num_rows()) : ?>
+                                                <?php echo SELECT_TICKETS; ?>
+                                            <?php else : ?>
+                                                <?php echo TICKET_RESERVATION_REQUIRED; ?>    
+                                            <?php endif; ?>
+                                       <?php elseif ($objEvent->f('all_access') == 0) : ?>
+                                            <?php echo NO_TICKETS_AVAILABLE; ?>
+                                       <?php endif; ?>
                                     </div>
                                 </td>
                               </tr>
@@ -2009,6 +2081,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						<?php }
 						elseif($_REQUEST['sub_id'] != '' && $access == 2)
 						{
+
 						?>
 						
 							<?php /*?><table width="100%" border="0" cellspacing="0" cellpadding="0" class="select_table1">
@@ -2072,6 +2145,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						<div class="icon_box2"><p><?php if($_REQUEST['lang']=='en'){echo "Invite your friends";} elseif($_REQUEST['lang']=='es'){echo "Invita a tus amigos";}?> <a href="#"><img src="<?php echo $obj_base_path->base_path(); ?>/images/icon9.gif" border="0" align="absmiddle"/></a> <a href="#"><img src="<?php echo $obj_base_path->base_path(); ?>/images/icon8.gif" border="0" align="absmiddle"/></a></p></div>
 						<div class="clear"></div>
                         <div class="like_box" style=" margin: 0 0 0 0; width: 333px; vertical-align: baseline !important;">
+
                           <table width="100%" border="0" cellspacing="0" cellpadding="0" class="like_table">
                               <tr><td>
 					<div style="margin: 4px;float:left;padding: 5px;">
@@ -2093,6 +2167,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					 }
 					 
 					 ?>
+
 					<div id="fb-root"></div>
 					<script>(function(d, s, id) {
 					  var js, fjs = d.getElementsByTagName(s)[0];
@@ -2104,7 +2179,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					
 					<div class="fb-share-button" data-href="<?php echo $url;?>" data-type="box_count"></div>
 					
-					
+
 					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $url;?>" data-via="Kpasapp" data-lang="<?=$lang?>" data-related="anywhereTheJavascriptAPI" data-text="<?php if($_REQUEST['lang']=='en') { echo htmlentities(stripslashes($objEvent->f('event_name_en')))." , "; } else { echo htmlentities(stripslashes($objEvent->f('event_name_sp')))." , "; }?> <?php if($_SESSION['langSessId']=='eng') { echo date("l, j F, Y, g:i a",strtotime($objEvent->f('event_start_date_time'))).", ".$obj_venue->f('venue_name').", ".$obj_venue->f('city'); } else { setlocale(LC_TIME, 'es_ES.UTF-8'); echo  strftime("%a",strtotime($event_date))." ".strftime("%e",strtotime($event_date))." de ".strftime("%b",strtotime($event_date)).", ".strftime("%Y",strtotime($event_date)).", ".$obj_venue->f('venue_name_sp').", ".$obj_venue->f('city');}?>" data-count="vertical">Tweet</a>
 					
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -2120,7 +2195,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 						})();
 					</script>
-					
+
 					<script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script>
 					
 					<!-- Place this tag where you want the su badge to render -->
@@ -2134,7 +2209,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
 					  })();
 					</script>
-					
+															
 					</div>
 					</td>
                               </tr>
@@ -2143,13 +2218,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			<div class="clear"></div>		
                         <div class="offer_box" style="float: left; margin: 0; width:100%;">                       
                        	 <div class="preview_imgbox" style="float: left; width: 100%;">
+
                          <div class="imgbox" style="width:100%; height: auto;">
                             <ul>
                            <!-- <li><img src="<?php echo $obj_base_path->base_path(); ?>/images/preview_img1.gif" border="0" /></li>-->
                          	  
 				<!-----------FOR  FEATURE  IMAGE------------------>
 				
-				
+
 				<?php  $objfeatureimage->isfeatureImage($event_id);
 					$objfeatureimage->next_record();
 				       if($objfeatureimage->num_rows())
@@ -2167,6 +2243,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						});
 					});
 				  </script>
+
                                   <div style="display:none;">
                                   	<div style="width:auto;height:auto; background:#FFF; padding:10px;" id="feature_image">
                                     	<img src="<?php echo $obj_base_path->base_path(); ?>/files/event/medium/<?php echo htmlentities(stripslashes($objfeatureimage->f('media_url')));?>"  border="0"  />
@@ -2179,6 +2256,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					   if($objEvent->f('event_photo')){  
 
 					?>
+
                             	<li style="margin: 0; display: block;">
                                 <a href="#feature_image" id="feature"><img itemprop="image" src="<?php echo $obj_base_path->base_path(); ?>/files/event/medium/<?php echo $objEvent->f('event_photo');?>"  border="0"  /></a>
                                 </li>
@@ -2201,22 +2279,51 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					} //else end
 				
 				?>
-				
+							
 				<!--------------FOR FEATURE IMAGE  END------------------------->
 				  
                             
                             </ul>
                          </div>
                         </div>
-			</div>				
+			</div>	
+								
 			<div class="clear"></div>		
                       </div>
                     </div>
                     <div class="clear"></div>
+
                     <div class="show_box"> 
 					                    
                       <div class="leftbox" id="scrollto">
+                          
+                        <div class="ads-slider hidden-desktop">
+                            <?php foreach ($arrayAds as $singleAd) : ?>
+                                <div class="ads-box <?php echo $singleAd['ad_size'] ?>">
+                                    <h4>
+                                        <a href="<?php echo $singleAd['link_url']  ?>" target="_blank">
+                                            <?php echo htmlentities($singleAd['ad_title'])  ?>
+                                        </a>
+                                    </h4>
+                                    <div class="ads-img-box">
+                                        <a href="<?php echo $singleAd['link_url']  ?>" target="_blank">
+                                            <img alt="<?php echo htmlentities($singleAd['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $singleAd['ad_image_name'] ?>" border="0" />
+                                        </a>
+                                    </div>
+                                    <div class="ads-text">
+                                        <?php echo htmlentities($singleAd['ad_text'])  ?>
+                                    </div>    
+                                    <div class="ads-button"> 
+                                        <a href="<?php echo $singleAd['link_url'] ?>" target="_blank">
+                                            <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
+                                        </a>
+                                    </div> 
+                                </div>
+                            <?php endforeach; ?>                          
+                        </div>
+
                        	<p style="min-height: 0; height: auto;">
+
 						<?php //if($_SESSION['langSessId']=='eng') { echo $objEvent->f('event_details_en'); } else { echo $objEvent->f('event_details_sp');}?>
 						<?php 
 						if($sub_id == ''){
@@ -2228,11 +2335,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						}
 						?>
 						</p>
+
                       </div>
+
                     </div>
                 </div>
                 <div class="clear"></div>
-				
+
 <!--                <div class="view_box">
                 	<div class="heading"><?=SECTION1_TEXT;?></div>
                 	<div class="hot_events">
@@ -2241,6 +2350,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     <div class="clear"></div>d
                 </div>
 -->                <div class="clear"></div>
+
         <?php if($obj_event_media->num_rows()){ ?> <!---if images----------------------->
 	
                 <div class="view_box" style="margin: 0;">
@@ -2411,6 +2521,9 @@ $(document).ready(function(){
 
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.slicknav.min.js"></script>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/slick/slick.min.js"></script>
 <script>
 	var jqueryNoConflict = $.noConflict();
 	jqueryNoConflict(document).ready(function($){
@@ -2418,7 +2531,40 @@ $(document).ready(function(){
 			label: '',
 		});	
         
-        
+        $('.ads-slider').slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            speed: 500,
+			autoplaySpeed: 5000,
+            autoplay: true,            
+            slidesToShow: 1,
+            slidesToScroll: 1,
+			adaptiveHeight: true, 
+            responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,                  
+                }
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+        });
 	});
 </script>
 

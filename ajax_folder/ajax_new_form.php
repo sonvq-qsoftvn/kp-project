@@ -36,15 +36,15 @@ define('PERSONAL', 'Personal');
 define('PROFESSIONAL', 'Profesional');
 define('FIRST_NAME', 'Nombre');
 define('LAST_NAME', 'Apellido');
-define("EMAIL","Correo Electrónico");
-define('CELL_PHONE', 'Móvil');
+define("EMAIL","Correo ElectrÃ³nico");
+define('CELL_PHONE', 'MÃ³vil');
 define('LANG', 'Idioma');
-define('COUNTRY', 'País');
-define('PASS', 'Contraseña');
-define('CON_PASS', 'Confirme contraseña');
-define('HUMAN', '¿Eres humano o robot de spam?');
-define('PRIVIACY', 'Términos y condiciones');
-define('TERMS_CONDITION', 'Al crear mi cuenta KPasapp, reconozco que he leído y aceptado los <a href="#" style="text-decoration:underline; color:#117ADA">Terminos y Condiciones, Politicas de Cancelaciones y Devolución y Politicas de Privacidad de KPasapp.com.</a>');
+define('COUNTRY', 'PaÃ­s');
+define('PASS', 'ContraseÃ±a');
+define('CON_PASS', 'Confirme contraseÃ±a');
+define('HUMAN', 'Â¿Eres humano o robot de spam?');
+define('PRIVIACY', 'TÃ©rminos y condiciones');
+define('TERMS_CONDITION', 'Al crear mi cuenta KPasapp, reconozco que he leÃ­do y aceptado los <a href="#" style="text-decoration:underline; color:#117ADA">Terminos y Condiciones, Politicas de Cancelaciones y DevoluciÃ³n y Politicas de Privacidad de KPasapp.com.</a>');
 define('CREATE_ACCOUNT', 'Crear Cuenta');
 }
 
@@ -71,7 +71,7 @@ $obj->next_record();
 $pass_exists = $obj->f('password');
 if($obj->num_rows()==0){
 ?>		
-          <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/contact.js"></script>
+          <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/contact-new.js"></script>
           <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/pass_strength_script.js"></script>
 	  <div style="width: 260px; float: left; margin: 0 0 0 21px;">
                     	<h1 style="font: normal 22px/22px Arial, Helvetica, sans-serif; padding: 0; margin: 0; color: #000000;"><?php echo ORSHOW;?></h1>
@@ -158,16 +158,16 @@ if($obj->num_rows()==0){
                              </td>
                           </tr>
                           
-                          
-                          
                           <tr>
-                            <td style="padding-left: 18px;"><input id="num1" name="num1" readonly="readonly" class="sum" style="width: 12px; font: bold 16px/18px Arial, Helvetica, sans-serif; color: #525252; background: none; border: 0;" value="<?php echo rand(1,4) ?>" /> + 
-                                <input id="num2" name="num2" readonly="readonly" class="sum" value="<?php echo rand(5,9) ?>" style="width: 12px; font: bold 16px/18px Arial, Helvetica, sans-serif; color: #525252; background: none; border: 0;"/> =</td>
-                			<td>
-                                <input type="text" name="captcha" id="captcha" class="captcha" maxlength="2" />
-                                <div id="spambot">(<?php echo HUMAN;?>)</div>                            
-                            </td>	
+                              <td>
+                                  
+                              </td>
+                              <td>
+                                <div class="g-recaptcha" data-sitekey="6Le4MAsUAAAAAPwZhwVvMIXcQVIieF3ltoMXHa2H"></div>
+                                <label class="captcha_error error" style="display: none;">Please verify that you are human</label>
+                              </td>
                           </tr>
+                          
                           <tr>
                             <td style="padding-left: 18px;"><a href="<?php echo $obj_base_path->base_path(); ?>/about/privacy-terms" style="color:#00F;"><?php echo PRIVIACY;?></a></td>
                 			<td>&nbsp;</td>
@@ -278,17 +278,17 @@ else
                                 <input type="hidden" name="country_code" id="country_code" value="<?php echo $county_val;?>"  />
                              </td>
                           </tr>
+
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    <div class="g-recaptcha" data-sitekey="6Le4MAsUAAAAAPwZhwVvMIXcQVIieF3ltoMXHa2H"></div>
+                                    <label class="captcha_error error" style="display: none;">Please verify that you are human</label>
+                                </td>
+                            </tr>
                           
-                          
-                          
-                          <tr>
-                            <td style="padding-left: 18px;"><input id="num1" name="num1" readonly="readonly" class="sum" style="width: 12px; font: bold 16px/18px Arial, Helvetica, sans-serif; color: #525252; background: none; border: 0;" value="<?php echo rand(1,4) ?>" /> + 
-                                <input id="num2" name="num2" readonly="readonly" class="sum" value="<?php echo rand(5,9) ?>" style="width: 12px; font: bold 16px/18px Arial, Helvetica, sans-serif; color: #525252; background: none; border: 0;"/> =</td>
-                			<td>
-                                <input type="text" name="captcha" id="captcha" class="captcha" maxlength="2" />
-                                <div id="spambot">(<?php echo HUMAN;?>)</div>                            
-                            </td>	
-                          </tr>
                           <tr>
                             <td style="padding-left: 18px;"><a href="<?php echo $obj_base_path->base_path(); ?>/about/privacy-terms" style="color:#00F;"><?php echo PRIVIACY;?></a></td>
                 			<td>&nbsp;</td>
@@ -380,3 +380,6 @@ Please <a href='".$obj_base_path->base_path()."/thankyou.php?resend=true&aid=".$
 
 <!--End mc_embed_signup-->
 </div>
+           
+           
+<script src='https://www.google.com/recaptcha/api.js?hl=en'></script>

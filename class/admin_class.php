@@ -18,6 +18,21 @@
 			$this->query($sql);
 			return 1;
 		}
+        
+        function update_user_venue($selected_venue, $selected_venue_state, $selected_venue_county, $selected_venue_city, $user_id) {
+            $sql="update " . $this->prefix() . "admin set selected_venue='".
+                    $selected_venue."', selected_venue_state='".
+                    $selected_venue_state."', selected_venue_county='".
+                    $selected_venue_county."', selected_venue_city='".
+                    $selected_venue_city. "' WHERE admin_id=".$user_id;
+			$this->query($sql);
+			return 1;
+        }
+        
+        function get_user_venue($user_id) {
+            $sql = "SELECT selected_venue, selected_venue_state, selected_venue_county, selected_venue_city FROM ".$this->prefix()."admin WHERE admin_id=".$user_id;
+			$this->query($sql);
+        }
 //==================================== End ============================================
 // ================================== thumb nail ==================================
 
@@ -798,6 +813,84 @@ function allEventList($limit,$venue_state = false,$venue_county = false,$venue_c
 	$this->query($sql);
 }
 
+function allEventListNewsletter($limit,$venue_state = false,$venue_county = false,$venue_city = false,$venue = false,$show_pastevent = false, $userType = -1, $blog_start_date = false, $blog_end_date = false)			
+{
+	$whereClause = '';
+	if($venue_state)
+		$whereClause = " AND A.venue_state = '".$venue_state."'";	
+	
+	if($venue_county)
+		$whereClause .= " AND A.venue_county = '".$venue_county."'";	
+	
+	if($venue_city)
+		$whereClause .= " AND  A.venue_city = '".$venue_city."'";	
+	
+	if($venue)
+		$whereClause .= " AND  event_venue = '".$venue."'";	
+		
+	//if($show_pastevent==0)	
+		//$whereClause .= " AND ( event_start_date_time >= now() OR ( r_span_end >= now() AND recurring = 1) )";	
+		
+    if($blog_start_date && $blog_end_date) {
+        $whereClause .= " AND ( ('$blog_start_date 00:00:00' <= event_start_date_time AND event_start_date_time <= '$blog_end_date 23:59:59') OR ('$blog_start_date 00:00:00' <= event_end_date_time AND event_end_date_time <= '$blog_end_date 23:59:59') )";	
+    }
+    
+    if ($userType != -1) {
+        if($userType != 2 && $userType != 3) {
+            $whereClause .= " AND  B.admin_id = '".$_SESSION['ses_user_id']."'";	
+        }
+    } else {
+        if($_SESSION['ses_user_id']!=1) {
+            $whereClause .= " AND  B.admin_id = '".$_SESSION['ses_user_id']."'";
+        }
+    }
+	
+	$sql="SELECT A.venue_name,C.city_name,S.county_name,B.* FROM ".$this->prefix()."venue AS A, ".$this->prefix()."general_events AS B, ".$this->prefix()."city AS C, ".$this->prefix()."county S  WHERE A.venue_id = B.event_venue AND C.id = A.venue_city AND S.id = A.venue_county $whereClause ORDER BY B.event_start_date_time ASC $limit";
+	
+	//$sql = "SELECT A.venue_name,C.city_name,S.county_name,B.* FROM kcp_general_events AS B  LEFT JOIN kcp_venue AS A ON(A.venue_id = B.event_venue) LEFT JOIN kcp_city AS C  ON(C.id = B.event_venue_city) LEFT JOIN kcp_county S ON(S.id = B.event_venue_county) WHERE 1 = 1 $whereClause ORDER BY S.county_name,C.city_name,A.venue_name,B.event_start_date_time ASC $limit";
+	
+	//echo $sql; 
+	$this->query($sql);
+}
+
+function allEventListNewsletterCount($venue_state = false,$venue_county = false,$venue_city = false,$venue = false,$show_pastevent = false, $userType = -1, $blog_start_date = false, $blog_end_date = false)			
+{
+	$whereClause = '';
+	if($venue_state)
+		$whereClause = " AND A.venue_state = '".$venue_state."'";	
+	
+	if($venue_county)
+		$whereClause .= " AND A.venue_county = '".$venue_county."'";	
+	
+	if($venue_city)
+		$whereClause .= " AND  A.venue_city = '".$venue_city."'";	
+	
+	if($venue)
+		$whereClause .= " AND  event_venue = '".$venue."'";	
+		
+	//if($show_pastevent==0)	
+		//$whereClause .= " AND ( event_start_date_time >= now() OR ( r_span_end >= now() AND recurring = 1) )";	
+		
+    if($blog_start_date && $blog_end_date) {
+        $whereClause .= " AND ( ('$blog_start_date 00:00:00' <= event_start_date_time AND event_start_date_time <= '$blog_end_date 23:59:59') OR ('$blog_start_date 00:00:00' <= event_end_date_time AND event_end_date_time <= '$blog_end_date 23:59:59') )";	
+    }
+    
+    if ($userType != -1) {
+        if($userType != 2 && $userType != 3) {
+            $whereClause .= " AND  B.admin_id = '".$_SESSION['ses_user_id']."'";	
+        }
+    } else {
+        if($_SESSION['ses_user_id']!=1) {
+            $whereClause .= " AND  B.admin_id = '".$_SESSION['ses_user_id']."'";	
+        }
+    }
+	
+	//$sql="SELECT A.venue_name,C.city_name,S.county_name,B.* FROM ".$this->prefix()."venue AS A, ".$this->prefix()."general_events AS B, ".$this->prefix()."city AS C, ".$this->prefix()."county S  WHERE A.venue_id = B.event_venue AND C.id = B.event_venue_city AND S.id = B.event_venue_county $whereClause ORDER BY S.county_name,C.city_name,A.venue_name,B.event_start_date_time ASC ";
+	$sql="SELECT A.venue_name,C.city_name,S.county_name,B.* FROM ".$this->prefix()."venue AS A, ".$this->prefix()."general_events AS B, ".$this->prefix()."city AS C, ".$this->prefix()."county S  WHERE A.venue_id = B.event_venue AND C.id = A.venue_city AND S.id = A.venue_county $whereClause ORDER BY S.county_name,C.city_name,A.venue_name,B.event_start_date_time ASC ";
+
+	$this->query($sql);
+}
+
 function allEventListWithPromo($limit,$venue_state = false,$venue_county = false,$venue_city = false,$venue = false,$show_pastevent = false, $userType = -1)			
 {
 	$whereClause = '';
@@ -865,11 +958,34 @@ function allEventListCount($venue_state = false,$venue_county = false,$venue_cit
 	$this->query($sql);
 }
 
+function allSocialShare($limit)			
+{	
+	$sql="SELECT So.social_id, S.id, S.message, S.dpost1, S.dpost2, S.dpost3, S.dpost4, S.dpost5 FROM ".$this->prefix()."social_share as S LEFT JOIN " .$this->prefix()."social_schedule AS So on (S.id = So.share_id) ORDER BY S.id ASC $limit";
+
+	$this->query($sql);
+}
+
+function allSocialShareCount()			
+{		
+	$sql="SELECT So.social_id, S.id, S.message, S.dpost1, S.dpost2, S.dpost3, S.dpost4, S.dpost5 FROM ".$this->prefix()."social_share AS S LEFT JOIN " .$this->prefix()."social_schedule AS So on (S.id = So.share_id) ORDER BY S.id ASC";
+
+	$this->query($sql);
+}
+
 function getEventById($id)
 {
 	$sql = "SELECT * FROM ".$this->prefix()."general_events  WHERE event_id = '".$id."'";
 	$this->query($sql);
 }
+
+function getSocialShareById($id)
+{
+	$sql = "SELECT * FROM ".$this->prefix()."social_share as S LEFT JOIN ".$this->prefix()."social_schedule as So on (S.id = So.share_id)  WHERE S.id = '".$id."'";
+
+	return $this->query($sql);
+
+}
+
 function eventVenue($event_id)
 {
 	$sql = "SELECT * FROM ".$this->prefix()."venue AS A, ".$this->prefix()."general_events AS B WHERE A.venue_id = B.event_venue  AND B.event_id = ".$event_id;
@@ -2881,6 +2997,12 @@ function getAllSocial($limit){
 	return $this->query($sql);
 }
 
+function getAllSocialURL(){
+
+	$sql="SELECT S.* FROM ".$this->prefix()."social S";
+	//echo $sql;
+	return $this->query($sql);
+}
 
 function allPromotionByID($social_id,$admin_id){
 
@@ -3191,6 +3313,12 @@ function getAllClient()
   return $this->query($sql);
   
   }
+  
+function getAllSponsors()
+{  
+    $sql="SELECT * FROM " . $this->prefix() . "sponsors";	  
+    return $this->query($sql);
+}
 /*------------------------------- CLIENTS SECTION END--------------------------------*/
 
 
@@ -3376,6 +3504,17 @@ function getCartId($unique_id)
         return $this->query($sql);
   }
   
+    function getScheduleSocialShare($date = null) {
+
+        $sql = "SELECT * FROM " . $this->prefix() . "social_share as S LEFT JOIN " . $this->prefix() . "social_schedule as So on (S.id = So.share_id) where DATE(dpost1) = '$date' "
+                . "or DATE(dpost2) = '$date' "
+                . "or DATE(dpost3) = '$date' "
+                . "or DATE(dpost4) = '$date' "
+                . "or DATE(dpost5) = '$date' ";
+        
+        return $this->query($sql);
+  }
+  
   function getPhotoByEventId($event_id)
 {
 	$sql = "SELECT * FROM `".$this->prefix()."general_events` WHERE event_id='" . $event_id . "'";
@@ -3399,6 +3538,118 @@ function getCartId($unique_id)
         $sql="UPDATE ".$this->prefix()."event_promo_schedule SET published=1 WHERE id=" . $promoScheduleId;
     
         $rs=$this->query($sql);
+    }
+    
+    function editSocialShare($id,$message,$dpost1,$dpost2,$dpost3,$dpost4,$dpost5)
+    {
+        $sql = "update ".$this->prefix()."social_share set ";
+        if (!empty($message)) {
+            $sql .= " message='$message'";
+        }
+         if (!empty($dpost1)) {
+            $sql .= ", dpost1='$dpost1'";
+        } else {
+            $sql .= ", dpost1=null";
+        }
+        
+        if (!empty($dpost2)) {
+            $sql .= ", dpost2='$dpost2'";
+        } else {
+            $sql .= ", dpost2=null";
+        }
+        
+        if (!empty($dpost3)) {
+            $sql .= ", dpost3='$dpost3'";
+        } else {
+            $sql .= ", dpost3=null";
+        }
+        
+        if (!empty($dpost4)) {
+            $sql .= ", dpost4='$dpost4'";
+        } else {
+            $sql .= ", dpost4=null";
+        }
+        
+        if (!empty($dpost5)) {
+            $sql .= ", dpost5='$dpost5'";
+        } else {
+            $sql .= ", dpost5=null";
+        }
+        
+        $sql .= " WHERE id=" . $id;
+
+        $this->query($sql);
+        return true;
+    }
+    
+    function createSocialShare($message,$dpost1,$dpost2,$dpost3,$dpost4,$dpost5)
+    {
+        $sql="INSERT INTO ".$this->prefix()."social_share set ";
+        if (!empty($message)) {
+            $sql .= " message='$message'";
+        }
+        
+        if (!empty($dpost1)) {
+            $sql .= ", dpost1='$dpost1'";
+        } else {
+            $sql .= ", dpost1=null";
+        }
+        
+        if (!empty($dpost2)) {
+            $sql .= ", dpost2='$dpost2'";
+        } else {
+            $sql .= ", dpost2=null";
+        }
+        
+        if (!empty($dpost3)) {
+            $sql .= ", dpost3='$dpost3'";
+        } else {
+            $sql .= ", dpost3=null";
+        }
+        
+        if (!empty($dpost4)) {
+            $sql .= ", dpost4='$dpost4'";
+        } else {
+            $sql .= ", dpost4=null";
+        }
+        
+        if (!empty($dpost5)) {
+            $sql .= ", dpost5='$dpost5'";
+        } else {
+            $sql .= ", dpost5=null";
+        }
+        
+        $rs = $this->query($sql);
+
+        return mysql_insert_id();
+    }
+    
+    function editSocialSchedule($shareId,$socialId)
+    {
+        $sql = "update ".$this->prefix()."social_schedule set social_id='$socialId' WHERE share_id=" . $shareId;
+
+        $this->query($sql);
+        return true;
+    }
+    
+    function createSocialSchedule($shareId,$socialId)
+    {
+        $sql = "insert into ".$this->prefix()."social_schedule set social_id='$socialId', share_id=" . $shareId;
+
+        $this->query($sql);
+        return true;
+    }
+    
+    function deleteSocialShareById($id_social_share_delete)
+    {       
+        $sql="DELETE FROM ".$this->prefix()."social_share WHERE id = '".$id_social_share_delete."'";
+	return $this->query($sql);        
+    }
+    
+    function deleteSocialScheduleByShareId($id_social_share_delete)
+    {
+        $sql="DELETE FROM ".$this->prefix()."social_schedule WHERE share_id = '".$id_social_share_delete."'";
+	return $this->query($sql); 
     }
 };
 

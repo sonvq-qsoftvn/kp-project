@@ -515,7 +515,7 @@ div#header_box {
 }
 .spotlight_box .spotlight {
 	width: 680px;
-	height: 144px;
+	height: auto;
 	background: #fff;
 	border: 1px solid #dbdbdb; 
 	margin: 0;
@@ -761,6 +761,9 @@ div#header_box {
 	background: #fff;
 	border: 1px solid #dbdbdb;
 	margin: 0;
+}
+.hidden-desktop {
+    display:none !important;
 }
 .show_box {
 	width: 682px;
@@ -3134,13 +3137,45 @@ table.tool_event th{
 }
 table.tool_event td{
 	border: 1px solid #CCCCCC;
-	padding: 8px 0 8px 8px;
+	padding: 8px 8px 8px 8px;
 	width: 300px;
 	margin:0;
 	font: normal 12px/20px Arial, Helvetica, sans-serif;
 	color: #000;
 }
 
+table.auto-width-table {
+	border: 1px solid #CCCCCC;
+	width: 100%;
+	height: auto;
+	background: none;
+	float: none;
+}
+
+table.auto-width-table th{
+	border: 1px solid #CCCCCC;
+	padding: 8px 0 8px 8px;
+	font: bold 14px/30px Arial, Helvetica, sans-serif;
+	color: #00759b;
+	margin: 0;
+}
+
+table.auto-width-table td{
+	border: 1px solid #CCCCCC;
+	padding: 8px 8px 8px 8px;
+	margin:0;
+	font: normal 12px/20px Arial, Helvetica, sans-serif;
+	color: #000;
+}
+
+table.auto-width-table tr:hover{
+	width: 100%;
+	height: auto;
+	background: #f5f5f5;
+	border: 0;
+	float: none;
+	border: 0;
+}
 
 #rec_id{
 width:100%; background-color:#3A87AD; color:#FFF; text-align:center; vertical-align:middle; margin:1px; 
@@ -3619,9 +3654,9 @@ table.prefer_pro10 h1{
 	vertical-align: top;
 }
 
-input.btn1_sudip[type="Button"], input.btn1_sudip[type="submit"]{
+.btn1_sudip {
 	width: auto;
-	height: 24px;
+	height: 24px; 
 	background: url(../images/bgbtn.gif) center bottom repeat-x #23446d;
 	border: 0;
 	outline: none;
@@ -3633,7 +3668,18 @@ input.btn1_sudip[type="Button"], input.btn1_sudip[type="submit"]{
 	margin: 0;
 	cursor: pointer;
 	float: right;
+} 
+
+.btn_link {
+	margin-left: 10px; 
+	text-decoration: none;
 }
+
+.btn_link:hover {
+	text-decoration: none;
+	color: #fff;
+}
+
 .btn2_sudip {
 	width: auto;
 	height: 24px;
@@ -4300,6 +4346,12 @@ table.event_review th{
     }
     .hidden-mobile {
         display: none;
+    }
+    .hidden-desktop {
+        display:block !important
+    }
+    .align-left-mobile{
+        text-align:left !important
     }
     .like_box > div {
         margin: auto;

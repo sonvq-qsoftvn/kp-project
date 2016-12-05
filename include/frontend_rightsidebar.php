@@ -628,6 +628,7 @@ function check_subscribe()
         
         </div>
 
+
 </div>
 <!--
 <div class="clear"></div>

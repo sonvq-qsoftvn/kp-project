@@ -40,6 +40,37 @@ $checkSub = new user;
 $obj_user_ck = new user;
 $objfeatureimage=new user;
 
+$objright_banner = new user;
+
+if ($_SESSION['langSessId'] == "eng") {
+
+    $lang_param_id = "en";
+
+    $objright_banner->all_ad_image($lang_param_id);
+} elseif ($_SESSION['langSessId'] == "spn") {
+
+
+    $lang_param_id = "es";
+
+    $objright_banner->all_ad_image($lang_param_id);
+}
+
+$arrayAds = array();
+$singleAds = array();
+while($rows = $objright_banner->next_record()) {
+
+	$singleAds['ad_size'] = $objright_banner->f('ad_size');
+	$singleAds['position_id'] = $objright_banner->f('position_id');
+	$singleAds['ad_text'] = $objright_banner->f('ad_text');
+	$singleAds['link_url'] = $objright_banner->f('link_url');
+	$singleAds['call_to_action'] = $objright_banner->f('call_to_action');
+	$singleAds['ad_title'] = $objright_banner->f('ad_title');
+	$singleAds['ad_image_name'] = $objright_banner->f('ad_image_name');
+
+	$arrayAds[] = $singleAds;
+}
+$global_ads_id = 0;
+
 $social_mobile_class = "";
 
 $objEventById=new user;
@@ -1455,27 +1486,26 @@ function showmoreSubevent(num){
                 $num = 10;
                 while($objEvent->next_record()){
                     
-                    $arr[] = array('id'=>$objEvent->f('id'),'event_name_en'=>$objEvent->f('event_name_en'),'event_name_sp'=>$objEvent->f('event_name_sp'),'event_photo'=>$objEvent->f('event_photo'),'multi_start'=>$objEvent->f('event_start_date_time'),'multi_end'=>$objEvent->f('event_end_date_time'),'event_details_sp'=>$objEvent->f('event_details_sp'),'event_details_en'=>$objEvent->f('event_details_en'),'multi_id'=>'','identical_function'=>$objEvent->f('identical_function'),'event_short_desc_en'=>$objEvent->f('event_short_desc_en'),'event_short_desc_sp'=>$objEvent->f('event_short_desc_sp'),'sub_events'=>'','sub_events_types'=>$objEvent->f('sub_events'));
+                    $arr[] = array('all_access'=>$objEvent->f('all_access'),'id'=>$objEvent->f('id'),'event_name_en'=>$objEvent->f('event_name_en'),'event_name_sp'=>$objEvent->f('event_name_sp'),'event_photo'=>$objEvent->f('event_photo'),'multi_start'=>$objEvent->f('event_start_date_time'),'multi_end'=>$objEvent->f('event_end_date_time'),'event_details_sp'=>$objEvent->f('event_details_sp'),'event_details_en'=>$objEvent->f('event_details_en'),'multi_id'=>'','identical_function'=>$objEvent->f('identical_function'),'event_short_desc_en'=>$objEvent->f('event_short_desc_en'),'event_short_desc_sp'=>$objEvent->f('event_short_desc_sp'),'sub_events'=>'','sub_events_types'=>$objEvent->f('sub_events'));
                 }
                 
                 $objmulti_event->MultiEventAll($limit,$tags,$category,$evn_city,$evn_venue,$start_date,$end_date,$key_word,$county_val,$event_categories);
                     
                 while($objmulti_event->next_record()){
                 
-                    $arr1[] = array('id'=>$objmulti_event->f('id'),'event_name_en'=>$objmulti_event->f('event_name_en'),'event_name_sp'=>$objmulti_event->f('event_name_sp'),'event_photo'=>$objmulti_event->f('event_photo'),'multi_start'=>$objmulti_event->f('event_start_date_time'),'multi_end'=>$objmulti_event->f('multi_end'),'event_details_sp'=>$objmulti_event->f('event_details_sp'),'event_details_en'=>$objmulti_event->f('event_details_en'),'multi_id'=>$objmulti_event->f('multi_id'),'identical_function'=>'','event_short_desc_en'=>$objmulti_event->f('event_short_desc_en'),'event_short_desc_sp'=>$objmulti_event->f('event_short_desc_sp'),'sub_events'=>'','sub_events_types'=>'');
+                    $arr1[] = array('all_access'=>$objmulti_event->f('all_access'),'id'=>$objmulti_event->f('id'),'event_name_en'=>$objmulti_event->f('event_name_en'),'event_name_sp'=>$objmulti_event->f('event_name_sp'),'event_photo'=>$objmulti_event->f('event_photo'),'multi_start'=>$objmulti_event->f('event_start_date_time'),'multi_end'=>$objmulti_event->f('multi_end'),'event_details_sp'=>$objmulti_event->f('event_details_sp'),'event_details_en'=>$objmulti_event->f('event_details_en'),'multi_id'=>$objmulti_event->f('multi_id'),'identical_function'=>'','event_short_desc_en'=>$objmulti_event->f('event_short_desc_en'),'event_short_desc_sp'=>$objmulti_event->f('event_short_desc_sp'),'sub_events'=>'','sub_events_types'=>'');
                 }   
                 
                 $objsubEventAll->SubEventAll('',$tags,$category,$evn_city,$evn_venue,$start_date,$end_date,$key_word,$county_val,$event_categories);
                     
                 while($objsubEventAll->next_record()){
                 
-                    $arr2[] = array('id'=>$objsubEventAll->f('id'),'event_name_en'=>$objsubEventAll->f('eve_name_en'),'event_name_sp'=>$objsubEventAll->f('eve_name_sp'),'event_photo'=>$objsubEventAll->f('event_photo'),'multi_start'=>$objsubEventAll->f('event_start_date_time'),'multi_end'=>$objsubEventAll->f('multi_end'),'event_details_sp'=>$objmulti_event->f('event_details_sp'),'event_details_en'=>$objsubEventAll->f('event_details_en'),'multi_id'=>$objsubEventAll->f('multi_id'),'identical_function'=>'','event_short_desc_en'=>$objsubEventAll->f('event_short_desc_en'),'event_short_desc_sp'=>$objsubEventAll->f('event_short_desc_sp'),'sub_events'=>$objsubEventAll->f('sub_event_id'),'sub_events_types'=>'');
-                }   
+                    $arr2[] = array('all_access'=>$objsubEventAll->f('all_access'),'id'=>$objsubEventAll->f('id'),'event_name_en'=>$objsubEventAll->f('eve_name_en'),'event_name_sp'=>$objsubEventAll->f('eve_name_sp'),'event_photo'=>$objsubEventAll->f('event_photo'),'multi_start'=>$objsubEventAll->f('event_start_date_time'),'multi_end'=>$objsubEventAll->f('multi_end'),'event_details_sp'=>$objmulti_event->f('event_details_sp'),'event_details_en'=>$objsubEventAll->f('event_details_en'),'multi_id'=>$objsubEventAll->f('multi_id'),'identical_function'=>'','event_short_desc_en'=>$objsubEventAll->f('event_short_desc_en'),'event_short_desc_sp'=>$objsubEventAll->f('event_short_desc_sp'),'sub_events'=>$objsubEventAll->f('sub_event_id'),'sub_events_types'=>'');
+                }    
                 
                 
                 
                 $allData = array_merge($arr,$arr1,$arr2);
-                
                 
                 function sortFunction( $a, $b ) {
                     return strtotime($a["multi_start"]) - strtotime($b["multi_start"]);
@@ -1558,7 +1588,34 @@ function showmoreSubevent(num){
                              if($i!=0)
                              {
                                 if($row[$i]!=$row[$i-1])
-                                {   
+                                { 
+                                     ?>
+                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
+                        <h4>
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
+                            </a>
+                        </h4>
+                        <div class="ads-img-box">
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
+                            </a>
+                        </div>
+                        <div class="ads-text">
+                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
+                        </div>    
+                        <div class="ads-button"> 
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
+                            </a>
+                        </div> 
+                    </div>
+                    <?php
+                                $global_ads_id++;
+                                if ($global_ads_id >= count($arrayAds)) {
+                                    $global_ads_id = 0;
+                                }
+                                echo '<div class="clear"></div>';
                                 echo ' <div class="date">'; 
                                 echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
                                 echo ' </div>';
@@ -1566,6 +1623,33 @@ function showmoreSubevent(num){
                             }
                             else
                             {
+                                 ?>
+                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
+                        <h4>
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
+                            </a>
+                        </h4>
+                        <div class="ads-img-box">
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
+                            </a>
+                        </div>
+                        <div class="ads-text">
+                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
+                        </div>    
+                        <div class="ads-button"> 
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
+                            </a>
+                        </div> 
+                    </div>
+                    <?php
+                                $global_ads_id++;
+                                if ($global_ads_id >= count($arrayAds)) {
+                                    $global_ads_id = 0;
+                                }
+                                echo '<div class="clear"></div>';
                                 echo ' <div class="date">';
                                 echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
                                 echo ' </div>';
@@ -1739,7 +1823,34 @@ function showmoreSubevent(num){
                          if($i!=0)
                          {
                             if($row[$i]!=$row[$i-1])
-                            {   
+                            {
+                                 ?>
+                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
+                        <h4>
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
+                            </a>
+                        </h4>
+                        <div class="ads-img-box">
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
+                            </a>
+                        </div>
+                        <div class="ads-text">
+                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
+                        </div>    
+                        <div class="ads-button"> 
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
+                            </a>
+                        </div> 
+                    </div>
+                    <?php
+                            $global_ads_id++;
+                            if ($global_ads_id >= count($arrayAds)) {
+                                $global_ads_id = 0;
+                            }
+                            echo '<div class="clear"></div>';
                             echo ' <div class="date">';         
                             echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
                             echo ' </div>';
@@ -1747,6 +1858,33 @@ function showmoreSubevent(num){
                         }
                         else
                         {
+                             ?>
+                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
+                        <h4>
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
+                            </a>
+                        </h4>
+                        <div class="ads-img-box">
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
+                            </a>
+                        </div>
+                        <div class="ads-text">
+                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
+                        </div>    
+                        <div class="ads-button"> 
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
+                            </a>
+                        </div> 
+                    </div>
+                    <?php
+                            $global_ads_id++;
+                            if ($global_ads_id >= count($arrayAds)) {
+                                $global_ads_id = 0;
+                            }
+                            echo '<div class="clear"></div>';
                             echo ' <div class="date">';
                             echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
                             echo ' </div>';
@@ -1871,6 +2009,33 @@ function showmoreSubevent(num){
                          {
                             if($row[$i]!=$row[$i-1])
                             {   
+                                 ?>
+                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
+                        <h4>
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
+                            </a>
+                        </h4>
+                        <div class="ads-img-box">
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
+                            </a>
+                        </div>
+                        <div class="ads-text">
+                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
+                        </div>    
+                        <div class="ads-button"> 
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
+                            </a>
+                        </div> 
+                    </div>
+                    <?php
+                            $global_ads_id++;
+                            if ($global_ads_id >= count($arrayAds)) {
+                                $global_ads_id = 0;
+                            }
+                            echo '<div class="clear"></div>';
                             echo ' <div class="date">';         
                             echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
                             echo ' </div>';
@@ -1878,6 +2043,33 @@ function showmoreSubevent(num){
                         }
                         else
                         {
+                            ?>
+                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
+                        <h4>
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
+                            </a>
+                        </h4>
+                        <div class="ads-img-box">
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
+                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
+                            </a>
+                        </div>
+                        <div class="ads-text">
+                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
+                        </div>    
+                        <div class="ads-button"> 
+                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
+                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
+                            </a>
+                        </div> 
+                    </div>
+                    <?php
+                            $global_ads_id++;
+                            if ($global_ads_id >= count($arrayAds)) {
+                                $global_ads_id = 0;
+                            }
+                            echo '<div class="clear"></div>';
                             echo ' <div class="date">';
                             echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
                             echo ' </div>';

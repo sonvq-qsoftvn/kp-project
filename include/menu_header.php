@@ -161,7 +161,13 @@ if($_SESSION['ses_page_name']=="userprofile.php" || $_SESSION['ses_page_name']==
             <li><a href="<?php if($_SESSION['langSessId']=='eng') { echo $obj_base_path->base_path(); ?>/en/blog/<?php echo $objblog->f('page_id');?>/<?php echo strtolower(preg_replace($old_pattern, $new_pattern , $objblog->f('page_name')));} else {echo $obj_base_path->base_path(); ?>/es/blog/<?php echo $objblog->f('page_id');?>/<?php echo strtolower(preg_replace($old_pattern, $new_pattern , $objblog->f('title_sp')));}?> " <?php if($_SESSION['ses_page_name']=="blog.php") {?> class="active" <?php } ?>><?=TAB_MY_APPS?></a></li>
 	    
             <li><div class="back_nav_devider">&nbsp;</div></li>
-            <li><a href="javascript:void(0);" onclick="checklogged_2(2)" style="text-align: center; vertical-align: top; line-height: 20px;"><?=TAB_ANNOUNCE_EVENTS?></a></li>
+            <li><a class="align-left-mobile" href="javascript:void(0);" onclick="checklogged_2(2)" style="text-align: center; vertical-align: top; line-height: 20px;"><?=TAB_ANNOUNCE_EVENTS?></a></li>
+            
+            <!-- additional menu -->
+            <li class="hidden-desktop"><a href="<?php  if($_SESSION['langSessId']=='eng') { echo $obj_base_path->base_path(); ?>/en/about-kpasapp/ <?php } else {echo $obj_base_path->base_path(); ?>/es/acerca-de-kpasapp/ <?php }?> "><?=ABOUT_KCPASA?></a></li>                                   
+            <li class="hidden-desktop"><a href="<?php  if($_SESSION['langSessId']=='eng') { echo $obj_base_path->base_path(); ?>/en/about-baja-sur/ <?php } else {echo $obj_base_path->base_path(); ?>/es/acerca-de-baja-california-sur/ <?php }?> "><?=ABOUT_BAJASUR?></a></li>
+            <li class="hidden-desktop"><a href="<?php  if($_SESSION['langSessId']=='eng') { echo $obj_base_path->base_path(); ?>/en/news/ <?php } else {echo $obj_base_path->base_path(); ?>/es/news/ <?php }?> "><?=WHATS_UP?></a></li>
+            <li class="hidden-desktop"><a href="<?php  if($_SESSION['langSessId']=='eng') { echo $obj_base_path->base_path(); ?>/en/resources/ <?php } else {echo $obj_base_path->base_path(); ?>/es/resources/ <?php }?> "><?=RESOURCES?></a></li>
         </ul>
     </div>    
     </div>

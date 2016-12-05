@@ -49,6 +49,21 @@ $chk = "checked='checked'";
 $objlist->category_list();
 //$objlist_most_used->most_used_category();
 
+$obj_user_venue = new admin;
+$obj_user_venue->get_user_venue($_SESSION['ses_user_id']);
+$selected_venue = '';
+$selected_venue_state = '';
+$selected_venue_county = '';
+$selected_venue_city = '';
+while($obj_user_venue->next_record())
+{
+    $selected_venue = $obj_user_venue->f('selected_venue');
+    $selected_venue_state = $obj_user_venue->f('selected_venue_state');
+    $selected_venue_county = $obj_user_venue->f('selected_venue_county');
+    $selected_venue_city = $obj_user_venue->f('selected_venue_city');
+}
+
+
 //$unique_id = session_id();
 
 
@@ -273,7 +288,7 @@ if(isset($_POST['addevent']) && $_POST['addevent'] == '1')
 	//echo "hii".$event_id; exit;
 	
 	
-        
+ /*       
 try {
         // post to twitter
         $objLocation->getStateCountyByEventID($event_id);
@@ -344,7 +359,7 @@ try {
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }   
-    
+  */  
 	$last_event_id = $obj_add->editSavedEvent($_SESSION['ses_user_id'],$event_name_sp,$event_name_en,$short_desc_sp,$short_desc_en,$event_start_date_time,$event_start_ampm,$event_end_date_time,$event_end_ampm,$venue_state,$venue_county,$venue_city,$venue,$page_content_en,$page_content_sp,$event_tag,$identical_function,$recurring,$sub_events,$Paypal,$Bank,$Oxxo,$Mobile,$Offline,$publish_date,$event_time,$event_time_period,$r_month,$r_month_day,$mon,$tue,$wed,$thu,$fri,$sat,$sun,$r_span_start,$r_span_end,$event_start,$event_end,$all_day,$event_lasts,$attendees,$invitation_only,$password_protect_check,$pass_protected,$radio_access,$pay_ticket_fee,$promo_charge,$paper_less_mob_ticket,$print,$will_call,$status,$privacy,$_SESSION['unique_id']);
 	
 	// Add Multiple Events
@@ -1569,7 +1584,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
       </select></td>
       <td width="22%">
 		  <div id="div_county_display">
-		  <select name="venue_county" class="selectbg12" onchange="saveAutoEvent();">
+		  <select id="venue_county" name="venue_county" class="selectbg12" onchange="saveAutoEvent();">
 		  <option value=""><?=AD_COUNTY?></option>
 		  <?php
 		  if($msg!="")
@@ -3157,6 +3172,36 @@ function media_library()
 		}
 		
 		$("#status").val('publish');
+        
+        var selected_venue = $("#venue").val();
+        var selected_venue_state = $("#venue_state").val();
+        var selected_venue_county = $("#venue_county").val();
+        var selected_venue_city = $("#venue_city").val();
+            
+        $.ajax({ 
+            url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_save_venue_info.php",
+            async: false,
+            cache: false,
+            type: "POST",
+            data: {
+                selected_venue: selected_venue, 
+                selected_venue_state: selected_venue_state,
+                selected_venue_county: selected_venue_county,
+                selected_venue_city: selected_venue_city,
+                user_id: "<?php echo $_SESSION['ses_user_id']; ?>"
+            },
+            success: function(data){
+                
+            }
+        });
+        
+//        if(typeof(Storage) !== "undefined") {
+//            localStorage.selected_venue = $("#venue").val();
+//            localStorage.selected_venue_state = $("#venue_state").val();
+//            localStorage.selected_venue_county = $("#venue_county").val();
+//            localStorage.selected_venue_city = $("#venue_city").val();            
+//        }
+    
 		if(topValue==1){
 			document.getElementById("day_1").value = document.getElementById("multi_event_day1").value;
 			document.getElementById("month_1").value = document.getElementById("multi_event_month1").value;
@@ -3633,6 +3678,61 @@ var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2" , {defaultTab:0
                 updateShortDescriptionText();    
             }
         });
+       
+       setTimeout(function(){ 
+//            if(typeof(Storage) !== "undefined") {
+//                if (localStorage.selected_venue_state) {
+//                    $("#venue_state").val(localStorage.selected_venue_state);
+//                    getCounty(localStorage.selected_venue_state);
+//                    
+//                    if (localStorage.selected_venue_county) {
+//                        setTimeout(function(){
+//                            $("#venue_county").val(localStorage.selected_venue_county);
+//                            getCity(localStorage.selected_venue_county);
+//                            if (localStorage.selected_venue_city) {
+//                                setTimeout(function(){
+//                                    $("#venue_city").val(localStorage.selected_venue_city);
+//                                    getVenue(localStorage.selected_venue_city);
+//                                    if (localStorage.selected_venue) {
+//                                        setTimeout(function(){
+//                                            $("#venue").val(localStorage.selected_venue);
+//                                        }, 1000);
+//                                    }
+//                                }, 1000);
+//                            }
+//                        }, 1000);
+//                    }                    
+//                }            
+//            }
+            var my_selected_venue_state = "<?php echo isset($selected_venue_state) ? $selected_venue_state : ''; ?>";
+            if (my_selected_venue_state) {
+                $("#venue_state").val(my_selected_venue_state);
+                getCounty(my_selected_venue_state);
+
+                var my_selected_venue_county = "<?php echo isset($selected_venue_county) ? $selected_venue_county : ''; ?>";
+                if (my_selected_venue_county) {
+                    setTimeout(function(){
+                        $("#venue_county").val(my_selected_venue_county);
+                        getCity(my_selected_venue_county);
+                        
+                        var my_selected_venue_city = "<?php echo isset($selected_venue_city) ? $selected_venue_city : ''; ?>";
+                        if (my_selected_venue_city) {
+                            setTimeout(function(){
+                                $("#venue_city").val(my_selected_venue_city);
+                                getVenue(my_selected_venue_city);
+                                
+                                var my_selected_venue = "<?php echo isset($selected_venue) ? $selected_venue : ''; ?>";
+                                if (my_selected_venue) {
+                                    setTimeout(function(){
+                                        $("#venue").val(my_selected_venue);
+                                    }, 1000);
+                                }
+                            }, 1000);
+                        }
+                    }, 1000);
+                }                    
+            }            
+       }, 1000);
        
     });
 </script>  

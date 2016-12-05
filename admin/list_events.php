@@ -10,6 +10,7 @@ $obj_venuestate = new admin;
 $obj_change = new admin;
 $obj_change = new admin;
 $obj_change = new admin;
+$objgallery = new admin;
 
 //echo "hii ".$_SESSION['show_pastevent'];
 
@@ -85,13 +86,23 @@ if(isset($_REQUEST['show_pastevent']) && $_REQUEST['show_pastevent']!=""){
 
 
 $target=$obj_base_path->base_path()."/admin/event-list?venue_state=".$venue_state."&venue_county=".$venue_county."&venue_city=".$venue_city."&venue=".$venue."&show_pastevent=".$show_pastevent;	
+if (isset($_SESSION['ses_user_id']) && ($_SESSION['ses_user_id']!="")) {
+    $userType = -1;
+    $account_type = new admin;
+    $account_type->getAccountTypeByUserId($_SESSION['ses_user_id']);
 
+    if($account_type->num_rows() > 0) {
+        $account_type->next_record();
+        $userType = $account_type->f('account_type');
+    }
+
+}
 if((isset($_REQUEST['venue_state']) && $_REQUEST['venue_state']!="") || (isset($_REQUEST['venue_county']) && $_REQUEST['venue_county']!="") || (isset($_REQUEST['venue_city']) && $_REQUEST['venue_city']!="") || (isset($_REQUEST['venue']) && $_REQUEST['venue']!="") || (isset($_REQUEST['show_pastevent']) && $_REQUEST['show_pastevent']!=""))
 {
 	$_SESSION['show_pastevent']=$show_pastevent;
 		
-	$objlist->allEventList($limit,$venue_state,$venue_county,$venue_city,$venue,$show_pastevent);
-	$objlist_num->allEventListCount($venue_state,$venue_county,$venue_city,$venue,$show_pastevent);
+	$objlist->allEventList($limit,$venue_state,$venue_county,$venue_city,$venue,$show_pastevent, $userType);
+	$objlist_num->allEventListCount($venue_state,$venue_county,$venue_city,$venue,$show_pastevent, $userType);
 
 ?>
 
@@ -107,8 +118,8 @@ $(document).ready(function(){
 else{
 		
 	//event list
-	$objlist->allEventList($limit,'','','','',$show_pastevent);
-	$objlist_num->allEventListCount('','','','',$show_pastevent);
+	$objlist->allEventList($limit,'','','','',$show_pastevent, $userType);
+	$objlist_num->allEventListCount('','','','',$show_pastevent, $userType);
 }
 
 
@@ -145,8 +156,10 @@ function del(eID)
 <script language="javascript" type="text/javascript">
 function getCounty(stateid,venue_county)
 {
-     $('#div_city_display').html('<select name="venue_city" class="selectbg12"><option value="">City</option></select>');
-     $('#div_venue_display').html('<select name="venue" class="selectbg12"><option value="">Venue</option></select>');
+     var firstOptionCity = $("#venue_city option:first").html();
+     var firstOptionVenue = $("#venue option:first").html();
+     $('#div_city_display').html('<select name="venue_city" id="venue_city" class="selectbg12"><option value="">' + firstOptionCity + '</option></select>');
+     $('#div_venue_display').html('<select name="venue" id="venue" class="selectbg12"><option value="">' + firstOptionVenue + '</option></select>');
 	 data = "state_id="+stateid+"&venue_county="+venue_county;
 	 $.ajax({ 
 	   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_get_county_list.php",
@@ -161,7 +174,8 @@ function getCounty(stateid,venue_county)
 
 function getCity(countyid,venue_city)
 {
-     $('#div_venue_display').html('<select name="venue" class="selectbg12"><option value="">Venue</option></select>');
+    var firstOptionVenue = $("#venue option:first").html();
+     $('#div_venue_display').html('<select name="venue" id="venue" class="selectbg12"><option value="">' + firstOptionVenue + '</option></select>');
 	 data = "county_id="+countyid+"&venue_city_list="+venue_city;
 	 $.ajax({ 
 	   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_get_city_list.php",
@@ -244,7 +258,7 @@ function submit_by_js(){
             <tr>
                 <td width="24%">
                 <select name="venue_state" id="venue_state" class="selectbg12" onChange="getCounty(this.value,'');">
-                    <option value="">State</option>
+                    <option value=""><?= AD_STATE ?></option>
                     <?php
                   $obj_venuestate->getVenueState();
                   while($row = $obj_venuestate->next_record())
@@ -259,19 +273,19 @@ function submit_by_js(){
       			</td>
                 <td width="24%"><div id="div_county_display">
                       <select name="venue_county" id="venue_county" class="selectbg12">
-                      <option value="">County</option>
+                      <option value=""><?= AD_COUNTY ?></option>
                       </select>
 		  		</div></td>
                 <td width="23%" >
                 <div id="div_city_display">
                   <select name="venue_city" id="venue_city" class="selectbg12">
-                  <option value="">City</option>
+                  <option value=""><?= AD_CITY ?></option>
                   </select>
 		  		</div></td>
                 <td width="29%" >
                 <div id="div_venue_display">
                   <select name="venue" id="venue" class="selectbg12">
-                  <option value="">Venue</option>
+                  <option value=""><?= AD_VENUE ?></option>
                   </select>
 		  		</div></td>
                 <td width="24%"> <div class="input_box" style="margin: 0px 0 2px 0; float: right;">
@@ -280,7 +294,7 @@ function submit_by_js(){
             </tr>
          </table>
 		 <div class="myevent_box">		 
-	 		<div class="event_header" style="width: 300px; border: 0; float: left;; margin: 0 auto;"><strong>Show past events &nbsp;<?php //echo $show_pastevent;?>             	
+	 		<div class="event_header" style="width: 300px; border: 0; float: left;; margin: 0 auto;"><strong><?= AD_SHOW_PAST_EVENTS ?> &nbsp;<?php //echo $show_pastevent;?>             	
 				<input type="checkbox" name="show_pastevent" id="show_pastevent" value="1" <?php if($show_pastevent == 1){?> checked="checked" <?php } ?> /></strong>
             </div>
 			<?php
@@ -324,14 +338,17 @@ function submit_by_js(){
 			}
 		 ?>
 <?php */?> <tr>
-                <td width="17%" class="top_txt"><?= AD_EVENT ?></td>
-                <td width="14%" class="top_txt"><?= AD_DATE ?> & <?= AD_TIME ?></td>
-                <td width="14%" class="top_txt"><?= AD_VENUE ?></td>
-                <td width="10%" class="top_txt"><?= AD_CITY ?></td>
-                <td width="8%" class="top_txt"><?= AD_COUNTRY ?></td>
-                <td width="7%" class="top_txt"><?= AD_GALLERY ?></td>
-                <td width="13%" class="top_txt center"><?= AD_STATUS ?></td>
-                <td width="17%" class="top_txt"><?= AD_MANAGE ?></td>
+                <?php if ($_SESSION['ses_account_type'] == 2) : ?>
+                    <td width="8%" class="top_txt"><?= AD_SPOTLIGHT ?></td>
+                <?php endif; ?>
+                <td width="16%" class="top_txt"><?= AD_EVENT ?></td>
+                <td width="13%" class="top_txt"><?= AD_DATE_AND_TIME ?></td>
+                <td width="13%" class="top_txt"><?= AD_VENUE ?></td>
+                <td width="9%" class="top_txt"><?= AD_CITY ?></td>
+                <td width="7%" class="top_txt"><?= AD_COUNTY ?></td>
+                <td width="6%" class="top_txt"><?= AD_GALLERY ?></td>
+                <td width="12%" class="top_txt center"><?= AD_STATUS ?></td>
+                <td width="16%" class="top_txt"><?= AD_MANAGE ?></td>
             </tr>
 	        <?php
 
@@ -352,6 +369,9 @@ function submit_by_js(){
 					list($ev_hr,$ev_min,$ev_sec) = explode(":",$event_time);
 		?>
       <tr>
+        <?php if ($_SESSION['ses_account_type'] == 2) : ?>
+            <td><input type="checkbox" id="<?php echo $objlist->f('event_id');?>" class="set_spotlight" name="set_spotlight" value="1" <?php if ($objlist->f('spotlight') == 1) { echo 'checked'; } ?> /></td>
+        <?php endif; ?>
         <td><?php echo stripslashes($objlist->f('event_name_'.$_SESSION['langAdminSelected']));?></td>
         <td><?php 
 		if($ev_hr>12){
@@ -367,9 +387,12 @@ function submit_by_js(){
         <td><?php echo $objlist->f('venue_name');?></td>
         <td style="padding: 5px 0;"><?php echo $objlist->f('city_name');?></td>
         <td><?php echo $objlist->f('county_name');?></td>
-        
-	<td><a href="gallery-list/event/<?php echo $objlist->f('event_id');?>">Gallery</a></td>
-	
+        <?php $objgallery->has_feature_image($objlist->f('event_id')); 
+            if ($objgallery->num_rows()) : ?>       
+            <td><a href="gallery-list/event/<?php echo $objlist->f('event_id');?>">Y</a></td>
+    	<?php else : ?>
+            <td><a href="gallery-list/event/<?php echo $objlist->f('event_id');?>">N</a></td>
+        <?php endif; ?>
         <td style="text-align: left; padding: 5px 0;">
          <?php if($objlist->f('public_privacy')==1)  echo "Private"; else echo "Public";?> /   <?php if($objlist->f('status')=="publish")  echo "Published"; else if($objlist->f('status')=="saved") echo "saved"; else echo "draft";?>
 		 <?php if($objlist->f('identical_function')==1)  echo " / Multi-function"; else if($objlist->f('recurring')==1) echo " / Recurring"; else if($objlist->f('sub_events')==1) echo " / Program";
@@ -395,13 +418,13 @@ function submit_by_js(){
   <?php } ?>
          <tr>
 		<td>&nbsp</td>
-		<td colspan="7" align="left"><div style="width: 150px; float:right; margin: 0 auto;"><?php $p->show();?></div></td></tr>
+        <td colspan="<?php if ($_SESSION['ses_account_type'] == 2) { echo '8'; } else { echo '7'; } ?>" align="left"><div style="width: 150px; float:right; margin: 0 auto;"><?php $p->show();?></div></td></tr>
  		 <?php
 			}
 			else
 			{
 		?>
-		<tr><td colspan="7" align="center" style="padding-top:10px;"><font color="#FF0000">No Event Found</font></td></tr>
+		<tr><td colspan="<?php if ($_SESSION['ses_account_type'] == 2) { echo '8'; } else { echo '7'; } ?>" align="center" style="padding-top:10px;"><font color="#FF0000">No Event Found</font></td></tr>
 		<?php
 			}
 		?>
@@ -416,5 +439,22 @@ function submit_by_js(){
 </div>
  <!------------------------end maindiv----------------------------------------------- -->
 <?php include("admin_footer.php"); ?>
+<script>
+    $('.set_spotlight').change(function(){
+        this.value = (Number(this.checked));        
+        $.ajax({ 
+            url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_save_spotlight.php",
+            cache: false,
+            type: "POST",
+            data: { 
+                "spotlight": this.value, 
+                "event_id": this.id
+            },
+            success: function(datas){ 
+                
+            }
+        });
+    });
+</script>
 </body>
 </html>

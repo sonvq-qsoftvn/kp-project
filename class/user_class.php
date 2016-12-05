@@ -382,6 +382,7 @@ function register_user($fname,$lname,$email,$phone,$country_id,$country_code,$pa
 						       address ='".$address."',
 						       postal_code ='".$postal_code."',
 						       mobile_code ='".$mobile_code."',
+                               post_datetime ='".date ("Y-m-d H:i:s", time())."',
 						       post_date ='".time()."'";
 
 	$this->query($sql);	
@@ -788,6 +789,13 @@ function subgetTicketById($event_id,$parent_id)
 	$sql = "SELECT * FROM ".$this->prefix()."sub_event_tickets WHERE event_id = ".$event_id;
 	$this->query($sql);
 }
+
+function check_ticket($event_id)
+{
+	$sql = "SELECT * FROM ".$this->prefix()."sub_event_tickets WHERE event_id = ".$event_id;
+	$this->query($sql);
+}
+
 
 function getTicketByExp($event_id)
 {
@@ -2291,6 +2299,12 @@ function getAll_cart_by_trns_id($transaction_id)
 	echo $sql;
 }
 
+function getAll_cart_and_ticket_by_trns_id($transaction_id)
+{
+	$sql = "SELECT * FROM ".$this->prefix()."cart as C JOIN ".$this->prefix()."final_tickets as T ON C.ticket_id = T.ticket_id WHERE C.transaction_id =".$transaction_id;
+	$this->query($sql);
+}
+
 function delete_order($user_id){
 	$sql="Delete FROM ".$this->prefix()."cart where user_id='".$user_id."' ";
 	$this->query($sql);
@@ -2362,6 +2376,13 @@ function update_ticket($new,$tid)
 function getTranId($uid)
 {
 	$sql = "SELECT * FROM ".$this->prefix()."transaction WHERE user_id = '".$uid."' order by id desc limit 0,1";
+	//echo $sql;
+	$this->query($sql);
+}
+
+function getTranById($transaction_id)
+{
+	$sql = "SELECT * FROM ".$this->prefix()."transaction WHERE id = '".$transaction_id."' order by id desc limit 0,1";
 	//echo $sql;
 	$this->query($sql);
 }
@@ -2495,12 +2516,12 @@ function allBookingEventByUser($limit,$user_id){
 	
 	if($user_id==1)
 	{
-            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC $limit ";
+            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,T.`unique_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,E.`include_payment`,E.`include_promotion`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC $limit ";
             $this->query($sql);
 	}
 	else
 	{
-            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND T.`user_id`='".$user_id."' AND E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC $limit ";
+            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,T.`unique_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,E.`include_payment`,E.`include_promotion`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND T.`user_id`='".$user_id."' AND E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC $limit ";
             $this->query($sql);
 	}
 }
@@ -2508,12 +2529,12 @@ function allBookingEventByUserCount($user_id){
 	
 	if($user_id==1)
 	{
-            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND  E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC";
+            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,T.`unique_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,E.`include_payment`,E.`include_promotion`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND  E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC";
             $this->query($sql);
 	}
 	else
 	{
-            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND T.`user_id`='".$user_id."' AND E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC";
+            $sql="SELECT T.`id`,T.`item_name`,T.`payment_status`,T.`payment_amount`,T.`payment_currency`,T.`event_id`,T.`multi_id`,T.`user_id`,T.`unique_id`,E.`admin_id`,E.`event_name_en`,E.`event_name_sp`,E.`event_short_desc_en`,E.`event_short_desc_sp`,E.`event_start_date_time`,E.`event_start_ampm`,E.`event_end_date_time`,E.`event_end_ampm`,E.`event_details_en`,E.`event_details_sp`,E.`event_photo`,E.`include_payment`,E.`include_promotion`,V.`venue_id`,V.`venue_name`,V.`venue_name_sp`,V.`venue_short_add_sp`,V.`venue_short_add_en`,ct.`city_name`,ct.`city_name_sp` FROM ".$this->prefix()."transaction T Inner join ".$this->prefix()."general_events E ON (E.event_id = T.event_id) Inner join ".$this->prefix()."venue V ON (E.event_venue = V.venue_id ) Inner join ".$this->prefix()."city ct ON (V.venue_city  = ct.id ) WHERE T.`payment_status` = 'Completed' AND T.`user_id`='".$user_id."' AND E.`event_end_date_time` > NOW() ORDER BY T.`id` DESC";
             $this->query($sql);	
 	}
 }

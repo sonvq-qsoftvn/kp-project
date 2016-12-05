@@ -2,14 +2,15 @@
 session_start();
 //ajax event price level
 include('../include/admin_inc.php');
+include("../include/language_switcher.php");
 $display = '';
 
 $obj_getcounty = new admin;
 $stateId = $_POST['state_id'];
 ?>		
   
-<select name="venue_county" class="selectbg12" onchange="getCity(this.value);" onblur="saveAutoEvent();">
-<option value="">County</option>
+<select id="venue_county" name="venue_county" class="selectbg12" onchange="getCity(this.value);" onblur="saveAutoEvent();">
+<option value=""><?= AD_COUNTY ?></option>
 <?php
 $obj_getcounty->getCountyNameByState($stateId);
 while($obj_getcounty->next_record())

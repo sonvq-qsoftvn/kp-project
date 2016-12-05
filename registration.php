@@ -180,7 +180,7 @@ if( isset($_POST['hid_sign']) )
 		if($_SESSION['langSessId']=='eng')
 		$_SESSION['login_msg'] = "Invalid login. Please try again.";
 		else
-		$_SESSION['login_msg'] = "login inválido. Por favor, inténtelo de nuevo.";
+		$_SESSION['login_msg'] = "login invÃ¡lido. Por favor, intÃ©ntelo de nuevo.";
 		header("Location:".$obj_base_path->base_path()."/index");
 	}
 }
@@ -197,7 +197,7 @@ $obj_page1->next_record();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
 
 <title>Registration</title>
 <meta charset="utf-8">
@@ -411,7 +411,7 @@ function check_user(){
       <?php if($_SESSION['langSessId']=='eng') {?>
       alert('Please enter a valid email.');
       <?php }elseif($_SESSION['langSessId']=='spn'){?>
-      alert('Por favor, introduzca un email válido.');
+      alert('Por favor, introduzca un email vÃ¡lido.');
       <?php }?>
       
       return false;
@@ -459,7 +459,7 @@ function check_user(){
         	<div class="left_panel bg" style="width:978px;">
             	<div class="cheese_box">
                     <div class="blue_box1" style="width: 976px;">
-                    	<div class="blue_boxh"><p><?php if($_SESSION['langSessId']=='eng') { echo "Sign Up"; }else { echo "Regístrarse";}?></p></div>
+                    	<div class="blue_boxh"><p><?php if($_SESSION['langSessId']=='eng') { echo "Sign Up"; }else { echo "RegÃ­strarse";}?></p></div>
                     </div>
                 	<div class="clear"></div>
                     <div style="width: 990px; float: none; margin: 0 auto;">	
@@ -469,7 +469,7 @@ function check_user(){
                         <h1 style="font: normal 22px/20px Arial, Helvetica, sans-serif; color: #000000; padding: 0; margin: 0;"><?php echo SIGN_UP_WITH;?></h1>
                     <div style="float: left; margin: 54px auto 0 3px;"><h1 style="font: normal 12px/20px Arial, Helvetica, sans-serif; color: #000000; padding: 0; margin: 0;">
 			<?php if($_SESSION['langSessId']=='eng'){
-			echo "Or let’s check your email address ";
+			echo "Or letâ€™s check your email address ";
 			}elseif($_SESSION['langSessId']=='spn'){
 			  echo "O vamos a comprobar su direcci&oacute;n de correo electr&oacute;nico.";
 			  } ?></h1></div>

@@ -95,7 +95,7 @@ $body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 }
 else
 {
-$subject='Su clave de activación para su cuenta kpasapp.com!';
+$subject='Su clave de activaci?³n para su cuenta kpasapp.com!';
 $body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 <tbody><tr>
 	<td valign="top" align="center">
@@ -122,7 +122,7 @@ $body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 			    <p dir="ltr"><strong id="docs-internal-guid-2a53dcf4-cf71-4930-5290-27dd9f591481">Gracias por unirse a kpasapp.com !</strong><br><br>
 				  <strong id="docs-internal-guid-2a53dcf4-cf72-a832-6bd1-e3d64f59b2cc">Para sus archivos, su login es:</strong> '.$email.' or ('.$country_code.') '.$phone.' </p>
 				  <p dir="ltr"><a target="_blank" href="'.$obj_base_path->base_path().'/activate_user/'.$aid.'" style="font-weight:bold;">Haga clic aqu&#237; para activar su login.</a>			      </p>
-				  <p dir="ltr"><strong id="docs-internal-guid-41d2b438-260b-4578-7486-b278d6d5827a">Si no son capaces de abrir el hiperv&#237;nculo anterior, copie y pegue el siguiente URL en su navegador de internet (si el enlace se divide en dos l&#237;neas, asegúrese de copiar ambas l&#237;neas):  "'.$obj_base_path->base_path().'/activate_user/'.$aid.'"</strong></p>
+				  <p dir="ltr"><strong id="docs-internal-guid-41d2b438-260b-4578-7486-b278d6d5827a">Si no son capaces de abrir el hiperv&#237;nculo anterior, copie y pegue el siguiente URL en su navegador de internet (si el enlace se divide en dos l&#237;neas, aseg?ºrese de copiar ambas l&#237;neas):  "'.$obj_base_path->base_path().'/activate_user/'.$aid.'"</strong></p>
 				  <p dir="ltr">Una vez que su login se ha activado, puede comenzar utilizando su cuenta KPasapp y configurar su perfil para aprovechar al m&aacute;ximo las numerosas caracter&#237;sticas de KPasapp.com, su pasaporte para todos los eventos de Baja California Sur.</p>
 				  <p dir="ltr">Con una c&aacute;lida bienvenida.<br>
 					  <br>

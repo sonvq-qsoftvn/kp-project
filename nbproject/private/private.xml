@@ -7,11 +7,6 @@
             <file>file:/E:/wamp/www/kapp/admin/sitemap.php</file>
             <file>file:/E:/wamp/www/kapp/admin/add_category.php</file>
         </group>
-        <group>
-            <file>file:/E:/wamp/www/kapp/standard/pay.php</file>
-            <file>file:/E:/wamp/www/kapp/ajax_folder/ajax_ticket_num.php</file>
-            <file>file:/E:/wamp/www/kapp/admin/edit_event.php</file>
-            <file>file:/E:/wamp/www/kapp/userprofile.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
