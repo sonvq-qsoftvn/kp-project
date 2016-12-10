@@ -52,7 +52,7 @@ include_once '../ckfinder/ckfinder.php';
                    // window.location="<?php echo $obj_base_path->base_path();?>/admin/sitemap.php?from=blog_edit";
 		   window.location="<?php echo $obj_base_path->base_path(); ?>/admin/list_page.php?err=2";
 		   </script>
-		   <?
+        <?php
 	 }
 
 ?>
@@ -285,18 +285,18 @@ $(function(){
                     <div class="TabbedPanelsContentGroup2">
                         <div class="TabbedPanelsContent2">
                          <?php 
-                            include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+                            //include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
                            $CKeditor = new CKeditor();
                            $CKeditor->BasePath = 'ckeditor/';
-                           $CKeditor->editor('page_content', $objlist->f('page_content'));
+                           $CKeditor->editor('page_content_sp', $objlist->f('page_content_sp'));
                         ?>
                         </div> 
 			<div class="TabbedPanelsContent2">
                         <?php 
-                        include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+                        //include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
                            $CKeditor = new CKeditor();
                            $CKeditor->BasePath = 'ckeditor/';
-                           $CKeditor->editor('page_content_sp', $objlist->f('page_content_sp'));
+                           $CKeditor->editor('page_content', $objlist->f('page_content'));
                         ?>
                         </div>
                         
@@ -347,7 +347,7 @@ $(function(){
 				
 				<tr>
 				<td>&nbsp;</td>
-				<td><input type="submit" name="submit1" class="createbtn" value="Save" style="height: 28px;"></td>
+				<td><input type="submit" name="submit1" class="createbtn" value="Save"></td>
 				</tr>
 				<?php
 				}
@@ -380,10 +380,9 @@ $(function(){
 <?php include("admin_footer.php"); ?>
 
 <script type="text/javascript">
-<!--
-//var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1" , {defaultTab:0});
+
 var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2" , {defaultTab:0});
-//-->
+
 </script>
 </body>
 </html>

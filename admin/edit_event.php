@@ -345,7 +345,9 @@ if(isset($_POST['editevent']) && $_POST['editevent'] == '1')
     $objEventEdit->getEventById($_POST['id']);
     $objEventEdit->next_record();
           
-    if ($objEventEdit->f('status') != 'publish') {
+    
+/*
+if ($objEventEdit->f('status') != 'publish') {
         try {
 
             // post to twitter
@@ -420,7 +422,7 @@ if(isset($_POST['editevent']) && $_POST['editevent'] == '1')
         }
     }
 
-       
+ */      
 
         $obj_edit->editSavedEventEdit($admin_id,$event_name_sp,$event_name_en,$short_desc_sp,$short_desc_en,$event_start_date_time,$event_start_ampm,$event_end_date_time,$event_end_ampm,$venue_state,$venue_county,$venue_city,$venue,$page_content_en,$page_content_sp,$event_tag,$identical_function,$recurring,$sub_events,$Paypal,$Bank,$Oxxo,$Mobile,$Offline,$publish_date,$event_time,$event_time_period,$r_month,$r_month_day,$mon,$tue,$wed,$thu,$fri,$sat,$sun,$r_span_start,$r_span_end,$event_start,$event_end,$all_day,$event_lasts,$attendees,$invitation_only,$password_protect_check,$pass_protected,$radio_access,$pay_ticket_fee,$promo_charge,$paper_less_mob_ticket,$print,$will_call,$status,$privacy,$_POST['id']);
 	
@@ -1458,7 +1460,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <div class="TabbedPanelsContent2">
   <!-- <textarea name="page_content_sp" cols="35" rows="10"><?php //echo stripslashes($obj->f('event_details_sp'));?></textarea>-->
     <?php 
-	include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+	include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
        $CKeditor->editor('page_content_sp',$obj->f('event_details_sp'));

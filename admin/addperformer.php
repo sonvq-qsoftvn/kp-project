@@ -81,7 +81,7 @@ if(isset($_POST['addevent']) && $_POST['addevent'] == '1')
 	$file_name = $_POST['performer_photo'];
 	
 	// Code for sub-description
-	if(($performer_short_add_sp=="Breve Descripción" || $performer_short_add_sp=="") && $performer_description_sp!=""){
+	if(($performer_short_add_sp=="Breve DescripciÃ³n" || $performer_short_add_sp=="") && $performer_description_sp!=""){
 		$performer_short_add_sp = strip_tags($performer_description_sp);
 		$performer_short_add_sp = substr($performer_short_add_sp,0,160);
 	}
@@ -970,7 +970,7 @@ function limiter1(){
                 </span>	
                 <br/>
                 <span class="event_fieldbg8">
-                	<textarea name="performer_short_add_sp" id="performer_short_add_sp" class="event_field" style="width: 290px; margin: 5px 0; padding:3px 5px; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if(this.value==''){ this.value=this.defaultValue }" onkeyup="limiter()">Breve Descripción</textarea>
+                	<textarea name="performer_short_add_sp" id="performer_short_add_sp" class="event_field" style="width: 290px; margin: 5px 0; padding:3px 5px; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if(this.value==''){ this.value=this.defaultValue }" onkeyup="limiter()">Breve DescripciÃ³n</textarea>
                <script type="text/javascript">
 				document.write("<input type=text name=limit size=4 readonly value="+count+">");
 				</script>
@@ -1150,7 +1150,7 @@ function limiter1(){
                 <div class="TabbedPanelsContentGroup2">
                     <div class="TabbedPanelsContent2">
                         <?php
-						  include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+						  include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
 							$CKeditor = new CKeditor();
 							$CKeditor->BasePath = 'ckeditor/';
 							$CKeditor->editor('performer_description_sp');
@@ -1215,7 +1215,7 @@ function limiter1(){
                 </span>	
             <br/>
                 <span class="event_fieldbg8">
-                    <textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripción</textarea>
+                    <textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripciÃ³n</textarea>
                 </span>
             </div>
             <div style="float: right; margin: 0 auto;">	

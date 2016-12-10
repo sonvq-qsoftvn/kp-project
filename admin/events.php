@@ -1516,7 +1516,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
                   ?>
                   <option value="<?php echo $j; ?>" <?PHP if($j==00) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
-                      
+
                 </select></td>
           <td style="padding: 9px 0;">&nbsp;</td>
           <td style="padding: 9px 0;"><select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="changeAMPM(this.value);">
@@ -1660,8 +1660,9 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <div class="TabbedPanelsContentGroup2">
     <div class="TabbedPanelsContent2">
    <?php /*?> <textarea name="page_content_sp" cols="35" rows="10"><?php if($msg!="" && $page_content_sp!=""){echo $page_content_sp;}?></textarea><?php */?>
-    <?php 
-	include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+                          
+    <?php  
+	include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
        $CKeditor->editor('page_content_sp');
@@ -1670,7 +1671,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <div class="TabbedPanelsContent2">
     <?php /*?><textarea name="page_content_en" cols="35" rows="10"><?php if($msg!="" && $page_content_en!=""){echo $page_content_en;}?></textarea><?php */?>
      <?php 
-	include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+	//include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
        $CKeditor->editor('page_content_en');

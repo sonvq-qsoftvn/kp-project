@@ -1,6 +1,33 @@
 <?php 
   class admin extends DB_Sql 
 {
+    function getEventByArrayID($array_event_id)
+    {
+        $sql = "select E.event_id, T.county_name, V.venue_name, V.venue_name_sp, V.venue_id, "
+                . "C.city_name, S.state_name, "
+                . "E.event_name_en, E.event_name_sp, E.event_start_date_time, "
+                . "E.event_start_ampm, E.event_end_ampm, E.r_span_end, "
+                . "E.event_short_desc_en, E.event_short_desc_sp, E.event_end_date_time from " . 
+                $this->prefix() . "general_events E LEFT join " . 
+                $this->prefix() . "venue V on (E.event_venue = V.venue_id ) LEFT join " . 
+                $this->prefix() . "city C on (E.event_venue_city = C.id ) LEFT join " . 
+                $this->prefix() . "state S on (S.id = V.venue_state ) LEFT join " . 
+                $this->prefix() . "county T on (T.id = E.event_venue_county) where E.event_id IN (" . 
+                $array_event_id . ") ORDER BY E.event_start_date_time ASC";
+        
+        $this->query($sql);
+    }
+
+        function add_page($page_name, $title_sp, $page_content, $page_content_sp, $page_link, 
+                $social, $path, $file_name, $publish) {
+            $sql = "INSERT INTO " . $this->prefix() . "page set page_name='" . $page_name . 
+                    "',title_sp='" . $title_sp . "',page_content='" . $page_content . 
+                    "',page_content_sp='" . $page_content_sp . "',page_link='" . $page_link . 
+                    "',path='" . $path . "',social='" . $social . "',photo='" . $file_name . 
+                    "',create_time='" . time() . "',publish='" . $publish . "'";
+
+            $this->query($sql);
+        }	
 
 		function getAdminUserDetails($user_id)
 		{

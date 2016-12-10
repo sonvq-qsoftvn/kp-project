@@ -100,7 +100,7 @@ if(isset($_POST['addevent']) && $_POST['addevent'] == '1')
 	$venue_twitter_account = $_POST['venue_twitter_account'];
 	
 	// Code for sub-description
-	if(($venue_short_add_sp=="Breve Descripción" || $venue_short_add_sp=="") && $venue_description_sp!=""){
+	if(($venue_short_add_sp=="Breve DescripciÃ³n" || $venue_short_add_sp=="") && $venue_description_sp!=""){
 		$venue_short_add_sp = strip_tags($venue_description_sp);
 		$venue_short_add_sp = substr($venue_short_add_sp,0,160);
 	}
@@ -1114,7 +1114,7 @@ function checDecimal(var_name,show_err)
                 <div class="TabbedPanelsContentGroup2">
                 <div class="TabbedPanelsContent2">
                     <?php
-                      include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+                      include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
                         $CKeditor = new CKeditor();
                         $CKeditor->BasePath = 'ckeditor/';
                         $CKeditor->editor('venue_description_sp',stripslashes($obj_ven->f('venue_description_sp')));
@@ -1166,7 +1166,7 @@ function checDecimal(var_name,show_err)
                <div><h2>Set standard venue rates <img src="<?php echo $obj_base_path->base_path(); ?>/images/question_mark.gif" width="31" height="28" border="0"/></h2></div>
                <div class="clear"></div>
                 <div id="save_create_ticket_display" class="event_ticketbox" style="border:0px solid red;">
-                  <div style=" max-height:95px; over flow:auto;">
+                  <div style=" max-height:95px; overflow:auto;">
 					 <?php 
                          //Fetch records from temp table
 						$obj_temp_tickets->getVenueStandardRate($_SESSION['venue_unique_id']);
@@ -1208,7 +1208,7 @@ function checDecimal(var_name,show_err)
                 </span>	
             <br/>
                 <span class="event_fieldbg8">
-                    <textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue" onkeyup="limiter_tic_sp()">Breve descripción</textarea>
+                    <textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue" onkeyup="limiter_tic_sp()">Breve descripciÃ³n</textarea>
             <script type="text/javascript">
             	document.write("<input type=text name=limit_tic_sp id='limit_tic_sp' size=4 readonly value="+count_tic_sp+">");
             </script>

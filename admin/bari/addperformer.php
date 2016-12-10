@@ -61,7 +61,7 @@ if(isset($_POST['addevent']) && $_POST['addevent'] == '1')
 	$venue_stat = $_POST['venue_stat'];
 	
 	// Code for sub-description
-	if(($venue_short_add_sp=="Breve Descripción" || $venue_short_add_sp=="") && $venue_description_sp!=""){
+	if(($venue_short_add_sp=="Breve DescripciÃ³n" || $venue_short_add_sp=="") && $venue_description_sp!=""){
 		$venue_short_add_sp = strip_tags($venue_description_sp);
 		$venue_short_add_sp = substr($venue_short_add_sp,0,160);
 	}
@@ -693,7 +693,7 @@ function save_new_popup()
 			 // Place the placeholder
 			 $("#rate_name_sp").val("Nombre");
 			 $("#rate_name_en").val("Name");
-			 $("#description_sp").val("Descripción");
+			 $("#description_sp").val("DescripciÃ³n");
 			 $("#description_en").val("Description");
 			 $("#price_mx").val("0");
 			 $("#price_us").val("0");
@@ -832,7 +832,7 @@ function checDecimal(var_name,show_err)
                 </span>	
                 <br/>
                 <span class="event_fieldbg8">
-                	 <textarea name="performer_short_add_sp" id="performer_short_add_sp" class="event_field" style="width: 290px; margin: 5px 0; padding:3px 5px; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if(this.value==''){ this.value=this.defaultValue } else{ saveAutoEvent()}">Breve Descripción</textarea>
+                	 <textarea name="performer_short_add_sp" id="performer_short_add_sp" class="event_field" style="width: 290px; margin: 5px 0; padding:3px 5px; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if(this.value==''){ this.value=this.defaultValue } else{ saveAutoEvent()}">Breve DescripciÃ³n</textarea>
                     
                 </span>
             </div>
@@ -1007,7 +1007,7 @@ function checDecimal(var_name,show_err)
                 <div class="TabbedPanelsContentGroup2">
                     <div class="TabbedPanelsContent2">
                         <?php
-						  include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+						  include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
 							$CKeditor = new CKeditor();
 							$CKeditor->BasePath = 'ckeditor/';
 							$CKeditor->editor('performer_description_sp');
@@ -1069,7 +1069,7 @@ function checDecimal(var_name,show_err)
                 </span>	
             <br/>
                 <span class="event_fieldbg8">
-                    <textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripción</textarea>
+                    <textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripciÃ³n</textarea>
                 </span>
             </div>
             <div style="float: right; margin: 0 auto;">	

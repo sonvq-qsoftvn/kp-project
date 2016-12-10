@@ -502,7 +502,7 @@ function save_new_popup()
 			 // Place the placeholder
 			 $("#ticket_name_sp").val("Nombre");
 			 $("#ticket_name_en").val("Name");
-			 $("#description_sp").val("Descripción");
+			 $("#description_sp").val("DescripciÃ³n");
 			 $("#description_en").val("Description");
 		 	$('#ticket_num').css("border", "1px solid #CCCCCC");
 			 
@@ -1270,7 +1270,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <div class="TabbedPanelsContent2">
    <?php /*?> <textarea name="page_content_sp" cols="35" rows="10"><?php if($msg!="" && $page_content_sp!=""){echo $page_content_sp;}?></textarea><?php */?>
     <?php 
-	include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+	include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
        $CKeditor->editor('page_content_sp',$page_content_sp);
@@ -1279,7 +1279,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <div class="TabbedPanelsContent2">
     <?php /*?><textarea name="page_content_en" cols="35" rows="10"><?php if($msg!="" && $page_content_en!=""){echo $page_content_en;}?></textarea><?php */?>
      <?php 
-	include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+	//include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
        $CKeditor->editor('page_content_en',$page_content_en);

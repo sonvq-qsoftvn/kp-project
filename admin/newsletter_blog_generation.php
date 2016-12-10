@@ -319,6 +319,10 @@ function submit_by_js(){
                  <button style="cursor: pointer; background: #006684; color: white; border: 2px solid #006684; padding: 5px 10px; border-radius: 5px;" id="submit_generate_newsletter" name="submit_generate_newsletter">Generate</button>
             </div>
          </div>
+         <div class="clear"></div>
+         <div class="myevent_box" id="message-result" style="display: none;">
+             <div style="color: green; font-weight: bold;">Newsletter generated successfully!!!</div>
+         </div>
          <div class="clear"></div>	
 		 <div class="myevent_box" style="display: none;">		 
 			<?php
@@ -436,13 +440,13 @@ function submit_by_js(){
   <?php } ?>
          <tr>
 		<td>&nbsp</td>
-        <td colspan="6" align="left"><div style="width: 150px; float:right; margin: 0 auto;"><?php $p->show();?></div></td></tr>
+        <td colspan="7" align="left"><div style="width: 150px; float:right; margin: 0 auto;"><?php $p->show();?></div></td></tr>
  		 <?php
 			}
 			else
 			{
 		?>
-		<tr><td colspan="7" align="center" style="padding-top:10px;"><font color="#FF0000">No Event Found</font></td></tr>
+		<tr><td colspan="8" align="center" style="padding-top:10px;"><font color="#FF0000">No Event Found</font></td></tr>
 		<?php
 			}
 		?>
@@ -501,6 +505,21 @@ function submit_by_js(){
                 return false;
             }
             
+            var selectedShowcaseEventID = [];
+            $('input[name=select_showcase_event[]]:checked').each(function() {
+                selectedShowcaseEventID.push($(this).val());
+            });
+            
+            var index = 0;
+            if (selectedShowcaseEventID.length > 0) {
+                for (index = 0; index < selectedShowcaseEventID.length; ++index) {
+                    if (selectedEventID.indexOf(selectedShowcaseEventID[index]) == -1) {
+                        alert("Showcase event should be in the selected newsletter events");
+                        return false;
+                    }
+                }
+            }
+            
             var blog_start_date = $('#blog_start_date').val() ? blog_start_date = $('#blog_start_date').val() : '';
             var blog_end_date = $('#blog_end_date').val() ? blog_end_date = $('#blog_end_date').val() : '';
             var array_blog_start_date = blog_start_date.split("-");
@@ -529,12 +548,32 @@ function submit_by_js(){
             var titleSP = 'Eventos Baja Sur ' + from_date_sp + ' - ' + to_date_sp;  
             console.log(titleEN);
             console.log(titleSP);
+            console.log(selectedEventID);
+            console.log(selectedShowcaseEventID);
+            console.log(newsletterType);
             
-            if (newsletterType == 'listing') {
-
-            } else if (newsletterType == 'single') {
-
-            }
+            data = "title_en=" + titleEN + 
+                    "&title_sp=" + titleSP +
+                    "&selected_event_id=" + selectedEventID +
+                    "&selected_showcase_id=" + selectedShowcaseEventID +
+                    "&newsletter_type=" + newsletterType;
+            
+            $.ajax({ 
+                url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_generate_newsletter_blog.php",
+                cache: false,
+                type: "POST",
+                data: data,   
+                success: function(data){ 
+                    $("#message-result").css('display', 'block');
+                    
+                    (function(data){ 
+                        setTimeout(function() { 
+                            $("#message-result").css('display', 'none');
+                            //window.location.href = "http://kpasapp.com/admin/edit_page/" + data;
+                        }, 3000);
+                    })(data);
+                }
+            });
         });
     });
 </script>

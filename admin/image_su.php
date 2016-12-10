@@ -673,7 +673,7 @@ function save_new_popup()
 			 // Place the placeholder
 			 $("#ticket_name_sp").val("Nombre");
 			 $("#ticket_name_en").val("Name");
-			 $("#description_sp").val("Descripción");
+			 $("#description_sp").val("DescripciÃ³n");
 			 $("#description_en").val("Description");
 			 
 			 $('#ticket_num').css("border", "1px solid #CCCCCC");
@@ -1569,7 +1569,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <div class="TabbedPanelsContent2">
    <?php /*?> <textarea name="page_content_sp" cols="35" rows="10"><?php if($msg!="" && $page_content_sp!=""){echo $page_content_sp;}?></textarea><?php */?>
     <?php 
-	include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+	include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
        $CKeditor->editor('page_content_sp');
@@ -1578,7 +1578,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <div class="TabbedPanelsContent2">
     <?php /*?><textarea name="page_content_en" cols="35" rows="10"><?php if($msg!="" && $page_content_en!=""){echo $page_content_en;}?></textarea><?php */?>
      <?php 
-	include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
+	//include($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
        $CKeditor->editor('page_content_en');
@@ -2932,14 +2932,14 @@ function media_library()
     <div class="event_ticket" style="background:none;">
 		<h1>Set Privacy <img src="<?php echo $obj_base_path->base_path(); ?>/images/question_mark.gif" alt="" width="31" height="28" border="0"/></h1>
 		<?php
-		echo $obj_admin->f('account_type').'admin';if($obj_admin->f('account_type') == 2){?>
-		<span style="float: left;">aaa
+		if($obj_admin->f('account_type') == 2){?>
+		<span style="float: left;">
         	<p class="rad_button"><input type="radio" name="privacy" id="public_privacy" value="0" checked="checked" onclick="privacy_policy(); saveAutoEvent();" /> Public</p>	
 			<p class="rad_button"><input type="radio" name="privacy" id="private_privacy" value="1" onclick="privacy_policy(); saveAutoEvent();" /> Private</p>
 		</span>
 		<?php }
 		else
-		{ ?>sss
+		{ ?>
 		<span style="float: left;">
 			<?php if($obj_admin->f('account_type') == 1 && $obj_admin->f('prof_complete') == 1){?>
         	<p class="rad_button"><input type="radio" name="privacy" id="public_privacy" value="0" checked onclick="privacy_policy(); saveAutoEvent();" /> Public</p>
@@ -3128,7 +3128,7 @@ You can also add photos or videos to your media library.</span>
          	</span>	
         <br/>
         	<span class="event_fieldbg8">
-            	<textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripción</textarea>
+            	<textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripciÃ³n</textarea>
             </span>
         </div>
         <div style="float: right; margin: 0 auto;">	

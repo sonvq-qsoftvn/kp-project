@@ -75,6 +75,7 @@ else if($_REQUEST['lang']!="" && $_REQUEST['lang']!=$_SESSION['set_lang_blog'])
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta itemscope itemtype="http://schema.org/Article" />	
 	
 	
@@ -241,11 +242,78 @@ else
 		 </div>
 		 <div class="clear"></div>
                  <div class="Tchai_box" style="width: auto;"> 
+                     <?php $url_blog="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>
+                    <?php if($objintro->f('social')==1){?>
+                    <?php if($_SESSION['langSessId']=='eng' || $_REQUEST['lang']=='en')
+                             {
+                                 $lang="en_US";						 
+                             }
+                             else 
+                             {
+                                $lang="es_ES";						
+                             }
+                             ?>
+                    <div style="margin: 4px;float:left;padding: 5px;">
+
+                    <?php //$url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>
+
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/<?=$lang?>/all.js#xfbml=1&appId=1411675195718012";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+
+                    <div class="fb-share-button" data-href="<?php echo $url_blog;?>" data-type="box_count"></div>
+
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $url_blog;?>" data-via="Kpasapp" data-lang="<?php echo $lang;?>" data-text="<?php if($_REQUEST['lang']=='en') { echo htmlentities(stripslashes($objintro->f('page_name')));} else { echo htmlentities(stripslashes($objintro->f('title_sp')));}?>" data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a>
+
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    <!-- Place this tag where you want the +1 button to render. -->
+                    <div class="g-plusone" data-size="tall"  lang="<?=$lang?>"></div>
+
+                    <!-- Place this tag after the last +1 button tag. -->
+                    <script type="text/javascript">
+
+                    (function() {
+                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                    })();
+                    </script>
+
+
+
+                    <script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script>
+
+                    <!-- Place this tag where you want the su badge to render -->
+                    <su:badge layout="5"></su:badge>
+
+                    <!-- Place this snippet wherever appropriate -->
+                    <script type="text/javascript">
+                      (function() {
+                        var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
+                        li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
+                      })();
+                    </script>
+
+
+
+                    </div>
+                <?php } ?>
+                     <div class="clear"></div>
+                     <hr style="font-size: 14px; font-weight: normal; height: 1px; background: #ccc; ">
                         <?php if($lang == 'en'){echo $objintro->f('page_content');}else{echo $objintro->f('page_content_sp');} ?>
                   </div>
 		 
                 </div>
+                
                <div class="clear"></div>
+               
 			
 			<?php $url_blog="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>
 			<?php if($objintro->f('social')==1){?>
