@@ -1,5 +1,6 @@
 <?php
 include('../include/admin_inc.php');
+include('../class/pagination_upgrade.class.php');
 
 //create object
 $objlist = new admin;
@@ -44,28 +45,40 @@ else
 }
 
 $target=$obj_base_path->base_path()."/admin/list_venues.php";	
-if(isset($_POST['listEvent']) && $_POST['listEvent'] == '1')	
+
+if (isset($_SESSION['ses_user_id']) && ($_SESSION['ses_user_id']!="")) {
+    $userType = -1;
+    $account_type = new admin;
+    $account_type->getAccountTypeByUserId($_SESSION['ses_user_id']);
+
+    if($account_type->num_rows() > 0) {
+        $account_type->next_record();
+        $userType = $account_type->f('account_type');
+    }
+
+}
+if(isset($_GET['listEvent']) && $_GET['listEvent'] == '1')	
 {
-	$venue_state = $_POST['venue_state'];
-	$venue_county = $_POST['venue_county'];
-	$venue_city = $_POST['venue_city'];
+	$venue_state = $_GET['venue_state'];
+	$venue_county = $_GET['venue_county'];
+	$venue_city = $_GET['venue_city'];
 	
-	$objlist->allVenueList($limit,$venue_state,$venue_county,$venue_city);
-	$objlist_num->allVenueListCount($venue_state,$venue_county,$venue_city);
+	$objlist->allVenueList($limit,$venue_state,$venue_county,$venue_city, $userType);
+	$objlist_num->allVenueListCount($venue_state,$venue_county,$venue_city, $userType);
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
-getCounty('<?php echo $_POST['venue_state'];?>','<?php echo $_POST['venue_county'];?>');
-getCity('<?php echo $_POST['venue_county'];?>','<?php echo $_POST['venue_city'];?>');
+getCounty('<?php echo $_GET['venue_state'];?>','<?php echo $_GET['venue_county'];?>');
+getCity('<?php echo $_GET['venue_county'];?>','<?php echo $_GET['venue_city'];?>');
 });
 </script>
 <?php	
 }
 else{
-		
-//event list
-$objlist->allVenueList($limit);
-$objlist_num->allVenueListCount();
+	
+    //event list
+    $objlist->allVenueList($limit, false, false, false, $userType);
+    $objlist_num->allVenueListCount(false, false, false, $userType);
 }
 $num = $objlist_num->num_rows();
 
@@ -102,9 +115,9 @@ function getCounty(stateid,venue_county)
      $('#div_venue_display').html('<select name="venue" class="selectbg12"><option value="">Venue</option></select>');
 	 data = "state_id="+stateid+"&venue_county="+venue_county;
 	 $.ajax({ 
-	   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_get_county_list.php",
+	   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_get_county_list_upgrade.php",
 	   cache: false,
-	   type: "POST",
+	   type: "GET",
 	   data: data,   
 	   success: function(data){ 
 	   $("#div_county_display").html(data);
@@ -117,9 +130,9 @@ function getCity(countyid,venue_city)
      $('#div_venue_display').html('<select name="venue" class="selectbg12"><option value="">Venue</option></select>');
 	 data = "county_id="+countyid+"&venue_city_list="+venue_city;
 	 $.ajax({ 
-	   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_get_city_list.php",
+	   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_get_city_list_upgrade.php",
 	   cache: false,
-	   type: "POST",
+	   type: "GET",
 	   data: data,   
 	   success: function(data){ 
 	   $("#div_city_display").html(data);
@@ -165,7 +178,7 @@ function getVenue(cityid,ven)
             </div>	
 		 </div>
 		 </div>
-         <form method="post" action="" enctype="multipart/form-data" name="listing" id="listing">
+         <form method="get" action="" enctype="multipart/form-data" name="listing" id="listing">
          <input type="hidden" name="listEvent" id="listEvent" value="1" /> 
         	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="id_detail">
             <tr>
@@ -197,14 +210,14 @@ function getVenue(cityid,ven)
 		  		</div></td>
                 
                 <td width="25%"> <div class="input_box" style="margin: 0px 0 2px 0; float: right;">
-                <input type="image" src="<?php echo $obj_base_path->base_path(); ?>/images/search_icon3.png"  style="border:0px;"  />
+                        <input type="submit" value="" style='cursor: pointer; height:29px; width: 29px; border:none; outline:none; background:url(<?php echo $obj_base_path->base_path(); ?>/images/search_icon3.png)'  style="border:0px;"  />
                 	<!--<img src="<?php echo $obj_base_path->base_path(); ?>/images/search_icon3.png" border="0" onclick="showCal()" style="vertical-align: top;" />--></div></td>
             </tr>
          </table>
          <?php
 		 if($num>0)
 			{
-				$p = new pagination;
+				$p = new pagination_upgrade;
 				$p->Items($num);
 				$p->limit($items);
 				$p->target($target);
@@ -235,11 +248,12 @@ function getVenue(cityid,ven)
                 <?php
                 
                 $num = $objlist_num->num_rows();
+
                 $loop=1;
                 
                 if($num>0)
                 {
-                    $p = new pagination;
+                    $p = new pagination_upgrade;
                     $p->Items($num);
                     $p->limit($items);
                     $p->target($target);
@@ -266,7 +280,9 @@ function getVenue(cityid,ven)
                 <span style="margin:0;font-weight:bold;">
                     <a href="<?php echo $obj_base_path->base_path(); ?>/admin/duplicate-venue/<?php echo $objlist->f('venue_id');?>">Duplicate</a>
                 </span>
-                <span style="margin:0;"><a href="javascript:void(0);" onClick="del('<?php echo $objlist->f('venue_id');?>');"><img src="<?php echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" /></a></span>
+                <?php if (isset($userType) && ($userType == 2)) : ?>
+                    <span style="margin:0;"><a href="javascript:void(0);" onClick="del('<?php echo $objlist->f('venue_id');?>');"><img src="<?php echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" /></a></span>
+                <?php endif; ?>
                 <span style="margin:0;"><a href="<?php echo $obj_base_path->base_path(); ?>/venue/<?php echo $objlist->f('venue_id');?>" target="_blank" style="color:#000;">Preview</a></span>
             </td>
           </tr>

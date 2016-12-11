@@ -11,8 +11,40 @@ $objCommon = new Common();
 $objfeatureimage = new user; 
 $objEventCategoryById = new user;
 $objSubEventCategoryById = new user;
+$objTypesEvent = new user;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    /*
+     * Style string
+     */
+    $paragraphStyleStr = "font-size: 15px; font-family: Arial; color: rgb(0, 0, 0); line-height: 1.38;";        
+    $normalLinkStyleStr = "font-size: 15px; font-family: Arial; color: rgb(17, 85, 204);"
+            . "text-decoration: underline;";
+    $headerStyleStr = "font-size: 27px; font-family: Arial; "
+            . "line-height: 1.38; color: rgb(0, 0, 0); font-weight: 400;";     
+        
+    $imgFeatureStyleStr = "width:100%; height: auto; margin-bottom:20px;";
+    $imgFeatureStyleSingleStr = "width:100%; height: auto; margin-bottom:10px; margin-right: 10px";
+    $divFeatureStyleStr = "width:25%; float: left; display: inline-block";    
+    $divEventContentStyleStr = "padding-left: 15px; box-sizing: border-box; width: 74%; float: left; display: inline-block; margin-bottom: 20px;";
+    $divFeatureStyleSingleStr = "width:30%; float: left; display: inline-block; margin-right:10px;";
+    $divEventContentStyleSingleStr = "padding-left: 15px; box-sizing: border-box; float: left; display: inline-block; margin-bottom: 20px;";
+    $styleEventContentTitle = "font-size: 20px; text-decoration: underline; color: rgb(17, 85, 204); font-weight: 400; font-family: Arial;";
+    $styleDivContainer = "margin-top: 15px;";
+
+    $styleMoreButton = "padding: 5px 11px; background: none repeat scroll 0 0 #23446d; "
+                            . "color: #fff; font-family: arial; font-size: 15px; text-decoration: none; "
+                            . "display: inline-block; margin-left: 10px";
+    
+    /*
+     * Common div
+     * Div clear
+     */
+    $htmlDivClearBoth = '<div style="clear: both; height: 0px; line-height: 0px;"></div>';
+    
+    /*
+     * If case is event listing
+     */
     if (isset($_POST['newsletter_type']) && ($_POST['newsletter_type'] == 'listing')) {
         $title_en = isset($_POST['title_en']) ? $_POST['title_en'] : 'Baja Sur Events';
         $title_sp = isset($_POST['title_sp']) ? $_POST['title_sp'] : 'Eventos Baja Sur';
@@ -26,17 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $array_selected_showcase_id = array();
         $array_showcase_eventEN = array();
-        $array_showcase_eventSP = array();
-        
-        /*
-         * Style string
-         */
-        $paragraphStyleStr = "font-size: 15px; font-family: Arial; color: rgb(0, 0, 0); line-height: 1.38;";        
-        $normalLinkStyleStr = "font-size: 15px; font-family: Arial; color: rgb(17, 85, 204);"
-                . "text-decoration: underline;";
-
-        $headerStyleStr = "font-size: 27px; font-family: Arial; "
-                . "line-height: 1.38; color: rgb(0, 0, 0); font-weight: 400;";        
+        $array_showcase_eventSP = array();          
                 
         if (!empty($selected_showcase_id)) {
             $objEventShowcase->getEventByArrayID($selected_showcase_id);
@@ -124,16 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $objCommon->getEventURLByEventAndVenue($event_id, 
                                     $state_name, $county_name,
                                     $city_name, 'es', 'evento', 
-                                    $event_name_sp);
-                    
-                    /*
-                     * Styleing sheet
-                     */
-                    $imgFeatureStyleStr = "width:100%; height: auto; margin-bottom:20px;";
-                    $divFeatureStyleStr = "width:25%; float: left; display: inline-block";
-                    $divEventContentStyleStr = "padding-left: 15px; box-sizing: border-box; width: 74%; float: left; display: inline-block; margin-bottom: 20px;";
-                    $styleEventContentTitle = "font-size: 20px; text-decoration: underline; color: rgb(17, 85, 204); font-weight: 400; font-family: Arial;";
-                    $styleDivContainer = "margin-top: 15px;";
+                                    $event_name_sp);                                        
                     
                     /*
                      * Get category for event
@@ -218,10 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     
                     $htmlShortDescEN = "";
                     $htmlShortDescSP = "";
-                    
-                    $styleMoreButton = "padding: 5px 11px; background: none repeat scroll 0 0 #23446d; "
-                            . "color: #fff; font-family: arial; font-size: 15px; text-decoration: none; "
-                            . "display: inline-block; margin-left: 10px";
+                                        
                     if ($objEventListing->f('event_short_desc_en')) {
                         $htmlShortDescEN = '<p style="' . $paragraphStyleStr . '">' .
                                 $objEventListing->f('event_short_desc_en')
@@ -309,9 +319,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 . '<img style="' . $imgFeatureStyleStr . '" src="' . $featureImageLink . '"  border="0" />'
                                 . '</a></div>';
                         }
-                    }                                        
-                    
-                    $htmlDivClearBoth = '<div style="clear: both; height: 0px; line-height: 0px;"></div>';
+                    }                                                            
                     
                     $singleBlockEventEN = '<div style ="' . $styleDivContainer . '">' . 
                             $htmlFeatureImageEN . $htmlEventContentEN . '</div>' . $htmlDivClearBoth;
@@ -364,13 +372,258 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $publish = 1;
         
-    } else {
-        
-    }
-    
-    $objAdd->add_page($title_en, $title_sp, $page_content_en, $page_content_sp, $page_link, 
+        $objAdd->add_page($title_en, $title_sp, $page_content_en, $page_content_sp, $page_link, 
                     $social, $path, $file_name, $publish);
-    echo mysql_insert_id();
+        
+        echo mysql_insert_id();
+    } else {
+        $selected_event_id = $_POST['selected_event_id'];                                                      
+        
+        if (!empty($selected_event_id)) {
+            $objEventListing->getEventByArrayID($selected_event_id);
+            if ($objEventListing->num_rows() > 0) {
+                while($objEventListing->next_record()){
+                    
+                    $objfeatureimage->isfeatureImage($objEventListing->f('event_id')); 
+                    $objfeatureimage->next_record();                    
+                    $singleBlockEventEN = "";
+                    $singleBlockEventSP = "";
+                    $htmlEventContentEN = "";
+                    $htmlEventContentSP = "";
+                    
+                    // Get content of event                    
+                    $event_name_en = $objEventListing->f('event_name_en');
+                    $event_name_sp = $objEventListing->f('event_name_sp');
+                    $event_id = $objEventListing->f('event_id');
+                    $state_name = $objEventListing->f('state_name');
+                    $county_name = $objEventListing->f('county_name');
+                    $city_name = $objEventListing->f('city_name');
+                    $event_link_en = $obj_base_path->base_path() . 
+                            $objCommon->getEventURLByEventAndVenue($event_id, 
+                                    $state_name, $county_name,
+                                    $city_name, 'en', 'event', 
+                                    $event_name_en);
+                    $event_link_sp = $obj_base_path->base_path() . 
+                            $objCommon->getEventURLByEventAndVenue($event_id, 
+                                    $state_name, $county_name,
+                                    $city_name, 'es', 'evento', 
+                                    $event_name_sp);                                        
+                    
+                    /*
+                     * Get category for event
+                     */
+                    $htmlCategoryEN = '';
+                    $htmlCategorySP = '';
+                    $objEventCategoryById->getCategoryByEventId($event_id); 
+                    if ($objEventCategoryById->num_rows() > 0) {
+                        $htmlCategoryEN = '<p style="' . $paragraphStyleStr . '">';
+                        $htmlCategorySP = '<p style="' . $paragraphStyleStr . '">';
+                        while($objEventCategoryById->next_record()){				
+                            $htmlCategoryEN = $htmlCategoryEN . $objEventCategoryById->f('category_name');
+                            
+                            $htmlCategorySP = $htmlCategorySP . $objEventCategoryById->f('category_name_sp');
+                            
+                            $objSubEventCategoryById->getSubCategoryByCategoryIdAndEventId($event_id, $objEventCategoryById->f('category_id'));
+                            $subCategoryStrEN = $subCategoryStrSP = '';
+                            if ($objSubEventCategoryById->num_rows()) {
+                                $count = 0;
+                                $subCategoryStrEN = $subCategoryStrSP = ' (';
+                                while($objSubEventCategoryById->next_record()){
+                                    if ($count > 0) {
+                                        $subCategoryStrEN = $subCategoryStrSP . ", ";
+                                        $subCategoryStrSP = $subCategoryStrSP . ", ";
+                                    }
+                                    
+                                    $subCategoryStrEN = $subCategoryStrEN . $objSubEventCategoryById->f('category_name');
+                                    $subCategoryStrSP = $subCategoryStrSP . $objSubEventCategoryById->f('category_name_sp');
+
+                                    $count++;
+                                }   
+                                $subCategoryStrEN = $subCategoryStrEN . ')';
+                                $subCategoryStrSP = $subCategoryStrSP . ')';
+                            } 
+                            $htmlCategoryEN = $htmlCategoryEN . $subCategoryStrEN . '<br>';
+                            $htmlCategorySP = $htmlCategorySP . $subCategoryStrSP . '<br>';
+                        } 
+                        $htmlCategoryEN = $htmlCategoryEN . '</p>';
+                        $htmlCategorySP = $htmlCategorySP . '</p>';
+                    }
+                    
+                    // get datetime of event
+                    $event_start_date_time = $objEventListing->f('event_start_date_time');
+                    $event_start_ampm = $objEventListing->f('event_start_ampm');
+                    $event_end_date_time = $objEventListing->f('event_end_date_time');
+                    $event_end_ampm = $objEventListing->f('event_end_ampm');
+                    
+                    $event_start_date = substr($event_start_date_time, 0, 10);
+                    $event_end_date = substr($event_end_date_time, 0, 10);
+                    $htmlDatePeriodEN = "";
+                    $htmlDatePeriodSP = "";                    
+                    
+                    if ($event_start_date == $event_end_date) {
+                        setlocale(LC_TIME, 'en_US.UTF-8');                        
+                        $htmlDatePeriodEN = '<p style="' . $paragraphStyleStr . '">' . 
+                                strftime('%a %b %d, %Y, %l:%M',strtotime($event_start_date_time)) . ' ' .
+                                $event_start_ampm . ' to ' . strftime('%l:%M',strtotime($event_end_date_time)) . 
+                                ' ' . $event_end_ampm . '</p>';
+                        
+                        setlocale(LC_TIME, 'es_ES.UTF-8');
+                        $htmlDatePeriodSP = '<p style="' . $paragraphStyleStr . '">' . 
+                                strftime('%a %b %d, %Y, %l:%M',strtotime($event_start_date_time)) . ' ' .
+                                $event_start_ampm . ' to ' . strftime('%l:%M',strtotime($event_end_date_time)) .
+                                ' ' . $event_end_ampm . '</p>';
+                    } else {
+                        setlocale(LC_TIME, 'en_US.UTF-8');                        
+                        $htmlDatePeriodEN = '<p style="' . $paragraphStyleStr . '">' . 
+                                strftime('%a %b %d, %Y, %l:%M',strtotime($event_start_date_time)) . ' ' .
+                                $event_start_ampm . ' to ' . strftime('%a %b %d, %Y, %l:%M',strtotime($event_end_date_time)) .
+                                ' ' . $event_end_ampm . '</p>';
+                        
+                        setlocale(LC_TIME, 'es_ES.UTF-8');
+                        $htmlDatePeriodSP = '<p style="' . $paragraphStyleStr . '">' . 
+                                strftime('%a %b %d, %Y, %l:%M',strtotime($event_start_date_time)) . ' ' .
+                                $event_start_ampm . ' to ' . strftime('%a %b %d, %Y, %l:%M',strtotime($event_end_date_time)) .
+                                ' ' . $event_end_ampm . '</p>';
+                    }                    
+                    
+                    /*
+                     * Event venue
+                     */
+                    $htmlVenueEN = "";
+                    $htmlVenueSP = "";
+                    if ($objEventListing->f('venue_name')) {
+                        $htmlVenueEN = '<p style="' . $paragraphStyleStr . '">'
+                                . '<a style="' . $normalLinkStyleStr . '" target="blank" href="' .
+                                $obj_base_path->base_path(). $objCommon->getCleanVenueURLNewsletter('en', 'venue',
+                                        $objEventListing->f('venue_id'), $objEventListing->f('state_name'),
+                                        $objEventListing->f('county_name'), $objEventListing->f('city_name'),
+                                        $objEventListing->f('venue_name')) . '">' .
+                                $objEventListing->f('venue_name') . '</a>, ' 
+                                . $objEventListing->f('state_name') . ', '
+                                . $objEventListing->f('county_name') . ', '
+                                . $objEventListing->f('city_name') . '</p>';
+                    }
+                    
+                    if ($objEventListing->f('venue_name_sp')) {
+                        $htmlVenueSP = '<p style="' . $paragraphStyleStr . '">'
+                                . '<a style="' . $normalLinkStyleStr . '" target="blank" href="' .
+                                $obj_base_path->base_path(). $objCommon->getCleanVenueURLNewsletter('es', 'lugares',
+                                        $objEventListing->f('venue_id'), $objEventListing->f('state_name'),
+                                        $objEventListing->f('county_name'), $objEventListing->f('city_name'),
+                                        $objEventListing->f('venue_name_sp')) . '">' .
+                                $objEventListing->f('venue_name_sp') . '</a>, ' 
+                                . $objEventListing->f('state_name') . ', '
+                                . $objEventListing->f('county_name') . ', '
+                                . $objEventListing->f('city_name') . '</p>';
+                    }                   
+                    
+                    /*
+                     * Event feature image
+                     */
+                    $htmlFeatureImageEN = '';
+                    $htmlFeatureImageSP = '';                    
+                    
+                    if($objfeatureimage->num_rows()) {
+                        if ($objfeatureimage->f('media_url')) {
+                            $featureImageLink = $obj_base_path->base_path() . '/files/event/medium/' . 
+                                htmlentities(stripslashes($objfeatureimage->f('media_url')));
+
+                            $htmlFeatureImageEN = '<div style="' . $divFeatureStyleSingleStr . '">'
+                                . '<a style="display: inline-block" target="blank" href="' . $event_link_en . '">'
+                                . '<img style="' . $imgFeatureStyleSingleStr . '" src="' . $featureImageLink . '"  border="0" />'
+                                . '</a></div>';
+                            
+                            $htmlFeatureImageSP = '<div style="' . $divFeatureStyleSingleStr . '">'
+                                . '<a style="display: inline-block" target="blank" href="' . $event_link_sp . '">'
+                                . '<img style="' . $imgFeatureStyleSingleStr . '" src="' . $featureImageLink . '"  border="0" />'
+                                . '</a></div>';
+                        }
+                    } else {
+                        if($objEventListing->f('event_photo')) {
+                            $featureImageLink = $obj_base_path->base_path() . '/files/event/medium/' . 
+                                htmlentities(stripslashes($objEventListing->f('event_photo')));
+                            
+                            $htmlFeatureImageEN = '<div style="' . $divFeatureStyleSingleStr . '">'
+                                . '<a style="display: inline-block" target="blank" href="' . $event_link_en . '">'
+                                . '<img style="' . $imgFeatureStyleSingleStr . '" src="' . $featureImageLink . '"  border="0" />'
+                                . '</a></div>';
+                            
+                            $htmlFeatureImageSP = '<div style="' . $divFeatureStyleSingleStr . '">'
+                                . '<a style="display: inline-block" target="blank" href="' . $event_link_en . '">'
+                                . '<img style="' . $imgFeatureStyleSingleStr . '" src="' . $featureImageLink . '"  border="0" />'
+                                . '</a></div>';
+                        }
+                    }                                        
+                    
+                    $social = 1;
+
+                    $path = 'blog';    
+
+                    $file_name = "";
+
+                    $publish = 1;
+                    
+                    $page_link = preg_replace("%[^-/+|\w ]%", '', $event_name_en);
+                    $page_link = strtolower(trim(substr($page_link, 0, 255), '-'));
+                    $page_link = preg_replace("/[\/_|+ -]+/", '-', $page_link);
+                    
+                    /*
+                     * Event types
+                     */
+                    $objTypesEvent->eventTypeMasterByEventId($event_id);
+                    $htmlEventTypeEN = '<p style="' . $paragraphStyleStr . '">';
+                    $htmlEventTypeSP = '<p style="' . $paragraphStyleStr . '">';
+                    if($objTypesEvent->num_rows())
+                    {
+                        $count = 0;
+                        while($objTypesEvent->next_record()) {
+                            if ($count > 0) {
+                                $htmlEventTypeEN = $htmlEventTypeEN . ", ";
+                                $htmlEventTypeSP = $htmlEventTypeSP . ", ";
+                            }
+                            $htmlEventTypeEN = $htmlEventTypeEN . $objTypesEvent->f('event_types');
+                            $htmlEventTypeSP = $htmlEventTypeSP . $objTypesEvent->f('event_types_sp');
+                            
+                            $count++;
+                        }
+                    }
+                    $htmlEventTypeEN = $htmlEventTypeEN . "</p>";
+                    $htmlEventTypeSP = $htmlEventTypeSP . "</p>";
+
+                    /*
+                     * Event detail
+                     */
+                    $htmlEventDetailEN =  addslashes($objEventListing->f('event_details_en'));
+                    $htmlEventDetailSP = addslashes($objEventListing->f('event_details_sp'));                    
+                    
+                    $page_content_en = "";
+                    $page_content_sp = "";
+                    
+                    $page_content_en = '<h3><a target="blank" style="' . $styleEventContentTitle . '" href="' 
+                            . $event_link_en . '">' . $event_name_en . '</a></h3>' 
+                            . $htmlDatePeriodEN
+                            . $htmlVenueEN
+                            . $htmlEventTypeEN
+                            . $htmlFeatureImageEN
+                            . $htmlEventDetailEN;
+                            
+                    $page_content_sp = '<h3><a target="blank" style="' . $styleEventContentTitle . '" href="' 
+                            . $event_link_sp . '">' . $event_name_sp . '</a></h3>' 
+                            . $htmlDatePeriodSP
+                            . $htmlVenueSP
+                            . $htmlEventTypeSP
+                            . $htmlFeatureImageSP
+                            . $htmlEventDetailSP;
+
+                    $objAdd->add_page($event_name_en, $event_name_sp, $page_content_en, $page_content_sp, $page_link, 
+                                $social, $path, $file_name, $publish);
+                    
+                } 
+            }
+        }
+        
+        echo 'done';
+    }            
 }
 
 

@@ -52,7 +52,17 @@ if($obj_dup_cat->num_rows()){
 	}
 }
 
+if (isset($_SESSION['ses_user_id']) && ($_SESSION['ses_user_id']!="")) {
+    $userType = -1;
+    $account_type = new admin;
+    $account_type->getAccountTypeByUserId($_SESSION['ses_user_id']);
 
+    if($account_type->num_rows() > 0) {
+        $account_type->next_record();
+        $userType = $account_type->f('account_type');
+    }
+
+}
 
 if(isset($_POST['addevent']) && $_POST['addevent'] == '1')	
 {
@@ -1334,7 +1344,9 @@ function checDecimal(var_name,show_err)
         <div class="event_ticket" style="background: none; width: 702px; border: 0; margin: 0 auto 0 10px;">    
            <div class="event_ticketr" style="float: right; margin-right: 24px;">
                 <h1>
-                <a  href="javascript:void(0);" onClick="del('<?php echo $venue_id;?>')"><img src="<?php echo $obj_base_path->base_path(); ?>/images/deleteicon.png" alt="" width="30" height="35" border="0"/></a>
+                <?php if (isset($userType) && ($userType == 2)) : ?>
+                    <a  href="javascript:void(0);" onClick="del('<?php echo $venue_id;?>')"><img src="<?php echo $obj_base_path->base_path(); ?>/images/deleteicon.png" alt="" width="30" height="35" border="0"/></a>
+                <?php endif; ?>
             <?php
 				if($obj_ven->f('venue_stat')==2 && date("Y-m-d") < $obj_ven->f('publish_date') || $obj_ven->f('venue_stat')==1 || $obj_ven->f('venue_stat')==0){
 				?>
@@ -1403,7 +1415,9 @@ function checDecimal(var_name,show_err)
     <div class="myevent_right">
       <div class="event_ticketr" style="width: 276px; margin: 8px auto; float: none; overflow:hidden;">
        <h1>
-            <a href="javascript:void(0);" onClick="del('<?php echo $venue_id;?>')"><img src="<?php echo $obj_base_path->base_path(); ?>/images/deleteicon.png" alt="" width="30" height="35" border="0"/></a>
+            <?php if (isset($userType) && ($userType == 2)) : ?>
+                <a href="javascript:void(0);" onClick="del('<?php echo $venue_id;?>')"><img src="<?php echo $obj_base_path->base_path(); ?>/images/deleteicon.png" alt="" width="30" height="35" border="0"/></a>
+            <?php endif; ?>
             <?php
             if($obj_ven->f('venue_stat')==2 && date("Y-m-d") < $obj_ven->f('publish_date') || $obj_ven->f('venue_stat')==1 || $obj_ven->f('venue_stat')==0){
             ?>

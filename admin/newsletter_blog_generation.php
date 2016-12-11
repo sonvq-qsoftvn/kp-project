@@ -510,12 +510,14 @@ function submit_by_js(){
                 selectedShowcaseEventID.push($(this).val());
             });
             
-            var index = 0;
-            if (selectedShowcaseEventID.length > 0) {
-                for (index = 0; index < selectedShowcaseEventID.length; ++index) {
-                    if (selectedEventID.indexOf(selectedShowcaseEventID[index]) == -1) {
-                        alert("Showcase event should be in the selected newsletter events");
-                        return false;
+            if (newsletterType == 'listing') {
+                var index = 0;
+                if (selectedShowcaseEventID.length > 0) {
+                    for (index = 0; index < selectedShowcaseEventID.length; ++index) {
+                        if (selectedEventID.indexOf(selectedShowcaseEventID[index]) == -1) {
+                            alert("Showcase event should be in the selected newsletter events");
+                            return false;
+                        }
                     }
                 }
             }
@@ -569,7 +571,9 @@ function submit_by_js(){
                     (function(data){ 
                         setTimeout(function() { 
                             $("#message-result").css('display', 'none');
-                            //window.location.href = "http://kpasapp.com/admin/edit_page/" + data;
+                            if (data != 'done') {
+                                window.location.href = "http://kpasapp.com/admin/edit_page/" + data;
+                            }
                         }, 3000);
                     })(data);
                 }

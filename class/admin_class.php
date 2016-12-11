@@ -7,7 +7,8 @@
                 . "C.city_name, S.state_name, "
                 . "E.event_name_en, E.event_name_sp, E.event_start_date_time, "
                 . "E.event_start_ampm, E.event_end_ampm, E.r_span_end, "
-                . "E.event_short_desc_en, E.event_short_desc_sp, E.event_end_date_time from " . 
+                . "E.event_short_desc_en, E.event_short_desc_sp, "
+                . "E.event_details_en, E.event_details_sp, E.event_end_date_time from " . 
                 $this->prefix() . "general_events E LEFT join " . 
                 $this->prefix() . "venue V on (E.event_venue = V.venue_id ) LEFT join " . 
                 $this->prefix() . "city C on (E.event_venue_city = C.id ) LEFT join " . 
