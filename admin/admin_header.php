@@ -87,7 +87,9 @@ $page_url = basename($_SERVER['PHP_SELF']);
                                         <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/event-final-report/" <?php if($page_url == 'event_final_report.php'){ ?>class="active"<?php } ?>><?= AD_MENU_REPORTS ?></a></li>
                                     </ul>
                                 </li>
-
+                            <?php endif; ?>
+                            
+                            <?php if($userType == 2 || $userType == 3) : ?>
                                 <li><div class="back_nav_devider">&nbsp;</div></li>
                                 <li>
                                     <a href="<?php echo $obj_base_path->base_path(); ?>/admin/newsletter_blog.php" <?php if($page_url == 'newsletter_blog.php'){ ?>class="active"<?php } ?>>

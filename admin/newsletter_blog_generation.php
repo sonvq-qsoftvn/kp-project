@@ -535,11 +535,20 @@ function submit_by_js(){
             
             var blog_start_date_object = new Date(blog_start_date_reordered);
             var blog_end_date_object = new Date(blog_end_date_reordered);
-            var options = { weekday: 'short', month: 'short', day: 'numeric' };
-            var from_date_sp = blog_start_date_object.toLocaleString('es-ES', options);
-            var from_date_en = blog_start_date_object.toLocaleString('en-US', options);
-            var to_date_sp = blog_end_date_object.toLocaleString('es-ES', options);
-            var to_date_en = blog_end_date_object.toLocaleString('en-US', options);
+            
+            // check if the start and end month is the same
+            if (array_blog_start_date[1] == array_blog_end_date[1]) {
+                var optionsFromDate = { month: 'short', day: 'numeric' };
+                var optionsToDate = { day: 'numeric' };
+            } else {
+                var optionsFromDate = { month: 'short', day: 'numeric' };
+                var optionsToDate = { month: 'short', day: 'numeric' };
+            }
+                        
+            var from_date_sp = blog_start_date_object.toLocaleString('es-ES', optionsFromDate);
+            var from_date_en = blog_start_date_object.toLocaleString('en-US', optionsFromDate);
+            var to_date_sp = blog_end_date_object.toLocaleString('es-ES', optionsToDate);
+            var to_date_en = blog_end_date_object.toLocaleString('en-US', optionsToDate);
             
             if (date_start_int > date_end_int) {
                 alert ("Date From cannot be bigger than Date To");

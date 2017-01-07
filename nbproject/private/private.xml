@@ -7,12 +7,6 @@
             <file>file:/E:/wamp/www/kapp/admin/sitemap.php</file>
             <file>file:/E:/wamp/www/kapp/admin/add_category.php</file>
         </group>
-        <group>
-            <file>file:/F:/wamp/www/kp-project/admin/ajax_generate_newsletter_blog.php</file>
-            <file>file:/F:/wamp/www/kp-project/admin/newsletter_blog_generation.php</file>
-            <file>file:/F:/wamp/www/kp-project/class/merchant_admin_class.php</file>
-            <file>file:/F:/wamp/www/kp-project/class/admin_class.php</file>
-            <file>file:/F:/wamp/www/kp-project/admin/add_page.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
