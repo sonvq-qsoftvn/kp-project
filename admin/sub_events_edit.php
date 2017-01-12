@@ -91,6 +91,12 @@ $obj_parent->fetch_event_id($_GET['event_id']);
 $obj_parent->next_record();
 
 $obj_subparent->fetch_subevent_id($_GET['event_id']);
+if($obj_subparent->num_rows()){
+	$get_from_parent = false;
+} else {
+	$get_from_parent = true;
+}
+
 $obj_subparent->next_record();
 //echo $obj_parent->f('event_id');
 
@@ -128,6 +134,9 @@ $event_end_date_time = $obj_parent->f('event_end_date_time');
 list($end_eve_dt,$end_eve_tm) = explode(" ",$event_end_date_time);
 list($end_eve_yr,$end_eve_mn,$end_eve_dy) = explode("-",$end_eve_dt);
 
+list($end_eve_hr,$end_eve_min,$end_eve_sec) = explode(":",$end_eve_tm);
+$end_eve_hr = (int)$end_eve_hr;
+$end_eve_min = (int)$end_eve_min;
 
 
 $event_end_date_time_sub = $obj_subparent->f('event_end_date_time');
@@ -1273,14 +1282,23 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
           <td style="padding: 9px 0;">
 		  <?php 
 		  //echo $st_eve_hr_sub;
-		  if($st_eve_hr_sub >12)
-		  {
-		  	$hr = $st_eve_hr_sub-12;
-		  }
-		  else
-		  {
-		  	$hr = $st_eve_hr_sub; 
-		  }
+          if ($get_from_parent == true) {
+                if($st_eve_hr >12) {
+                    $hr = $st_eve_hr-12;
+                } else {
+                    $hr = $st_eve_hr; 
+                }
+                $minutes = $st_eve_min;
+                $amOrPm = $obj_parent->f('event_start_ampm');
+          } else {
+                if($st_eve_hr_sub >12) {
+                    $hr = $st_eve_hr_sub-12;
+                } else {
+                    $hr = $st_eve_hr_sub; 
+                }
+                $minutes = $st_eve_min_sub;
+                $amOrPm = $obj_subparent->f('event_start_ampm');
+          }		  
 		   ?>
 		  <select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
             <?php //echo $st_eve_hr;
@@ -1294,14 +1312,14 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
                   <?php 
                   for($j=00; $j<60; $j++) {
                   ?>
-                  <option value="<?php echo $j; ?>" <?PHP if($j==$st_eve_min_sub) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
+                  <option value="<?php echo $j; ?>" <?PHP if($j==$minutes) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
                       
                 </select></td>
           <td style="padding: 9px 0;">&nbsp;</td>
           <td style="padding: 9px 0;"><select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="saveAutoEvent();">
-                  <option value="AM" <?php if($obj_subparent->f('event_start_ampm') == 'AM'){ echo 'selected';}?>>AM</option>
-                  <option value="PM" <?php if($obj_subparent->f('event_start_ampm') == 'PM'){ echo 'selected';}?>>PM</option>
+                  <option value="AM" <?php if($amOrPm == 'AM'){ echo 'selected';}?>>AM</option>
+                  <option value="PM" <?php if($amOrPm == 'PM'){ echo 'selected';}?>>PM</option>
                 </select></td>
           <td style="padding: 9px 0;"></td>
         </tr>
@@ -1317,14 +1335,24 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
         </tr>
         <tr>
           <td style="padding: 9px 0;">
-		  <?php if($end_eve_hr_sub >12)
-		  {
-		  	$end_hr = $end_eve_hr_sub-12;
-		  }
-		  else
-		  {
-		  	$end_hr = $end_eve_hr_sub;
-		  }
+		  <?php 
+          if ($get_from_parent == true) {
+                if($end_eve_hr >12) {
+                    $end_hr = $end_eve_hr-12;
+                } else {
+                    $end_hr = $end_eve_hr;
+                }
+                $end_minutes = $st_eve_min;
+                $end_amOrPm = $obj_parent->f('event_end_ampm');
+          } else {
+                if($end_eve_hr_sub >12) {
+                    $end_hr = $end_eve_hr_sub-12;
+                } else {
+                    $end_hr = $end_eve_hr_sub;
+                }
+                $end_minutes = $end_eve_min_sub;
+                $end_amOrPm = $obj_subparent->f('event_end_ampm');
+          }		                    
 		   ?>
 		  <select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
                   <?php 
@@ -1338,13 +1366,13 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
                   <?php 
                   for($j=0; $j<60; $j++) {
                   ?>
-                  <option value="<?php echo $j; ?>" <?PHP if($j==$end_eve_min_sub) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
+                  <option value="<?php echo $j; ?>" <?PHP if($j==$end_minutes) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
                 </select></td>
           <td style="padding: 9px 0;">/</td>
          <td style="padding: 9px 0;"><select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;" onchange="saveAutoEvent();">
-                  <option value="AM" <?php if($obj_subparent->f('event_end_ampm') == 'AM'){ echo 'selected';}?>>AM</option>
-                  <option value="PM" <?php if($obj_subparent->f('event_end_ampm') == 'PM'){ echo 'selected';}?>>PM</option>
+                  <option value="AM" <?php if($end_amOrPm == 'AM'){ echo 'selected';}?>>AM</option>
+                  <option value="PM" <?php if($end_amOrPm == 'PM'){ echo 'selected';}?>>PM</option>
                 </select></td>
           <td></td>
           
@@ -1359,6 +1387,19 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
      <tr>
       <td width="12%"><h1><?=AD_VENUE?></h1></td>
+      <?php 
+          if ($get_from_parent == true) {
+                $event_venue_state_id = $obj_parent->f('event_venue_state');
+                $event_venue_county = $obj_parent->f('event_venue_county');
+                $event_venue_city = $obj_parent->f('event_venue_city');
+                $event_venue = $obj_parent->f('event_venue');
+          } else {
+                $event_venue_state_id = $obj_subparent->f('event_venue_state');
+                $event_venue_county = $obj_subparent->f('event_venue_county');
+                $event_venue_city = $obj_subparent->f('event_venue_city');
+                $event_venue = $obj_subparent->f('event_venue');
+          }		                    
+		   ?>
       <td width="22%">
 	  <select name="venue_state" id="venue_state" class="selectbg12" onChange="getCounty(this.value);" onblur="saveAutoEvent();">
         <option value=""><?=AD_STATE?></option>
@@ -1367,7 +1408,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
 		  while($row = $obj_venuestate->next_record())
 		  {
 		  ?>
-			<option value="<?php echo $obj_venuestate->f('id');?>" <?php if($obj_subparent->f('event_venue_state')==$obj_venuestate->f('id')){?> selected="selected"<?php }?>>
+			<option value="<?php echo $obj_venuestate->f('id');?>" <?php if($event_venue_state_id==$obj_venuestate->f('id')){?> selected="selected"<?php }?>>
 			<?php echo $obj_venuestate->f('state_name');?></option>
 			<?php
 		  }
@@ -1379,11 +1420,16 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
 		  <option value=""><?=AD_COUNTY?></option>
 		  <?php
 		        $obj_getcounty = new admin;
-			    $obj_getcounty->getCountyNameByState($obj_subparent->f('event_venue_state'));
+                if ($get_from_parent == true) {
+                    $obj_getcounty->getCountyNameByState($obj_parent->f('event_venue_state'));
+                } else {
+                    $obj_getcounty->getCountyNameByState($obj_subparent->f('event_venue_state'));
+                }		
+			    
 				while($obj_getcounty->next_record())
 				{
 				?>
-				<option value=<?php echo $obj_getcounty->f("id")?> <?php if($obj_subparent->f('event_venue_county')==$obj_getcounty->f('id')){?> selected="selected"<?php }?> >
+				<option value=<?php echo $obj_getcounty->f("id")?> <?php if($event_venue_county==$obj_getcounty->f('id')){?> selected="selected"<?php }?> >
 				<?php echo $obj_getcounty->f('county_name')?></option>
 				<?php
 				}
@@ -1397,11 +1443,16 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
 		  <option value=""><?=AD_CITY?></option>
 		   <?php
 		        $obj_getcity = new admin;
-			    $obj_getcity->getCityNameByCounty($obj_subparent->f('event_venue_county'));
+                if ($get_from_parent == true) {
+                    $obj_getcity->getCityNameByCounty($obj_parent->f('event_venue_county'));
+                } else {
+                    $obj_getcity->getCityNameByCounty($obj_subparent->f('event_venue_county'));
+                }	
+			    
                 while($obj_getcity->next_record())
 				{
 				?>
-				<option value=<?php echo $obj_getcity->f("id")?> <?php if($obj_subparent->f('event_venue_city')==$obj_getcity->f('id')){?> selected="selected"<?php }?>>
+				<option value=<?php echo $obj_getcity->f("id")?> <?php if($event_venue_city==$obj_getcity->f('id')){?> selected="selected"<?php }?>>
 				<?php echo $obj_getcity->f('city_name')?></option>
 				<?php
 				}
@@ -1415,11 +1466,16 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
 		  <option value=""><?=AD_VENUE?></option>
 		   <?php
 		        $obj_getvenue = new admin;
-			    $obj_getvenue->getVenueNameByCity($obj_subparent->f('event_venue_city'));
+                if ($get_from_parent == true) {
+                    $obj_getvenue->getVenueNameByCity($obj_parent->f('event_venue_city'));
+                } else {
+                    $obj_getvenue->getVenueNameByCity($obj_subparent->f('event_venue_city'));
+                }
+			    
                 while($obj_getvenue->next_record())
 				{
 				?>
-				<option value=<?php echo $obj_getvenue->f("venue_id")?> <?php if($obj_subparent->f('event_venue')==$obj_getvenue->f('venue_id')){?> selected="selected"<?php }?> >
+				<option value=<?php echo $obj_getvenue->f("venue_id")?> <?php if($event_venue==$obj_getvenue->f('venue_id')){?> selected="selected"<?php }?> >
 				<?php echo $obj_getvenue->f('venue_name')?></option>
 				<?php
 				}

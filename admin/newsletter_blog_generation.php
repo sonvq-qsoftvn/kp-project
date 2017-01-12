@@ -538,17 +538,23 @@ function submit_by_js(){
             
             // check if the start and end month is the same
             if (array_blog_start_date[1] == array_blog_end_date[1]) {
-                var optionsFromDate = { month: 'short', day: 'numeric' };
-                var optionsToDate = { day: 'numeric' };
+                var optionsFromDateEN = { month: 'short', day: 'numeric' };
+                var optionsToDateEN = { day: 'numeric' };
+                
+                var optionsFromDateES = { day: 'numeric' };
+                var optionsToDateES = { month: 'short', day: 'numeric' };
             } else {
-                var optionsFromDate = { month: 'short', day: 'numeric' };
-                var optionsToDate = { month: 'short', day: 'numeric' };
+                var optionsFromDateEN = { month: 'short', day: 'numeric' };
+                var optionsToDateEN = { month: 'short', day: 'numeric' };
+                
+                var optionsFromDateES = { month: 'short', day: 'numeric' };
+                var optionsToDateES = { month: 'short', day: 'numeric' };
             }
                         
-            var from_date_sp = blog_start_date_object.toLocaleString('es-ES', optionsFromDate);
-            var from_date_en = blog_start_date_object.toLocaleString('en-US', optionsFromDate);
-            var to_date_sp = blog_end_date_object.toLocaleString('es-ES', optionsToDate);
-            var to_date_en = blog_end_date_object.toLocaleString('en-US', optionsToDate);
+            var from_date_sp = blog_start_date_object.toLocaleString('es-ES', optionsFromDateES);
+            var from_date_en = blog_start_date_object.toLocaleString('en-US', optionsFromDateEN);
+            var to_date_sp = blog_end_date_object.toLocaleString('es-ES', optionsToDateES);
+            var to_date_en = blog_end_date_object.toLocaleString('en-US', optionsToDateEN);
             
             if (date_start_int > date_end_int) {
                 alert ("Date From cannot be bigger than Date To");
