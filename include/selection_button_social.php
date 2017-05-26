@@ -48,7 +48,7 @@
             })();
             </script>
 
-            <script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script>
+            <script type="text/javascript" src="https://www.reddit.com/static/button/button2.js"></script>
 
             <!-- Place this tag where you want the su badge to render -->
             <su:badge layout="5"></su:badge>

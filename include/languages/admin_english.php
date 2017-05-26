@@ -135,6 +135,7 @@ define("AD_SHOW_PAST_EVENTS","Show past events");
 define("AD_DATE_AND_TIME","Date & Time");
 define("AD_MENU_NEWSLETTER_BLOG","Newsletter/Blog");
 define("AD_MENU_NEWSLETTER_BLOG_GENERATION","Generate Newsletter/Blog");
+define("AD_MENU_NEWSLETTER_BLOG_GENERATION_LIST","Newsletter/blog list/edit");
 define("AD_MENU_PAGES","Pages");
 define("AD_MENU_EVENT_CATEGORY","Event Category");
 define("AD_MENU_DATABASE","Database");
@@ -201,6 +202,18 @@ define("AD_PASSWORD","Password");
 define("AD_FORGOT_YOUR_PASS","Forgot Your Password");
 define("AD_MENU_SOCIAL_SHARE", "Social Share");
 define("AD_MESSAGE", "Message");
+define("AD_POPUP_TITLE", "Share and promote your event on social networks");
+define("AD_POPUP_CONTENT", "Success! Your event is published! Share and promote it on Social Networks!");
+define("AD_SHARE_IN","Share in");
+define("AD_ENGLISH_BTN","English");
+define("AD_SPANISH_BTN","Spanish");
+define("AD_DONE","Done");
+define("AD_POPUP_FOOTER","Click to open the kpasapp page of your event and use the social bar to share your event. Close tab when done to return to the event management page.");
+
+
+
+
+
 
 
 

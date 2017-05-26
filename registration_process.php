@@ -154,10 +154,10 @@ $body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 //$obj_sendmail->merchant_login_mail($subject,$email,$user_id,$body);	
         $headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= 'From: info@kcpasa.com' . "\r\n";
+	$headers .= 'From: info@kpasapp.com' . "\r\n";
 	//$headers .= "\r\nReturn-Path: \r\n";  // Return path for errors 
 	@mail($email, $subject, $body, $headers);
-	@mail('unified.subhrajyoti@gmail.com', $subject, $body, $headers);	
+		
         @mail('kpasapp@gmail.com', $subject, $body, $headers);
 
 //if($_SESSION['langSessId']=='eng') 

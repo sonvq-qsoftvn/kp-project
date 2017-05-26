@@ -335,7 +335,15 @@ function check_subscribe()
 		   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 	</style>-->
 	<div id="mc_embed_signup">
-<form action="http://kpasapp.us8.list-manage.com/subscribe/post?u=130e6654487fe713844d189db&amp;id=e429b6d314" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<!--<form action="https://kpasapp.us8.list-manage.com/subscribe/post?u=130e6654487fe713844d189db&amp;id=e429b6d314" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>-->
+    <?php 
+        if($_SESSION['langSessId']=="eng"){
+            $mailChimpUrl = 'https://kpasapp.us3.list-manage.com/subscribe/post?u=6fc63136bc5f6edea5aad0fba&amp;id=15c9255bf1';
+        } else {
+            $mailChimpUrl = 'https://kpasapp.us3.list-manage.com/subscribe/post?u=6fc63136bc5f6edea5aad0fba&amp;id=a46a200e93';
+        }
+    ?>
+<form action="<?php echo $mailChimpUrl; ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 	    <div class="e-wrapps">	
 	    <input type="email" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
 	    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -561,7 +569,7 @@ function check_subscribe()
 -->
 <div class="clear"></div>
 
-        <div class="botadd">
+        <div class="botadd hidden-mobile">
         
         
      <?php while($rows= $objright_banner->next_record())

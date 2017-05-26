@@ -1169,8 +1169,59 @@ function checkReg()
 		$("#venue").focus();
 		return false;
 	}
-	
-	 return true;
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close-model")[0];
+    var done = document.getElementsByClassName("close-model-done")[0];
+
+    modal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+        // submit the form
+        $('form#event_form').submit();
+    }
+    
+    done.onclick = function() {
+        modal.style.display = "none";
+        $('form#event_form').submit();
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            $('form#event_form').submit();
+        }
+    }
+    
+    $('.share-in-en').bind("click", function(e) {
+        var win = window.open('<?php echo $obj_base_path->base_path(); ?>/en/event/' + $("#media_image").val() + '/', '_blank');
+        if (win) {
+            //Browser has allowed it to be opened
+            win.focus();
+        } else {
+            //Browser has blocked it
+            alert('Please allow popups for this website');
+        }    
+    });
+    
+    $('.share-in-es').bind("click", function(e) {
+        var win = window.open('<?php echo $obj_base_path->base_path(); ?>/es/evento/' + $("#media_image").val() + '/', '_blank');
+        if (win) {
+            //Browser has allowed it to be opened
+            win.focus();
+        } else {
+            //Browser has blocked it
+            alert('Please allow popups for this website');
+        }
+    });            
+    
+	return false;
 }
 
 function check_box(){
@@ -1418,6 +1469,144 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
 	
 </style>
 <?php include("../include/analyticstracking.php")?>
+
+<style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close-model {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-model:hover,
+.close-model:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 20px 16px;
+    background-color: #168AAC;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    line-height: 30px;
+}
+.model-header h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    line-height: 50px;
+}
+
+.modal-body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 20px 16px;
+}
+
+.modal-footer {
+    padding: 20px 16px;
+    background-color: #168AAC;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+}
+.model-link a {
+    padding: 10px 16px;
+    display: inline-block;
+    text-decoration: none;
+    background: none repeat scroll 0 0 #168AAC;
+    color: #fff;
+}
+.model-link a:hover {
+    color: orange;
+}
+
+.model-link-first {
+    display: inline-block;
+    width: 15%;
+}
+.model-link {
+    width: 20%;
+    margin-top: 25px;
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+@media screen and (max-width: 675px) {
+    .model-link-first {
+        display: block;
+        width: 50%;
+    }
+    .model-link-first { 
+        margin-top: 15px; 
+    }
+    .model-link {
+        width: auto;
+        margin-top: 10px;        
+    }
+}
+/*@media screen and (max-width: 509px) {
+    .model-link-first { 
+        margin-top: 15px; 
+        display: block;
+        width: 50%;
+    }
+    .model-link {
+        display: block;
+        margin-top: 10px;     
+        width: 50%;    
+        text-align: left;
+    }
+}*/
+</style>
+
 </head>
 
 <body class="body1">
@@ -3735,7 +3924,34 @@ var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2" , {defaultTab:0
             }            
        }, 1000);
        
+        // Get the modal
+//        var modal = document.getElementById('myModal');
+//        modal.style.display = "block";
     });
 </script>  
+ 
+ <!-- The Modal -->
+ <div id="myModal" class="modal">
+
+     <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close-model">&times;</span>
+            <h3><?= AD_POPUP_TITLE ?></h3>
+        </div>
+        <div class="modal-body">
+            <p><?= AD_POPUP_CONTENT ?></p>
+            <h3 class="model-link-first"><?= AD_SHARE_IN ?></h3>
+            <h3 class="model-link"><a class="share-in-en"><?= AD_ENGLISH_BTN ?></a></h3>
+            <h3 class="model-link"><a class="share-in-es"><?= AD_SPANISH_BTN ?></a></h3>
+            <h3 class="model-link"><a class="close-model-done"><?= AD_DONE ?></a></h3>
+        </div>
+        <div class="modal-footer">    
+            <h4><?= AD_POPUP_FOOTER ?></h4>            
+        </div>
+    </div>
+
+ </div>
+
 </body>
 </html>

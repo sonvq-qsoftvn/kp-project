@@ -244,15 +244,7 @@ else
                  <div class="Tchai_box" style="width: auto;"> 
                      <?php $url_blog="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>
                     <?php if($objintro->f('social')==1){?>
-                    <?php if($_SESSION['langSessId']=='eng' || $_REQUEST['lang']=='en')
-                             {
-                                 $lang="en_US";						 
-                             }
-                             else 
-                             {
-                                $lang="es_ES";						
-                             }
-                             ?>
+
                     <div style="margin: 4px;float:left;padding: 5px;">
 
                     <?php //$url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>

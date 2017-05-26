@@ -71,7 +71,7 @@ if($_GET['resend'] == 'true'){
 	}
 	else
 	{
-	$subject='Su clave de activación para su cuenta kpasapp.com!';
+	$subject='Su clave de activaciÃ³n para su cuenta kpasapp.com!';
 	$body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 	<tbody><tr>
 		<td valign="top" align="center">
@@ -98,7 +98,7 @@ if($_GET['resend'] == 'true'){
 				    <p dir="ltr"><strong id="docs-internal-guid-2a53dcf4-cf71-4930-5290-27dd9f591481">Gracias por unirse a kpasapp.com !</strong><br><br>
 					  <strong id="docs-internal-guid-2a53dcf4-cf72-a832-6bd1-e3d64f59b2cc">Para sus archivos, su login es:</strong> '.$email.' or ('.$country_code.') '.$phone.' </p>
 					  <p dir="ltr"><a target="_blank" href="'.$obj_base_path->base_path().'/activate_user/'.$_GET['aid'].'" style="font-weight:bold;">Haga clic aqu&#237; para activar su login.</a>			      </p>
-					  <p dir="ltr"><strong id="docs-internal-guid-41d2b438-260b-4578-7486-b278d6d5827a">Si no son capaces de abrir el hiperv&#237;nculo anterior, copie y pegue el siguiente URL en su navegador de internet (si el enlace se divide en dos l&#237;neas, asegúrese de copiar ambas l&#237;neas):  "'.$obj_base_path->base_path().'/activate_user/'.$_GET['aid'].'"</strong></p>
+					  <p dir="ltr"><strong id="docs-internal-guid-41d2b438-260b-4578-7486-b278d6d5827a">Si no son capaces de abrir el hiperv&#237;nculo anterior, copie y pegue el siguiente URL en su navegador de internet (si el enlace se divide en dos l&#237;neas, asegÃºrese de copiar ambas l&#237;neas):  "'.$obj_base_path->base_path().'/activate_user/'.$_GET['aid'].'"</strong></p>
 					  <p dir="ltr">Una vez que su login se ha activado, puede comenzar utilizando su cuenta KPasapp y configurar su perfil para aprovechar al m&aacute;ximo las numerosas caracter&#237;sticas de KPasapp.com, su pasaporte para todos los eventos de Baja California Sur.</p>
 					  <p dir="ltr">Con una c&aacute;lida bienvenida.<br>
 						  <br>
@@ -130,10 +130,10 @@ if($_GET['resend'] == 'true'){
 	//$obj_sendmail->merchant_login_mail($subject,$email,$user_id,$body);	
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers .= 'From: info@kcpasa.com' . "\r\n";
+		$headers .= 'From: info@kpasapp.com' . "\r\n";
 		//$headers .= "\r\nReturn-Path: \r\n";  // Return path for errors 
 		@mail($email, $subject, $body, $headers);
-		@mail('unified.subhrajyoti@gmail.com', $subject, $body, $headers);	
+//		@mail('unified.subhrajyoti@gmail.com', $subject, $body, $headers);	
 		@mail('kpasapp@gmail.com', $subject, $body, $headers);
 	
 	//if($_SESSION['langSessId']=='eng') 
@@ -170,6 +170,7 @@ if($_SESSION['ses_admin_id']!="")
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Thank You</title>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>

@@ -46,15 +46,15 @@ define('PERSONAL', 'Personal');
 define('PROFESSIONAL', 'Profesional');
 define('FIRST_NAME', 'Nombre');
 define('LAST_NAME', 'Apellido');
-define("EMAIL","Correo Electrónico");
-define('CELL_PHONE', 'Móvil');
+define("EMAIL","Correo ElectrÃ³nico");
+define('CELL_PHONE', 'MÃ³vil');
 define('LANG', 'Idioma');
-define('COUNTRY', 'País');
-define('PASS', 'Contraseña');
-define('CON_PASS', 'Confirme contraseña');
-define('HUMAN', '¿Eres humano o robot de spam?');
-define('PRIVIACY', 'Términos y condiciones');
-define('TERMS_CONDITION', 'Al crear mi cuenta KPasapp, reconozco que he leído y aceptado los <a href="#" style="text-decoration:underline; color:#117ADA">Terminos y Condiciones, Politicas de Cancelaciones y Devolución y Politicas de Privacidad de KPasapp.com.</a>');
+define('COUNTRY', 'PaÃ­s');
+define('PASS', 'ContraseÃ±a');
+define('CON_PASS', 'Confirme contraseÃ±a');
+define('HUMAN', 'Â¿Eres humano o robot de spam?');
+define('PRIVIACY', 'TÃ©rminos y condiciones');
+define('TERMS_CONDITION', 'Al crear mi cuenta KPasapp, reconozco que he leÃ­do y aceptado los <a href="#" style="text-decoration:underline; color:#117ADA">Terminos y Condiciones, Politicas de Cancelaciones y DevoluciÃ³n y Politicas de Privacidad de KPasapp.com.</a>');
 define('CREATE_ACCOUNT', 'Crear Cuenta');
 define('SIGN_UP', 'Guardar');
 }
@@ -183,7 +183,13 @@ define('SIGN_UP', 'Guardar');
 								$end = $obj_cart->f('end');
 								$date = $obj_cart->f('sdate');
 								$edate = $obj_cart->f('edate');
+                                
+                                $dateOfEvent = date("l, M d, Y",strtotime($date))." ".$start . " - ";
+                                if($date != $edate){ 
+                                    $dateOfEvent = $dateOfEvent . date("l, M d, Y",strtotime($edate)) . " " . $end;
+                                }
 								?>
+                                
 								<p><?php echo date("l, M d, Y",strtotime($date))." ".$start;?> - <?php if($date != $edate){ echo date("l, M d, Y",strtotime($edate))." ";} echo $end;?></p>
 								<p><?php echo $objEvent->f('venue_name');?></p>
 								<p><?php echo $objEvent->f('venue_address');?></p>
@@ -224,34 +230,65 @@ define('SIGN_UP', 'Guardar');
 				//echo $_SESSION['unique'];
 				//echo $_SESSION['event_id'];
 				
+            $mailTalbleEN = "<table border='1' style='width: 670px;height: auto;'>
+                <tr>
+                    <th width='16%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Quantitys</th>
+                    <th width='17%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>TicketName</th>
+                    <th width='16%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Price</th>
+                    <th width='15%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Fee</th>
+                    <th width='20%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Total</th>
+                </tr>";
+            
+            $mailTalbleES = "<table border='1' style='width: 670px;height: auto;border: 1px solid #CCCCCC;'>
+                <tr>
+                    <th width='16%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Cantidad</th>
+                    <th width='17%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Boleto</th>
+                    <th width='16%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Precio</th>
+                    <th width='15%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Cargos</th>
+                    <th width='20%' style='font-weight: bold;color: #000;padding: 2px 8px;background: #dff6f7;'>Total</th>
+                </tr>";
 			  $count = 1;
 			  //echo $e_id; exit;
 			  $obj_ticket=new user;
 			  $obj_ticket->getTicket($_SESSION['ses_admin_id'],$_SESSION['unique'],$_SESSION['event_id']);
 			  while($row = $obj_ticket->next_record()){
 			  ?>
-                        
+                        <?php 
+                            $mailTalbleEN = $mailTalbleEN . "<tr>";
+                            $mailTalbleES = $mailTalbleES . "<tr>";
+                        ?>
                         <tr>
                           <td>
-			     <?php echo $obj_ticket->f('ticket');?></td>
+                    <?php 
+                        $mailTalbleEN = $mailTalbleEN . "<td>" . $obj_ticket->f('ticket') . "</td>";
+                        $mailTalbleES = $mailTalbleES . "<td>" . $obj_ticket->f('ticket') . "</td>";
+                        echo $obj_ticket->f('ticket');
+                    ?>
+                          </td>
                           <td>
                           <?php
-                          if($_SESSION['langSessId']=='eng') {
-				  echo $obj_ticket->f('ticket_name_en');
-			    }
-			    elseif($_SESSION['langSessId']=='spn')
-			    {
-			      echo $obj_ticket->f('ticket_name_sp');
-			    }
+                            if($_SESSION['langSessId']=='eng') {
+                                $mailTalbleEN = $mailTalbleEN . "<td>" . $obj_ticket->f('ticket_name_en') . "</td>";
+                                echo $obj_ticket->f('ticket_name_en');
+                            }
+                            elseif($_SESSION['langSessId']=='spn')
+                            {
+                                $mailTalbleES = $mailTalbleES . "<td>" . $obj_ticket->f('ticket_name_sp') . "</td>";
+                                echo $obj_ticket->f('ticket_name_sp');
+                            }
 			    ?>
                           </td>
                           <td>
 			  <?php 
+                $priceTicket = '';
 				if($_SESSION['pay'] == 'us'){
-				      echo number_format($obj_ticket->f('us_price'),2,'.',',');
+				      $priceTicket = number_format($obj_ticket->f('us_price'),2,'.',',');
 				}elseif($_SESSION['pay'] == 'mx'){
-				      echo number_format($obj_ticket->f('mx_price'),2,'.',',');
+				      $priceTicket = number_format($obj_ticket->f('mx_price'),2,'.',',');
 				}
+                echo $priceTicket;
+                $mailTalbleEN = $mailTalbleEN . "<td>" . $priceTicket . "</td>";
+                $mailTalbleES = $mailTalbleES . "<td>" . $priceTicket . "</td>";
 				?></td>
                           
 			    <td> 
@@ -260,54 +297,58 @@ define('SIGN_UP', 'Guardar');
 			      $objfee = new user;
 			      $objfee->getsetting();
 			      $objfee->next_record();
-			     
+			     $ticketFee = '';
 			     
 	// ================================ Check Spanish or English and show the ticket fee  ============================
-			      if($_SESSION['pay'] == 'us'){
+                if($_SESSION['pay'] == 'us'){
 		
-				// Now check whether fees is include or not
-				if($objEvent->f('include_payment') == 1){		    
-				  $tic_fee = 0;
-				}
-				else{
-				  $tic_fee = $obj_ticket->f('ticket_fee_us');
-				}
-				
-				
-				// Now check whether promoton is include or not
-				if($objEvent->f('include_promotion') == 1){
-				  $promo_fee = 0;
-				}
-				else{
-				  $promo_fee = $obj_ticket->f('promo_fee_us');
-				}
-				
-				$tic_fee_us = $promo_fee +  $tic_fee;
-				echo number_format($tic_fee_us,2,'.',',');
-			      }
-			      else
-			      {
-				if($objEvent->f('include_payment') == 1){		    
-				  $tic_fee_mx = 0;
-				}
-				else{
-				  $tic_fee_mx = $obj_ticket->f('ticket_fee_mx');
-				}
-				
-				// Now check whether promoton is include or not
-				if($objEvent->f('include_promotion') == 1){
-			    
-				  $promo_fee_mx = 0;
-				}
-				else
-				{
-				  $promo_fee_mx = $obj_ticket->f('promo_fee_mx');
-				}
-				
-				
-				$tic_fee_mx = $promo_fee_mx +  $tic_fee_mx;
-				echo number_format($tic_fee_mx,2,'.',',');
-			      }
+                    // Now check whether fees is include or not
+                    if($objEvent->f('include_payment') == 1){		    
+                      $tic_fee = 0;
+                    }
+                    else{
+                      $tic_fee = $obj_ticket->f('ticket_fee_us');
+                    }
+
+
+                    // Now check whether promoton is include or not
+                    if($objEvent->f('include_promotion') == 1){
+                      $promo_fee = 0;
+                    }
+                    else{
+                      $promo_fee = $obj_ticket->f('promo_fee_us');
+                    }
+
+                    $tic_fee_us = $promo_fee +  $tic_fee;
+                    $ticketFee = number_format($tic_fee_us,2,'.',',');
+                }
+                else
+                {
+                    if($objEvent->f('include_payment') == 1){		    
+                      $tic_fee_mx = 0;
+                    }
+                    else{
+                      $tic_fee_mx = $obj_ticket->f('ticket_fee_mx');
+                    }
+
+                    // Now check whether promoton is include or not
+                    if($objEvent->f('include_promotion') == 1){
+
+                      $promo_fee_mx = 0;
+                    }
+                    else
+                    {
+                      $promo_fee_mx = $obj_ticket->f('promo_fee_mx');
+                    }
+
+
+                    $tic_fee_mx = $promo_fee_mx +  $tic_fee_mx;
+                    $ticketFee = number_format($tic_fee_mx,2,'.',',');
+                }
+                
+                echo $ticketFee;
+                $mailTalbleEN = $mailTalbleEN . "<td>" . $ticketFee . "</td>";
+                $mailTalbleES = $mailTalbleES . "<td>" . $ticketFee . "</td>";
 			      
 	 // ========================= End of Check Spanish or English and show the ticket fee  =========================
 			    
@@ -320,7 +361,7 @@ define('SIGN_UP', 'Guardar');
 			  <?php
 			  
 			 // Check for inlcude payment
-			  
+			  $totalTicketFee = '';
 			if($_SESSION['pay'] == 'us'){
 			  
 			  
@@ -349,7 +390,7 @@ define('SIGN_UP', 'Guardar');
 			  
 			  // Calculate Total Fee for 1 ticket...
 			  $total_per_ticket_fee_us =  $obj_ticket->f('ticket')*($incl_fee_us + $incl_promo_us + $obj_ticket->f('us_price'));
-			  echo number_format($total_per_ticket_fee_us,2,'.',',');			    
+			  $totalTicketFee = number_format($total_per_ticket_fee_us,2,'.',',');			    
 			  $_SESSION['total']=$_SESSION['total'] + $total_per_ticket_fee_us; //This is for All Total Amount  
 			  
 			}
@@ -383,17 +424,23 @@ define('SIGN_UP', 'Guardar');
 			  
 			  // Calculate Total Fee for 1 ticket...
 			  $total_per_ticket_fee_mx =  $obj_ticket->f('ticket')*($incl_fee_mx + $incl_promo_mx + $obj_ticket->f('mx_price'));
-			  echo number_format($total_per_ticket_fee_mx,2,'.',',');			    
+			  $totalTicketFee = number_format($total_per_ticket_fee_mx,2,'.',',');			    
 			  $_SESSION['total']=$_SESSION['total'] + $total_per_ticket_fee_mx; //This is for All Total Amount  
 			  
 			   
-			} 
-			  
+			}
+            
+            echo $totalTicketFee;
+            $mailTalbleEN = $mailTalbleEN . "<td>" . $totalTicketFee . "</td>";
+            $mailTalbleES = $mailTalbleES . "<td>" . $totalTicketFee . "</td>";
 			?>
 			  </td>
 	                   
                         </tr>
-                        
+                        <?php 
+                            $mailTalbleEN = $mailTalbleEN . "</tr>";
+                            $mailTalbleES = $mailTalbleES . "</tr>";
+                        ?>
                         <?php
                         	$count++;
 			    }
@@ -403,13 +450,39 @@ define('SIGN_UP', 'Guardar');
                           <td>&nbsp;</td>
                           <td>&nbsp;</td>
                           <td><strong>Total : </strong></td>
-                          <td><strong><?php 
-			      echo number_format($obj_order_details->f('payment_amount'),2,'.',',');
-			  ?></strong>
-			  <?php if($_SESSION['pay'] == 'us'){ if($_SESSION['langSessId']=='eng') {?>  US$ <?php }elseif($_SESSION['langSessId']=='spn'){?>EE.UU. $<?php } }elseif($_SESSION['pay'] == 'mx'){ if($_SESSION['langSessId']=='eng') {?>  MX Pesos <?php }elseif($_SESSION['langSessId']=='spn'){?> Pesos MX <?php } }?></td>
+                          <td>
+                                <?php $finalTotal = "<strong>" . number_format($obj_order_details->f('payment_amount'),2,'.',',') . "</strong>"; ?>
+                                <?php 
+                                    if($_SESSION['pay'] == 'us'){
+                                        if($_SESSION['langSessId']=='eng') {
+                                            $finalTotal = $finalTotal . " US$";
+                                        } elseif ($_SESSION['langSessId']=='spn') { 
+                                            $finalTotal = $finalTotal . " EE.UU. $";                                            
+                                        }                                         
+                                    } elseif($_SESSION['pay'] == 'mx'){ 
+                                        if($_SESSION['langSessId']=='eng') {
+                                            $finalTotal = $finalTotal . " MX Pesos";
+                                        } elseif ($_SESSION['langSessId']=='spn') {
+                                            $finalTotal = $finalTotal . " Pesos MX";
+                                        }                                         
+                                    }
+                                    echo $finalTotal;
+                                ?>
+                          </td>
 		   
-                        </tr>
-						
+                </tr>
+                    <?php
+                        $totalRow = "
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><strong>Total : </strong></td>
+                                <td>" . $finalTotal . "</td>
+                            </tr>";
+                        $mailTalbleEN = $mailTalbleEN . $totalRow . "</table>";
+                        $mailTalbleES = $mailTalbleES . $totalRow . "</table>";
+                    ?>
 					      </table>
 						
 					      </form>
@@ -430,7 +503,7 @@ If you do not receive the confirmation email within 5 minutes please check your 
 We look forward to seeing you at <strong><?php echo $name;?></strong>!<br>
 <!--<a href="<?php echo $obj_base_path->base_path(); ?>">Click Here</a> to return to KPasapp home page</p>-->
 						<?php }elseif($_SESSION['langSessId']=='spn'){?>
-						<p>En breve recibirás un email de confirmación con su confirmación electrónica.<br>Si usted no recibe el correo electrónico de confirmación dentro de los 5 minutos, por favor revise su carpeta de spam o basura para garantizar la entrega segura. Si usted cree que ha habido un problema con la entrega del correo electrónico, por favor contacte con nosotros en info@kpasapp.com<br>
+						<p>En breve recibirÃ¡s un email de confirmaciÃ³n con su confirmaciÃ³n electrÃ³nica.<br>Si usted no recibe el correo electrÃ³nico de confirmaciÃ³n dentro de los 5 minutos, por favor revise su carpeta de spam o basura para garantizar la entrega segura. Si usted cree que ha habido un problema con la entrega del correo electrÃ³nico, por favor contacte con nosotros en info@kpasapp.com<br>
 Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 <!--<a href="<?php echo $obj_base_path->base_path(); ?>">Click Here</a> to return to KPasapp home page</p>-->						
 </p>
@@ -451,7 +524,7 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 					<p>Sign up to KPasapp and make it even easier to make reservation, purchase and print tickets, manage your order, and more!
 </p>
 					<?php }elseif($_SESSION['langSessId'] == 'spn'){ ?>
-					<p>Registrate a KPasapp, y hágalo aún más fácil de hacer reservaciones, comprar y imprimir boletos, gestionar sus pedidos, y mucho más!</p>
+					<p>Registrate a KPasapp, y hÃ¡galo aÃºn mÃ¡s fÃ¡cil de hacer reservaciones, comprar y imprimir boletos, gestionar sus pedidos, y mucho mÃ¡s!</p>
 					<?php } ?>
 					
 					<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/pass_strength_script.js"></script>
@@ -516,19 +589,24 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 	
 	if($_SESSION['langSessId']=='eng') {
 	$message="
-	Dear ".$obj_user->f('fname')." <br>
+	Dear ".$obj_user->f('fname') . " " . $obj_user->f('lname') .  " <br>
 	
 	Thank you for your order.<br><br> 
-	Your order reference number is: <strong>".$obj_order_details->f('order_no')."</strong> <br><br>
+    Your order no. is: <strong>". $tid ."</strong><br>
+	Your order reference number is: <strong>".$obj_order_details->f('order_no')."</strong> <br>
+    Your email address is: <strong>".$obj_user->f('email')."</strong> <br>
+    Your telephone number is: <strong>".$obj_user->f('mobile')."</strong> <br><br>
 	
 	
 	Please keep it securely, as it will be required when you check in.<br> 
 	Please print this message and present it to check in at the event.<br>
-	You ordered <br><br>
-	
-	".$obj_order_details->f('ticket')." ".$tname.", ".$name.", ".$showdate." <br><br>
-	
-	Thank you for using KPasapp.com, your passport to all the events of Baja California Sur <br><br>
+	You ordered:	
+	<h2>". $event_id." , ".$objEvent->f('event_name_en') . "</h2>" . $dateOfEvent . "<br>"
+            . $objEvent->f('venue_name'). "<br>" . $objEvent->f('venue_address') . "<br>" 
+            . $objEvent->f('city_name') . ", " . $objEvent->f('county_name') . ", " . $objEvent->f('state_name') . "<br><br>"
+            . $mailTalbleEN . "
+        
+	<br>Thank you for using KPasapp.com, your passport to all the events of Baja California Sur <br>
 
 	We look forward to seeing you at ".$name.", <br><br>
 	
@@ -539,24 +617,29 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 	}
 	elseif($_SESSION['langSessId']=='spn'){
 	$message="
-	Estimado ".$obj_user->f('fname')." <br>
+	Estimado ".$obj_user->f('fname') . " " . $obj_user->f('lname') ." <br>
 	
 	Gracias por su pedido.<br><br> 
-	El número de referencia de su pedido es: <strong>".$obj_order_details->f('order_no')."</strong> <br><br>
+    Su referencia es: <strong>". $tid ."</strong> <br>
+	El nÃºmero de referencia de su pedido es: <strong>".$obj_order_details->f('order_no')."</strong> <br>
+    Su dirección de correo electrónico es: <strong>".$obj_user->f('email')."</strong> <br>
+    Su número de teléfono es: <strong>".$obj_user->f('mobile')."</strong> <br><br>
 	
 	
-	Por favor, mantenga de forma segura, ya que se requerirá al check in.<br> 
+	Por favor, mantenga de forma segura, ya que se requerirÃ¡ al check in.<br> 
 	Favor de imprimir este mensaje y presentarlo al registrarse en el evento.<br>
-	Usted ordenó: <br><br>
-	
-	".$obj_order_details->f('ticket')." ".$tname.", ".$name.", ".$showdate." <br><br>
-	
-	Gracias por usar KPasapp.com, su pasaporte para todos los eventos de Baja California Sur. <br><br>
+	Usted ordenÃ³:	
+	<h2>". $event_id." , ".$objEvent->f('event_name_en') . "</h2>" . $dateOfEvent . "<br>"
+            . $objEvent->f('venue_name'). "<br>" . $objEvent->f('venue_address') . "<br>" 
+            . $objEvent->f('city_name') . ", " . $objEvent->f('county_name') . ", " . $objEvent->f('state_name') . "<br><br>"
+	. $mailTalbleES . "
+    
+	<br>Gracias por usar KPasapp.com, su pasaporte para todos los eventos de Baja California Sur. <br>
 
 	Lo esperamos en ".$name.", <br><br>
 	
 	El Equipo de KPasapp <br>
-	No responda a este correo electrónico.<br>
+	No responda a este correo electrÃ³nico.<br>
 	Contactanos en info@kpasapp.com si necesita ayuda adicional.<br>
 	";
 	}
@@ -564,16 +647,16 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 	if($_SESSION['langSessId']=='eng') {
 	$subject="Order confirmation for ".$name."!";
 	}elseif($_SESSION['langSessId']=='spn'){
-	$subject="Confirmación de la orden para ".$name."!";
+	$subject="ConfirmaciÃ³n de la orden para ".$name."!";
 	}
 	
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= 'From: info@kcpasa.com' . "\r\n";
+	$headers .= 'From: info@kpasapp.com' . "\r\n";
 	//$headers .= "\r\nReturn-Path: \r\n";  // Return path for errors 
 	@mail($recipient, $subject, $message, $headers);
-	@mail('kpasapp@gmail.com', $subject, $message, $headers);
-	@mail('unified.subhrajyoti@gmail.com', $subject, $message, $headers);
+	@mail('main@kpasapp.com', $subject, $message, $headers);
+//    @mail('vuquangson1610@gmail.com', $subject, $message, $headers);
 ?>
 
 

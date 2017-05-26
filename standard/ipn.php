@@ -47,7 +47,7 @@ $data['cart_id'] 	= $custArray['6'];
 $data['unique_id'] 	= $custArray['7'];
 
 $pay_date=date('l jS \of F Y h:i:s A');
-$recipient="info@kcpasa.com";
+$recipient="info@kpasapp.com";
 
 // post back to PayPal system to validate
 $header = "POST /cgi-bin/webscr HTTP/1.0\r\n";	

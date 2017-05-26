@@ -32,17 +32,19 @@ else
 	$_SESSION['set_lang_venue'] = 'es';
 
 
+$venueENRoute = $obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'en');
+$venueESRoute = $obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'es');
 
 if($_REQUEST['lang']=="")
 {
 	
 	if($_SESSION['langSessId']=='eng')
 	{
-		header("location: ".$obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'en'));
+		header("location: " . $venueENRoute);
 		exit;
 	}
 	else{
-		header("location: ".$obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'sp'));
+		header("location: " . $venueESRoute);
 		exit;
 	}
 	
@@ -52,12 +54,12 @@ else if($_REQUEST['lang']!="" && $_REQUEST['lang']!=$_SESSION['set_lang_venue'])
 	if($_SESSION['langSessId']=='eng')
 	{
 		$_SESSION['set_lang_venue'] = 'en';
-		header("location: ".$obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'en'));
+		header("location: " . $venueENRoute);
 		exit;
 	}
 	else{ 
 		$_SESSION['set_lang_venue'] = 'es';
-		header("location: ".$obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'sp'));
+		header("location: " . $venueESRoute);
 		exit;
 	}
 	
@@ -68,12 +70,12 @@ if (!isset($_REQUEST['state_name']) || !isset($_REQUEST['county_name']) || !isse
 	if($_SESSION['langSessId']=='eng')
 	{
 		$_SESSION['set_lang_venue'] = 'en';
-		header("location: ".$obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'en'));
+		header("location: " . $venueENRoute);
 		exit;
 	}
 	else{ 
 		$_SESSION['set_lang_venue'] = 'es';
-		header("location: ".$obj_base_path->base_path(). $objCommon->getCleanVenueURL($venue_id, $objVenueLocation, 'sp'));
+		header("location: " . $venueESRoute);
 		exit;
 	}
 }
@@ -83,6 +85,7 @@ if (!isset($_REQUEST['state_name']) || !isset($_REQUEST['county_name']) || !isse
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta itemscope itemtype="http://schema.org/Article" /><!---------FOR G+ DESCRIPTION SHARE--------->
 
@@ -92,6 +95,8 @@ if (!isset($_REQUEST['state_name']) || !isset($_REQUEST['county_name']) || !isse
 <meta name="keywords" content="<?php  if($_SESSION['langSessId']=='eng') { echo htmlentities(stripslashes($objvenue_category->f('category_name'))); } else { echo htmlentities(stripslashes($objvenue_category->f('category_name_sp')));}?>">
 <meta name="description" content="<?php  if($_SESSION['langSessId']=='eng') { echo htmlentities(stripslashes($obj_venue->f('venue_short_add_en'))); } else { echo htmlentities(stripslashes($obj_venue->f('venue_short_add_sp')));}?>">
 
+<link rel="alternate" href="<?php echo $venueENRoute; ?>" hreflang="en" />
+<link rel="alternate" href="<?php echo $venueESRoute; ?>" hreflang="es" />
 
 <!---------------------------------------------------------------------------------------->
 
@@ -167,7 +172,7 @@ else
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/header-frontend.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/pagination.css" rel="stylesheet" type="text/css" />
 <?php include("include/analyticstracking.php")?> <!-----for google analytics--------->
-<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s" type="text/javascript"></script>
+<script src="https://maps.google.com/maps?file=api&amp;v=2.x&amp;key=AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s" type="text/javascript"></script>
 
 <!-- jQuery lightBox plugin -->
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
@@ -220,16 +225,20 @@ else
       
     <?php
       $Address = urlencode($add);
-      $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=true";
+      $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=true";
       $xml = simplexml_load_file($request_url) or die("url not loading");
       $status = $xml->status;
-      if ($status=="OK") {
-          //$Lat = $xml->result->geometry->location->lat;
-         // $Lon = $xml->result->geometry->location->lng;
+
+      //if ($status=="OK") {
+          	//$Lat = $xml->result->geometry->location->lat;
+         	// $Lon = $xml->result->geometry->location->lng;
+	 		//$Lat = $obj_venue->f('venue_lat');
+	 		//$Lon = $obj_venue->f('venue_long');
+          	//$LatLng = $Lat.",".$Lon;
+      //}
 	 $Lat = $obj_venue->f('venue_lat');
 	 $Lon = $obj_venue->f('venue_long');
-          $LatLng = $Lat.",".$Lon;
-      }
+     $LatLng = $Lat.",".$Lon;
     ?>
  
       
@@ -360,7 +369,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 														map.setCenter(point, 15);
 														var marker = new GMarker(point);
 														map.addOverlay(marker);
-														marker.openInfoWindowHtml(address + '<br /><div align="left" width="100%" style="margin:5px 0px 0px 10px;"><a style="color:#6a6a6a;" href="http://maps.google.com/maps?f=d&hl=en&geocode=&saddr=&daddr=' + address + '&ie=UTF8" target="_blank">Get directions</a></div>');
+														marker.openInfoWindowHtml(address + '<br /><div align="left" width="100%" style="margin:5px 0px 0px 10px;"><a style="color:#6a6a6a;" href="https://maps.google.com/maps?f=d&hl=en&geocode=&saddr=&daddr=' + address + '&ie=UTF8" target="_blank">Get directions</a></div>');
 													}
 												}
 											);

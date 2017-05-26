@@ -88,27 +88,17 @@ $page_url = basename($_SERVER['PHP_SELF']);
                                     </ul>
                                 </li>
                             <?php endif; ?>
-                            
-                            <?php if($userType == 2 || $userType == 3) : ?>
-                                <li><div class="back_nav_devider">&nbsp;</div></li>
-                                <li>
-                                    <a href="<?php echo $obj_base_path->base_path(); ?>/admin/newsletter_blog.php" <?php if($page_url == 'newsletter_blog.php'){ ?>class="active"<?php } ?>>
-                                        <?= AD_MENU_NEWSLETTER_BLOG ?>
-                                    </a>
-                                    <ul class="sub">
-                                        <li>
-                                            <a href="<?php echo $obj_base_path->base_path(); ?>/admin/newsletter_blog_generation.php" <?php if($page_url == 'newsletter_blog_generation.php'){ ?>class="active"<?php } ?>>
-                                                <?= AD_MENU_NEWSLETTER_BLOG_GENERATION ?>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            <?php endif; ?>
+                                                        
                                 
                             <li><div class="back_nav_devider">&nbsp;</div></li>
                             <?php if($userType == 2 || $userType == 3) : ?>
                                 <li><a style="cursor:pointer;" <?php if($page_url == 'list_page.php') { ?>class="active"<?php } ?>><?= AD_MENU_DASHBOARD ?><span class="nav_arrow"><img src="<?php echo $obj_base_path->base_path(); ?>/images/event_navarrow.png" border="0" /></span></a>				
                                     <ul class="sub">
+                                        <li>
+                                            <a href="<?php echo $obj_base_path->base_path(); ?>/admin/newsletter_blog_generation.php" <?php if($page_url == 'newsletter_blog_generation.php'){ ?>class="active"<?php } ?>>
+                                                <?= AD_MENU_NEWSLETTER_BLOG_GENERATION_LIST ?>
+                                            </a>
+                                        </li>
                                         <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/list_page" <?php if($page_url == 'list_page.php') { ?>class="active"<?php } ?>><?= AD_MENU_PAGES ?></a></li>
                                         <?php if($userType == 2) : ?>
                                             <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/list_category" <?php if($page_url == 'list_category.php') { ?>class="active"<?php } ?>><?= AD_MENU_EVENT_CATEGORY ?></a></li>
@@ -119,9 +109,9 @@ $page_url = basename($_SERVER['PHP_SELF']);
                                             <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/list-client"><?= AD_MENU_CLIENT_MANAGEMENT ?></a></li>
                                             <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/ad-list/"><?= AD_MENU_AD_MANAGEMENT ?></a></li>
                                             <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/meta-list/"><?= AD_MENU_META_TAG_MANAGEMENT ?></a></li>
-                                            <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/sitemap/" target="_blank"><?= AD_MENU_SITEMAP_GENERATOR ?></a></li>
-                                            <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/social-share/"><?= AD_MENU_SOCIAL_SHARE ?></a></li>
+                                            <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/sitemap/" target="_blank"><?= AD_MENU_SITEMAP_GENERATOR ?></a></li>                                            
                                         <?php endif; ?>
+                                        <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/social-share/"><?= AD_MENU_SOCIAL_SHARE ?></a></li>
                                     </ul>
                                 </li>
                                 <li><div class="back_nav_devider">&nbsp;</div></li>

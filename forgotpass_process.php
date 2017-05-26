@@ -108,7 +108,7 @@ $obj_sendmail = new user;
 				
 				$obj_sendmail->forget_password_mail($email,$subject,$output,$from);
 				$obj_sendmail->forget_password_mail('kpasapp@gmail.com',$subject,$output,$from);
-				$obj_sendmail->forget_password_mail('unified.subhrajyoti@gmail.com',$subject,$output,$from);
+//				$obj_sendmail->forget_password_mail('unified.subhrajyoti@gmail.com',$subject,$output,$from);
 				//$headers  = 'MIME-Version: 1.0' . "\r\n";
 				//$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				//$headers .= 'From: info@kcpasa.com' . "\r\n";
@@ -142,18 +142,18 @@ $obj_sendmail = new user;
 													<td valign="top" bgcolor="#FFFFFF" style="font-size:12px;color:#444444;line-height:150%;font-family:trebuchet ms;border-left:1px solid #e0e0e0;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0">
 														<p style="margin-top:0px"></p>
 														<div style="color:#f3164f;font-family:arial;line-height:100%;padding:20px 0px">
-															<p>Han pedido reinicializar su contraseÒa KPasapp. Por favor, confirme esta solicitud haciendo clic en el enlace 
+															<p>Han pedido reinicializar su contrase√±a KPasapp. Por favor, confirme esta solicitud haciendo clic en el enlace 
 															  <a target="_blank" href="'.$obj_base_path->base_path().'/resetpassword.php?user='.$faq->f('admin_id').'" style="font-weight:bold;"> '.$obj_base_path->base_path().'/resetpassword.php?user='.$faq->f('admin_id').' </a>
 														    </p>
-															<p><span style="font-size:12px;color:#444444;line-height:150%;font-family:trebuchet ms"><i>Si no puede abrir el hipervÌnculo anterior, copie y pegue el URL en su navegador de Internet.</i></span></p>
+															<p><span style="font-size:12px;color:#444444;line-height:150%;font-family:trebuchet ms"><i>Si no puede abrir el hiperv√≠nculo anterior, copie y pegue el URL en su navegador de Internet.</i></span></p>
 														</div>
 													  <p style="font-size:12px;color:#444444;line-height:150%;font-family:trebuchet ms">
 															Esta solicitud se hizo en '.date("F d, Y,  h:i a").'<br>
-															Si no hiciste esta solicitud, h·ganoslo saber de inmediato para su propia seguridad. Es importante porque nos ayuda a asegurarnos de que nadie se est· metiendo en su cuenta sin su conocimiento.														</p>
+															Si no hiciste esta solicitud, h√°ganoslo saber de inmediato para su propia seguridad. Es importante porque nos ayuda a asegurarnos de que nadie se est√° metiendo en su cuenta sin su conocimiento.														</p>
 														<p style="font-size:12px;color:#444444;line-height:150%;font-family:trebuchet ms"> Atentamente,<br>
 														  El Equipo KPasapp<br />
-														  No responda a este correo electrÛnico.<br />
-														  EnvÌanos un email a info@kpasapp.com si necesita ayuda adicional.</p>
+														  No responda a este correo electr√≥nico.<br />
+														  Env√≠anos un email a info@kpasapp.com si necesita ayuda adicional.</p>
 <p></p>
 													</td>
 												</tr>
@@ -180,7 +180,7 @@ $obj_sendmail = new user;
 				
 				$obj_sendmail->forget_password_mail($email,$subject,$output,$from);
 				$obj_sendmail->forget_password_mail('kpasapp@gmail.com',$subject,$output,$from);
-				$obj_sendmail->forget_password_mail('unified.subhrajyoti@gmail.com',$subject,$output,$from);	
+//				$obj_sendmail->forget_password_mail('unified.subhrajyoti@gmail.com',$subject,$output,$from);	
 				//mail($to,$subject,$output,$from);
 				
 				$_SESSION['for_pass_msg'] =  "Hemos enviado un mensaje con la informaci&oacute;n sobre c&oacute;mo reinicializar la contrase&oacute;a de  ".$email.". <br />Compruebe el mensaje y siga las instrucciones para restablecer tu contrase&oacute;a.

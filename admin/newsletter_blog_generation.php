@@ -52,7 +52,7 @@ if(isset($_REQUEST['venue']) && $_REQUEST['venue']!=""){
 	$venue = $_REQUEST['venue'];
 }
 
-$blog_start_date = date("Y-m-d 00:00:00");
+$blog_start_date = date("Y-m-d");
 
 if(isset($_REQUEST['blog_start_date']) && $_REQUEST['blog_start_date']!=""){
 	$blog_start_date = $_REQUEST['blog_start_date'];
@@ -61,7 +61,7 @@ if(isset($_REQUEST['blog_start_date']) && $_REQUEST['blog_start_date']!=""){
 $sunday   = strtotime("next sunday");
 $nextSunday = $sunday + 60 * 60 * 24 * 7;
 
-$blog_end_date = date('Y-m-d 00:00:00', $nextSunday);
+$blog_end_date = date('Y-m-d', $nextSunday);
 
 if(isset($_REQUEST['blog_end_date']) && $_REQUEST['blog_end_date']!=""){
 	$blog_end_date = $_REQUEST['blog_end_date'];
@@ -484,10 +484,16 @@ function submit_by_js(){
             dateFormat: 'dd-mm-yy',
             defaultDate: new Date(today.getFullYear(),today.getMonth(),today.getDate() + jumbDay)
         });
+        console.log(today);
 
         if (selectedStartDate.length > 0 && selectedEndDate.length > 0) {
-            $("#blog_start_date").datepicker().datepicker("setDate", new Date(selectedStartDate));
-            $("#blog_end_date").datepicker().datepicker("setDate", new Date(selectedEndDate));        
+            var selectedStartDateObjectLocal = new Date(selectedStartDate);
+            var selectedEndDateObjectLocal = new Date(selectedEndDate);
+            var utc_selected_start_int = selectedStartDateObjectLocal.getTime() + (selectedStartDateObjectLocal.getTimezoneOffset() * 60000);
+            var utc_selected_end_int = selectedEndDateObjectLocal.getTime() + (selectedEndDateObjectLocal.getTimezoneOffset() * 60000);                             
+            
+            $("#blog_start_date").datepicker().datepicker("setDate", new Date(utc_selected_start_int));
+            $("#blog_end_date").datepicker().datepicker("setDate", new Date(utc_selected_end_int));        
         } else {
             $("#blog_start_date").datepicker().datepicker("setDate", new Date());
             $("#blog_end_date").datepicker().datepicker("setDate", new Date(today.getFullYear(),today.getMonth(),today.getDate() + jumbDay));        
@@ -524,17 +530,36 @@ function submit_by_js(){
             
             var blog_start_date = $('#blog_start_date').val() ? blog_start_date = $('#blog_start_date').val() : '';
             var blog_end_date = $('#blog_end_date').val() ? blog_end_date = $('#blog_end_date').val() : '';
+            
+            console.log('blog_end_date = ' + blog_end_date);
+            console.log('blog_start_date = ' + blog_start_date);
+            
             var array_blog_start_date = blog_start_date.split("-");
             var array_blog_end_date = blog_end_date.split("-");
 
-            var blog_start_date_reordered = array_blog_start_date[2] + "-" + array_blog_start_date[1] + "-" + array_blog_start_date[0];
+            var blog_start_date_reordered = array_blog_start_date[2] + "-" + array_blog_start_date[1] + "-" + array_blog_start_date[0]
             var blog_end_date_reordered = array_blog_end_date[2] + "-" + array_blog_end_date[1] + "-" + array_blog_end_date[0];
 
+            console.log('blog_end_date_reordered = ' + blog_end_date_reordered);
+            console.log('blog_start_date_reordered = ' + blog_start_date_reordered);
+            
             var date_start_int = Date.parse(blog_start_date_reordered);
             var date_end_int = Date.parse(blog_end_date_reordered);
             
-            var blog_start_date_object = new Date(blog_start_date_reordered);
-            var blog_end_date_object = new Date(blog_end_date_reordered);
+            var blog_start_date_local = new Date(blog_start_date_reordered);                        
+            var blog_end_date_local = new Date(blog_end_date_reordered);
+            
+            var utc_start_date_int = blog_start_date_local.getTime() + (blog_start_date_local.getTimezoneOffset() * 60000);
+            var utc_end_date_int = blog_end_date_local.getTime() + (blog_end_date_local.getTimezoneOffset() * 60000);
+                            
+            var blog_start_date_object = new Date(utc_start_date_int);
+            var blog_end_date_object = new Date(utc_end_date_int);
+    
+            var offset = new Date().getTimezoneOffset();
+            console.log('offset=' + offset);
+
+            console.log('blog_start_date_object = ' + blog_start_date_object);
+            console.log('blog_end_date_object = ' + blog_end_date_object);
             
             // check if the start and end month is the same
             if (array_blog_start_date[1] == array_blog_end_date[1]) {
@@ -574,6 +599,7 @@ function submit_by_js(){
                     "&selected_event_id=" + selectedEventID +
                     "&selected_showcase_id=" + selectedShowcaseEventID +
                     "&newsletter_type=" + newsletterType;
+            console.log(data);
             
             $.ajax({ 
                 url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_generate_newsletter_blog.php",

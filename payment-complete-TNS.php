@@ -46,15 +46,15 @@ define('PERSONAL', 'Personal');
 define('PROFESSIONAL', 'Profesional');
 define('FIRST_NAME', 'Nombre');
 define('LAST_NAME', 'Apellido');
-define("EMAIL","Correo Electrónico");
-define('CELL_PHONE', 'Móvil');
+define("EMAIL","Correo ElectrÃ³nico");
+define('CELL_PHONE', 'MÃ³vil');
 define('LANG', 'Idioma');
-define('COUNTRY', 'País');
-define('PASS', 'Contraseña');
-define('CON_PASS', 'Confirme contraseña');
-define('HUMAN', '¿Eres humano o robot de spam?');
-define('PRIVIACY', 'Términos y condiciones');
-define('TERMS_CONDITION', 'Al crear mi cuenta KPasapp, reconozco que he leído y aceptado los <a href="#" style="text-decoration:underline; color:#117ADA">Terminos y Condiciones, Politicas de Cancelaciones y Devolución y Politicas de Privacidad de KPasapp.com.</a>');
+define('COUNTRY', 'PaÃ­s');
+define('PASS', 'ContraseÃ±a');
+define('CON_PASS', 'Confirme contraseÃ±a');
+define('HUMAN', 'Â¿Eres humano o robot de spam?');
+define('PRIVIACY', 'TÃ©rminos y condiciones');
+define('TERMS_CONDITION', 'Al crear mi cuenta KPasapp, reconozco que he leÃ­do y aceptado los <a href="#" style="text-decoration:underline; color:#117ADA">Terminos y Condiciones, Politicas de Cancelaciones y DevoluciÃ³n y Politicas de Privacidad de KPasapp.com.</a>');
 define('CREATE_ACCOUNT', 'Crear Cuenta');
 define('SIGN_UP', 'Guardar');
 }
@@ -201,7 +201,7 @@ function new_signup(){
 				  
 				  </tr>
 				<tr>
-			    <td><strong><?php if($_SESSION['langSessId']=='eng') {?>Bank Authorization Code<?php }elseif($_SESSION['langSessId']=='spn'){?>Código de Autorización<?php }?> : <?php echo $_GET['bank-auth'];?></strong></td>
+			    <td><strong><?php if($_SESSION['langSessId']=='eng') {?>Bank Authorization Code<?php }elseif($_SESSION['langSessId']=='spn'){?>CÃ³digo de AutorizaciÃ³n<?php }?> : <?php echo $_GET['bank-auth'];?></strong></td>
 				</tr>
 				<tr>
                                   <td><img src="images/spacer.gif" alt="" width="1" height="9" /></td>
@@ -484,7 +484,7 @@ If you do not receive the confirmation email within 5 minutes please check your 
 We look forward to seeing you at <strong><?php echo $name;?></strong>!<br>
 <!--<a href="<?php echo $obj_base_path->base_path(); ?>">Click Here</a> to return to KPasapp home page</p>-->
 						<?php }elseif($_SESSION['langSessId']=='spn'){?>
-						<p>En breve recibirás un email de confirmación con su confirmación electrónica.<br>Si usted no recibe el correo electrónico de confirmación dentro de los 5 minutos, por favor revise su carpeta de spam o basura para garantizar la entrega segura. Si usted cree que ha habido un problema con la entrega del correo electrónico, por favor contacte con nosotros en info@kpasapp.com<br>
+						<p>En breve recibirÃ¡s un email de confirmaciÃ³n con su confirmaciÃ³n electrÃ³nica.<br>Si usted no recibe el correo electrÃ³nico de confirmaciÃ³n dentro de los 5 minutos, por favor revise su carpeta de spam o basura para garantizar la entrega segura. Si usted cree que ha habido un problema con la entrega del correo electrÃ³nico, por favor contacte con nosotros en info@kpasapp.com<br>
 Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 <!--<a href="<?php echo $obj_base_path->base_path(); ?>">Click Here</a> to return to KPasapp home page</p>-->						
 </p>
@@ -505,7 +505,7 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 					<p>Sign up to KPasapp and make it even easier to make reservation, purchase and print tickets, manage your order, and more!
 </p>
 					<?php }elseif($_SESSION['langSessId'] == 'spn'){ ?>
-					<p>Registrate a KPasapp, y hágalo aún más fácil de hacer reservaciones, comprar y imprimir boletos, gestionar sus pedidos, y mucho más!</p>
+					<p>Registrate a KPasapp, y hÃ¡galo aÃºn mÃ¡s fÃ¡cil de hacer reservaciones, comprar y imprimir boletos, gestionar sus pedidos, y mucho mÃ¡s!</p>
 					<?php } ?>
 					
 					<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/pass_strength_script.js"></script>
@@ -596,12 +596,12 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 	Estimado ".$obj_user->f('fname')." <br>
 	
 	Gracias por su pedido.<br><br> 
-	El número de referencia de su pedido es: <strong>".$obj_order_details->f('order_no')."</strong> <br><br>
+	El nÃºmero de referencia de su pedido es: <strong>".$obj_order_details->f('order_no')."</strong> <br><br>
 	
 	
-	Por favor, mantenga de forma segura, ya que se requerirá al check in.<br> 
+	Por favor, mantenga de forma segura, ya que se requerirÃ¡ al check in.<br> 
 	Favor de imprimir este mensaje y presentarlo al registrarse en el evento.<br>
-	Usted ordenó: <br><br>
+	Usted ordenÃ³: <br><br>
 	
 	".$obj_order_details->f('ticket')." ".$tname.", ".$name.", ".$showdate." <br><br>
 	
@@ -610,7 +610,7 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 	Lo esperamos en ".$name.", <br><br>
 	
 	El Equipo de KPasapp <br>
-	No responda a este correo electrónico.<br>
+	No responda a este correo electrÃ³nico.<br>
 	Contactanos en info@kpasapp.com si necesita ayuda adicional.<br>
 	";
 	}
@@ -618,12 +618,12 @@ Esperamos verle en <strong><?php echo $name;?></strong>!<br>
 	if($_SESSION['langSessId']=='eng') {
 	$subject="Order confirmation for ".$name."!";
 	}elseif($_SESSION['langSessId']=='spn'){
-	$subject="Confirmación de la orden para ".$name."!";
+	$subject="ConfirmaciÃ³n de la orden para ".$name."!";
 	}
 	
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= 'From: info@kcpasa.com' . "\r\n";
+	$headers .= 'From: info@kpasapp.com' . "\r\n";
 	//$headers .= "\r\nReturn-Path: \r\n";  // Return path for errors 
 	//@mail($recipient, $subject, $message, $headers);
 	@mail('kpasapp@gmail.com', $subject, $message, $headers);

@@ -16,7 +16,7 @@ $google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';*/
 
 $google_client_id 	= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
 $google_client_secret 	= 'OmTKyOc5XDUNqs9_taw_GP9l';
-$google_redirect_url 	= 'http://kpasapp.com/google.php';
+$google_redirect_url 	= 'https://kpasapp.com/google.php';
 $google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';
 
 
@@ -196,6 +196,7 @@ $obj_page1->next_record();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
 
@@ -207,7 +208,7 @@ $obj_page1->next_record();
 
 <!--<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.placeholder.min.js"></script>
 <!--<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/contact.js"></script>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/pass_strength_script.js"></script>-->
