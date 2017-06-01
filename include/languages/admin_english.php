@@ -136,6 +136,7 @@ define("AD_DATE_AND_TIME","Date & Time");
 define("AD_MENU_NEWSLETTER_BLOG","Newsletter/Blog");
 define("AD_MENU_NEWSLETTER_BLOG_GENERATION","Generate Newsletter/Blog");
 define("AD_MENU_NEWSLETTER_BLOG_GENERATION_LIST","Newsletter/blog list/edit");
+define("AD_MENU_GENERATE_NEWSLETTER_BLOG","Generate newsletter/blog");
 define("AD_MENU_PAGES","Pages");
 define("AD_MENU_EVENT_CATEGORY","Event Category");
 define("AD_MENU_DATABASE","Database");

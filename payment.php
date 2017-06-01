@@ -23,6 +23,7 @@
 
 <?php
 include('include/user_inc.php');
+
 $_SESSION['total'] = 0;
 $e_id = $_REQUEST['event_id'];
 //unset($_SESSION['event_id']);
@@ -35,6 +36,19 @@ $_SESSION['event_id'] = $e_id;
 //echo $event_id; exit;
 // =================================== Google Plus =====================================
 ########## Google Settings.. Client ID, Client Secret #############
+
+require './facebook-php/src/Facebook/autoload.php';
+
+$facebook = new \Facebook\Facebook(array(
+            'app_id' => '445192265673724',
+            'app_secret' => '41f5bccae260641bce323da48eb35776',
+			'default_graph_version' => 'v2.5',
+            ));
+$helper = $facebook->getRedirectLoginHelper();
+
+$permissions = ['email']; // Optional permissions
+$loginUrl = $helper->getLoginUrl('https://www.kpasapp.com/fb_callback.php', $permissions);
+
 $google_client_id 		= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
 $google_client_secret 	= 'OmTKyOc5XDUNqs9_taw_GP9l';
 $google_redirect_url 	= 'http://kpasapp.com/google.php';
@@ -62,6 +76,10 @@ if (isset($_REQUEST['reset']))
   unset($_SESSION['token']);
   $gClient->revokeToken();
   header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
+}
+
+if (isset($_GET['attempt_id'])) {
+	$_SESSION['attempt_id'] = $_GET['attempt_id'];
 }
 
 //Redirect user to google authentication page for code, if code is empty.
@@ -234,21 +252,15 @@ $password = '';
 //$rem_password = $_POST['password'];
 //$password = md5($_POST['password']);
 $account_type = $_POST['account_type'];
-if($country_id == 138){
-  $language = 'Spanish';
-}
-else
-{
-  $language = 'English';
-}
 
+if (isset($_SESSION['langSessId']) && ($_SESSION['langSessId'] == 'eng')) {
+    $language = 'English';
+} elseif (isset($_SESSION['langSessId']) && ($_SESSION['langSessId'] == 'spn')) {
+    $language = 'Spanish';
+} else {
+    $language = 'English';
+}    
 
-
-$province = $_POST['province'];
-$county = $_POST['county'];
-$city = $_POST['city'];
-$address = $_POST['address'];
-$postal_code = $_POST['postal_code'];
 $mobile_code = $_POST['mobile_code'];
 
 
@@ -262,7 +274,7 @@ $mobile_code = $_POST['mobile_code'];
 
 //echo $_SESSION['langSessId']; exit;
 
-$user_id = $obj_adduser->register_user($fname,$lname,$email,$phone,$country_id,$country_code,$rem_password,$password,$account_type,$language,$province,$county,$city,$address,$postal_code,$mobile_code);
+$user_id = $obj_adduser->register_user_on_payment($fname,$lname,$email,$phone,$country_id,$country_code,$password,$account_type,$language,$mobile_code);
 
 //if($_SESSION['langSessId']=='eng')
 if($_POST['password'] != ''){
@@ -440,35 +452,13 @@ if(isset($_POST['pay_edit']) && $_POST['pay_edit'] == 1)
 	$phone=$_POST["phone"];
 	$mobile_code=$_POST["mobile_code"];
 	$country_id=$_POST["country_id"];
-	$province=$_POST["province"];
-	$county=$_POST["county"];
-	$city=$_POST["city"];
-	$address=$_POST["address"];
-	$postal_code=$_POST["postal_code"];
 	$pay_eid=$_POST["pay_eid"];
 	
-	//print_r($_POST);exit;
-	//if(isset($_POST["act_event"]) && $_POST["act_event"]==1) $act_event=$_POST["act_event"]; else $act_event=0;
-	//if(isset($_POST["act_venue"]) && $_POST["act_venue"]==1) $act_venue=$_POST["act_venue"]; else $act_venue=0;
-	//if(isset($_POST["act_perform"]) && $_POST["act_perform"]==1) $act_perform=$_POST["act_perform"]; else $act_perform=0;
-	//if(isset($_POST["act_provider"]) && $_POST["act_provider"]==1) $act_provider=$_POST["act_provider"]; else $act_provider=0;
-	//if(isset($_POST["act_sponser"]) && $_POST["act_sponser"]==1) $act_sponser=$_POST["act_sponser"]; else $act_sponser=0;
-	
-	
 	$faq->checkEmailexists($email,$_SESSION['ses_admin_id']);
-	//echo $faq->num_rows().'sss';exit;
-	//if(!$faq->num_rows() > 0 ) 
-	{	
-		
-	    $edit_admin->edit_admin_details_new($fname,$lname,$email,$phone,$country_id,$province,$county,$city,$address,$postal_code,$_SESSION['ses_admin_id'],$mobile_code);
+	{		    
+        $edit_admin->edit_admin_details_new_on_payment($fname,$lname,$email,$phone,$country_id,$_SESSION['ses_admin_id'],$mobile_code);
 	}
-	//else
-	//{
-	//	$_SESSION['err'] = "Email Id Already Exists!";
-	//	header("Location:".$obj_base_path->base_path()."/payment/".$pay_eid);
-	//	exit;
-	//}
-
+	
 }
 
 //echo '<br><br><br>'.$_SESSION['ses_admin_id'].','.$_SESSION['unique'].','.$_SESSION['event_id'].'<br><br><br>';
@@ -544,7 +534,8 @@ if($_GET['action'] == 'del' && $_GET['tid'] !=''){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
 <title>Payment</title>
     <meta charset="utf-8">
@@ -749,37 +740,20 @@ function validate_new(){
 
 function validate(){
   
+  console.log("vao day");
   $("#err_fname").html('');
   $("#err_lname").html('');
   $("#err_country").html('');
-  $("#err_city").html('');
-  $("#err_address").html('');
-  $("#err_postal_code").html('');
-  //$("#err_password").html('');
-  //$("#err_re_pass").html('');
   
   var fname=$("#fname").val();
   var lname=$("#lname").val();
   var country=$("#country_id").val();
-  var province=$("#province").val();
-  var city=$("#city").val();
-  var address=$("#address").val();
-  var postal_code=$("#postal_code").val();
-  //var password=$("#password").val();
-  //var repass=$("#re_pass").val();
   
   var err = 0;
   if (fname=='' || fname==null) { $("#err_fname").html('Please input First Name.'); err = 1; }
   if (lname=='' || lname==null) { $("#err_lname").html('Please input Last Name.'); err = 1; }
   if (country=='' || country==null) { $("#err_country").html('Please select a country.'); err = 1; }
-  if (province=='' || province==null) { $("#err_province").html('Please select a state.'); err = 1; }
-  if (city=='' || city==null) { $("#err_city").html('Please input a city.'); err = 1; }
-  if (address=='' || address==null) { $("#err_address").html('Please type your address.'); err = 1; }
-  if (postal_code=='' || postal_code==null) { $("#err_postal_code").html('Please type your postal code.'); err = 1; }
-  //if (password=='' || password==null) { $("#err_password").html('Enter your password.'); err = 1; }
-  //if (repass=='' || repass==null) { $("#err_re_pass").html('Retype your password.'); err = 1; }
-  //if (repass != password && password != '' && repass != '') { $("#err_re_pass").html('Password Mismatch.'); err = 1; }
-  
+
   if(err == 0) return true; else return false;
 }
 </script>
@@ -878,27 +852,7 @@ function pay_type(type){
 		alert("Please select your Country.");
 		document.contact.country_id.focus();
 		err = 1;
-	}
-	else if(document.contact.province.value.search(/\S/) == -1){
-		alert("Please select your State.");
-		document.contact.province.focus();
-		err = 1;
-	}
-	else if(document.contact.city.value.search(/\S/) == -1){
-		alert("Please enter your City.");
-		document.contact.city.focus();
-		err = 1;
-	}
-	else if(document.contact.address.value.search(/\S/) == -1){
-		alert("Please enter your Address.");
-		document.contact.address.focus();
-		err = 1;
-	}
-	else if(document.contact.postal_code.value.search(/\S/) == -1){
-		alert("Please enter your Postal code.");
-		document.contact.postal_code.focus();
-		err = 1;
-	}
+	}	
 	
 	else if(document.contact.email.value != '')
 	{
@@ -1097,8 +1051,9 @@ function change(eid,type) {
                                         
                                             $objLocation->getStateCountyByEventID($event_id);
                                             $objLocation->next_record();
-                                            $text = ($_SESSION['set_lang_index'] == 'es') ? 'evento': 'event';  
-                                            $eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($event_id, $objLocation, $_SESSION['set_lang_index'], $text, $name);                                           
+                                            $text = ($_SESSION['langSessId'] == 'spn') ? 'evento': 'event';  
+                                            $languageEvent = ($_SESSION['langSessId'] == 'spn') ? 'es': 'en'; 
+                                            $eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($event_id, $objLocation, $languageEvent, $text, $name);                                           
                                         ?>
 					<!--
 					setlocale(LC_TIME, 'es_ES'); echo  strftime("%a",strtotime($date))." ".strftime("%e",strtotime($date))." de ".strftime("%b",strtotime($date)).", ".strftime("%Y",strtotime($date))-->
@@ -1408,7 +1363,7 @@ function change(eid,type) {
 			  <?php }elseif($_SESSION['langSessId']=='spn'){?>
 			  Entrar con
 			  <?php }?>
-			  <a href="<?php echo $obj_base_path->base_path(); ?>/login-facebook.php"><img src='<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif' width="40" height="46" border="0"/></a>
+			  <a href="<?php echo $loginUrl; ?>"><img src='<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif' width="40" height="46" border="0"/></a>
 			  <a href="<?php echo $authUrl; ?>"><img src='<?php echo $obj_base_path->base_path(); ?>/images/4google_blue.gif' width="40" height="46" border="0"/></a>
 			  <!--<strong>
 			  <?php if($_SESSION['langSessId']=='eng') {?>
@@ -1513,7 +1468,7 @@ function change(eid,type) {
                          $obj_cntry->countries_list();
                             while($obj_cntry->next_record()){
                     ?>
-                        <option value="<?php echo $obj_cntry->f('phonecode');?>" <?php if($_SESSION['langSessId']=="spn" && $obj_cntry->f('id')==138 && $obj->f('mobile_code')==''){ echo $sel; } else if($_SESSION['langSessId']=="eng" && $obj_cntry->f('id')==226 && $obj->f('mobile_code')==''){ echo $sel; } else if($obj->f('mobile_code')==$obj_cntry->f('phonecode') && $obj->f('country_id')==$obj_cntry->f('id')) { echo $sel;}  ?>><?php echo $obj_cntry->f('phonecode')." - ".$obj_cntry->f('nicename');?></option>
+                        <option value="<?php echo $obj_cntry->f('phonecode');?>" <?php if($_SESSION['langSessId']=="spn" && $obj_cntry->f('id')==138 && $obj->f('mobile_code')==''){ echo $sel; } else if($_SESSION['langSessId']=="eng" && $obj_cntry->f('id')==226 && $obj->f('mobile_code')==''){ echo $sel; } else if($obj->f('mobile_code')==$obj_cntry->f('phonecode')) { echo $sel;}  ?>><?php echo $obj_cntry->f('phonecode')." - ".$obj_cntry->f('nicename');?></option>
                     <?php
                         }
                     ?>    
@@ -1559,54 +1514,7 @@ function change(eid,type) {
                     </select>
                     <input type="hidden" name="country_code" id="country_code" value="<?php echo $value_code;?>" />
                 </td>
-              </tr>
-              <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "State";}elseif($_SESSION['langSessId']=='spn'){ echo "Estado";}?><span style="color:red;" id="star1">*</span></td>
-                <td>
-                  <div id="div_state_display">
-		    <?php if($_SESSION['langSessId']=='eng')
-			      $temp_country=226;
-			  elseif($_SESSION['langSessId']=='spn')
-			      $temp_country=138;
-		    
-		     $selectcountry = $obj->f('country_id') ? $obj->f('country_id') : $temp_country ;
-		     $obj_venuestate->getStateById($selectcountry);
-		    ?>
-                   <select onChange="display();" name="province" id="province" class="selectbg12" style="width:205px; margin-left:5px;">
-                        <option value="">State</option>
-                        <?php while($row = $obj_venuestate->next_record()) { ?>
-                          <option value="<?php echo $obj_venuestate->f('id');?>" <?php if($obj->f('province')==$obj_venuestate->f('id')){?> selected="selected"<?php }?> >
-                            <?php echo $obj_venuestate->f('state_name');?>
-			  </option>
-                            <?php } ?>
-                    </select>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "County";}elseif($_SESSION['langSessId']=='spn'){ echo "Municipio";}?></td>
-                <td>
-                    <input onClick="display();" type="text" name="county" id="county" class="textbg_grey" style="width: 190px; margin-right: 6px;" value="<?php echo $obj->f('county')?>" />
-                </td>
-              </tr>
-              <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "City";}elseif($_SESSION['langSessId']=='spn'){ echo "Ciudad";}?><span style="color:red; " id="star3">*</span></td>
-                <td>
-                      <input onClick="display();" type="text" name="city" id="city" class="textbg_grey" style="width: 190px; margin-right: 6px;" value="<?php echo $obj->f('city')?>" />  
-                </td>
-              </tr>
-              <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "Address";}elseif($_SESSION['langSessId']=='spn'){ echo "Direcci&oacute;n";}?><span style="color:red;">*</span></td>
-                <td>
-                <textarea onClick="display();" name="address" id="address" style="width:210px; margin-left: 6px;"><?php echo $obj->f('address')?></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "Postal Code";}elseif($_SESSION['langSessId']=='spn'){ echo "C&oacute;digo Postal";}?><span style="color:red;">*</span></td>
-                <td>
-                <input onClick="display();" type="text" name="postal_code" id="postal_code" class="textbg_grey" style="width: 190px; margin-right:6px;" value="<?php echo $obj->f('postal_code')?>" />
-                </td>
-              </tr>
+              </tr>              
               <div id="display" style="display: none;"><input type="submit" value="<?php if($_SESSION['langSessId']=='eng'){echo "Update";}elseif($_SESSION['langSessId']=='spn'){ echo "Actualizar";}?>" class="btn1_sudip" /></div>
             </table>
 		   <?php

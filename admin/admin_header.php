@@ -89,17 +89,31 @@ $page_url = basename($_SERVER['PHP_SELF']);
                                 </li>
                             <?php endif; ?>
                                                         
-                                
-                            <li><div class="back_nav_devider">&nbsp;</div></li>
                             <?php if($userType == 2 || $userType == 3) : ?>
-                                <li><a style="cursor:pointer;" <?php if($page_url == 'list_page.php') { ?>class="active"<?php } ?>><?= AD_MENU_DASHBOARD ?><span class="nav_arrow"><img src="<?php echo $obj_base_path->base_path(); ?>/images/event_navarrow.png" border="0" /></span></a>				
+                                <li><div class="back_nav_devider">&nbsp;</div></li>
+                                <li>
+                                    <a href="#" <?php if($page_url == 'newsletter_blog_generation.php' || $page_url == 'list_page.php'){ ?>class="active"<?php } ?>>
+                                        <?= AD_MENU_NEWSLETTER_BLOG ?>
+                                    </a>
                                     <ul class="sub">
                                         <li>
                                             <a href="<?php echo $obj_base_path->base_path(); ?>/admin/newsletter_blog_generation.php" <?php if($page_url == 'newsletter_blog_generation.php'){ ?>class="active"<?php } ?>>
+                                                <?= AD_MENU_NEWSLETTER_BLOG_GENERATION ?>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo $obj_base_path->base_path(); ?>/admin/list_page" <?php if($page_url == 'list_page.php') { ?>class="active"<?php } ?>>
                                                 <?= AD_MENU_NEWSLETTER_BLOG_GENERATION_LIST ?>
                                             </a>
                                         </li>
-                                        <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/list_page" <?php if($page_url == 'list_page.php') { ?>class="active"<?php } ?>><?= AD_MENU_PAGES ?></a></li>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
+
+                            <li><div class="back_nav_devider">&nbsp;</div></li>
+                            <?php if($userType == 2 || $userType == 3) : ?>
+                                <li><a style="cursor:pointer;" <?php if($page_url == 'list_category.php') { ?>class="active"<?php } ?>><?= AD_MENU_DASHBOARD ?><span class="nav_arrow"><img src="<?php echo $obj_base_path->base_path(); ?>/images/event_navarrow.png" border="0" /></span></a>				
+                                    <ul class="sub">                                                                                
                                         <?php if($userType == 2) : ?>
                                             <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/list_category" <?php if($page_url == 'list_category.php') { ?>class="active"<?php } ?>><?= AD_MENU_EVENT_CATEGORY ?></a></li>
                                             <li><a href="<?php echo $obj_base_path->base_path(); ?>/admin/dbbackup.php"><?= AD_MENU_DATABASE ?></a></li>

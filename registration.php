@@ -4,6 +4,17 @@ $obj=new user;
 $obj_page=new user;
 $obj_page1=new user;
 $obj_sendmail=new user;
+require './facebook-php/src/Facebook/autoload.php';
+$facebook = new \Facebook\Facebook(array(
+            'app_id' => '445192265673724',
+            'app_secret' => '41f5bccae260641bce323da48eb35776',
+			'default_graph_version' => 'v2.5',
+            ));
+$helper = $facebook->getRedirectLoginHelper();
+
+$permissions = ['email']; // Optional permissions
+$loginUrl = $helper->getLoginUrl('https://www.kpasapp.com/fb_callback.php', $permissions);
+
 //echo $_SESSION['langSessId'];
 
 //$_SESSION['account_type_google'] = 1;
@@ -476,8 +487,9 @@ function check_user(){
 			  } ?></h1></div>
                         
                         </div>
-						<div style="width: 100px; float: left; margin: 23px 6px 24px 30px;">                            
-                       <a href="<?php echo $obj_base_path->base_path(); ?>/login-facebook.php"><img src="<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif" border="0" /></a>
+						<div style="width: 100px; float: left; margin: 23px 6px 24px 30px;">   
+                         
+                       <a href="<?php echo $loginUrl; ?>"><img src="<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif" border="0" /></a>
                       <!-- <a target="_blank" href="<?php echo $obj_base_path->base_path(); ?>/login-twitter.php"><img src="<?php echo $obj_base_path->base_path(); ?>/images/twitter_blue.gif" border="0" style="margin: 0 5px;" /></a> -->                      
                        	 <a href="<?php echo $authUrl ?>"><img src="<?php echo $obj_base_path->base_path(); ?>/images/google_blue.gif" border="0" /> </a>
                         <!--<img src="<?php echo $obj_base_path->base_path(); ?>/images/open_id.gif" border="0"  style="margin: 0 5px;" />-->

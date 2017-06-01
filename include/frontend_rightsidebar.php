@@ -11,6 +11,17 @@ include_once(dirname(dirname(__FILE__)) . "/class/user_class.php");
 include_once(dirname(dirname(__FILE__)) . "/class/pagination.class.php");
 include_once(dirname(dirname(__FILE__)) . "/class/class.phpmailer.php");
 
+require './facebook-php/src/Facebook/autoload.php';
+$facebook = new \Facebook\Facebook(array(
+            'app_id' => '445192265673724',
+            'app_secret' => '41f5bccae260641bce323da48eb35776',
+			'default_graph_version' => 'v2.5',
+            ));
+$helper = $facebook->getRedirectLoginHelper();
+
+$permissions = ['email']; // Optional permissions
+$loginUrl = $helper->getLoginUrl('https://www.kpasapp.com/fb_callback.php', $permissions);
+
 // =================================== Google Plus =====================================
 ########## Google Settings.. Client ID, Client Secret #############
 $google_client_id 		= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
@@ -372,7 +383,7 @@ function check_subscribe()
                     <span class="sign-text"><?php echo SIGN_IN_WITH?></span>
                  </div>
                 <div class="face-wrapper">
-                    <a href="<?php echo $obj_base_path->base_path(); ?>/login-facebook.php"><img alt="blue facebook login icon" src="<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif" border="0" /></a>
+                    <a href="<?php echo $loginUrl; ?>"><img alt="blue facebook login icon" src="<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif" border="0" /></a>
                   <!--  <img src="<?php echo $obj_base_path->base_path(); ?>/images/twitter_blue.gif" border="0" style="margin: 0 5px;" />-->
                     <a href="<?php echo $authUrl ?>"><img alt="blue google plus icon" src="<?php echo $obj_base_path->base_path(); ?>/images/google_blue.gif" border="0" /> </a>
                 </div>
