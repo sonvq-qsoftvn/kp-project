@@ -57,18 +57,35 @@ if ($_SESSION['langSessId'] == "eng") {
 
 $arrayAds = array();
 $singleAds = array();
-while($rows = $objright_banner->next_record()) {
-
-	$singleAds['ad_size'] = $objright_banner->f('ad_size');
-	$singleAds['position_id'] = $objright_banner->f('position_id');
-	$singleAds['ad_text'] = $objright_banner->f('ad_text');
-	$singleAds['link_url'] = $objright_banner->f('link_url');
-	$singleAds['call_to_action'] = $objright_banner->f('call_to_action');
-	$singleAds['ad_title'] = $objright_banner->f('ad_title');
-	$singleAds['ad_image_name'] = $objright_banner->f('ad_image_name');
-
-	$arrayAds[] = $singleAds;
+$globalCounter = 0;
+$arrayAdsObject = [];
+while($rows= $objright_banner->next_record()) {
+    $singleAds = [];
+    $singleAds['position_id'] = $objright_banner->f('position_id');
+    $singleAds['ad_size'] = $objright_banner->f('ad_size');
+    $singleAds['link_url'] = $objright_banner->f('link_url');
+    $singleAds['ad_title'] = htmlentities($objright_banner->f('ad_title'));
+    $singleAds['ad_text'] = htmlentities($objright_banner->f('ad_text'));
+    $singleAds['ad_image_name'] = $objright_banner->f('ad_image_name');
+    $singleAds['call_to_action'] = $objright_banner->f('call_to_action');
+    $singleAds['ad_id'] = $objright_banner->f('ad_id');
+    $arrayAdsObject[] = $singleAds;
 }
+
+$arrayAdsInGroup = [];
+$arrayAdsKey = [];
+if (count($arrayAdsObject) > 0) {
+    foreach ($arrayAdsObject as $singleAds) {
+        $adPosition = $singleAds['position_id'];
+        $adSize = $singleAds['ad_size'];
+        $adPositionSize = $adPosition . '_' . $adSize;
+        $arrayAdsInGroup[$adPositionSize][] = $singleAds;
+        if (!in_array($adPositionSize, $arrayAdsKey)) {
+            $arrayAdsKey[] = $adPositionSize;
+        }
+    }
+}
+
 $global_ads_id = 0;
 
 $social_mobile_class = "";
@@ -1252,18 +1269,21 @@ function showmoreSubevent(num){
     overflow:scroll;
     overflow-x:hidden;
 }
-.bx-wrapper {
+.spotlight .bx-wrapper {
     width: 580px!important;
+    left: 50px;
+}
+.bx-wrapper {    
     position: absolute;
     padding: 0;
     margin: 0;
     top: 0;
-    left: 50px;
+    left: 0;
 }
-.bx-window {
+.spotlight .bx-window {
     width: 580px!important;
 }
-.pager {
+#slider2 .pager {
     width: 190px!important;
     /*border: 1px solid #fc00ff;*/
     padding: 0!important;
@@ -1583,78 +1603,77 @@ function showmoreSubevent(num){
                     
                         
                 ?>
-                <div class="party_box" style="width: 678px;">
-                    <?php
-                             if($i!=0)
-                             {
-                                if($row[$i]!=$row[$i-1])
-                                { 
-                                     ?>
-                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
-                        <h4>
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
-                            </a>
-                        </h4>
-                        <div class="ads-img-box">
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
-                            </a>
+                <div class="party_box" style="width: 678px;"> 
+                    <?php 
+                        $keyAds = $arrayAdsKey[$global_ads_id]; 
+                        $singleGroup = $arrayAdsInGroup[$keyAds];
+                    ?>
+                    <?php if (count($singleGroup) > 1) : ?>
+                        <div id="wrapper" style="overflow: hidden; width: 100%; margin-left: 10px;">
+                            <div id="carousel_mobile_<?php echo $keyAds . "_" . $globalCounter; ?>" class="carousel-slider" data-id="#carousel_mobile_<?php echo $keyAds . "_" . $globalCounter; ?>">
+                                <?php foreach($singleGroup as $adItem) : ?>
+                                    <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
+                                        <h4>
+                                            <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                                <?php echo htmlentities($adItem['ad_title'])  ?>
+                                            </a>
+                                        </h4>
+                                        <div class="ads-img-box">
+                                            <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                                <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                            </a>
+                                        </div>
+                                        <div class="ads-text">
+                                            <?php echo htmlentities($adItem['ad_text'])  ?>
+                                        </div>    
+                                        <div class="ads-button"> 
+                                            <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
+                                                <?php echo htmlentities($adItem['call_to_action'])  ?>
+                                            </a>
+                                        </div> 
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <?php $globalCounter++; ?>
                         </div>
-                        <div class="ads-text">
-                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
-                        </div>    
-                        <div class="ads-button"> 
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
-                            </a>
-                        </div> 
-                    </div>
-                    <?php
-                                $global_ads_id++;
-                                if ($global_ads_id >= count($arrayAds)) {
-                                    $global_ads_id = 0;
-                                }
-                                echo '<div class="clear"></div>';
-                                echo ' <div class="date">'; 
-                                echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
-                                echo ' </div>';
-                                }
-                            }
-                            else
+                    <?php else : ?>                                                
+                        <?php $adItem = $singleGroup[0]; ?>                        
+                        <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
+                            <h4>
+                                <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                    <?php echo htmlentities($adItem['ad_title'])  ?>
+                                </a>
+                            </h4>
+                            <div class="ads-img-box">
+                                <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                    <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                </a>
+                            </div>
+                            <div class="ads-text">
+                                <?php echo htmlentities($adItem['ad_text'])  ?>
+                            </div>    
+                            <div class="ads-button"> 
+                                <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
+                                    <?php echo htmlentities($adItem['call_to_action'])  ?>
+                                </a>
+                            </div> 
+                        </div>
+                    <?php endif; ?>
+                        
+                        <?php
+                            if (($i == 0) || (($i != 0) && ($row[$i] != $row[$i-1])))
                             {
-                                 ?>
-                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
-                        <h4>
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
-                            </a>
-                        </h4>
-                        <div class="ads-img-box">
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
-                            </a>
-                        </div>
-                        <div class="ads-text">
-                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
-                        </div>    
-                        <div class="ads-button"> 
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
-                            </a>
-                        </div> 
-                    </div>
-                    <?php
-                                $global_ads_id++;
-                                if ($global_ads_id >= count($arrayAds)) {
-                                    $global_ads_id = 0;
-                                }
                                 echo '<div class="clear"></div>';
                                 echo ' <div class="date">';
                                 echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
                                 echo ' </div>';
                             }
-                    ?>
+ 
+                            $global_ads_id++;
+                            if ($global_ads_id >= count($arrayAdsKey)) {
+                                $global_ads_id = 0;
+                            }
+                        ?>
                             <?php 
                                 $arraySchemaType = array();
                                 $objEventById->getSchemaTypeByEventId($eachVal['id']); 
@@ -1818,78 +1837,76 @@ function showmoreSubevent(num){
                             $sub_new2->subevent_datewise2($eachVal['id'],$row2[$k_sub]['multi_event_date'],$date_sub);
                         
                 ?>
-                    <div class="party_box" style="width: 678px;">
-                    <?php
-                         if($i!=0)
-                         {
-                            if($row[$i]!=$row[$i-1])
+                <div class="party_box" style="width: 678px;">
+                        <?php 
+                            $keyAds = $arrayAdsKey[$global_ads_id]; 
+                            $singleGroup = $arrayAdsInGroup[$keyAds];
+                        ?>
+                        <?php if (count($singleGroup) > 1) : ?>
+                            <div id="wrapper" style="overflow: hidden; width: 100%; margin-left: 10px;">
+                                <div id="carousel_mobile_<?php echo $keyAds . "_" . $globalCounter; ?>" class="carousel-slider" data-id="#carousel_mobile_<?php echo $keyAds . "_" . $globalCounter; ?>">
+                                    <?php foreach($singleGroup as $adItem) : ?>
+                                        <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
+                                            <h4>
+                                                <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                                    <?php echo htmlentities($adItem['ad_title'])  ?>
+                                                </a>
+                                            </h4>
+                                            <div class="ads-img-box">
+                                                <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                                    <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                                </a>
+                                            </div>
+                                            <div class="ads-text">
+                                                <?php echo htmlentities($adItem['ad_text'])  ?>
+                                            </div>    
+                                            <div class="ads-button"> 
+                                                <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
+                                                    <?php echo htmlentities($adItem['call_to_action'])  ?>
+                                                </a>
+                                            </div> 
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                                <?php $globalCounter++; ?>
+                            </div>
+                        <?php else : ?>                                                
+                            <?php $adItem = $singleGroup[0]; ?>                        
+                            <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
+                                <h4>
+                                    <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                        <?php echo htmlentities($adItem['ad_title'])  ?>
+                                    </a>
+                                </h4>
+                                <div class="ads-img-box">
+                                    <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                        <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                    </a>
+                                </div>
+                                <div class="ads-text">
+                                    <?php echo htmlentities($adItem['ad_text'])  ?>
+                                </div>    
+                                <div class="ads-button"> 
+                                    <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
+                                        <?php echo htmlentities($adItem['call_to_action'])  ?>
+                                    </a>
+                                </div> 
+                            </div>
+                        <?php endif; ?>
+                        <?php
+                            if (($i == 0) || (($i != 0) && ($row[$i] != $row[$i-1])))
                             {
-                                 ?>
-                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
-                        <h4>
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
-                            </a>
-                        </h4>
-                        <div class="ads-img-box">
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
-                            </a>
-                        </div>
-                        <div class="ads-text">
-                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
-                        </div>    
-                        <div class="ads-button"> 
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
-                            </a>
-                        </div> 
-                    </div>
-                    <?php
+                                echo '<div class="clear"></div>';
+                                echo ' <div class="date">';
+                                echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
+                                echo ' </div>';
+                            }
+ 
                             $global_ads_id++;
-                            if ($global_ads_id >= count($arrayAds)) {
+                            if ($global_ads_id >= count($arrayAdsKey)) {
                                 $global_ads_id = 0;
                             }
-                            echo '<div class="clear"></div>';
-                            echo ' <div class="date">';         
-                            echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
-                            echo ' </div>';
-                            }
-                        }
-                        else
-                        {
-                             ?>
-                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
-                        <h4>
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
-                            </a>
-                        </h4>
-                        <div class="ads-img-box">
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
-                            </a>
-                        </div>
-                        <div class="ads-text">
-                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
-                        </div>    
-                        <div class="ads-button"> 
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
-                            </a>
-                        </div> 
-                    </div>
-                    <?php
-                            $global_ads_id++;
-                            if ($global_ads_id >= count($arrayAds)) {
-                                $global_ads_id = 0;
-                            }
-                            echo '<div class="clear"></div>';
-                            echo ' <div class="date">';
-                            echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
-                            echo ' </div>';
-                        }
-                    ?>
+                        ?>
                             <?php 
                                 $arraySchemaType = array();
                                 $objEventById->getSchemaTypeByEventId($eachVal['id']); 
@@ -2004,77 +2021,75 @@ function showmoreSubevent(num){
                 ?>
                 
                 <div class="party_box" style="width: 678px;">
-                    <?php 
-                         if($i!=0)
-                         {
-                            if($row[$i]!=$row[$i-1])
-                            {   
-                                 ?>
-                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
-                        <h4>
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
-                            </a>
-                        </h4>
-                        <div class="ads-img-box">
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
-                            </a>
-                        </div>
-                        <div class="ads-text">
-                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
-                        </div>    
-                        <div class="ads-button"> 
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
-                            </a>
-                        </div> 
-                    </div>
-                    <?php
+                        <?php 
+                            $keyAds = $arrayAdsKey[$global_ads_id]; 
+                            $singleGroup = $arrayAdsInGroup[$keyAds];
+                        ?>
+                        <?php if (count($singleGroup) > 1) : ?>
+                            <div id="wrapper" style="overflow: hidden; width: 100%; margin-left: 10px;">
+                                <div id="carousel_mobile_<?php echo $keyAds . "_" . $globalCounter; ?>" class="carousel-slider" data-id="#carousel_mobile_<?php echo $keyAds . "_" . $globalCounter; ?>">
+                                    <?php foreach($singleGroup as $adItem) : ?>
+                                        <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
+                                            <h4>
+                                                <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                                    <?php echo htmlentities($adItem['ad_title'])  ?>
+                                                </a>
+                                            </h4>
+                                            <div class="ads-img-box">
+                                                <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                                    <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                                </a>
+                                            </div>
+                                            <div class="ads-text">
+                                                <?php echo htmlentities($adItem['ad_text'])  ?>
+                                            </div>    
+                                            <div class="ads-button"> 
+                                                <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
+                                                    <?php echo htmlentities($adItem['call_to_action'])  ?>
+                                                </a>
+                                            </div> 
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <?php $globalCounter++; ?>
+                        <?php else : ?>                                                
+                            <?php $adItem = $singleGroup[0]; ?>                        
+                            <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
+                                <h4>
+                                    <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                        <?php echo htmlentities($adItem['ad_title'])  ?>
+                                    </a>
+                                </h4>
+                                <div class="ads-img-box">
+                                    <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
+                                        <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                    </a>
+                                </div>
+                                <div class="ads-text">
+                                    <?php echo htmlentities($adItem['ad_text'])  ?>
+                                </div>    
+                                <div class="ads-button"> 
+                                    <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
+                                        <?php echo htmlentities($adItem['call_to_action'])  ?>
+                                    </a>
+                                </div> 
+                            </div>
+                        <?php endif; ?>
+                        <?php
+                            if (($i == 0) || (($i != 0) && ($row[$i] != $row[$i-1])))
+                            {
+                                echo '<div class="clear"></div>';
+                                echo ' <div class="date">';
+                                echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
+                                echo ' </div>';
+                            }
+ 
                             $global_ads_id++;
-                            if ($global_ads_id >= count($arrayAds)) {
+                            if ($global_ads_id >= count($arrayAdsKey)) {
                                 $global_ads_id = 0;
                             }
-                            echo '<div class="clear"></div>';
-                            echo ' <div class="date">';         
-                            echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
-                            echo ' </div>';
-                            }
-                        }
-                        else
-                        {
-                            ?>
-                    <div class="ads-box <?php echo $arrayAds[$global_ads_id]['ad_size'] ?> <?php echo isset($arrayAds[$global_ads_id]) ? '' : 'hidden-block'; ?> hidden-desktop">
-                        <h4>
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['ad_title'])  ?>
-                            </a>
-                        </h4>
-                        <div class="ads-img-box">
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url']  ?>" target="_blank">
-                                <img alt="<?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $arrayAds[$global_ads_id]['ad_image_name'] ?>" border="0" />
-                            </a>
-                        </div>
-                        <div class="ads-text">
-                            <?php echo htmlentities($arrayAds[$global_ads_id]['ad_text'])  ?>
-                        </div>    
-                        <div class="ads-button"> 
-                            <a href="<?php echo $arrayAds[$global_ads_id]['link_url'] ?>" target="_blank">
-                                <?php echo htmlentities($arrayAds[$global_ads_id]['call_to_action'])  ?>
-                            </a>
-                        </div> 
-                    </div>
-                    <?php
-                            $global_ads_id++;
-                            if ($global_ads_id >= count($arrayAds)) {
-                                $global_ads_id = 0;
-                            }
-                            echo '<div class="clear"></div>';
-                            echo ' <div class="date">';
-                            echo utf8_encode(strftime("%a %b %d, %Y", strtotime($event_date)));
-                            echo ' </div>';
-                        }
-                    ?>
+                        ?>
                             <?php 
                                 $arraySchemaType = array();
                                 $objEventById->getSchemaTypeByEventId($eachVal['id']); 

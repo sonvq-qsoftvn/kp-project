@@ -49,10 +49,15 @@ $helper = $facebook->getRedirectLoginHelper();
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://www.kpasapp.com/fb_callback.php', $permissions);
 
-$google_client_id 		= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
+/*$google_client_id 		= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
 $google_client_secret 	= 'OmTKyOc5XDUNqs9_taw_GP9l';
 $google_redirect_url 	= 'http://kpasapp.com/google.php';
-$google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';
+$google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';*/
+
+$google_client_id 	= '199568594992-5ppg13iba5cnp7ga6l0nnrfjjkvnlaa1.apps.googleusercontent.com';
+$google_client_secret 	= 'mDck0ws-RLAuOXXhEpcoQtgB';
+$google_redirect_url 	= 'https://www.kpasapp.com/google.php';
+$google_developer_key 	= 'AIzaSyDavBYRIR_y12c5EfKqqY40KLUaKwBujTo';
 
 $objCommon = new Common();
 $objLocation=new user;

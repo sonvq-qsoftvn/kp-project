@@ -8,25 +8,25 @@ $(document).ready( function() {
 	$('input[placeholder], textarea[placeholder]').placeholder();
 	$('#submit').removeAttr('disabled');
 	
-	$.validator.addMethod('captcha',
-							function(value) {
-								$result = ( parseInt($('#num1').val()) + parseInt($('#num2').val()) == parseInt($('#captcha').val()) ) ;
-								$('#spambot').fadeOut('fast');
-								return $result;
-								//alert("Result is " + $result );
-							},
-							'Incorrect value, please try again.'
-	);
+//	$.validator.addMethod('captcha',
+//							function(value) {
+//								$result = ( parseInt($('#num1').val()) + parseInt($('#num2').val()) == parseInt($('#captcha').val()) ) ;
+//								$('#spambot').fadeOut('fast');
+//								return $result;
+//								//alert("Result is " + $result );
+//							},
+//							'Incorrect value, please try again.'
+//	);
 	
 	$('#forgot_pass').validate({
 		debug: true,
 		//submitHandler: ajaxSubmit
                 rules: {
                     
-					captcha: {
-						required: true,
-						captcha: true
-					},
+//					captcha: {
+//						required: true,
+//						captcha: true
+//					},
 					email_cell: {
                         required: true,
                        
@@ -34,9 +34,9 @@ $(document).ready( function() {
                 },
                 messages: {
                     email_cell: "Please insert your email address or cell number.",
-					chkCaptcha: {
-						required: "* Required"
-					}
+//					chkCaptcha: {
+//						required: "* Required"
+//					}
                     
                 }
                 
@@ -44,7 +44,16 @@ $(document).ready( function() {
 	
 	$('#submit11').click( function() {
 		if( $('#forgot_pass').valid() ) {
-				ajaxSubmit();
+            var g_recaptcha_response = $('#g-recaptcha-response').val();
+
+            if(g_recaptcha_response == '') {
+                $('.captcha_error').css('display', 'inline');
+                return false;    
+            } else {
+                $('.captcha_error').css('display', 'none');
+                ajaxSubmit();
+            }
+				
 			//alert(window.location.protocol+'//'+window.location.host+'/'+'kcpasa/registration');
 		}
 		else {
@@ -83,7 +92,7 @@ function ajaxSubmit() {
 					<?php } ?>
 				}
 				else{
-					$('#showresponse').html('<p style="color:red;">Dirección de correo electrónico o número de móvil no encontrado.</p>');
+					$('#showresponse').html('<p style="color:red;">DirecciÃ³n de correo electrÃ³nico o nÃºmero de mÃ³vil no encontrado.</p>');
 				}
 			}
 			else{

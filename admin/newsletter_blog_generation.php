@@ -613,7 +613,8 @@ function submit_by_js(){
                         setTimeout(function() { 
                             $("#message-result").css('display', 'none');
                             if (data != 'done') {
-                                window.location.href = "http://kpasapp.com/admin/edit_page/" + data;
+                                console.log(data);
+                                window.location.href = "http://www.kpasapp.com/admin/edit_page/" + data;
                             }
                         }, 3000);
                     })(data);

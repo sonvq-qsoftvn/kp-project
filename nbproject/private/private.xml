@@ -7,6 +7,13 @@
             <file>file:/E:/wamp/www/kapp/admin/sitemap.php</file>
             <file>file:/E:/wamp/www/kapp/admin/add_category.php</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/F:/wamp/www/kp-project/about.php</file>
+            <file>file:/F:/wamp/www/kp-project/.htaccess</file>
+            <file>file:/F:/wamp/www/kp-project/index.php</file>
+            <file>file:/F:/wamp/www/kp-project/blog.php</file>
+            <file>file:/F:/wamp/www/kp-project/include/frontend_rightsidebar.php</file>
+            <file>file:/F:/wamp/www/kp-project/venue.php</file>
+        </group>
     </open-files>
 </project-private>

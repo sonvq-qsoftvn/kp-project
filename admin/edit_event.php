@@ -1126,7 +1126,7 @@ function form_submit_but()
     }
     
     $('.share-in-en').bind("click", function(e) {
-        var win = window.open('<?php echo $obj_base_path->base_path(); ?>/en/event/' + $("#media_image").val() + '/', '_blank');
+        var win = window.open('<?php echo $obj_base_path->base_path(); ?>/en/event/<?php echo $obj->f('event_id'); ?>' + '/', '_blank');
         if (win) {
             //Browser has allowed it to be opened
             win.focus();
@@ -1137,7 +1137,7 @@ function form_submit_but()
     });
     
     $('.share-in-es').bind("click", function(e) {
-        var win = window.open('<?php echo $obj_base_path->base_path(); ?>/es/evento/' + $("#media_image").val() + '/', '_blank');
+        var win = window.open('<?php echo $obj_base_path->base_path(); ?>/es/evento/<?php echo $obj->f('event_id'); ?>' + '/', '_blank');
         if (win) {
             //Browser has allowed it to be opened
             win.focus();
@@ -1147,7 +1147,7 @@ function form_submit_but()
         }
     });     
     
-	document.getElementById("event_form").submit();
+//	document.getElementById("event_form").submit();
 }
 
 function promote_submit_but(e_id)

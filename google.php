@@ -11,10 +11,15 @@ $obj_user=new user;
 $obj_cart=new user;
 
 ########## Google Settings.. Client ID, Client Secret #############
-$google_client_id 		= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
+/*$google_client_id 		= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
 $google_client_secret 	= 'OmTKyOc5XDUNqs9_taw_GP9l';
 $google_redirect_url 	= 'http://kpasapp.com/google.php';
-$google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';
+$google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';*/
+
+$google_client_id 	= '199568594992-5ppg13iba5cnp7ga6l0nnrfjjkvnlaa1.apps.googleusercontent.com';
+$google_client_secret 	= 'mDck0ws-RLAuOXXhEpcoQtgB';
+$google_redirect_url 	= 'https://www.kpasapp.com/google.php';
+$google_developer_key 	= 'AIzaSyDavBYRIR_y12c5EfKqqY40KLUaKwBujTo';
 
 
 //include google api files
@@ -101,7 +106,24 @@ else // user logged in
 		$_SESSION['ses_admin_id'] = $obj_user->f('admin_id');
 		$_SESSION['name'] = $obj_user->f('fname')." ". $obj_user->f('lname');
 		$_SESSION['login_mode'] = 'google';
-		header("location:".$obj_base_path->base_path()."");
+		if($_SESSION['event_id']){
+			  if($_SESSION['cid'] != ''){
+			  foreach($_SESSION['cid'] as $data){
+					  $obj_cart->update_cart($data,$_SESSION['ses_admin_id'],$_SESSION['unique']);
+				  }
+			  }
+			  
+				$attempt = 0;
+				if (isset($_SESSION['attempt_id'])) {
+					$attempt = $_SESSION['attempt_id'];
+				}
+				header("location:".$obj_base_path->base_path()."/payment/".$_SESSION['event_id']."/attempt/".$attempt);
+			}
+			else
+			{
+			  header("location:".$obj_base_path->base_path()."");
+			}
+		
 		exit;
 	}
 	else{
@@ -126,7 +148,11 @@ else // user logged in
 				  }
 			  }
 			  
-			  header("location:".$obj_base_path->base_path()."/payment/".$_SESSION['event_id']);
+				$attempt = 0;
+				if (isset($_SESSION['attempt_id'])) {
+					$attempt = $_SESSION['attempt_id'];
+				}
+				header("location:".$obj_base_path->base_path()."/payment/".$_SESSION['event_id']."/attempt/".$attempt);
 			}
 			else
 			{

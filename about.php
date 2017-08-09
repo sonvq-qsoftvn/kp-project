@@ -71,7 +71,13 @@ else
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/header-frontend.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/pagination.css" rel="stylesheet" type="text/css" />
 <script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.bxSlider.min.js"></script>
 <?php include("include/analyticstracking.php")?> <!-----for google analytics--------->
+<style>
+    .bx-prev, .bx-next {
+        visibility: hidden;
+    }
+</style>
 </head>
 
 <body>

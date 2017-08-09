@@ -9,6 +9,7 @@ $facebook = new \Facebook\Facebook(array(
             'app_id' => '445192265673724',
             'app_secret' => '41f5bccae260641bce323da48eb35776',
 			'default_graph_version' => 'v2.5',
+			'default_access_token' => '445192265673724|41f5bccae260641bce323da48eb35776'
             ));
 $helper = $facebook->getRedirectLoginHelper();
 
@@ -25,10 +26,16 @@ $google_client_secret 	= 'a0m2Fb7eTLjnm343HEuQXgNC';
 $google_redirect_url 	= 'http://phppowerhousedemo.com/webroot/team5/kcpasa/google.php';
 $google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';*/
 
-$google_client_id 	= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
+/*$google_client_id 	= '256208379976-qn6714nedvs4ci49mlfm1o988q6dhqld.apps.googleusercontent.com';
 $google_client_secret 	= 'OmTKyOc5XDUNqs9_taw_GP9l';
 $google_redirect_url 	= 'https://kpasapp.com/google.php';
-$google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';
+$google_developer_key 	= 'AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s';*/
+
+$google_client_id 	= '199568594992-5ppg13iba5cnp7ga6l0nnrfjjkvnlaa1.apps.googleusercontent.com';
+$google_client_secret 	= 'mDck0ws-RLAuOXXhEpcoQtgB';
+$google_redirect_url 	= 'https://www.kpasapp.com/google.php';
+$google_developer_key 	= 'AIzaSyDavBYRIR_y12c5EfKqqY40KLUaKwBujTo';
+
 
 
 //include google api files
@@ -56,6 +63,7 @@ if (isset($_REQUEST['reset']))
 //Code is required to aquire Access Token from google
 //Once we have access token, assign token to session variable
 //and we can redirect user back to page and login.
+
 if (isset($_GET['code'])) 
 { 
 	$gClient->authenticate($_GET['code']);
@@ -69,12 +77,13 @@ if (isset($_SESSION['token']))
 { 
 		$gClient->setAccessToken($_SESSION['token']);
 }
-
+//die($gClient->getAccessToken());
 
 if ($gClient->getAccessToken()) 
 {
 	  //Get user details if user is logged in
 	  $user 				= $google_oauthV2->userinfo->get();
+
 	  $user_id 				= $user['id'];
 	  $user_name 			= filter_var($user['name'], FILTER_SANITIZE_SPECIAL_CHARS);
 	  $email 				= filter_var($user['email'], FILTER_SANITIZE_EMAIL);
@@ -82,6 +91,7 @@ if ($gClient->getAccessToken())
 	  $profile_image_url 	= filter_var($user['picture'], FILTER_VALIDATE_URL);
 	  $personMarkup 		= "$email<div><img src='$profile_image_url?sz=50'></div>";
 	  $_SESSION['token'] 	= $gClient->getAccessToken();
+
 }
 else 
 {
@@ -94,7 +104,7 @@ if(isset($authUrl)) //user is not logged in, show login button
 	/*echo '<a class="login" href="'.$authUrl.'"><img src="images/google-login-button.png" /></a>';*/
 }
 else{
-	header("Location:".$obj_base_path->base_path()."/registration.php?reset=1");
+	//header("Location:".$obj_base_path->base_path()."/registration.php?reset=1");
 }
 
 // =================================== Google Plus =====================================

@@ -3314,6 +3314,7 @@ function update_ad_contain_en($edit_ad_id,$ad_title_en,$ad_contain_en,$ad_text_e
 	function update_ad($edit_ad_id,$ad_size,$ad_position, $from_date,$duration,$client_id)
 	{
 		$sql="update ".$this->prefix()."ad set ad_size='".$ad_size."',position_id='".$ad_position."',From_date='".$from_date."', duration='".$duration."' ,client_id='".$client_id."' Where ad_id='".$edit_ad_id."'";
+        
 		//echo $sql;
 		$rs=$this->query($sql);
 		//return mysql_insert_id();
@@ -3678,6 +3679,12 @@ function getCartId($unique_id)
     {
         $sql="DELETE FROM ".$this->prefix()."social_schedule WHERE share_id = '".$id_social_share_delete."'";
 	return $this->query($sql); 
+    }
+    
+    function saveAdsValues($ad_id, $field_name, $value) {
+        $sql="UPDATE ".$this->prefix()."ad SET $field_name='".$value."' WHERE ad_id=" . $ad_id;
+    
+        $rs=$this->query($sql);
     }
 };
 

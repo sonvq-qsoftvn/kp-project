@@ -13,9 +13,11 @@ if( isset($_POST['hid_sign']) )
 	$faq = new User;
 
 	/*$loginid=$_POST["email_cell"];
+
 	if($loginid==""){
-		$_SESSION['login_msg'] = "Please insert your email address!";
+		$_SESSION['login_msg1'] = "Please insert your email address!";
 		header("Location:".$obj_base_path->base_path()."/forgot_password.php");	
+        exit;
 	}
 			
 
@@ -58,7 +60,7 @@ if( isset($_POST['hid_sign']) )
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Forgot Password</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.placeholder.min.js"></script>
 <?php /*?><script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/forgot_contact.js"></script><?php */?>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/pass_strength_script.js"></script>
@@ -135,17 +137,16 @@ if( isset($_POST['hid_sign']) )
                                 </td>
                                 <td width="70%"><input type="text" name="email_cell" id="email_cell" class="textbg_grey" value="" style="width:190px;"/><div id="email_err" style="color:red;"></div></td>
                               </tr>
-                               <tr>
-                                <td style="padding-left: 18px;"><input id="num1" name="num1" readonly="readonly" class="sum" style="width: 12px; font: bold 16px/18px Arial, Helvetica, sans-serif; color: #525252; background: none; border: 0;" value="<?php echo rand(1,4) ?>" /> + 
-                                    <input id="num2" name="num2" readonly="readonly" class="sum" value="<?php echo rand(5,9) ?>" style="width: 12px; font: bold 16px/18px Arial, Helvetica, sans-serif; color: #525252; background: none; border: 0;"/> =</td>
-                                <td style="padding-left: 6px;">
-                                    <input type="text" name="captcha" id="captcha" class="captcha" maxlength="2" />
-                                    <?php if($_SESSION['langSessId']=='eng') {?>
-                                    <div id="spambot">(Are you human, or spambot?)</div>
-                                    <?php } else {?>
-                                    <div id="spambot">(Â¿Eres humano o spambot?)</div>
-                                    <?php }?>                           
-                                </td>	
+                              <tr>
+
+                                <td>
+                                  
+                                </td>
+                                <td>
+                                  <div style="margin: 3px 0 0 6px;" class="g-recaptcha" data-sitekey="6Le4MAsUAAAAAPwZhwVvMIXcQVIieF3ltoMXHa2H"></div>
+                                  <label class="captcha_error error" style="display: none;">Please verify that you are human</label>
+                                </td>
+                                  
                               </tr>
                               <tr>
                                 <td><input type="submit" name="submit11" id="submit11" value="<?php if($_SESSION['langSessId']=='eng') {?>Submit<?php } else {?>Enviar<?php }?>" class="event_save"  style="text-align: left; margin-left:0; cursor:pointer;"/></td>
@@ -170,6 +171,20 @@ if( isset($_POST['hid_sign']) )
 ?>
 </div>
 
-
+<script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+<script>
+//    $('#submit11').click(function (e) {
+//        e.preventDefault();
+//        var g_recaptcha_response = $('#g-recaptcha-response').val();
+//
+//        if(g_recaptcha_response == '') {
+//            $('.captcha_error').css('display', 'inline');
+//            return false;    
+//        } else {
+//            $('.captcha_error').css('display', 'none');
+//            $('#forgot_pass').submit();
+//        }
+//    });
+</script>
 </body>
 </html>

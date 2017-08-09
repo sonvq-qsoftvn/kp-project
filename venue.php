@@ -98,6 +98,11 @@ if (!isset($_REQUEST['state_name']) || !isset($_REQUEST['county_name']) || !isse
 <link rel="alternate" href="<?php echo $venueENRoute; ?>" hreflang="en" />
 <link rel="alternate" href="<?php echo $venueESRoute; ?>" hreflang="es" />
 
+<style>
+    .bx-prev, .bx-next {
+        visibility: hidden;
+    }
+</style>
 <!---------------------------------------------------------------------------------------->
 
 <!------------------------------------FOR ENGLISH VENUE SHARE START----------------------------------------------->
@@ -178,6 +183,7 @@ else
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.bxSlider.min.js"></script>
 
 </head>
 <body>

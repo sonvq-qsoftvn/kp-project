@@ -366,6 +366,7 @@ Ticket Hype</span>
 
 function register_user($fname,$lname,$email,$phone,$country_id,$country_code,$password,$account_type,$language,$province,$county,$city,$address,$postal_code,$mobile_code) 	
 {
+
 	$sql="INSERT INTO ".$this->prefix()."admin SET username='".$email."',
 						       password ='".$password ."',
 						       account_type ='".$account_type ."',
@@ -382,13 +383,25 @@ function register_user($fname,$lname,$email,$phone,$country_id,$country_code,$pa
 						       address ='".$address."',
 						       postal_code ='".$postal_code."',
 						       mobile_code ='".$mobile_code."',
-                               post_datetime ='".date ("Y-m-d H:i:s", time())."',
+							   post_datetime ='".date ("Y-m-d H:i:s", time())."',
 						       post_date ='".time()."'";
 
 	$this->query($sql);	
 	$instid = mysql_insert_id();
 	return $instid;
-}		
+}	
+
+function add_ads_click_tracker($ip_address, $city, $country_code, $country_name, $ad_id) {
+    $sql = "INSERT INTO " . $this->prefix() . "ad_tracker SET ip_address='" . $ip_address . "',
+						       city ='" . $city . "',
+						       country_code ='" . $country_code . "',
+						       country_name ='". $country_name . "',
+						       ad_id ='" . $ad_id . "'";
+
+	$this->query($sql);	
+	$instid = mysql_insert_id();
+	return $instid;
+}	
 
 function register_user_on_payment($fname,$lname,$email,$phone,$country_id,$country_code,$password,$account_type,$language,$mobile_code) 	
 {
@@ -2589,7 +2602,7 @@ function all_ad_image($id)
 {
     
     
-$sql="SELECT * FROM ".$this->prefix()."ad ka join ".$this->prefix()."ad_content kac  ON ( ka.ad_id = kac.ad_id )  WHERE  kac.language_id='".$id."' AND (ka.ad_size='banner' ||  ka.ad_size='full') AND  curdate( ) >= ka.From_date AND curdate( ) < ka.duration ORDER BY ka.position_id,ad_size ASC "; 
+$sql="SELECT * FROM ".$this->prefix()."ad ka join ".$this->prefix()."ad_content kac  ON ( ka.ad_id = kac.ad_id )  WHERE  kac.language_id='".$id."' AND (ka.ad_size='banner' ||  ka.ad_size='full') AND  curdate( ) >= ka.From_date AND curdate( ) < ka.duration ORDER BY ka.position_id ASC, ad_size DESC, sub_position_id ASC "; 
 
 return $this->query($sql); 
        
@@ -2660,7 +2673,8 @@ function getStateCountyByEventID($event_id){
 function getVenueLocationByVenueID($venue_id) {
     $sql='SELECT st.state_name, co.county_name, ci.city_name, ven.venue_name, ven.venue_name_sp FROM '.$this->prefix().'venue ven Inner join '.$this->prefix().'state st ON (ven.venue_state = st.id ) Inner join '.$this->prefix().'county co on (ven.venue_county = co.id) Inner join '.$this->prefix().'city ci on (ven.venue_city = ci.id) WHERE ven.venue_id="'.$venue_id.'"  ';	
     return $this->query($sql);	
-}
-
-};
+}   
+ 
+};  
 ?>
+ 

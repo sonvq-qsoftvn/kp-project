@@ -167,6 +167,43 @@ class pdoDatabase {
     }
     
     function addSubEvent($event_name_sp,$event_name_en,$short_desc_sp,$short_desc_en,$event_start_date_time,$event_start_ampm,$event_end_date_time,$event_end_ampm,$venue_state,$venue_county,$venue_city,$venue,$page_content_en,$page_content_sp,$event_tag,$file_name,$identical_function,$recurring,$sub_events,$Paypal,$Bank,$Oxxo,$Mobile,$Offline,$publish_date,$event_time,$event_time_period,$r_month,$r_month_day,$mon,$tue,$wed,$thu,$fri,$sat,$sun,$r_span_start,$r_span_end,$event_start,$event_end,$all_day,$event_lasts,$attendees,$invitation_only,$password_protect_check,$pass_protected,$radio_access,$pay_ticket_fee,$promo_charge,$paper_less_mob_ticket,$print,$will_call,$event_id,$status,$unique_id,$privacy,$event_id) {
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+		$identical_function = empty($identical_function) ? 0 : $identical_function;
+		$recurring = empty($recurring) ? 0 : $recurring;
+		$sub_events = empty($sub_events) ? 0 : $sub_events;
+		$Paypal = empty($Paypal) ? '' : $Paypal;
+		$Bank = empty($Bank) ? '' : $Bank;
+		$Oxxo = empty($Oxxo) ? '' : $Oxxo;
+		$Mobile = empty($Mobile) ? '' : $Mobile;
+		$Offline = empty($Offline) ? '' : $Offline;
+		$event_time = empty($event_time) ? '' : $event_time;
+		$event_time_period = empty($event_time_period) ? '' : $event_time_period;
+		$r_month = empty($r_month) ? '' : $r_month;
+		$r_month_day = empty($r_month_day) ? '' : $r_month_day;
+		$mon = empty($mon) ? 0 : $mon;
+		$tue = empty($tue) ? 0 : $tue;
+		$wed = empty($wed) ? 0 : $wed;
+		$thu = empty($thu) ? 0 : $thu;
+		$fri = empty($fri) ? 0 : $fri;
+		$sat = empty($sat) ? 0 : $sat;
+		$sun = empty($sun) ? 0 : $sun;
+		$r_span_start = empty($r_span_start) ? '0000-00-00' : $r_span_start;
+		$r_span_end = empty($r_span_end) ? '0000-00-00' : $r_span_end;
+		$event_start = empty($event_start) ? '' : $event_start;
+		$event_end = empty($event_end) ? '' : $event_end;
+		$all_day = empty($all_day) ? 0 : $all_day;
+		$event_lasts = empty($event_lasts) ? '' : $event_lasts;
+		$attendees = empty($attendees) ? 0 : $attendees;
+		$invitation_only = empty($invitation_only) ? 0 : $invitation_only;
+		$password_protect_check = empty($password_protect_check) ? 0 : $password_protect_check;
+		$paper_less_mob_ticket = empty($paper_less_mob_ticket) ? 0 : $paper_less_mob_ticket;
+		$print = empty($print) ? 0 : $print;
+		$will_call = empty($will_call) ? 0 : $will_call;
+
+
+
         $currentTime = time();
         $connection = $this->connection();
         if($connection != null) {
@@ -262,6 +299,33 @@ class pdoDatabase {
         }
         return false;
         
+    }
+
+    function addPage($page_name, $title_sp, $page_content, $page_content_sp, $page_link, 
+            $social, $path, $file_name, $publish) {
+
+        $connection = $this->connection();
+        
+        if($connection != null) {
+            // prepare sql and bind parameters
+            $stmt = $connection->prepare("INSERT INTO kcp_page 
+            SET page_name = :page_name, title_sp = :title_sp, page_content = :page_content, page_content_sp = :page_content_sp, 
+            page_link = :page_link, path = :path, social = :social, photo = :photo, create_time = :create_time, publish = :publish");
+            $stmt->bindParam(':page_name', $page_name);
+            $stmt->bindParam(':title_sp', $title_sp);
+            $stmt->bindParam(':page_content', $page_content);
+            $stmt->bindParam(':page_content_sp', $page_content_sp);
+            $stmt->bindParam(':page_link', $page_link);
+            $stmt->bindParam(':path', $path);
+            $stmt->bindParam(':social', $social);
+            $stmt->bindParam(':photo', $file_name);
+            $stmt->bindParam(':create_time', time());
+            $stmt->bindParam(':publish', $publish);
+
+            $stmt->execute();
+            return $connection->lastInsertId();
+        }
+        return false;
     }
 
 }

@@ -2,7 +2,7 @@
 session_start();
 
 include('../include/admin_inc.php');
-
+$objectClientPdo = new pdoDatabase();
 $objAdd = new admin;
 $objEventShowcase = new admin;
 $objEventListing = new admin;
@@ -372,10 +372,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $publish = 1;
         
-        $objAdd->add_page($title_en, $title_sp, $page_content_en, $page_content_sp, $page_link, 
+        $insertedId = $objectClientPdo->addPage($title_en, $title_sp, $page_content_en, $page_content_sp, $page_link, 
                     $social, $path, $file_name, $publish);
         
-        echo mysql_insert_id();
+        echo $insertedId;
     } else {
         $selected_event_id = $_POST['selected_event_id'];                                                      
         
@@ -615,7 +615,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             . $htmlFeatureImageSP
                             . $htmlEventDetailSP;
 
-                    $objAdd->add_page($event_name_en, $event_name_sp, $page_content_en, $page_content_sp, $page_link, 
+                    $objectClientPdo->addPage($event_name_en, $event_name_sp, $page_content_en, $page_content_sp, $page_link, 
                                 $social, $path, $file_name, $publish);
                     
                 } 
