@@ -12,7 +12,7 @@ class test extends DB_Sql
         } else {          
             $order_by = 'Order By ka.ad_id ASC';             
         }
-        $sql = "SELECT * FROM ".$this->prefix()."ad as ka join ".$this->prefix()."ad_content as kac ON (ka.ad_id=kac.ad_id) join ".$this->prefix()."ad_clients as kc ON (ka.client_id=kc.client_id) WHERE kac.language_id='es' AND curdate() < duration $whereClause $order_by  $limit";
+        $sql = "SELECT *, (SELECT COUNT(*) FROM kcp_ad_tracker WHERE ka.ad_id = kcp_ad_tracker.ad_id) AS click_count FROM ".$this->prefix()."ad as ka join ".$this->prefix()."ad_content as kac ON (ka.ad_id=kac.ad_id) join ".$this->prefix()."ad_clients as kc ON (ka.client_id=kc.client_id) WHERE kac.language_id='es' AND curdate() < duration $whereClause $order_by  $limit";
 
         return $this->query($sql);
     }
@@ -34,7 +34,7 @@ class test extends DB_Sql
             $order_by = 'Order By ka.ad_id ASC';             
         }
 
-        $sql="SELECT * FROM ".$this->prefix()."ad as ka join ".$this->prefix()."ad_content as kac ON (ka.ad_id=kac.ad_id) join ".$this->prefix()."ad_clients as kc ON (ka.client_id=kc.client_id) WHERE kac.language_id='es' $whereClause $order_by $limit";
+        $sql="SELECT *, (SELECT COUNT(*) FROM kcp_ad_tracker WHERE ka.ad_id = kcp_ad_tracker.ad_id) AS click_count FROM ".$this->prefix()."ad as ka join ".$this->prefix()."ad_content as kac ON (ka.ad_id=kac.ad_id) join ".$this->prefix()."ad_clients as kc ON (ka.client_id=kc.client_id) WHERE kac.language_id='es' $whereClause $order_by $limit";
         return $this->query($sql);
     }
 
@@ -46,3 +46,4 @@ class test extends DB_Sql
 };
 
 ?>
+

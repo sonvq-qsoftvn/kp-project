@@ -1018,7 +1018,7 @@ function saveAutoEvent()
 	   $("#display_delete").html('<img src="<?php echo $obj_base_path->base_path(); ?>/images/deleteicon.png" alt="" width="30" height="35" border="0" onclick="deleteEvent('+data+');" style="cursor:pointer;" />');
 	   $("#display_delete2").html('<img src="<?php echo $obj_base_path->base_path(); ?>/images/deleteicon.png" alt="" width="30" height="35" border="0" onclick="deleteEvent('+data+');" style="cursor:pointer;" />');
 	   
-	   $("#media_image").val(data);
+	   $("#media_image").val(data.replace(" ", ""));
 	   //return data;
 	   
 	   }

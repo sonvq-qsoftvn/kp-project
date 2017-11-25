@@ -1184,7 +1184,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
 	include_once($obj_base_path->base_path()."/ckeditor/ckeditor.php");
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
-       $CKeditor->editor('page_content_sp',$obj_subev->f('event_details_sp'));
+       $CKeditor->editor('page_content_sp', stripslashes($obj_subev->f('event_details_sp')));
 	?>
     </div>
     <div class="TabbedPanelsContent2">
@@ -1192,7 +1192,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
      <?php 
        $CKeditor = new CKeditor();
        $CKeditor->BasePath = 'ckeditor/';
-       $CKeditor->editor('page_content_en',$obj_subev->f('event_details_en'));
+       $CKeditor->editor('page_content_en', stripslashes($obj_subev->f('event_details_en')));
 	?>
     </div> 
     </div>

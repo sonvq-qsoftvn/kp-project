@@ -122,7 +122,7 @@ if(isset($_REQUEST['chek_list']) &&  $_REQUEST['chek_list']=='all_expired_ads') 
     margin-top: 5px;
     height: 20px;
     text-indent: 10px;
-    width: 100px;
+    width: 70px;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
@@ -257,7 +257,7 @@ $(document).ready(function(){
             </div>
      
             <div style="width:100px; padding: 5px; float:left">Filter On:</div>
-            <div style="width:146px; padding: 5px;  float:left">
+            <div style="padding: 5px;  float:left">
                 <div>
                     <select id="add_owner">
                         <option value="">Ad Owner</option> 
@@ -267,7 +267,7 @@ $(document).ready(function(){
                     </select>
                 </div>
             </div>
-            <div style="width:100px; padding: 5px; float:left">
+            <div style="padding: 5px; float:left">
                 <div>         
                     <select id="add_short_by_size">
                         <option value="">Ad Size</option>            
@@ -277,7 +277,7 @@ $(document).ready(function(){
                     </select>         
                 </div>      
             </div>     
-            <div style="width:80px; padding: 5px;  float:left">                
+            <div style="padding: 5px;  float:left">                
                 <div>
                     <select id="add_then_by_position">
                         <option value="">Ad Position</option>               
@@ -356,12 +356,13 @@ $(document).ready(function(){
                                         <td width="8%" class="top_txt"><?= Spotlight ?></td>
                                     <?php endif; ?>
                                     <td width="10%" class="top_txt">Ad Size</td>  
-                                    <td width="15%" class="top_txt">Ad Position</td> 
-                                    <td width="15%" class="top_txt">Ad Sub Position</td>
+                                    <td width="10%" class="top_txt">Ad Position</td> 
+                                    <td width="10%" class="top_txt">Ad Sub Position</td>
                                     <td width="21%" class="top_txt">Ad Title</td>
                                     <td width="16%" class="top_txt">Ad owner </td>
                                     <td width="14%" class="top_txt">From Date</td>
                                     <td width="14%" class="top_txt">End Date</td>
+                                    <td width="14%" class="top_txt">Total Click</td>
                                     <td width="40%" class="top_txt">Manage</td>
                                 </tr>
                                 <?php if($num>0) : ?>
@@ -403,6 +404,7 @@ $(document).ready(function(){
                                                            readonly /></td>
 											   
                                                 <td id="end_date_<?php echo $objadlist->f('ad_id'); ?>" ><?php echo $objadlist->f('duration');?></td>
+                                                <td><?php echo $objadlist->f('click_count');?></td>
                                                 <td style="padding: 5px;">
                                                     <span style="margin:0;"><a href="<?php echo $obj_base_path->base_path(); ?>/admin/edit-ad/<?php echo $objadlist->f('ad_id');?>"><img src="<?php echo $obj_base_path->base_path(); ?>/images/edit.gif" alt="" width="20" height="16" /></a></span>
                                                     <span style="margin:0;"><a href="javascript:void(0);" onClick="del('<?php echo $objadlist->f('ad_id');?>');"><img src="<?php echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" /></a></span>
@@ -410,9 +412,9 @@ $(document).ready(function(){
 
                                             </tr>
                                     <?php } ?>
-                                    <td colspan="9" align="left"><div style="width: 150px; float:right; margin: 0 auto;"><?php $p->show();?></div></td></tr>
+                                    <td colspan="10" align="left"><div style="width: 150px; float:right; margin: 0 auto;"><?php $p->show();?></div></td></tr>
                                 <?php else : ?>
-                                    <tr><td colspan="9" align="center" style="padding-top:10px;"><font color="#FF0000">No Ad Found</font></td></tr>
+                                    <tr><td colspan="10" align="center" style="padding-top:10px;"><font color="#FF0000">No Ad Found</font></td></tr>
                                 <?php endif; ?>
                             </table>
                         </div>	
