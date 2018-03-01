@@ -392,6 +392,14 @@ div#header_box {
 	border: thin solid;
 	
 }
+
+.red-remove-btn {
+    font-weight: bold; 
+    color: red; 
+    cursor: pointer; 
+    font-size: 20px; 
+    text-decoration: none;
+}
 .footer_bot .copyright {
 	width: auto; 
 	font: normal 11px/38px Arial, Helvetica, sans-serif;
@@ -1544,7 +1552,7 @@ div#header_box {
 	padding: 0 20px;
 	font: normal 16px/38px Arial, Helvetica, sans-serif;
 	color: #fff;
-	text-align: left;li_leftimg
+	text-align: left;
 }
 .ontwitter_box .midbox {
 	width: 260px;
@@ -1655,9 +1663,10 @@ div#header_box {
 	height: auto;
 	display: block;
 	margin: 0;
-	border-top: solid 2px;
+
 padding-top: 6px;
 }
+
 /*----------------------------------event page---05-06-13----------------------------*/
 .cheese_box {
 	width: 682px;
@@ -3099,8 +3108,8 @@ table.multi_function1.here{
 /*	margin:0;
 	height: 162px;
 	font: normal 12px/20px Arial, Helvetica, sans-serif;
-	color: #000;*/
-}
+	color: #000;
+}*/
 /*table.heading_left td.here{
 	width: 212px;
 	height: auto;
@@ -3715,6 +3724,39 @@ table.prefer_pro10 h1{
 
 /*============================================================================================================================*/
 
+.view_box8 {
+    width: 100%;
+    box-sizing: border-box;
+    height: auto; 
+    background: #fff;
+    border: 5px solid #000;
+    margin: 0 0 18px 0;
+    float: left;
+}
+.view_box8 .heading{
+    width: auto;
+    height: 37px;
+    background: #000;
+    margin: 0;
+    padding: 0 10px;
+    display: block;
+    font: bold 16px/37px Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+.view_box8 .hot_events7{
+	width: 680px;
+	height: auto;
+	background: #fff;
+	border: 1px solid #dbdbdb;
+	margin: 0;
+}
+.view_box8 .hot_event7 h1{
+	font: bold 18px/24px Arial, Helvetica, sans-serif;
+	color: #000;
+	padding: 6px 10px;
+	margin: 0;
+}
+
  .view_box7{
 	width: 672px;
 	height: auto; 
@@ -3753,6 +3795,17 @@ table.prefer_pro10 h1{
 	margin: 0;
 }
 
+.hot_event8 span{
+	font: normal 13px/22px Arial, Helvetica, sans-serif;
+	color: #000;
+	padding: 8px 10px;
+	margin: 0;
+	width: 100%;
+	box-sizing: border-box;
+	background: #c3f6f8;
+	display: inline-block;
+}
+
 .hot_event7 span{
 	font: normal 13px/22px Arial, Helvetica, sans-serif;
 	color: #000;
@@ -3769,6 +3822,10 @@ table.event_review{
 	float: none;
 	margin: 0 auto;
 	border: 1px solid #CCCCCC;
+}
+table.event_review.full_width {
+	width: 100%;
+	box-sizing: border-box;
 }
 table.event_review td{
 	font: normal 13px/22px Arial, Helvetica, sans-serif;
@@ -4163,6 +4220,33 @@ table.event_review th{
     width: 100%;
 }
 
+
+.float-left {
+	float: left;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.border-box {
+	box-sizing: border-box;
+}
+
+.textbg_grey.payment-email-input {
+	float: left; 
+	width: 240px; 
+	height: 24px; 
+	border: 1px solid #777; 
+	margin: 0px 6px 0px 0px; 
+	outline: none;	
+}
+
+.price-currency-selection {
+	display: inline-block; 
+}
+
+
 @media screen and (max-width: 1024px) {
     .time_reviews_box {
         width: 100%;
@@ -4310,7 +4394,7 @@ table.event_review th{
     }
 	.icon_link_box {
 		display: none;
-	}
+	} 
 	
 	.secondary_navigation_eng, .secondary_navigation_spn {
 		border-radius: 0 0 0px 0px;
@@ -4321,7 +4405,21 @@ table.event_review th{
 	}
 }
 
+.map_box_mobile {
+	display: none;
+}
+.map_box_desktop {
+	display: block;
+}
+
 @media screen and (max-width: 768px) {
+	.map_box_mobile {
+		display: block;
+	}
+	.map_box_desktop {
+		display: none;
+	}
+
     .eventgallery_box .bx-wrapper {
         width: 78% !important;
     }
@@ -4487,8 +4585,27 @@ table.event_review th{
         height: 150px;
     }
 }
+
+
+
+@media screen and (max-width: 600px) {
+	
+	.phone-input-payment {
+		display: block;
+	}
+	
+	.textbg_grey.payment-email-input {
+		width: 160px;
+	}
+}
+
+
 @media screen and (max-width: 480px) {
-    .rightpart .like_box {
+	.price-currency-selection {
+		display: block;
+		padding-left: 0px;
+	}
+	.rightpart .like_box {
         position: fixed;
         bottom: 0;
     }

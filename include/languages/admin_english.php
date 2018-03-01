@@ -136,7 +136,6 @@ define("AD_DATE_AND_TIME","Date & Time");
 define("AD_MENU_NEWSLETTER_BLOG","Newsletter/Blog");
 define("AD_MENU_NEWSLETTER_BLOG_GENERATION","Generate Newsletter/Blog");
 define("AD_MENU_NEWSLETTER_BLOG_GENERATION_LIST","Newsletter/blog list/edit");
-define("AD_MENU_GENERATE_NEWSLETTER_BLOG","Generate newsletter/blog");
 define("AD_MENU_PAGES","Pages");
 define("AD_MENU_EVENT_CATEGORY","Event Category");
 define("AD_MENU_DATABASE","Database");
@@ -210,6 +209,13 @@ define("AD_ENGLISH_BTN","English");
 define("AD_SPANISH_BTN","Spanish");
 define("AD_DONE","Done");
 define("AD_POPUP_FOOTER","Click to open the kpasapp page of your event and use the social bar to share your event. Close tab when done to return to the event management page.");
+define("AD_SELECT_FEATURE_IMAGE","Select the FEATURED IMAGE.");
+define("AD_CAN_EDIT_METADATA_IMAGE","You can edit the metadata of each image by clicking edit");
+define("AD_NEXT_BUTTON","Next");
+define("AD_PREVIOUS_BUTTON","Previous");
+define("AD_EDIT_GALLERY","Edit Gallery");
+
+
 
 
 

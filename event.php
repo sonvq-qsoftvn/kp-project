@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include('include/user_inc.php');
 $event_id = $_REQUEST['event_id'];
 $sub_id = $_REQUEST['sub_id'];
@@ -646,18 +648,19 @@ $(document).ready(function(){
  
 }
 /*style="z-index: 9999; background-image: <?php echo $obj_base_path->base_path(); ?>"/";*/
-.bx-wrapper {
-	width: 580px!important;
+.eventgallery .bx-wrapper {
+/*	width: 580px!important;*/
 	position: absolute;
 	padding: 0;
 	margin: 0;
 	top: 0;
 	left: 50px;
+	overflow:hidden;
 }
-.bx-window {
+.eventgallery .bx-window {
 	width: 580px!important;
 }
-.pager {
+.eventgallery .pager {
 	width: 190px!important;
 	/*border: 1px solid #fc00ff;*/
 	padding: 0!important;
@@ -1517,33 +1520,35 @@ function save(type){
 		<?php $add = $obj_venue->f('venue_name').", ".$obj_venue->f('venue_address').", ".$obj_venue->f('city').", ".$obj_venue->f('st_name'); ?>
 				
 			<div class="clear"></div>			
-                        <div class="map_box" style="height:200px;">
+                        <div class="map_box map_box_desktop" style="height:200px;"> 
 			
 <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>-->			
 <script>
       
     <?php
-    //$add1='Marriot Reforma, Av. Paseo de la Reforma 360 , Col. Juarez, Distrito Federal';
-      $Address = urlencode($add);
-     // echo "add= ".$Address;
-      $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&key=AIzaSyDavBYRIR_y12c5EfKqqY40KLUaKwBujTo&sensor=true";
-      $xml = simplexml_load_file($request_url) or die("url not loading");
+      //$add1='Marriot Reforma, Av. Paseo de la Reforma 360 , Col. Juarez, Distrito Federal';
+      //$Address = urlencode($add);
+      //echo "add= ".$Address;
+      //$request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&key=AIzaSyDavBYRIR_y12c5EfKqqY40KLUaKwBujTo&sensor=true";
+      //$xml = simplexml_load_file($request_url) or die("url not loading");
 
-      $status = $xml->status;
+      //$status = $xml->status;
       //echo "status".$status;
-      if ($status=="OK") {
-          //$Lat = $xml->result->geometry->location->lat;
-         // $Lon = $xml->result->geometry->location->lng;
-	 $Lat = $obj_venue->f('venue_lat');
-	 $Lon = $obj_venue->f('venue_long');
+	  //if ($status=="OK") {
+      //$Lat = $xml->result->geometry->location->lat;
+      //$Lon = $xml->result->geometry->location->lng;
+
+	  $Lat = $obj_venue->f('venue_lat');
+	  $Lon = $obj_venue->f('venue_long');
 	 
-          $LatLng = $Lat.",".$Lon;
-	// echo "latlang=".$LatLng; 
-      }
+      $LatLng = $Lat.",".$Lon;
+	  //echo "latlang=".$LatLng; 
+	  //}
     ?>
  
       
 var map;
+var map_mobile;
 var TILE_SIZE = 256;
 var chicago = new google.maps.LatLng(<?php echo $LatLng;?>);
 
@@ -1610,29 +1615,37 @@ function createInfoWindowContent() {
 }
 
 function initialize() {
-  var mapOptions = {
-    zoom: 15,
-    center: chicago
-  };
+	var mapOptions = {
+		zoom: 15,
+		center: chicago
+	};
 
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	
+	map_mobile = new google.maps.Map(document.getElementById('map-canvas-mobile'), mapOptions);	
+	
 
-  //var coordInfoWindow = new google.maps.InfoWindow();
-  //coordInfoWindow.setContent(createInfoWindowContent());
-  //coordInfoWindow.setPosition(chicago);
-  //coordInfoWindow.open(map);
+	//var coordInfoWindow = new google.maps.InfoWindow();
+	//coordInfoWindow.setContent(createInfoWindowContent());
+	//coordInfoWindow.setPosition(chicago);
+	//coordInfoWindow.open(map);
 
-  //google.maps.event.addListener(map, 'zoom_changed', function() {
-  //  coordInfoWindow.setContent(createInfoWindowContent());
-  //  coordInfoWindow.open(map);
-  //});
+	//google.maps.event.addListener(map, 'zoom_changed', function() {
+	//  coordInfoWindow.setContent(createInfoWindowContent());
+	//  coordInfoWindow.open(map);
+	//});
   
-  var marker = new google.maps.Marker({
-      position: chicago,
-      map: map,
-      title: ''
-  });
+	var marker = new google.maps.Marker({
+		position: chicago,
+		map: map,
+		title: ''
+	});
+	
+	var marker_mobile = new google.maps.Marker({
+		position: chicago,
+		map: map_mobile,
+		title: ''
+	});
   
 }
 
@@ -1717,15 +1730,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <tr>
                     <td colspan="4">
                        <div class="heading">
-                           <?php if($objEvent->f('all_access') == 1) : ?>
-                                <?php if($obj_ticket->num_rows()) : ?>
+                           <?php if($objEvent->f('all_access') == 1) { ?>
+                                <?php if($obj_ticket->num_rows()) { ?>
                                     <?php echo SELECT_TICKETS; ?>
-                                <?php else : ?>
+                                <?php } else { ?>
                                     <?php echo TICKET_RESERVATION_REQUIRED; ?>    
-                                <?php endif; ?>
-                           <?php elseif ($objEvent->f('all_access') == 0) : ?>
+                                <?php } ?>
+                           <?php } elseif ($objEvent->f('all_access') == 0) { ?>
                                 <?php echo NO_TICKETS_AVAILABLE; ?>
-                           <?php endif; ?>                           
+							<?php } ?>                           
                        </div>
                     </td>
                 </tr>
@@ -1834,26 +1847,22 @@ $('body').css
 		       </table>
 		       </div>
 
-			<?php
-			}
-			else			
-			{
-			?>
+			<?php } else { ?>
 			  <div class="select_box1">
 
                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="select_table1">
                               <tr>
                                 <td colspan="4">
                                     <div class="heading">
-                                        <?php if($objEvent->f('all_access') == 1) : ?>
-                                            <?php if($obj_ticket->num_rows()) : ?>
+                                        <?php if($objEvent->f('all_access') == 1) { ?>
+                                            <?php if($obj_ticket->num_rows()) { ?>
                                                 <?php echo SELECT_TICKETS; ?>
-                                            <?php else : ?>
+											<?php } else { ?>
                                                 <?php echo TICKET_RESERVATION_REQUIRED; ?>    
-                                            <?php endif; ?>
-                                       <?php elseif ($objEvent->f('all_access') == 0) : ?>
+                                            <?php } ?>
+										<?php } elseif ($objEvent->f('all_access') == 0) { ?>
                                             <?php echo NO_TICKETS_AVAILABLE; ?>
-                                       <?php endif; ?>
+										<?php } ?>
                                     </div>
                                 </td>
                               </tr>
@@ -1940,7 +1949,7 @@ $('body').css
                               </div>
                                     					
                               <?php
-                                    $count++;
+                                   $count++;
 				}
 				?>
 				<input type="hidden" name="frm_count" id="frm_count" value="<?php echo $count;?>" />
@@ -1970,30 +1979,21 @@ $('body').css
                           </table>
                           </div>
 
-			  <?php
-				}
-			  ?>
+					<?php } ?>
 			  
-                          <?php  
-				if($obj_ticket->num_rows()){?>
-                              <div class="select_box2">
-                             <?php if($_SESSION['langSessId']=='eng') {?>
-                                <div><a href="javascript:void(0);" onclick="save();"><img src="<?php echo $obj_base_path->base_path(); ?>/images/reserv_btn.gif" /></a></div>
-                             <?php } else {?>   
-                                <div><a href="javascript:void(0);" onclick="save();"><img src="<?php echo $obj_base_path->base_path(); ?>/images/spainreser_btn.gif" /></a></div>
-                             <?php } ?>  
-                             </div>
-
-				<?php 
-				      } 
-			      } 
-			      elseif($_REQUEST['sub_id'] != '' && $access!= 2)
-			      {
-				      
-				      $obj_sub_ticket->subgetTicketById($_REQUEST['sub_id'],$objsub_event->f('parent_id')); 
-				      $obj_sub_ticket_img->subgetTicketById($_REQUEST['sub_id'],$objsub_event->f('parent_id')); 
-				      
-			      ?>
+						<?php if($obj_ticket->num_rows()){ ?>
+							<div class="select_box2">
+								<?php if($_SESSION['langSessId']=='eng') { ?>
+									<div><a href="javascript:void(0);" onclick="save();"><img src="<?php echo $obj_base_path->base_path(); ?>/images/reserv_btn.gif" /></a></div>
+								<?php } else { ?>   
+									<div><a href="javascript:void(0);" onclick="save();"><img src="<?php echo $obj_base_path->base_path(); ?>/images/spainreser_btn.gif" /></a></div>
+								<?php } ?>  
+							</div>
+						<?php } ?>
+					<?php } elseif($_REQUEST['sub_id'] != '' && $access!= 2) {				      
+						$obj_sub_ticket->subgetTicketById($_REQUEST['sub_id'],$objsub_event->f('parent_id')); 
+						$obj_sub_ticket_img->subgetTicketById($_REQUEST['sub_id'],$objsub_event->f('parent_id')); 				      
+					?>
 
                          <div class="select_box1">
 				
@@ -2001,15 +2001,15 @@ $('body').css
                               <tr>
                                 <td colspan="4">
                                     <div class="heading">
-                                        <?php if($objEvent->f('all_access') == 1) : ?>
-                                            <?php if($obj_ticket->num_rows()) : ?>
+                                        <?php if($objEvent->f('all_access') == 1) { ?>
+                                            <?php if($obj_ticket->num_rows()) { ?>
                                                 <?php echo SELECT_TICKETS; ?>
-                                            <?php else : ?>
+                                            <?php } else { ?>
                                                 <?php echo TICKET_RESERVATION_REQUIRED; ?>    
-                                            <?php endif; ?>
-                                       <?php elseif ($objEvent->f('all_access') == 0) : ?>
+                                            <?php } ?>
+										<?php } elseif ($objEvent->f('all_access') == 0) { ?>
                                             <?php echo NO_TICKETS_AVAILABLE; ?>
-                                       <?php endif; ?>
+										<?php } ?>
                                     </div>
                                 </td>
                               </tr>
@@ -2141,6 +2141,10 @@ $('body').css
 						?>
                        </form>
                         
+						<div class="clear"></div>
+						<div class="map_box_mobile" style="height:200px; margin-bottom: 15px; margin-top: 15px;">
+							<div id="map-canvas-mobile" style="height: 100%; width: 100%;"></div>
+						</div>
 						<div class="clear"></div>
 						<div class="icon_box2"><p><?php if($_REQUEST['lang']=='en'){echo "Invite your friends";} elseif($_REQUEST['lang']=='es'){echo "Invita a tus amigos";}?> <a href="#"><img src="<?php echo $obj_base_path->base_path(); ?>/images/icon9.gif" border="0" align="absmiddle"/></a> <a href="#"><img src="<?php echo $obj_base_path->base_path(); ?>/images/icon8.gif" border="0" align="absmiddle"/></a></p></div>
 						<div class="clear"></div>

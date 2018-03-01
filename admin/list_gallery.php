@@ -114,6 +114,22 @@ function feature_image_save(e_id)
 	   }
 	 });
 }
+
+function feature_image_save_without_redirect(e_id)
+{
+	var media_id=$('input[name=feature_img]:checked').val();
+	var event_id=e_id;
+	$.ajax({ 
+	   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_saved_feature_image.php",
+	   async: false,
+	   cache: false,
+	   type: "POST",
+	   data: "media_id="+media_id+"&event_id="+event_id, 
+	   success: function(data){ 
+
+	   }
+	 });
+}
 </script>
 <script language="javascript">
 function del(gID)
@@ -160,7 +176,9 @@ function del(gID)
 			<div class="body2"> 
 			   <div class="clear"></div>
 			   <div class="blue_box1">
-           		<div class="blue_box10"><p>Feature Image & Event Gallery</p></div>
+           		<div class="blue_box_title">
+                    <p><?= AD_FEATURE_IMAGE_AND_GALLERY ?></p>
+                </div>
 			      <?php include("admin_menu/creategallery_menu.php");?>
 			   </div>
 			   
@@ -171,13 +189,16 @@ function del(gID)
 		 </div>
 		 </div>
 			<div>	
-			<?php $objEventDetails->event_details_byID($event_id);
-			$objEventDetails->next_record();
-			
-			//event_name   Event_Start_DateTime   Event_Venue   Event_City
-			echo $objEventDetails->f('event_name_en').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time'))).", ".date("g:i",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name').",".$objEventDetails->f('city');
-			?>
-			<span class="add_media"><a href="<?php echo $obj_base_path->base_path(); ?>/admin/add-gallery/event/<?php echo $event_id?>" <?php if($page_set=="add-gallery") {?> class="here" <?php } ?>>Add media</a></span> &nbsp;&nbsp;&nbsp;<span class="add_media" onclick="feature_image_save(<?php echo $event_id?>)"><a href="#">Save & Exit</a></span></div>
+                <p>
+                    <?php 
+                        $objEventDetails->event_details_byID($event_id);
+                        $objEventDetails->next_record();			
+                        //event_name   Event_Start_DateTime   Event_Venue   Event_City
+                        echo $objEventDetails->f('event_name_en').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time'))).", ".date("g:i",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name').",".$objEventDetails->f('city');
+                    ?>
+                </p>
+                <span class="add_media"><a href="<?php echo $obj_base_path->base_path(); ?>/admin/add-gallery/event/<?php echo $event_id?>" <?php if($page_set=="add-gallery") {?> class="here" <?php } ?>><?= AD_ADD_MEDIA ?></a></span> &nbsp;&nbsp;&nbsp;<span class="add_media" onclick="feature_image_save(<?php echo $event_id?>)"><a href="#"><?= AD_SAVE_EXIT ?></a></span>
+            </div>
 			
          <input type="hidden" name="listEvent" id="listEvent" value="1" /> 
         	
@@ -202,16 +223,22 @@ function del(gID)
           
 	 <div class="clear"></div>		
 	 <div class="myevent_box">
-	   <div class="event_header" style="color:#FF0000"><strong><?php echo $msg;?></strong></div>
+        <div class="event_header" style="color:#FF0000"><strong><?php echo $msg;?></strong></div>
+        <?php if ($num >= 1): ?>
+            <div class="notify-message">
+               <p><?= AD_SELECT_FEATURE_IMAGE ?></p>
+               <p><?= AD_CAN_EDIT_METADATA_IMAGE ?></p>
+            </div>
+        <?php endif; ?>
 	    <div class="myevent_left" style="width: 1000px;">
 		<div class="guide_box2">
 		 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="id_detail2">
 			<tr>
-			<td width="15%" class="top_txt">Thumbnail</td>
-			<td width="25%" class="top_txt">Media Name</td>
-			<td width="21%" class="top_txt">Url</td>
-			<td width="15%" class="top_txt">Feature Image</td>
-			<td width="12%" class="top_txt">Manage</td>
+			<td width="15%" class="top_txt"><?= AD_THUMBNAIL ?></td>
+			<td width="25%" class="top_txt"><?= AD_MEDIA_NAME ?></td>
+			<td width="21%" class="top_txt"><?= AD_URL ?></td>
+			<td width="15%" class="top_txt"><?= AD_FEATURE_IMAGE ?></td>
+			<td width="12%" class="top_txt"><?= AD_MANAGE ?></td>
 			<!--<td width="5%" class="top_txt">Delete</td>
 			<td width="5%" class="top_txt">priview</td>-->
 			
@@ -270,7 +297,7 @@ function del(gID)
        </td>
        <td><?php echo $objgallerylist->f('media_name');?></td>
        <td><a href="<?php echo $objgallerylist->f('event_id');?>" target=_blank><?php echo $objgallerylist->f('media_url');?></a></td>
-       <td align="center"><input type="radio" name="feature_img"  id="feature_img<?php  echo $objgallerylist->f('m_id'); ?>" value="<?php  echo $objgallerylist->f('m_id'); ?>" <?php if($objgallerylist->f('feature_image')=='1') {echo "checked";}?>/></td>
+       <td align="center"><input type="radio" class="radio-feature-img" name="feature_img"  id="feature_img<?php  echo $objgallerylist->f('m_id'); ?>" value="<?php  echo $objgallerylist->f('m_id'); ?>" <?php if($objgallerylist->f('feature_image')=='1') {echo "checked";}?>/></td>
         <td style="padding: 5px;">
 		
 	<span style="margin:0;"><?php if($objgallerylist->f('admin_id')==$_SESSION['ses_user_id']){?><a href="<?php echo $obj_base_path->base_path(); ?>/admin/event/<?php echo $event_id?>/edit-gallery/<?php echo $objgallerylist->f('m_id');?>"><img src="<?php echo $obj_base_path->base_path(); ?>/images/edit.gif" alt="" width="20" height="16" /></a><?php }?></span>
@@ -278,10 +305,10 @@ function del(gID)
         <span style="margin:0;"><a href="javascript:void(0);" onClick="del('<?php echo $objgallerylist->f('m_id');?>');"><img src="<?php echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" /></a></span>
 	
 	<?php if($objgallerylist->f('media_format')!="video") {?>
-	<a href="#feature_image<?php echo $j;?>" id="feature<?php echo $j;?>">Preview</a>
+	<a href="#feature_image<?php echo $j;?>" id="feature<?php echo $j;?>"><?= AD_PREVIEW ?></a>
         <?php }
 	else {?>
-       <a href="#feature_url<?php echo $j;?>" id="feature<?php echo $j;?>">Preview</a>
+       <a href="#feature_url<?php echo $j;?>" id="feature<?php echo $j;?>"><?= AD_PREVIEW ?></a>
           <?php }?>
 	    <div style="display:none;">
 		<div style="width:auto;height:auto; background:#FFF; padding:10px;" id="feature_image<?php echo $j;?>">
@@ -301,11 +328,24 @@ function del(gID)
       <!---------------Fancy  box  start---------------------->
 	<script type="text/javascript">
 		$(document).ready(function() {
-	$('#feature<?php echo $j;?>').fancybox({
-		openEffect  : 'none',
-		closeEffect : 'none'
-	});
-})
+            $('#feature<?php echo $j;?>').fancybox({
+                openEffect  : 'none',
+                closeEffect : 'none'
+            });
+            
+            if (!$("input[name='feature_img']:checked").val()) {
+                setTimeout(function(){
+                    $("input[name='feature_img']:first").attr('checked', true);
+                    feature_image_save_without_redirect(<?php echo $event_id; ?>);
+                }, 100);
+                
+            }
+            else {
+               // One of the radio buttons is checked!
+               // event already has its featured image, do nothing
+            }
+
+        })
 		</script>
 <!----------------Fancy box end--------------------->
  

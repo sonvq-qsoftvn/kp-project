@@ -59,6 +59,8 @@ $arrayAds = array();
 $singleAds = array();
 $globalCounter = 0;
 $arrayAdsObject = [];
+
+
 while($rows= $objright_banner->next_record()) {
     $singleAds = [];
     $singleAds['position_id'] = $objright_banner->f('position_id');
@@ -1615,16 +1617,16 @@ function showmoreSubevent(num){
                                     <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
                                         <h4>
                                             <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                                <?php echo htmlentities($adItem['ad_title'])  ?>
+                                                <?php echo ($adItem['ad_title'])  ?>
                                             </a>
                                         </h4>
                                         <div class="ads-img-box">
                                             <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                                <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                                <img alt="<?php echo ($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
                                             </a>
                                         </div>
                                         <div class="ads-text">
-                                            <?php echo htmlentities($adItem['ad_text'])  ?>
+                                            <?php echo ($adItem['ad_text'])  ?>
                                         </div>    
                                         <div class="ads-button"> 
                                             <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
@@ -1641,16 +1643,16 @@ function showmoreSubevent(num){
                         <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
                             <h4>
                                 <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                    <?php echo htmlentities($adItem['ad_title'])  ?>
+                                    <?php echo ($adItem['ad_title'])  ?>
                                 </a>
                             </h4>
                             <div class="ads-img-box">
                                 <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                    <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                    <img alt="<?php echo ($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
                                 </a>
                             </div>
                             <div class="ads-text">
-                                <?php echo htmlentities($adItem['ad_text'])  ?>
+                                <?php echo ($adItem['ad_text'])  ?>
                             </div>    
                             <div class="ads-button"> 
                                 <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
@@ -1849,16 +1851,16 @@ function showmoreSubevent(num){
                                         <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
                                             <h4>
                                                 <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                                    <?php echo htmlentities($adItem['ad_title'])  ?>
+                                                    <?php echo ($adItem['ad_title'])  ?>
                                                 </a>
                                             </h4>
                                             <div class="ads-img-box">
                                                 <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                                    <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                                    <img alt="<?php echo ($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
                                                 </a>
                                             </div>
                                             <div class="ads-text">
-                                                <?php echo htmlentities($adItem['ad_text'])  ?>
+                                                <?php echo ($adItem['ad_text'])  ?>
                                             </div>    
                                             <div class="ads-button"> 
                                                 <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
@@ -1875,16 +1877,16 @@ function showmoreSubevent(num){
                             <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
                                 <h4>
                                     <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                        <?php echo htmlentities($adItem['ad_title'])  ?>
+                                        <?php echo ($adItem['ad_title'])  ?>
                                     </a>
                                 </h4>
                                 <div class="ads-img-box">
                                     <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                        <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                        <img alt="<?php echo ($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
                                     </a>
                                 </div>
                                 <div class="ads-text">
-                                    <?php echo htmlentities($adItem['ad_text'])  ?>
+                                    <?php echo ($adItem['ad_text'])  ?>
                                 </div>    
                                 <div class="ads-button"> 
                                     <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
@@ -2032,16 +2034,16 @@ function showmoreSubevent(num){
                                         <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
                                             <h4>
                                                 <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                                    <?php echo htmlentities($adItem['ad_title'])  ?>
+                                                    <?php echo ($adItem['ad_title'])  ?>
                                                 </a>
                                             </h4>
                                             <div class="ads-img-box">
                                                 <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                                    <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                                    <img alt="<?php echo ($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
                                                 </a>
                                             </div>
                                             <div class="ads-text">
-                                                <?php echo htmlentities($adItem['ad_text'])  ?>
+                                                <?php echo ($adItem['ad_text'])  ?>
                                             </div>    
                                             <div class="ads-button"> 
                                                 <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
@@ -2058,16 +2060,16 @@ function showmoreSubevent(num){
                             <div class="ads-box <?php echo $adItem['ad_size'] ?> <?php echo isset($adItem) ? '' : 'hidden-block'; ?> hidden-desktop adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
                                 <h4>
                                     <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                        <?php echo htmlentities($adItem['ad_title'])  ?>
+                                        <?php echo ($adItem['ad_title'])  ?>
                                     </a>
                                 </h4>
                                 <div class="ads-img-box">
                                     <a href="<?php echo $adItem['link_url']  ?>" target="_blank">
-                                        <img alt="<?php echo htmlentities($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
+                                        <img alt="<?php echo ($adItem['ad_text'])  ?>" src="<?php echo $obj_base_path->base_path(); ?>/files/event/advertisement/thumb/<?php echo $adItem['ad_image_name'] ?>" border="0" />
                                     </a>
                                 </div>
                                 <div class="ads-text">
-                                    <?php echo htmlentities($adItem['ad_text'])  ?>
+                                    <?php echo ($adItem['ad_text'])  ?>
                                 </div>    
                                 <div class="ads-button"> 
                                     <a href="<?php echo $adItem['link_url'] ?>" target="_blank">
@@ -2372,6 +2374,7 @@ $(document).ready(function(){
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.slicknav.min.js"></script>
 <script>
+	
     var jqueryNoConflict = $.noConflict();
     jqueryNoConflict(document).ready(function($){
         $('.back_navigation ul').slicknav({

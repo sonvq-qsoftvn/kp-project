@@ -2817,7 +2817,7 @@ function update_media_gallery($set_privacy,$media_id)
 
 function event_details_byID($event_id){
 
-	$sql='SELECT V.*,E.event_id as e_id, E.`event_name_en`, E.`event_name_sp`, E.`event_start_date_time`, E.`event_start_ampm`, E.`event_end_date_time`, E.`event_end_ampm`, E.`admin_id` as event_creator, S.state_name as st_name,C.city_name as city FROM '.$this->prefix().'general_events E Left join '.$this->prefix().'venue V ON (E.event_venue = V.venue_id ) Left join '.$this->prefix().'state S on (S.id = E.event_venue_state)  Left join '.$this->prefix().'city C on (C.id = E.event_venue_city) WHERE E.event_id="'.$event_id.'" AND E.event_status="Y" ';
+	$sql='SELECT V.*,E.event_id as e_id, E.`event_name_en`, E.`event_name_sp`, E.`event_start_date_time`, E.`event_start_ampm`, E.`event_end_date_time`, E.`event_end_ampm`, E.`admin_id` as event_creator, E.`event_short_desc_en`, E.`event_short_desc_sp`, S.state_name as st_name,C.city_name as city FROM '.$this->prefix().'general_events E Left join '.$this->prefix().'venue V ON (E.event_venue = V.venue_id ) Left join '.$this->prefix().'state S on (S.id = E.event_venue_state)  Left join '.$this->prefix().'city C on (C.id = E.event_venue_city) WHERE E.event_id="'.$event_id.'" AND E.event_status="Y" ';
 	//echo $sql;
 	return $this->query($sql);	
 }

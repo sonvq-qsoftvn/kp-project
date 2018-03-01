@@ -1,8 +1,8 @@
 <?php
-// create page
-// -------- include file -------------
-include('../include/admin_inc.php');
-//creation of objects
+    // create page
+    // -------- include file -------------
+    include('../include/admin_inc.php');
+    //creation of objects
 	$objlist = new admin;
 	$objmedia = new admin;
 	$objevent_media = new admin;
@@ -14,796 +14,732 @@ include('../include/admin_inc.php');
 	$event_id = $event_id_arr[1];
 
 	if(isset($_REQUEST['submit'])) /*save for media image*/
-	{
+	{		
+		$event_id = $_POST['event_id'];
+        $media_id = $_POST['media_id'];
+        $set_privacy = $_POST['set_privacy'];
+
+        $media_name = addslashes($_POST['media_name']);
+        $media_name_sp = addslashes($_POST['media_name_sp']);
+        $caption = addslashes($_POST['caption']);
+        $caption_sp = addslashes($_POST['caption_sp']);
+        $alternate_text = addslashes($_POST['alternate_text']);
+        $alternate_text_sp = addslashes($_POST['alternate_text_sp']);
+        $description = addslashes($_POST['description']);
+        $description_sp = addslashes($_POST['description_sp']);
+
+        if (strpos($media_id, ',') !== false) {
+            $media_id_arr = explode(',', $media_id);
+            
+            if(count($media_id_arr) > 0) {
+                foreach ($media_id_arr as $singleId) {
+                    // add for en_US
+                    $obj_media_language->add_media_language($singleId,'en_US',$media_name,$caption,$alternate_text,$description);            
+                    // add for es_MX
+                    $obj_media_language->add_media_language($singleId,'es_MX',$media_name_sp,$caption_sp,$alternate_text_sp,$description_sp);            
+                }
+            }
+        } else {
+            // add for en_US
+            $obj_media_language->add_media_language($media_id,'en_US',$media_name,$caption,$alternate_text,$description);            
+            // add for es_MX
+            $obj_media_language->add_media_language($media_id,'es_MX',$media_name_sp,$caption_sp,$alternate_text_sp,$description_sp);            
+        }
 		
-		$event_id=$_POST['event_id'];
-		$set_privacy=$_POST['set_privacy'];
-		$language=$_POST['language'];
-		$media_name=addslashes($_POST['media_name']);
-		$caption=addslashes($_POST['caption']);
-		$alternate_text=addslashes($_POST['alternate_text']);
-		$description=addslashes($_POST['description']);
-		$media_id=$_POST['media_id'];
-		
-		// -- add Content --		
-		//$objmedia->update_media_gallery($set_privacy,$media_id);
-		$obj_media_language->add_media_language($media_id,$language,$media_name,$caption,$alternate_text,$description);
 		header("location:".$obj_base_path->base_path()."/admin/gallery-list/event/".$event_id);
-		?>
-		
-		<?php
-         }
+    }
 	
-	if(isset($_REQUEST['submit_url']))  /*save for media url*/
-	 {
-		//echo "hello";
-		$event_id=$_POST['event_id'];
-		//echo $event_id;
-		$url=$_POST['url'];
-		$set_privacy=$_POST['set_privacy'];
-		//echo "u".$url;
-		//echo "sp=".$set_privacy;
-		//echo "e-id=".$event_id;
-		$media_id=$_POST['vid_media_id'];
-		$media_name=addslashes($_POST['media_name']);
-		//$media_format='video';
-		$language=$_POST['language'];
-		$caption=addslashes($_POST['caption']);
-		$alternate_text=addslashes($_POST['alternate_text']);
-		$description=addslashes($_POST['description']);
-		
-		//$objmedia->update_media_gallery($set_privacy,$media_id);
-		$obj_media_language->add_media_language($media_id,$language,$media_name,$caption,$alternate_text,$description);
-		header("location:".$obj_base_path->base_path()."/admin/gallery-list/event/".$event_id);
-				
-		}
-		
-		
-		$admin = $_SESSION['ses_user_id'];
-		$obj_media_gallery->allGalleryNotInEvent($event_id,$admin);
-		//$obj_media_gallery->next_record();
-		
-		
-		
+	if (isset($_REQUEST['submit_url'])) /* save for media url */ {        
+        $event_id = $_POST['event_id'];        
+        $media_id = $_POST['vid_media_id'];
+        $url = $_POST['url'];
+        $set_privacy = $_POST['set_privacy'];        
+        $media_name = addslashes($_POST['media_name']);        
+        $media_name_sp = addslashes($_POST['media_name_sp']); 
+        $caption = addslashes($_POST['caption']);
+        $caption_sp = addslashes($_POST['caption_sp']);
+        $alternate_text = addslashes($_POST['alternate_text']);
+        $alternate_text_sp = addslashes($_POST['alternate_text_sp']);
+        $description = addslashes($_POST['description']);
+        $description_sp = addslashes($_POST['description_sp']);
+
+        // Save for en_US
+        $language = 'en_US';
+        $obj_media_language->add_media_language($media_id, $language, $media_name, $caption, $alternate_text, $description);
+        
+        // Save for es_MX
+        $language = 'es_MX';
+        $obj_media_language->add_media_language($media_id, $language, $media_name_sp, $caption_sp, $alternate_text_sp, $description_sp);
+        header("location:" . $obj_base_path->base_path() . "/admin/gallery-list/event/" . $event_id);
+    }
+
+    $admin = $_SESSION['ses_user_id'];
+    $obj_media_gallery->allGalleryNotInEvent($event_id,$admin);		
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kcpasa - Create gallery</title>
-	
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/base.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/header.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/style.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/style_event.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/jquery1-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
-<!-- Ajax File Upload -->
-<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/ajaxupload.3.5.js" ></script>
-<!-- Ajax File Upload -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Kcpasa - Create gallery</title>
+
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/header.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/style_event.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/jquery1-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+    <!-- Ajax File Upload -->
+    <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/ajax_upload_multiple.js" ></script>
+    <!-- Ajax File Upload -->
 
 
-<script src="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css"/>
+    <script src="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css"/>
 
-<script src="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets2/SpryTabbedPanels.js" type="text/javascript"></script>
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets2/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets2/SpryTabbedPanels.js" type="text/javascript"></script>
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets2/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/custom-form-elements.js"></script>
-<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery-ui.min.js"></script>
-<script src="<?php echo $obj_base_path->base_path(); ?>/js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
-
-
-<!-- jQuery lightBox plugin -->
-<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-
-<!--jquery tooltips -->
-<script src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.tipsy.js" type="text/javascript"></script>
-<!--jquery tooltips -->
-
-<script language="javascript" type="text/javascript">
-function allMediaCheck(source) {
-		//alert("alj");
-  checkboxes = document.getElementsByName('gallery_media[]');
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
-
-</script>
-
-<script language="javascript" type="text/javascript">
-function show_upload_media(resval)
-{
-var getvalue=resval;
-if(getvalue=='select_image')
-{
-$("#url").val("");
-$(".fromgallery").hide();		
-$("#for_upload_url").hide();
-$("#for_upload_image").show();
-$("#radio_all").hide();
-}
-else
-{
-$('#gallery_photo').val("");		
-$(".fromgallery").hide();
-$("#for_upload_image").hide();
-$("#for_upload_url").show();
-$("#radio_all").hide();
-}
-}
-</script>
-<script language="javascript" type="text/javascript">
-function ajaxSaveUploadMedia(event_id)
-{
-		var gal_photo=$('#gallery_photo').val();
-		//alert("hi= "+$('#gallery_photo').val());
-		var ext_image_arr=gal_photo.split(".");
-		var ext_image=ext_image_arr[1];
-		//alert("ext_image="+ext_image);
-		var url_media=$("#url").val();
-		//alert(url_media);
-		
-		if (gal_photo!="" || url_media!="") {
-				//code		
-		
-		 $.ajax({ 
-		   url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_media_image_submit.php",
-		   cache: false,
-		   type: "POST",
-		   data: 'image_gallery='+gal_photo+'&image_ext='+ext_image+'&url_media='+url_media+'&event_id='+event_id,   
-		   success: function(data){
-			   //alert(data);
-			   var res = data.split("||");
-			   //alert("media_id= "+res[0]+"url= "+res[1]+"vid_type= "+res[2]);
-			   if(res[0]!=""){
-				//$('#alrdy_svd_evnt1').trigger('click');
-				//alert("success");
-				
-				$("#for_upload_image").hide();		
-				$("#for_upload_url").hide();
-				$("#media_id").val(res[0]);
-				$("#vid_media_id").val(res[0]);
-				
-				$("#cancel_image_media").click(function(){
-						//alert("hi");
-						cancel_media(res[0]);
-						});
-				$("#cancel_url_media").click(function(){
-						//alert("hi");
-						cancel_media(res[0]);
-						});
-				//$("#url_image_show").val(res[1]);
-				//alert("again_res check"+res[2]);
-				 if (res[2].trim()=="image")
-				   {
-				   //alert("image has");
-				   $(".mediaurl").hide();
-				   $(".mediaimage").show();
-				   $("#url_image_show").html('<img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/'+res[1]+'"/>');
-				   		
-				   }
-				 else
-				  {
-				  //alert("image not");
-				  $(".mediaimage").hide();
-				  $(".mediaurl").show();
-				  $("#url_video_show").html(res[1]);
-				  }
-				
-				$('#radio_all').css({'padding-left':0+'px'});
-				$("#radio_all").hide();
-			   }
-			   else
-			   {
-		  	 	alert("Somthing is not right here.");
-			   }
-		   }
-		 });
-		}
-		else
-		{
-		  alert("please upload image");		
-		}
-		
-}
-</script>
-
-<script type="text/javascript">
-function next_lang()
-{
-//alert(document.getElementById("media_id").value);
-var media_id=$("#media_id").val();
-//alert("m_id= "+media_id);
-var event_id=$("#eid_nl").val();
-//alert("e_id= "+event_id);
-var set_privacy=$("#set_privacy:checked").val();
-var language=$("#language").val();
-var media_name=$("#media_name").val();
-var caption=$("#caption").val();
-var alternate_text=$("#alternate_text").val();
-var description=$("#description").val();
-//alert("des= "+description);
-$.ajax({ 
-url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_media_for_next_language.php",
-cache: false,
-type: "POST",
-data: 'set_privacy='+set_privacy+'&language='+language+'&media_name='+media_name+'&caption='+caption+'&alternate_text='+alternate_text+'&description='+description+'&media_id='+media_id+'&event_id='+event_id,   
-success: function(data){
-//alert(data);
-var res = data.split("||");
-
-var lang=res[1].trim();
-//alert("l= "+lang);
-if (data!="") // "1"."||".$set_privacy."||".$language;
-{
-//alert("enter");
-//change the field value after next language  clicking
-$("#set_privacy:checked").val(res[0]);
-$("#language").val(lang);
-//alert($("#language").val());
-$("#media_name").val("");
-$("#caption").val("");
-$("#alternate_text").val("");
-$("#description").val("");
-$("#nxt_but").hide();
-$("#saveNdExit").show();
-}
-else
-{
-alert("not enter");
-}
-}
-});
-}
-</script>
-
-<!----Next language media url------>
-<script type="text/javascript">
-function next_lang()
-{
-//alert(document.getElementById("media_id").value);
-var media_id=$("#media_id").val();
-//alert("m_id= "+media_id);
-var event_id=$("#eid_nl").val();
-//alert("e_id= "+event_id);
-var set_privacy=$("#set_privacy:checked").val();
-var language=$("#language").val();
-var media_name=$("#media_name").val();
-var caption=$("#caption").val();
-var alternate_text=$("#alternate_text").val();
-var description=$("#description").val();
-//alert("des= "+description);
-$.ajax({ 
-url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_media_for_next_language.php",
-cache: false,
-type: "POST",
-data: 'set_privacy='+set_privacy+'&language='+language+'&media_name='+media_name+'&caption='+caption+'&alternate_text='+alternate_text+'&description='+description+'&media_id='+media_id+'&event_id='+event_id,   
-success: function(data){
-//alert(data);
-var res = data.split("||");
-//alert("r0="+res[0]);
-//alert("r1="+res[1]);
-//alert("r2="+res[2]);
-var lang=res[1].trim();
-//alert("l= "+lang);
-if (data!="") // "1"."||".$set_privacy."||".$language;
-{
-//alert("enter");
-//change the field value after next language  clicking
-$("#set_privacy:checked").val(res[0]);
-$("#language").val(lang);
-//alert($("#language").val());
-$("#media_name").val("");
-$("#caption").val("");
-$("#alternate_text").val("");
-$("#description").val("");
-$("#nxt_but").hide();
-$("#saveNdExit").show();
-}
-else
-{
-alert("not enter");
-}
-}
-});
-}
-</script>
-<!----Next language media image End------>
+    <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/custom-form-elements.js"></script>
+    <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery-ui.min.js"></script>
+    <script src="<?php echo $obj_base_path->base_path(); ?>/js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
 
 
-<!----Next language media url------>
+    <!-- jQuery lightBox plugin -->
+    <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
+    <!--jquery tooltips -->
+    <script src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.tipsy.js" type="text/javascript"></script>
+    <!--jquery tooltips -->
+
+    <script language="javascript" type="text/javascript">
+        function allMediaCheck(source) {
+            checkboxes = document.getElementsByName('gallery_media[]');
+            for(var i=0, n=checkboxes.length;i<n;i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        function show_upload_media(resval) {
+            var getvalue=resval;
+            if(getvalue=='select_image')
+            {
+                $("#url").val("");
+        //        $(".fromgallery").hide();		
+        //        $("#for_upload_url").hide();
+        //        $("#for_upload_image").show();
+        //        $("#radio_all").hide();
+
+            }
+            else
+            {
+                $('#gallery_photo').val("");		
+                $(".fromgallery").hide();
+                $("#for_upload_image").hide();
+                $("#for_upload_url").show();
+                $("#radio_all").hide();
+            }
+        }
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        function ajaxSaveUploadMedia(event_id) {
+            var gal_photo=$('#gallery_photo').val();		
+            var url_media=$("#url").val();
+            if (gal_photo!="" || url_media!="") {
+             $.ajax({ 
+               url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_media_image_submit_multiple.php",
+               cache: false,
+               type: "POST",
+               data: 'image_gallery='+gal_photo+'&url_media='+url_media+'&event_id='+event_id,   
+               success: function(data){
+                   //alert(data);
+                   data = JSON.parse(data);
+                   if(data['type'] == 'single') {
+                        var response = data['data'];
+                        var res = response.split("||");
+                        if(res[0]!=""){
+                            $("#for_upload_image").hide();		
+                            $("#for_upload_url").hide();
+                            $("#media_id").val(res[0]);
+                            $("#vid_media_id").val(res[0]);
+
+                            $("#cancel_image_media").click(function(){
+                                    //alert("hi");
+                                    cancel_media(res[0]);
+                                    });
+                            $("#cancel_url_media").click(function(){
+                                    //alert("hi");
+                                    cancel_media(res[0]);
+                                    });
+                            //$("#url_image_show").val(res[1]);
+                            //alert("again_res check"+res[2]);
+                             if (res[2].trim()=="image") {
+                               //alert("image has");
+                               $(".mediaurl").hide();
+                               $(".mediaimage").show();
+                               $("#url_image_show").html('<img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/'+res[1]+'"/>');
+
+                               } else {
+                                //alert("image not");
+                                $(".mediaimage").hide();
+                                $(".mediaurl").show();
+                                $("#url_video_show").html(res[1]);
+                              }
+
+                            $('#radio_all').css({'padding-left':0+'px'});
+                            $("#radio_all").hide();
+                        } else {
+                            alert($('#something-went-wrong').html());
+                        }
+                    } else {
+                        var response = data['data'];
+                        var list_media_id = "";
+                        var count = 0;
+                        $("#url_image_show").html('');
+                        $("#url_video_show").html('');
+                        response.forEach(function(element) {                
+                            var res = element.split("||");
+                            if(res[0]!=""){
+                                if(count == 0) {
+                                    list_media_id = res[0];
+                                } else {
+                                    list_media_id = list_media_id + ',' + res[0];
+                                }
+                                $("#for_upload_image").hide();		
+                                $("#for_upload_url").hide();
+                                $("#media_id").val(list_media_id);
+                                $("#vid_media_id").val(list_media_id);
+
+                                $("#cancel_image_media").click(function(){
+                                    cancel_media(list_media_id);
+                                });
+                                $("#cancel_url_media").click(function(){
+                                    cancel_media(list_media_id);
+                                });
+                                if (res[2].trim()=="image") {
+                                   $(".mediaurl").hide();
+                                   $(".mediaimage").show();
+                                   $("#url_image_show").append('<img style="border: 1px solid gray; margin: 0 10px 10px 0px" src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/'+res[1]+'"/>');
+                                } else {
+                                    $(".mediaimage").hide();
+                                    $(".mediaurl").show();
+                                    $("#url_video_show").append(res[1] + "<br/>");
+                                }
+                                $('#radio_all').css({'padding-left':0+'px'});
+                                $("#radio_all").hide();
+                                count++;
+                            } else {
+                                alert($('#something-went-wrong').html());
+                            }
+                        });
+
+                    }
+
+               }
+             });
+            }
+            else
+            {
+              alert($('#please-upload-image').html());		
+            }
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        function next_lang() {    
+            var media_id=$("#media_id").val();
+            var event_id=$("#eid_nl").val();
+            var set_privacy=$("#set_privacy:checked").val();
+            var language=$("#language").val();
+            var media_name=$("#media_name").val();
+            var caption=$("#caption").val();
+            var alternate_text=$("#alternate_text").val();
+            var description=$("#description").val();
+            $.ajax({ 
+                url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_media_for_next_language_multiple.php",
+                cache: false,
+                type: "POST",
+                data: 'set_privacy='+set_privacy+'&language='+language+'&media_name='+media_name+'&caption='+caption+'&alternate_text='+alternate_text+'&description='+description+'&media_id='+media_id+'&event_id='+event_id,   
+                success: function(data){
+                    var res = data.split("||");
+                    var lang=res[1].trim();
+                    if (data!="") // "1"."||".$set_privacy."||".$language;
+                    {
+                        //change the field value after next language  clicking
+                        $("#set_privacy:checked").val(res[0]);
+                        $("#language").val(lang);
+                        $("#media_name").val("");
+                        $("#caption").val("");
+                        $("#alternate_text").val("");
+                        $("#description").val("");
+                        $("#nxt_but").hide();
+                        $("#saveNdExit").show();
+                    } else {
+                        alert("not enter");
+                    }
+                }
+            });
+        }
+    </script>
 
 
-<script type="text/javascript">
-function next_lang_url()
-{
-//alert(document.getElementById("media_id").value);
-var media_id=$("#vid_media_id").val();
-//alert("m_id= "+media_id);
-var event_id=$("#eid_nl").val();
-//alert("e_id= "+event_id);
-var set_privacy=$("#set_privacy_url:checked").val();
-var language=$("#language_url").val();
-var media_name=$("#media_name_url").val();
-var caption=$("#caption_url").val();
-var alternate_text=$("#alternate_text_url").val();
-var description=$("#description_url").val();
-//alert("des= "+description);
-$.ajax({ 
-url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_media_for_next_language.php",
-cache: false,
-type: "POST",
-data: 'set_privacy='+set_privacy+'&language='+language+'&media_name='+media_name+'&caption='+caption+'&alternate_text='+alternate_text+'&description='+description+'&media_id='+media_id+'&event_id='+event_id,   
-success: function(data){
-//alert(data);
-var res = data.split("||");
-//alert("r0="+res[0]);
-//alert("r1="+res[1]);
-//alert("r2="+res[2]);
-var lang=res[1].trim();
-//alert("l= "+lang);
-if (data!="") // "1"."||".$set_privacy."||".$language;
-{
-//alert("enter");
-//change the field value after next language  clicking
-$("#set_privacy_url:checked").val(res[0]);
-$("#language_url").val(lang);
-//alert($("#language_url").val());
-$("#media_name_url").val("");
-$("#caption_url").val("");
-$("#alternate_text_url").val("");
-$("#description_url").val("");
-$("#nxt_but_url").hide();
-$("#saveNdExit_url").show();
-}
-else
-{
-alert("not enter");
-}
-}
-});
-}
-</script>
+    <script type="text/javascript">
+        $(function(){
+            var btnUpload=$('#type_image');
+            var mestatus=$('#mestatus2');
+            var files=$('#files');
+            new AjaxUpload(btnUpload, {
+                action: '<?php echo $obj_base_path->base_path(); ?>/admin/uploadgalleryphoto.php',
+                name: 'uploadfile',
+                onSubmit: function(file, ext){
+                    if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
+                        // extension is not allowed 
+                        mestatus.text($('#format-allowed').html());
+                        return false;
+                    }
+                    mestatus.html($('#file-being-uploaded').html());
+                },
+                onComplete: function(file, response){
+                    //On completion clear the status
+                    console.log(response)
+                    response = JSON.parse(response);
+                    console.log(response);
 
-<!----Next language media url End------>
-<script type="text/javascript">
+                    mestatus.text($('#photo-upload-success').html());
+                    var list_image = response.join();
+                    console.log(list_image);
+                    $('#gallery_photo').val(list_image);
 
-$(function(){
-var btnUpload=$('#me1');
-var mestatus=$('#mestatus1');
-var files=$('#files');
-new AjaxUpload(btnUpload, {
-action: '<?php echo $obj_base_path->base_path(); ?>/admin/uploadgalleryphoto.php',
-name: 'uploadfile',
-onSubmit: function(file, ext){
-if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
-// extension is not allowed 
-mestatus.text('Only JPG, PNG or GIF files are allowed');
-return false;
-}
-mestatus.html('Your file is being uploaded - please wait');
-},
-onComplete: function(file, response){
-//On completion clear the status
-mestatus.text('Photo Uploaded Sucessfully!');
-$('#gallery_photo').val(response);
-$('#imgshow').html('<img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/'+response+'" alt="" />');
-$('#me1').html('');
-$('#up_image_next').trigger('click');
-//On completion clear the status
-}
-});
+                    $('#imgshow').html('');
+                    response.forEach(function(element) {
 
-});
-</script>
-<script language="javascript" type="text/javascript">
-function check_type(getval)
-{
-//alert("hi! ");
-var type=getval;
-if (type=="select_gal")
-{
-$('#radio_all').css({'padding-left':120+'px'});
-$(".fromgallery").show();
-$(".mediaimage").hide();
-$(".mediaurl").hide();
-$("#for_upload_url").hide();
-$("#for_upload_image").hide();
-}
+                        $('#imgshow').append('<img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/'+element+'" alt="" />');
+                    });
 
-}
-</script>
+                    $('#me1').html('');
+                    $('#up_image_next').trigger('click');
+                    //On completion clear the status
+                }
+            });
 
-         <!---cancel media Ajax------->
-		<script type="text/javascript">
-		function cancel_media(media_id)
-		{
-			//alert("again");	
-		$.ajax({ 
-		url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_cancel_media.php",
-		cache: false,
-		type: "POST",
-		data: 'media_id='+media_id,   
-		success: function(data){
-		//alert(data);
-		window.location = '<?php echo $obj_base_path->base_path()?>/admin/gallery-list/event/<?php echo $event_id ?>'
-		}
-		});		
-		}
-		</script>
-       <!---cancel media Ajax end------->
+        });
+    </script>
+    <script language="javascript" type="text/javascript">
+        function check_type(getval) {
+            var type=getval;
+            if (type=="select_gal") {
+                $('#radio_all').css({'padding-left':120+'px'});
+                $(".fromgallery").show();
+                $(".mediaimage").hide();
+                $(".mediaurl").hide();
+                $("#for_upload_url").hide();
+                $("#for_upload_image").hide();
+            }
+        }
+    </script>
 
-<style>
-.mediaurl
-{
-display: none;
-}
-.mediaimage
-{
-display: none;
-}
-.fromgallery
-{
-display: none;
-}
-#saveNdExit
-{
-display: none;
-}
-#saveNdExit_url
-{
-display: none;
-}
-</style>
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/base.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/header.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/style.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/style_event.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/jquery1-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+    <!---cancel media Ajax------->
+    <script type="text/javascript">
+        function cancel_media(media_id){
+            $.ajax({ 
+                url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax/ajax_cancel_media.php",
+                cache: false,
+                type: "POST",
+                data: 'media_id='+media_id,   
+                success: function(data){
+                    window.location = '<?php echo $obj_base_path->base_path()?>/admin/gallery-list/event/<?php echo $event_id ?>'
+                }
+            });		
+        }
+    </script>
+    <!---cancel media Ajax end------->
 
-<?php include("../include/analyticstracking.php")?>
+    <style>
+        .mediaurl {
+            display: none;
+        }
+        .mediaimage {
+            display: none;
+        }
+        .fromgallery {
+            display: none;
+        }
+        #nxt_but {
+            display: none;
+        }
+        #nxt_but_url {
+            display: none;
+        }
+        .lang_name_eng {
+            background: #FFFFFF;
+            color: #FF0000;
+            border: 1px solid #CCCCCC;
+            margin: 8px 0 10px 0px;
+            padding: 2px;
+            font: bold 22px/22px Arial, Helvetica, sans-serif;
+            display: inline-block;
+        }
+        .lang_name {
+            background: #FFFFFF;
+            float: right;
+            color: #FF0000;
+            border: 1px solid #CCCCCC;
+            margin: 8px 52px 0 0;
+            padding: 2px;
+            font: bold 22px/22px Arial, Helvetica, sans-serif;
+            display: inline-block;
+        }
+    </style>
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/header.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/style_event.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $obj_base_path->base_path(); ?>/css/jquery1-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+
+    <?php include("../include/analyticstracking.php")?>
 
 </head>
 
 <body class="body1">
-<?php
-function videoType($video_url) {
-if (strpos($video_url, 'youtube') > 0) {
-return 'youtube';
-} elseif (strpos($video_url, 'vimeo') > 0) {
-return 'vimeo';
-} elseif (strpos($video_url, 'dailymotion') > 0) {
-return 'dailymotion';
-} else {
-return 'image';
-}
-}
-?>																																		
-<?php include("admin_header.php"); ?>
- <div id="maindiv">
-    <div class="clear"></div>
-    <div class="body_bg">
-    <div class="clear"></div>
-    <div class="container">
-    <?php include("admin_header_menu.php");?>
-     <div class="clear"></div>		
-    <!--start body-->
-      <div id="body">
-        <div class="body2"> 
-          <div class="clear"></div>
-           <div class="blue_box1">
-           <div class="blue_box10"><p><?= AD_ADD_MEDIA ?></p></div>
-           	<?php include("admin_menu/creategallery_menu.php");?>
-           </div> 
-         <div class="clear"></div>
-        </div>	
-      </div>
-     </div>
-    <!---------------------put your div--here-------------------------------------------------- --> 
-        <!------------------Event Details------------------------->
-	<div>
-		<?php $objEventDetails->event_details_byID($event_id);
-		$objEventDetails->next_record();
-		//event_name   Event_Start_DateTime   Event_Venue   Event_City
-		echo $objEventDetails->f('event_name_en').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name').",".$objEventDetails->f('city');
-		?>
-	</div>
-	<!------------------Event Details End------------------------->
+    <?php
+        function videoType($video_url) {
+            if (strpos($video_url, 'youtube') > 0) {
+                return 'youtube';
+            } elseif (strpos($video_url, 'vimeo') > 0) {
+                return 'vimeo';
+            } elseif (strpos($video_url, 'dailymotion') > 0) {
+                return 'dailymotion';
+            } else {
+                return 'image';
+            }
+        }
+    ?>																																		
+    <?php include("admin_header.php"); ?>
+    <div id="maindiv">
+        <div class="clear"></div>
+        <div class="body_bg">
+            <div class="clear"></div>
+            <div class="container">
+                <?php include("admin_header_menu.php");?>
+                <div class="clear"></div>		
+                <!--start body-->
+                <div id="body">
+                    <div class="body2"> 
+                        <div class="clear"></div>
+                        <div class="blue_box1">
+                            <div class="blue_box10"><p><?= AD_ADD_MEDIA ?></p></div>
+                            <?php include("admin_menu/creategallery_menu.php");?>
+                        </div> 
+                        <div class="clear"></div>
+                    </div>	
+                </div>
+             </div>
+            <!---------------------put your div--here-------------------------------------------------- --> 
+            <!------------------Event Details------------------------->
+            <div>
+                <?php $objEventDetails->event_details_byID($event_id);
+                $objEventDetails->next_record();
+                //event_name   Event_Start_DateTime   Event_Venue   Event_City
+                echo $objEventDetails->f('event_name_en').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name').",".$objEventDetails->f('city');
+                ?>
+            </div>
+            <!------------------Event Details End------------------------->
     
-    <div class="myevent_box" style="position:relative">
-		<div id="radio_all" >
-		<input type="radio" name="type" id="type_gal" value="from_gal"  onclick="check_type('select_gal')">Select from your gallery<br>
-		<!--<input type="radio" name="type" id="type_image" value="media_image"  onclick="check_type('select_image')"> upload new media<br>
-		<input type="radio" name="type" id="type_url" value="media_url"  onclick="check_type('select_url')"> media url<br>-->
-		<input type="radio" name="type" id="type_image" value="media_image"  onclick="show_upload_media('select_image')"> upload new media<br>
-		<input type="radio" name="type" id="type_url" value="media_url"  onclick="show_upload_media('select_url')"> media url<br>
-		</div>
+            <div class="myevent_box" style="position:relative">
+                <div id="radio_all" >
+                    <input type="radio" name="type" id="type_gal" value="from_gal"  onclick="check_type('select_gal')"><?= AD_SELECT_FROM_YOUR_GALLERY ?> <br>
+                    <input type="radio" name="type" id="type_image" value="media_image"  onclick="show_upload_media('select_image')"> <?= AD_UPLOAD_NEW_MEDIA ?><br>
+                    <input type="radio" name="type" id="type_url" value="media_url"  onclick="show_upload_media('select_url')"> <?= AD_MEDIA_URL ?><br>
+                    <br/>   
+                    <span id="mestatus2"></span>
+                </div>
 
-		<form name="frm" method="post" action="<?php echo $obj_base_path->base_path(); ?>/admin/process_gallery.php" enctype="multipart/form-data">	
+                <form name="frm" method="post" action="<?php echo $obj_base_path->base_path(); ?>/admin/process_gallery.php" enctype="multipart/form-data">	
+                    <div class="fromgallery">
+                        <input type="submit" name="check_submit" value="Save &amp; exit" class="createbtn" style="position: absolute; left: 0px; margin-top: 0px; top: 6px;" />
+                        <table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
+                            <input type="hidden" name="event_id" value="<?php echo $event_id;?>"/>
+                            <tr>
+                                <td><input type="checkbox" name="gal_media" id="checkAllMedia" onClick="allMediaCheck(this)" value="gal_media"></td>
+                                <td></td>
+                                <td width="80%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><strong><?= AD_FILE ?> </strong></td>
+                                <td width="20%"><strong><?= AD_CREATION_DATE ?></strong></td>
+                            </tr>
+                            <?php while($row = $obj_media_gallery->next_record()) {
+                                $arr_url=explode('=',$obj_media_gallery->f('media_url'));
+                                $video_url=$obj_media_gallery->f('media_url');
+                                $var=videoType($video_url);
+                            ?>
+                            <tr>
+                                <td><input type="checkbox" name="gallery_media[]" value="<?php echo $obj_media_gallery->f('m_id'); ?>"  id="gal_media"></td>
+                                <td>
+                                    <?php if($obj_media_gallery->f('media_format')!="video") { ?>
+                                        <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url'); ?>"/><img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/<?php echo $obj_media_gallery->f('media_url'); ?>" alt="" />
+                                    <?php } else { ?>
+                                        <?php  if($var=="youtube") { ?>
+                                            <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>" /><iframe width="150" height="90" src="//www.youtube.com/embed/<?php echo end(explode('=',$obj_media_gallery->f('media_url')));?>" frameborder="0" allowfullscreen></iframe>
+                                        <?php } elseif($var=="vimeo") {  ?>
+                                            <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe src="//player.vimeo.com/video/<?php echo  end(explode('/',$obj_media_gallery->f('media_url')));?>" width="150" height="90" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                        <?php } elseif($var=="dailymotion") {  
+                                            $dm_vid_arr=explode('_',end(explode('/',$obj_media_gallery->f('media_url'))));
+                                            $dm_vid = $dm_vid_arr[0];
+                                        ?>
+                                            <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe frameborder="0" width="150" height="90" src="//www.dailymotion.com/embed/video/<?php echo  $dm_vid;?>" allowfullscreen></iframe>
+                                       <?php } ?>
+                                    <?php } ?>
+                                </td>
+                                <td><input type="hidden" name="media_name[]" value="<?php echo $obj_media_gallery->f('media_name'); ?>"/><?php echo  $obj_media_gallery->f('media_name'); ?>&nbsp
+                                <input type="hidden" name="media_format[]" value="<?php echo $obj_media_gallery->f('media_format'); ?>"/><?php echo $obj_media_gallery->f('media_format'); ?></td>
+                                <td><?php echo $obj_media_gallery->f('upload_date'); ?></td>
+                                <input type="hidden" name="caption[]" value="<?php echo $obj_media_gallery->f('caption'); ?>"/>
+                                <input type="hidden" name="set_privacy_all[]" value="<?php echo $obj_media_gallery->f('set_privacy'); ?>"/>
+                                <input type="hidden" name="language_all[]" value="<?php echo $obj_media_gallery->f('language_id'); ?>"/>
+                                <input type="hidden" name="alternet_text_all[]" value="<?php echo $obj_media_gallery->f('alternative_text'); ?>"/>
+                                <input type="hidden" name="description_all[]" value="<?php echo $obj_media_gallery->f('description'); ?>"/>
+                            </tr>
+                            <tr>
+                               <td>&nbsp;</td>
+                            </tr>
+                            <?php } ?>
+                            <tr>
+                                <td>&nbsp;</td>				
+                            </tr>
+                        </table>
+                    </div>
+                </form><!-----------that is  for  form gallery--------------------->
+		
+		
+                <!-----------that is  for image file upload--------------------->
+                <div id="for_upload_image" style="display: none">
+                    <form name="frm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onSubmit="return check()" enctype="multipart/form-data">
+                        <table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td valign="top">
+                                    <div class="event_ticket">
+                                        <p><?= AD_UPLOAD_FILES ?></p>
+                                        <ul style="margin-left: 10px;">
+                                            <li>
+                                                <a href="#" class="here"> 
+                                                    <?php if(!$_POST['gallery_photo']){ ?>
 
-			
-
-		<div class="fromgallery">
-			<input type="submit" name="check_submit" value="Save &amp; exit" class="createbtn" style="position: absolute; left: 0px; margin-top: 0px; top: 6px;">
-		<table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
-		<!-- <form name="frm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data"> -->
-
-		<input type="hidden" name="event_id" value="<?php echo $event_id;?>"/>
+                                                    <div id="me1" class="styleall" style=" cursor:pointer; ">
+                                                        <span style=" cursor:pointer; font-family:Verdana, Geneva, sans-serif; font-size:9px;"><span style=" cursor:pointer;"><?= AD_SELECT_FILE_FROM_YOUR_COMPUTER ?> </span></span>
+                                                    </div>
+                                                    <span id="mestatus1"></span>
+                                                    <?php } else { ?>
+                                                    <img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/<?php echo $_POST['gallery_photo']; ?>" alt="" />
+                                                    <?php }  ?>
+                                                    <div class="clear"></div>
+                                                    <span id="imgshow"></span>
+                                                    <input type="hidden" name="gallery_photo" id="gallery_photo" value="<?php if($_POST['gallery_photo']){ echo $_POST['gallery_photo']; }?>" />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>				
+                                <td><input type="button" name="submit" value="Next >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" style="height: 28px; display: none;" id="up_image_next"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div><!------first  time  show hide media  image--->
 		
-		
-			<tr>
-				<td><input type="checkbox" name="gal_media" id="checkAllMedia" onClick="allMediaCheck(this)" value="gal_media"></td>
-				<td></td>
-				<td width="80%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><strong>File </strong></td>
-				<td width="20%"><strong>Creation Date</strong></td>
-			</tr>
-			
-			
-		    <?php while($row = $obj_media_gallery->next_record())
-		      {
-				$arr_url=explode('=',$obj_media_gallery->f('media_url'));
-				$video_url=$obj_media_gallery->f('media_url');
-				$var=videoType($video_url);
-		    ?>
-			<tr>
-				
-				<td><input type="checkbox" name="gallery_media[]" value="<?php echo $obj_media_gallery->f('m_id'); ?>"  id="gal_media"></td>
-				<td><?php if($obj_media_gallery->f('media_format')!="video") {?>
-            <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url'); ?>"/><img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/<?php echo $obj_media_gallery->f('media_url'); ?>" alt="" />
-				<?php }
-				else{?>
-				
-				<?php  if($var=="youtube") { ?>
-					 
-				      <!-- <iframe width="150" height="90" src="http://www.youtube.com/watch?v=97VqfrsgyAM"></iframe>-->
-				      <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>" /><iframe width="150" height="90" src="//www.youtube.com/embed/<?php echo end(explode('=',$obj_media_gallery->f('media_url')));?>" frameborder="0" allowfullscreen></iframe>
-					   <?php }
-					   elseif($var=="vimeo") {  ?>
-					   <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe src="//player.vimeo.com/video/<?php echo  end(explode('/',$obj_media_gallery->f('media_url')));?>" width="150" height="90" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					   <?php }
-					   elseif($var=="dailymotion") {  
-					     $dm_vid_arr=explode('_',end(explode('/',$obj_media_gallery->f('media_url'))));
-					     $dm_vid = $dm_vid_arr[0];
-					     ?>
-					   <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe frameborder="0" width="150" height="90" src="//www.dailymotion.com/embed/video/<?php echo  $dm_vid;?>" allowfullscreen></iframe>
-					   <?php }?>
-				<?php
-					}?></td>
-				<td><input type="hidden" name="media_name[]" value="<?php echo $obj_media_gallery->f('media_name'); ?>"/><?php echo  $obj_media_gallery->f('media_name'); ?>&nbsp
-				<input type="hidden" name="media_format[]" value="<?php echo $obj_media_gallery->f('media_format'); ?>"/><?php echo $obj_media_gallery->f('media_format'); ?></td>
-				<td><?php echo $obj_media_gallery->f('upload_date'); ?></td>
-				<input type="hidden" name="caption[]" value="<?php echo $obj_media_gallery->f('caption'); ?>"/>
-				<input type="hidden" name="set_privacy_all[]" value="<?php echo $obj_media_gallery->f('set_privacy'); ?>"/>
-				<input type="hidden" name="language_all[]" value="<?php echo $obj_media_gallery->f('language_id'); ?>"/>
-				<input type="hidden" name="alternet_text_all[]" value="<?php echo $obj_media_gallery->f('alternative_text'); ?>"/>
-				<input type="hidden" name="description_all[]" value="<?php echo $obj_media_gallery->f('description'); ?>"/>
-              
-			</tr>
-			<tr>
-			   <td>&nbsp;</td>
-			</tr>
-				
-		    <?php		
-		      }
-                     ?>
-			<tr>
-				<td>&nbsp;</td>				
-				<!-- <td><input type="submit" name="check_submit" value="Save & exit" class="createbtn"></td> -->
-			</tr>
-		
-		</table>
-		</div>
-		</form><!-----------that is  for  form gallery--------------------->
-		
-		
-		<!-----------that is  for image file upload--------------------->
-		<div id="for_upload_image" style="display: none">
-		<form name="frm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onSubmit="return check()" enctype="multipart/form-data">
-		<table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
-		
-		<tr>
-		<!--<td style="font: normal 12px/18px Arial, Helvetica, sans-serif;">Image ::</td>-->
-		<td valign="top">
-		<div class="event_ticket">
-		<!--<h1>Set gallery image <img src="<?php //echo $obj_base_path->base_path(); ?>/images/question_mark.gif" alt="" width="31" height="28" border="0"/></h1>-->
-		<p>Upload Files</p>
-		<ul style="margin-left: 10px;">
-		<li><a href="#" class="here"> 
-			    
-		<?php if(!$_POST['gallery_photo']){ ?>
-		
-		<div id="me1" class="styleall" style=" cursor:pointer; "><span style=" cursor:pointer; font-family:Verdana, Geneva, sans-serif; font-size:9px;"><span style=" cursor:pointer;">Select file from your computer</span></span></div><span id="mestatus1"></span>
-		<?php } else { ?>
-		<img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/<?php echo $_POST['gallery_photo']; ?>" alt="" />
-		<?php }  ?>
-		<div class="clear"></div>
-		<span id="imgshow"></span>
-		<input type="hidden" name="gallery_photo" id="gallery_photo" value="<?php if($_POST['gallery_photo']){ echo $_POST['gallery_photo']; }?>" /></a></li>
-		<!--<li>|</li>
-		<li><a href="#">Media Library</a></li>-->
-		</ul>
-		</div>
-
-		</td>
-		</tr>
-		<tr>
-		<td>&nbsp;</td>				
-		<td><input type="button" name="submit" value="Next >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" style="height: 28px; display: none;" id="up_image_next"></td>
-		</tr>
-		</table>
-		</form>
-				
-		</div><!------first  time  show hide media  image--->
-		
-		<div class="mediaimage">
-		<form name="frm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onSubmit="return check()" enctype="multipart/form-data">
-		<table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
-		<input type="hidden" name="event_id" value="<?php echo $event_id;?>" id="eid_nl"/>
-		<input type="hidden" name="media_id" value="" id="media_id"/>
-		<tr>
-		<td><div id="url_image_show"></div></td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Set privacy ::</td>
-		<td width="87%">
-		<input type="radio" name="set_privacy" id="set_privacy" value="0" > public<br>
-		<input type="radio" name="set_privacy" id="set_privacy" value="1" checked="checked"> private<br>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Language ::</td>
-		<td width="87%">
-		<select name="language" id="language">
-		<option value="es_MX">Espanol</option>
-		<option value="en_US">English</option>
-		
-		</select>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Media Name ::</td>
-		<td width="87%">
-		<input type="text" name="media_name" id="media_name" size="52"/>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Caption ::</td>
-		<td width="87%">
-		<input type="text" name="caption" id="caption" size="52"/>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Alternative Text ::</td>
-		<td width="87%">
-		<textarea name="alternate_text" id="alternate_text" rows="2" cols="50"></textarea>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Description ::</td>
-		<td width="87%">
-		<textarea name="description" id="description" rows="10" cols="50"></textarea>
-		</td>
-		</tr>
-		
-					    
-		<tr>
-		<td><input type="button" name="" value="Next language" class="createbtn" onclick="next_lang()" id="nxt_but"></td>
-		<td>&nbsp</td>
-		<td><input type="button" name="cancel" id="cancel_image_media" value="Cancel" class="createbtn"></td>
-		<td>&nbsp</td>
-		<td><input type="submit" name="submit" value="Save & exit" class="createbtn" id="saveNdExit"></td>
-		</tr>
-		</table>
-		</form>
-	       </div><!-----------end of mediaimage-------------------->
+                <div class="mediaimage">
+                    <form name="frm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onSubmit="return check()" enctype="multipart/form-data">
+                        <table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
+                            <input type="hidden" name="event_id" value="<?php echo $event_id;?>" id="eid_nl"/>
+                            <input type="hidden" name="media_id" value="" id="media_id"/>                
+                            <tr>
+                                <td colspan="2" >
+                                    <div id="url_image_show" style="margin-bottom: 15px"></div>  
+                                </td>
+                                <td style="text-align: right">
+                                    <input type="button" name="cancel" id="cancel_image_media" value="<?= AD_CANCEL ?>" class="createbtn" />    
+                                    <input type="submit" name="submit" value="<?= AD_SAVE_EXIT?>" class="createbtn" id="saveNdExit" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_SET_PRIVACY ?> ::</td>
+                                <td colspan="2">
+                                    <input type="radio" name="set_privacy" id="set_privacy" value="0" > <?= AD_PUBLIC ?><br>
+                                    <input type="radio" name="set_privacy" id="set_privacy" value="1" checked="checked"> <?= AD_PRIVATE ?><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span class="lang_name">SP</span></td>
+                                <td style="position: relative">
+                                    <div style="float: left;position: absolute;left: -45px;">
+                                        <img src="https://www.kpasapp.com/images/globe1.jpg" alt="" width="38" height="38" border="0" />
+                                    </div>
+                                    <span class="lang_name_eng">EN</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_MEDIA_NAME ?> ::</td>
+                                <td>
+                                    <input type="text" name="media_name_sp" id="media_name" size="52"
+                                           value="<?php echo $objEventDetails->f('event_name_sp'); ?>" />
+                                </td>
+                                <td>
+                                    <input type="text" name="media_name" id="media_name" size="52"
+                                           value="<?php echo $objEventDetails->f('event_name_en'); ?>" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_CAPTION ?> ::</td>
+                                <td>
+                                    <input type="text" name="caption_sp" id="caption" size="52"/>
+                                </td>
+                                <td>
+                                    <input type="text" name="caption" id="caption" size="52"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_ALTERNATIVE_TEXT ?> ::</td>
+                                <td>
+                                    <textarea name="alternate_text_sp" id="alternate_text" rows="2" cols="50"><?php echo $objEventDetails->f('event_name_sp').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name_sp').",".$objEventDetails->f('city'); ?></textarea>
+                                </td>
+                                <td>
+                                    <textarea name="alternate_text" id="alternate_text" rows="2" cols="50"><?php echo $objEventDetails->f('event_name_en').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name').",".$objEventDetails->f('city'); ?></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_DESCRIPTION ?> ::</td>
+                                <td>
+                                    <textarea name="description_sp" id="description" rows="10" cols="50"><?php echo $objEventDetails->f('event_short_desc_sp'); ?></textarea>
+                                </td>
+                                <td>
+                                    <textarea name="description" id="description" rows="10" cols="50"><?php echo $objEventDetails->f('event_short_desc_en'); ?></textarea>
+                                </td>
+                            </tr>                
+                        </table>
+                    </form>
+                </div><!-----------end of mediaimage-------------------->
 			       
-		<!-----------that is  for media url--------------------->
-		<div id="for_upload_url" style="display: none">
-		<form name="frmurl" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-		<table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
-		<!--<input type="hidden" name="event_id" value="<?php //echo $event_id;?>"/>-->
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Media Url ::</td>
-		<td width="87%">
-		<textarea name="url" id="url" rows="5" cols="40"></textarea>
-		</td>
-		</tr>		
-		<tr>
-		<td>&nbsp;</td>				
-		<td><input type="button" name="buttonsave" value="Next >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" style="height: 28px;"></td>
-		</tr>
-		</table>	
-		</form>
-		</div>
-		<!------first  time  show hide media  URL--->
+                <!-----------that is  for media url--------------------->
+                <div id="for_upload_url" style="display: none">
+                    <form name="frmurl" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_MEDIA_URL?> ::</td>
+                                <td width="87%">
+                                    <textarea name="url" id="url" rows="5" cols="40"></textarea>
+                                </td>
+                            </tr>		
+                            <tr>
+                                <td>&nbsp;</td>				
+                                <td>
+                                    <input type="button" name="buttonsave" value="Next >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" />
+                                </td>
+                            </tr>
+                        </table>	
+                    </form>
+                </div>
+                <!------first  time  show hide media  URL--->
 		
-		<!------for next language media  URL--->
-		<div class="mediaurl">
-		<form name="frmurl" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-		<table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
-		<input type="hidden" name="event_id" value="<?php echo $event_id;?>"/>
-		<input type="hidden" name="vid_media_id" value="" id="vid_media_id"/>
-		<tr class="media_url" >
-		<td>
-		<div id="url_video_show"></div>		
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Set privacy ::</td>
-		<td width="87%">
-		<input type="radio" name="set_privacy" id="set_privacy_url" value="0" > public<br>
-		<input type="radio" name="set_privacy" id="set_privacy_url" value="1" checked="checked"> private<br>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Language ::</td>
-		<td width="87%">
-		<select name="language" id="language_url">
-		<option value="es_MX">Espanol</option>
-		<option value="en_US">English</option>
-		</select>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Media Name ::</td>
-		<td width="87%">
-		<input type="text" name="media_name" id="media_name_url"/>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Caption ::</td>
-		<td width="87%">
-		<input type="text" name="caption" id="caption_url"/>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Alternative Text ::</td>
-		<td width="87%">
-		<textarea name="alternate_text" id="alternate_text_url" rows="2" cols="50"></textarea>
-		</td>
-		</tr>
-		<tr>
-		<td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;">Description ::</td>
-		<td width="87%">
-		<textarea name="description" id="description_url" rows="10" cols="50"></textarea>
-		</td>
-		</tr>
-		<tr>
-		<td><input type="button" name="cancel" id="cancel_url_media" value="Cancel" class="createbtn"  ></td>
-		<td>&nbsp</td>
-		<td><input type="button" name="" value="Next language" class="createbtn"  onclick="next_lang_url()" id="nxt_but_url"></td>
-		<td>&nbsp</td>
-		<td><input type="submit" name="submit_url" value="Save & exit" class="createbtn"  id="saveNdExit_url"></td>
-		</tr>
-		</table>
-		</form>
-		</div>
-		<!------ END for next language media  URL--->
-
-
-
-
-
-    <div class="clear"></div>
+                <!------for next language media  URL--->
+                <div class="mediaurl">
+                    <form name="frmurl" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
+                            <input type="hidden" name="event_id" value="<?php echo $event_id;?>"/>
+                            <input type="hidden" name="vid_media_id" value="" id="vid_media_id"/>
+                            <tr class="media_url" >
+                                <td>
+                                    <div id="url_video_show" style="margin-bottom: 10px"></div>		
+                                </td>
+                                <td colspan="2" style="text-align: right">
+                                    <input type="button" name="cancel" id="cancel_url_media" value="<?= AD_CANCEL ?>" class="createbtn"  />
+                                    <input type="submit" name="submit_url" value="<?= AD_SAVE_EXIT ?>" class="createbtn"  id="saveNdExit_url" />
+                                </td>
+                            </tr>                   
+                            <tr>
+                                <td style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_SET_PRIVACY ?> ::</td>
+                                <td colspan="2">
+                                    <input type="radio" name="set_privacy" id="set_privacy_url" value="0" > <?= AD_PUBLIC ?><br>
+                                    <input type="radio" name="set_privacy" id="set_privacy_url" value="1" checked="checked"> <?= AD_PRIVATE ?><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span class="lang_name">SP</span></td>
+                                <td style="position: relative">
+                                    <div style="float: left;position: absolute;left: -45px;">
+                                        <img src="https://www.kpasapp.com/images/globe1.jpg" alt="" width="38" height="38" border="0" />
+                                    </div>
+                                    <span class="lang_name_eng">EN</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_MEDIA_NAME ?> ::</td>
+                                <td>
+                                    <input type="text" 
+                                           value="<?php echo $objEventDetails->f('event_name_sp'); ?>" 
+                                           name="media_name_sp" id="media_name_url"/>
+                                </td>
+                                <td>
+                                    <input type="text" 
+                                           value="<?php echo $objEventDetails->f('event_name_en'); ?>" 
+                                           name="media_name" id="media_name_url"/>
+                                </td>                        
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_CAPTION ?> ::</td>
+                                <td>
+                                    <input type="text" name="caption_sp" id="caption_url" />
+                                </td>
+                                <td>
+                                    <input type="text" name="caption" id="caption_url" />
+                                </td>                        
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_ALTERNATIVE_TEXT ?> ::</td>
+                                <td>
+                                    <textarea name="alternate_text_sp" id="alternate_text_url" rows="2" cols="50"><?php echo $objEventDetails->f('event_name_sp').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name_sp').",".$objEventDetails->f('city'); ?></textarea>
+                                </td>
+                                <td>
+                                    <textarea name="alternate_text" id="alternate_text_url" rows="2" cols="50"><?php echo $objEventDetails->f('event_name_en').",".date("D",strtotime($objEventDetails->f('event_start_date_time')))." ".date("M",strtotime($objEventDetails->f('event_start_date_time')))." ".date("d",strtotime($objEventDetails->f('event_start_date_time')))." ".$objEventDetails->f('event_start_ampm').",".$objEventDetails->f('venue_name').",".$objEventDetails->f('city'); ?></textarea>
+                                </td>                        
+                            </tr>
+                            <tr>
+                                <td width="13%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><?= AD_DESCRIPTION ?> ::</td>
+                                <td>
+                                    <textarea name="description_sp" id="description_url" rows="10" cols="50"><?php echo $objEventDetails->f('event_short_desc_sp'); ?></textarea>
+                                </td>
+                                <td>
+                                    <textarea name="description" id="description_url" rows="10" cols="50"><?php echo $objEventDetails->f('event_short_desc_en'); ?></textarea>
+                                </td>                        
+                            </tr>		
+                        </table>
+                    </form>
+                </div>
+                <!------ END for next language media  URL--->
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
     </div>
-    
-    
-    </div>
     <div class="clear"></div>
-  </div>
-  <div class="clear"></div>
- <!------------------------end maindiv----------------------------------------------- -->
-<?php include("admin_footer.php"); ?>
+    <!------------------------end maindiv----------------------------------------------- -->
+    <?php include("admin_footer.php"); ?>
 
-<script type="text/javascript">
-<!--
-//var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1" , {defaultTab:0});
-var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2" , {defaultTab:0});
-//-->
-</script>
+    <script type="text/javascript">
+        var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2" , {defaultTab:0});
+    </script>
+    <div style="display: none">
+        <p id="file-being-uploaded"><?= AD_YOUR_FILE_IS_BEING_UPLOADED ?></p>
+        <p id="something-went-wrong"><?= AD_SOMETHING_WENT_WRONG ?></p>
+        <p id="please-upload-image"><?= AD_PLEASE_UPLOAD_IMAGE ?></p>
+        <p id="photo-upload-success"><?= AD_PHOTO_UPLOADED_SUCESSFULLY ?></p>
+        <p id="format-allowed"><?= AD_PHOTO_FORMAT_ALLOWED ?></p>
+    </div>
 </body>
 </html>

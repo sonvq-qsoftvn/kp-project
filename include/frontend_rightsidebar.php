@@ -148,7 +148,7 @@ if (isset($_POST['hid_sign'])) {
         if ($_SESSION['langSessId'] == 'eng')
             $_SESSION['login_msg'] = "Invalid login. Please try again.";
         else
-            $_SESSION['login_msg'] = "login invÃ¡lido. Por favor, intÃ©ntelo de nuevo.";
+            $_SESSION['login_msg'] = "login inválido. Por favor, inténtelo de nuevo.";
         header("Location:" . $obj_base_path->base_path() . "/index");
     }
 }
@@ -172,7 +172,7 @@ function check_subscribe()
         $('#email_msg').html("<?php if ($_SESSION['langSessId'] == "eng") {
                 echo "Please provide email id";
             } elseif ($_SESSION['langSessId'] == "spn") {
-                echo "Proporcione correo electrÃ³nico de identificaciÃ³n";
+                echo "Proporcione correo electrónico de identificación";
             } ?>");	
 		$('#mce-EMAIL').focus();
 		valid = false;
@@ -182,7 +182,7 @@ function check_subscribe()
             $('#email_msg').html("<?php if ($_SESSION['langSessId'] == "eng") {
                     echo "Please Enter Valid Email Address!";
                 } elseif ($_SESSION['langSessId'] == "spn") {
-                    echo "Por favor Ingrese DirecciÃ³n de email vÃ¡lida";
+                    echo "Por favor Ingrese Dirección de email válida";
                 } ?>");	
 			$('#mce-EMAIL').focus();
 			valid = false;
@@ -229,7 +229,7 @@ function check_subscribe()
     .imgbot2 img { width: 100%;}
     .botaddbox2 a { background: none repeat scroll 0 0 #23446d; color: #fff; font-family: arial; font-size: 13px; font-weight: bold; padding: 6px 16px; text-decoration: none; line-height:28px; text-align:right;}
     .bottext2 { clear: both;float: left; font-family: arial; font-size: 13px; font-weight: 400; margin-bottom: 10px; width:100%; }
-    .botaddbox2 h4 { color: #000; font: 24px/28px Arial,Helvetica,sans-serif; margin: 0 0 8px;}
+    .botaddbox2 h4 { color: #000; font: 24px/28px Arial,Helvetica,sans-serif; margin: 0 0 8px; text-align:center;}
     .botaddbox2 {clear: both; display: block; float: right; height: 404px; width: 276px; padding:0 6px; border-top: 2px solid; padding-top: 10px;}
     .imgbot img { width: 100%;}
     .botaddbox {
@@ -243,11 +243,11 @@ function check_subscribe()
     }
     .bottext { float: left;font-family: arial; font-size: 13px; font-weight: 400; width: 148px;  margin-bottom: 0px;}
     .botaddbox a { background: none repeat scroll 0 0 #23446d; color: #fff; font-family: arial; font-size: 12px; font-weight: bold; line-height: 26px; padding: 6px 4px; text-decoration: none;}
-    .botaddbox h4 a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0);color: #000000;font-size: 18px;}
+    .botaddbox h4 a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0);color: #000000;font-size: 18px; font-weight: normal; padding: 6px 0px; }
     .botaddbox h4 a:hover{color:#23446D; text-decoration: underline;}
     .botaddbox .imgbot a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;display: inline-block; padding: 4px;}
     .botbutt2 {clear: both; display: block; float: left; margin-bottom: 10px; width: 100%; text-align:right;}
-    .botaddbox2 h4 a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0);color: #000000;font-size: 18px;}
+    .botaddbox2 h4 a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0);color: #000000;font-size: 18px; font-weight: normal; padding: 6px 0px; }
     .botaddbox2 h4 a:hover{color:#23446D; text-decoration: underline;}
     .botaddbox2 .imgbot2 a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;display: inline-block; padding: 4px;}
     .botbutt { display: block; float: right; margin: 10px 0;}
@@ -277,7 +277,7 @@ function check_subscribe()
                         <input type="button" value="<?php if($_SESSION['langSessId']=="eng"){ echo "Subscribe"; }elseif($_SESSION['langSessId']=="spn"){?>Suscribe<?php }?>" name="subscribe" id="mc-embedded-subscribe" class="button" onclick="check_subscribe()">
                     </div>
                     <div id="email_msg"><span id="loader" style="display:none;"><img alt="image loader" src="<?php echo $obj_base_path->base_path().'/images/loader2.gif'; ?>" width="18" height="18"/></span></div>
-                    <div class="e-labe-wrapp"> <label for="mce-EMAIL"><?php if($_SESSION['langSessId']=="eng"){ echo "Send me your alerts & newsletters"; }elseif($_SESSION['langSessId']=="spn"){?><?php echo htmlentities("EnvÃ­eme su alertas y boletines"); ?><?php }?></label></div>
+                    <div class="e-labe-wrapp"> <label for="mce-EMAIL"><?php if($_SESSION['langSessId']=="eng"){ echo "Send me your alerts & newsletters"; }elseif($_SESSION['langSessId']=="spn"){?><?php echo htmlentities("Envíeme su alertas y boletines"); ?><?php }?></label></div>
                 </form>
             </div>
             <!---------------Mail Chimp End----------------------->
@@ -317,12 +317,21 @@ function check_subscribe()
                                     <td width="20%"><input type="text" name="email_cell"  id="email_cell" class="textbg_grey" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['email'];}?>" tabindex="1" style="width:134px; border-radius:5px; line-height: 20px; height: 18px; float:right;"/></td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: left;  text-transform: none; font-size: 12px;"><?php echo PASS?><div><a href="<?php echo $obj_base_path->base_path(); ?>/forgot_password.php" style="text-decoration: underline; color:#0066CC;"><?php echo FORGOT?></a></div></td>
+                                    <td style="text-align: left;  text-transform: none; font-size: 12px;"><?php echo PASS?>
+										<div class="hidden-on-mobile">
+											<a href="<?php echo $obj_base_path->base_path(); ?>/forgot_password.php" style="text-decoration: underline; color:#0066CC;"><?php echo FORGOT?></a>
+										</div>
+									</td>
                                     <td><input type="password" name="pass_signin" value="<?php if(isset($_COOKIE['pass'])){ echo $_COOKIE['pass'];}?>" id="pass_signin" tabindex="2" style="width:134px; height:18px; border-radius:5px;float:right;;"/> </td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: left; text-transform: none; font-size: 12px;">
-                                      <div style="float:right; text-transform:none; width: 108px;"><input type="checkbox" name="remember_me" id="remember_me" value="1" /> <?php if($_SESSION['langSessId']=="eng"){ echo REMEMBER_ME; }elseif($_SESSION['langSessId']=="spn"){?>Recordarme<?php }?> </div>
+                                      <div class="remember-me-container" style="float:right; text-transform:none; width: 108px;">
+										<input type="checkbox" name="remember_me" id="remember_me" value="1" /> <?php if($_SESSION['langSessId']=="eng"){ echo REMEMBER_ME; }elseif($_SESSION['langSessId']=="spn"){?>Recordarme<?php }?> 
+									  </div>
+									  <div class="hidden-on-desktop">
+										<a href="<?php echo $obj_base_path->base_path(); ?>/forgot_password.php" style="text-decoration: underline; color:#0066CC;"><?php echo FORGOT?></a>
+									  </div>
                                     </td>
                                     <td><input type="submit" name="submit11" id="submit11" value="<?php echo SIGNIN?>" class="btn1_sudip" tabindex="3" style="cursor:pointer;" /></td>
                                 </tr>
@@ -410,7 +419,7 @@ function check_subscribe()
                         <div id="wrapper" style="overflow: hidden; width: 100%; margin-left: -3px;">
                             <div id="carousel_<?php echo $key; ?>" class="carousel-slider" data-id="#carousel_<?php echo $key; ?>">
                                 <?php foreach($singleGroup as $adItem) : ?>
-                                    <div class="boxads-container" style="width: 285px;">
+                                    <div class="boxads-container">
                                         <?php if($adItem['ad_size'] == 'banner') : ?>
                                             <div class="botaddbox adtracker" data-id="<?php echo $adItem['ad_id']; ?>">
                                                 <h4>
@@ -536,7 +545,7 @@ function check_subscribe()
                 pager:false,
                 auto:true,
                 speed: 200,
-                pause: 4000,
+                pause: 5000,
                 mode:'horizontal'
             });
         });

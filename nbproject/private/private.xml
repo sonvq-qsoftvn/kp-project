@@ -7,9 +7,6 @@
             <file>file:/E:/wamp/www/kapp/admin/sitemap.php</file>
             <file>file:/E:/wamp/www/kapp/admin/add_category.php</file>
         </group>
-        <group>
-            <file>file:/F:/wamp/www/kp-project/admin/edit_sub_events_edit.php</file>
-            <file>file:/F:/wamp/www/kp-project/admin/edit_event.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

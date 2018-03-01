@@ -67,6 +67,10 @@ $objEventEdit = new admin;
 $obj->getEventById($_GET['id']);
 $obj->next_record();
 
+$objgallerylist_num = new admin;
+$objgallerylist_num->allGalleryByID_count($_GET['id']);
+$num_image_gallery = $objgallerylist_num->num_rows();
+
 $event_name_show = $obj->f('event_name_en');
 
 
@@ -150,7 +154,7 @@ if($objlistMaintype->num_rows())
 
 if(isset($_GET['action']) && $_GET['action']=="delete")
 {
-	$event_id = $_REQUEST['event_id'];
+	$event_id = $_GET['id'];
 	
 	$objlist->delete_event($event_id);
 	$objlist_event_delete->getEventById($event_id);
@@ -1083,7 +1087,7 @@ function deleteEvent(event_id)
 	var conf = confirm("Are you sure you want to delete this event?")
 	if(conf == true)
     {
-       window.location.href="<?php echo $obj_base_path->base_path(); ?>/admin/edit_event.php?event_id="+event_id+"&action=delete";
+       window.location.href="<?php echo $obj_base_path->base_path(); ?>/admin/edit_event.php?id="+event_id+"&action=delete";
     }
     else
     {
@@ -1276,9 +1280,11 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
             saveAutoEvent();
             //var e_id=$("#media_image").val();
             //alert("m= "+e_id);
-   
-            window.location="<?php echo $obj_base_path->base_path(); ?>/admin/gallery-list/event/<?php echo $obj->f('event_id'); ?>";
-            
+            <?php if ($num_image_gallery > 0) : ?>
+                window.location="<?php echo $obj_base_path->base_path(); ?>/admin/gallery-list/event/<?php echo $obj->f('event_id'); ?>";
+            <?php else: ?>
+                window.location="<?php echo $obj_base_path->base_path(); ?>/admin/add-gallery/event/<?php echo $obj->f('event_id'); ?>";
+            <?php endif; ?>
             return false;
            
    }

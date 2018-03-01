@@ -30,6 +30,9 @@ $obj_multi = new admin;
 $obj_dup_event_master_type = new admin;
 $obj_add_eventtype = new admin;
 $obj_get_event_id = new admin;
+//$objgallerylist_num = new admin;
+//$objgallerylist_num->allGalleryByID_count($event_id);
+//$num_image_gallery = $objgallerylist_num->num_rows();
 
 $objlist_event_delete=new admin;
 $objlist_ticket_delete=new admin;
@@ -2645,13 +2648,13 @@ function displayEvent(num)
 
 function media_library()
 {
-	 //alert('hi!');
-	 saveAutoEvent();
-	 var e_id=$("#media_image").val();
-	 //alert("m= "+e_id);
+    //alert('hi!');
+    saveAutoEvent();
+    var e_id=$("#media_image").val();
+    //alert("m= "+e_id);
 
-	 window.location="<?php echo $obj_base_path->base_path(); ?>/admin/gallery-list/event/"+e_id;
-	 return false;
+        window.location="<?php echo $obj_base_path->base_path(); ?>/admin/add-gallery/event/"+e_id;
+    return false;
 	
 }
 
@@ -3437,6 +3440,28 @@ function media_library()
 		if($('input:radio[name=radio_access]:checked').val()==1)
 		{
 			$('#all_access').hide();
+            console.log($('#event_name_sp').val());
+            console.log($('#ticket_name_sp').val());
+            
+                         
+            if ($('#event_name_sp').val() == 'Nombre' || $('#event_name_sp').val() == "") {
+
+                $('#ticket_name_sp').val('Entrada General');
+            } else {
+
+                var ticket_name_sp = 'Entrada General - ' +  $('#event_name_sp').val();
+
+                $('#ticket_name_sp').val(ticket_name_sp);
+            }
+            
+            
+            if ($('#event_name_en').val() == 'Name' || $('#event_name_en').val() == "") {
+                $('#ticket_name_en').val('General Entry');
+            } else {
+                var ticket_name_en = 'General Entry - ' +  $('#event_name_en').val();
+                $('#ticket_name_en').val(ticket_name_en);
+            }
+                        
 			$('.payment_resarvation').show();
 			$('#ticket_area').show();
 		}

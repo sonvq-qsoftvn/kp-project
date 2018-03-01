@@ -227,7 +227,7 @@ if( isset($_POST['hid_sign']) )
 		if($_SESSION['langSessId']=='eng')
 		$_SESSION['err'] = "Invalid login. Please try again.";
 		else
-		$_SESSION['err'] = "login inv&aacute;lido. Por favor, intÃ©ntelo de nuevo.";
+		$_SESSION['err'] = "login inv&aacute;lido. Por favor, inténtelo de nuevo.";
 		header("Location:".$obj_base_path->base_path()."/payment/".$_GET['event_id']."/attempt/".$_GET['attempt_id']);
 		exit;
 	}
@@ -339,7 +339,7 @@ $body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 }
 else
 {
-$subject='Su clave de activaciÃ³n para su cuenta kpasapp.com!';
+$subject='Su clave de activación para su cuenta kpasapp.com!';
 $body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 <tbody><tr>
 	<td valign="top" align="center">
@@ -363,7 +363,7 @@ $body='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
 			    <p dir="ltr"><strong id="docs-internal-guid-2a53dcf4-cf71-4930-5290-27dd9f591481">Gracias por unirse a kpasapp.com !</strong><br><br>
 				  <strong id="docs-internal-guid-2a53dcf4-cf72-a832-6bd1-e3d64f59b2cc">Para sus archivos, su login es:</strong> '.$email.' or ('.$country_code.') '.$phone.' </p>
 				  <p dir="ltr"><a target="_blank" href="'.$obj_base_path->base_path().'/activate_user/'.$user_id.'" style="font-weight:bold;">Haga clic aqu&#237; para activar su login.</a>			      </p>
-				  <p dir="ltr"><strong id="docs-internal-guid-41d2b438-260b-4578-7486-b278d6d5827a">Si no son capaces de abrir el hiperv&#237;nculo anterior, copie y pegue el siguiente URL en su navegador de internet (si el enlace se divide en dos l&#237;neas, asegÃºrese de copiar ambas l&#237;neas):  "'.$obj_base_path->base_path().'/activate_user/'.$user_id.'"</strong></p>
+				  <p dir="ltr"><strong id="docs-internal-guid-41d2b438-260b-4578-7486-b278d6d5827a">Si no son capaces de abrir el hiperv&#237;nculo anterior, copie y pegue el siguiente URL en su navegador de internet (si el enlace se divide en dos l&#237;neas, asegúrese de copiar ambas l&#237;neas):  "'.$obj_base_path->base_path().'/activate_user/'.$user_id.'"</strong></p>
 				  <p dir="ltr">Una vez que su login se ha activado, puede comenzar utilizando su cuenta KPasapp y configurar su perfil para aprovechar al m&aacute;ximo las numerosas caracter&#237;sticas de KPasapp.com, su pasaporte para todos los eventos de Baja California Sur.</p>
 				  <p dir="ltr">Con una c&aacute;lida bienvenida.<br>
 					  <br>
@@ -548,7 +548,7 @@ if($_GET['action'] == 'del' && $_GET['tid'] !=''){
         <meta name="keywords" content="Payment">
         <meta name="description" content="Payment">
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/base.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $obj_base_path->base_path(); ?>/css/style99.css" rel="stylesheet" type="text/css" />
@@ -560,6 +560,22 @@ if($_GET['action'] == 'del' && $_GET['tid'] !=''){
 <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $obj_base_path->base_path(); ?>/include/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 <script src="<?php echo $obj_base_path->base_path(); ?>/js/slides.min.jquery.js"></script>
+
+<?php if(!empty($_SESSION['ses_admin_id'])) : ?>
+<script type="text/javascript">
+$(document).ready(function(){	
+	
+	
+	setTimeout(function(){
+		console.log($("html").offset().top);
+		//$(window).scrollTop( $("#submit-container-wrap").offset().top );	
+		
+		$('html, body').animate({scrollTop: parseInt($("#submit-container-wrap").offset().top) - 100}, 2000);
+	});	
+})
+</script>
+<?php endif; ?>
+
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -710,7 +726,7 @@ function check_user(){
       <?php if($_SESSION['langSessId']=='eng') {?>
       alert('Please enter a valid email.');
       <?php }elseif($_SESSION['langSessId']=='spn'){?>
-      alert('Por favor, introduzca un email vÃ¡lido.');
+      alert('Por favor, introduzca un email válido.');
       <?php }?>
       
       return false;
@@ -977,7 +993,7 @@ function change(eid,type) {
             
             	
                 <div class="clear"></div>
-		  <div class="view_box7">
+		  <div class="view_box8">
                 	<div class="heading"><?php if($_SESSION['langSessId']=='eng') {?>Checkout<?php }elseif($_SESSION['langSessId']=='spn'){?>finalizar pedido<?php }?></div>
                 	<div class="hot_event7">
 			<?php
@@ -1065,72 +1081,67 @@ function change(eid,type) {
 			</div>
 			<div class="clear"></div>
 		  </div>
-		  <div class="view_box7">
+		  <div class="view_box8">
                 	<div class="heading"><?php if($_SESSION['langSessId']=='eng') {?>Review your order<?php }elseif($_SESSION['langSessId']=='spn'){?>Revise su pedido<?php }?>&nbsp&nbsp&nbsp<span id="loader" style="display:none;"><img src='<?php echo $obj_base_path->base_path(); ?>/images/total-loader.gif'></span></div>
-                	<div class="hot_event7">
-                    <div><span> <span style="float: right; padding: 0; margin: 0 auto; width: 365px;"><strong>
-					<?php if($_SESSION['langSessId']=='eng') {
-						if($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') != 0){
-						?>
-                    		Select payment currency:
-                    <?php
-						}
-						else
-						{
-							echo "Payment Currency:"; 
-						}
-                    }
-					elseif($_SESSION['langSessId']=='spn'){
-					if($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') != 0){
-					?>
-                    		Seleccione moneda de pago:
-                    <?php 
-						}
-						else
-						{
+                	<div class="hot_event8">
+                    <div><span> <span style="float: left; padding: 0; margin: 0 auto; width: 100%"><strong>
+					<?php 
+						if($_SESSION['langSessId']=='eng') {
+							if($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') != 0){
+								echo "Select payment currency:";
+							} else {
+								echo "Payment Currency:"; 
+							}
+						} elseif($_SESSION['langSessId']=='spn'){
+							if($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') != 0){
+								echo "Seleccione moneda de pago:";
+							}
+						} else {
 							echo "moneda de pago:";
 						}
-					}
 					?>
-                    
-                    <?php
-					
-					
-					//echo $obj_ticket->f('mx_price');
-					//echo $obj_ticket->f('us_price');
-					
-                    if($obj_ticket->f('mx_price') != 0 && $obj_ticket->f('us_price') == 0){?>
-<?php if($_SESSION['langSessId']=='eng') {?>  MX Pesos <?php }elseif($_SESSION['langSessId']=='spn'){?> Pesos MX <?php }?> <!--<a href="<?php //echo $obj_base_path->base_path()."/payment.php?act=mx"; ?>"><input type="radio" name="cur" id="" value="" <?php //if($_SESSION['pay'] == 'mx'){ echo "checked";}?> /></a>-->
-					<?php
-                    }elseif($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') == 0)
-					{
-					?>
- <?php if($_SESSION['langSessId']=='eng') {?>  US$ <?php }elseif($_SESSION['langSessId']=='spn'){?>EE.UU. $<?php }?> <!--<a href="<?php //echo $obj_base_path->base_path()."/payment.php?act=us"; ?>"><input type="radio" name="cur" id="" value="" <?php //if($_SESSION['pay'] == 'us'){ echo "checked";}?> /></a> -->
- 					<?php
-                    }
-					elseif($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') != 0)
-					{
-					?>
-<?php if($_SESSION['langSessId']=='eng') {?>  MX Pesos <?php }elseif($_SESSION['langSessId']=='spn'){?> Pesos MX <?php }?> <input type="radio" name="cur" onclick="change(<?php echo $_SESSION['event_id'];?>,'mx');" id="" value="" <?php if($_SESSION['pay'] == 'mx'){ echo "checked";}?> />
+                    <p class="price-currency-selection">
+						<?php if($obj_ticket->f('mx_price') != 0 && $obj_ticket->f('us_price') == 0) : ?>
+							<?php if($_SESSION['langSessId']=='eng') : ?>  
+								MX Pesos 
+							<?php elseif($_SESSION['langSessId']=='spn'): ?> 
+								Pesos MX 
+							<?php endif; ?>
+						<?php elseif($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') == 0) : ?>
+							<?php if($_SESSION['langSessId']=='eng') : ?>
+								US$ 
+							<?php elseif($_SESSION['langSessId']=='spn') : ?>
+								EE.UU. $
+							<?php endif; ?>
+						<?php elseif($obj_ticket->f('us_price') != 0 && $obj_ticket->f('mx_price') != 0) : ?>
+							<?php if($_SESSION['langSessId']=='eng') : ?>  
+								MX Pesos 
+							<?php elseif($_SESSION['langSessId']=='spn') : ?> 
+								Pesos MX 
+							<?php endif; ?>
+							<input type="radio" name="cur" onclick="change(<?php echo $_SESSION['event_id'];?>,'mx');" id="" value="" <?php if($_SESSION['pay'] == 'mx'){ echo "checked";}?> />
 
-<?php if($_SESSION['langSessId']=='eng') {?>  US$ <?php }elseif($_SESSION['langSessId']=='spn'){?>EE.UU. $<?php }?> <input type="radio" name="cur" onclick="change(<?php echo $_SESSION['event_id'];?>,'us');" id="" value="" <?php if($_SESSION['pay'] == 'us'){ echo "checked";}?> />
-
-					<?php
-		      }
-					?>
+							<?php if($_SESSION['langSessId']=='eng') : ?>
+								US$ 
+							<?php elseif($_SESSION['langSessId']=='spn') : ?>
+								EE.UU. $
+							<?php endif; ?> 
+							<input type="radio" name="cur" onclick="change(<?php echo $_SESSION['event_id'];?>,'us');" id="" value="" <?php if($_SESSION['pay'] == 'us'){ echo "checked";}?> />
+						<?php endif; ?>
+					</p>
  					</strong></span></span></div>
 					<div class="clear"></div>
 					<div class="hot_event7">
 					 <div  id="checkout_frm">
-                      <form action="" name="frm" id="frm" method="post">
-                      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="event_review">
+                      <form action="" name="frm" id="frm" method="post" style="overflow: scroll">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table event_review full_width">
                         <tr>
-                      <th width="16%"><?php if($_SESSION['langSessId']=='eng') {?>Quantity<?php }elseif($_SESSION['langSessId']=='spn'){?>Cantidad<?php }?></th>
-                      <th width="17%"><?php if($_SESSION['langSessId']=='eng') {?>TicketName<?php }elseif($_SESSION['langSessId']=='spn'){?>Boleto<?php }?></th>
-                      <th width="16%"><?php if($_SESSION['langSessId']=='eng') {?>Price<?php }elseif($_SESSION['langSessId']=='spn'){?>Precio<?php }?></th>
-                      <th width="15%"><?php if($_SESSION['langSessId']=='eng') {?>Fee<?php }elseif($_SESSION['langSessId']=='spn'){?>Cargos<?php }?></th>
-                      <th width="20%"><?php if($_SESSION['langSessId']=='eng') {?>Total<?php }elseif($_SESSION['langSessId']=='spn'){?>Total<?php }?></th>
-                      <th width="16%">&nbsp;</th>
+                            <th width="5%">&nbsp;</th>
+                            <th width="10%"><?php if($_SESSION['langSessId']=='eng') {?>Qy<?php }elseif($_SESSION['langSessId']=='spn'){?>Ca<?php }?></th>
+                            <th width="40%"><?php if($_SESSION['langSessId']=='eng') {?>TicketName<?php }elseif($_SESSION['langSessId']=='spn'){?>Boleto<?php }?></th>
+                            <th width="15%"><?php if($_SESSION['langSessId']=='eng') {?>Price<?php }elseif($_SESSION['langSessId']=='spn'){?>Precio<?php }?></th>
+                            <th width="15%"><?php if($_SESSION['langSessId']=='eng') {?>Fee<?php }elseif($_SESSION['langSessId']=='spn'){?>Cargos<?php }?></th>
+                            <th width="15%"><?php if($_SESSION['langSessId']=='eng') {?>Total<?php }elseif($_SESSION['langSessId']=='spn'){?>Total<?php }?></th>                      
                         </tr>
                         
                         <?php 
@@ -1141,13 +1152,19 @@ function change(eid,type) {
 			  ?>
                         
                         <tr>
-                          <td>
-			    <select name="ticket_num" id="ticket_num<?php echo $count;?>" onChange="tkt_num(<?php echo $count;?>,<?php echo $obj_ticket->f('cart_id');?>,<?php echo $_SESSION['event_id'];?>,<?php echo $objEvent->f('include_payment');?>,<?php echo $objEvent->f('include_promotion');?>);">
-							<?php for($i=1;$i<=$obj_ticket->f('ticket_num');$i++) {?>
-                                <option value="<?php echo $i;?>" <?php if($i == $obj_ticket->f('ticket')){ echo "selected";}?>><?php echo $i;?></option>
-                            <?php } ?>
-                             </select>
-						  <?php //echo $obj_ticket->f('ticket');?></td>
+                            <td>  
+                                <a class="red-remove-btn" 
+                                   href="<?php echo $obj_base_path->base_path()."/payment.php?event_id=".$_SESSION['event_id']."&action=del&attempt_id=".$_GET['attempt_id']."&tid=".$obj_ticket->f('cart_id'); ?>">
+                                    X
+                                </a>
+                            </td>
+                            <td>
+                                <select name="ticket_num" id="ticket_num<?php echo $count;?>" onChange="tkt_num(<?php echo $count;?>,<?php echo $obj_ticket->f('cart_id');?>,<?php echo $_SESSION['event_id'];?>,<?php echo $objEvent->f('include_payment');?>,<?php echo $objEvent->f('include_promotion');?>);">
+                                    <?php for($i=1;$i<=$obj_ticket->f('ticket_num');$i++) {?>
+                                        <option value="<?php echo $i;?>" <?php if($i == $obj_ticket->f('ticket')){ echo "selected";}?>><?php echo $i;?></option>
+                                    <?php } ?>
+                                </select>						  
+                            </td>
                           <td>
                           <?php
                           if($_SESSION['langSessId']=='eng') {
@@ -1303,8 +1320,7 @@ function change(eid,type) {
 			  
 			?>
 			  </td>
-	                  <td>  
-   <a href="<?php echo $obj_base_path->base_path()."/payment.php?event_id=".$_SESSION['event_id']."&action=del&attempt_id=".$_GET['attempt_id']."&tid=".$obj_ticket->f('cart_id'); ?>">Remove</a></td>
+	                  
                         </tr>
                         
                         <?php
@@ -1312,18 +1328,12 @@ function change(eid,type) {
 			    }
 			?>
                         <tr>
-                          <td>&nbsp;</td>
-                          <td>&nbsp;</td>
-                          <td>&nbsp;</td>
-                          <td><strong><!--Total :--> <?php //$obj_total->totalTicket($_SESSION['ses_admin_id'],$_SESSION['unique']); $obj_total->next_record(); //echo $obj_total->f('Total');?></strong>
-                          <input type="hidden" name="ticket" value="<?php echo $obj_total->f('Total');?>" />
-                          </td>
-                          <td><strong>Total : <?php //$obj_total->totalAmount($_SESSION['ses_admin_id'],$_SESSION['pay'],$_SESSION['unique'],$e_id,$obj_cart_details->f('cart_id')); $obj_total->next_record(); //echo number_format($obj_total->f('Amt'),2,'.',',');
-			      echo number_format($_SESSION['total'],2,'.',',');
-			  ?></strong></td>
-			  
-			  
-                          <td><?php if($_SESSION['pay'] == 'us'){ if($_SESSION['langSessId']=='eng') {?>  US$ <?php }elseif($_SESSION['langSessId']=='spn'){?>EE.UU. $<?php } }elseif($_SESSION['pay'] == 'mx'){ if($_SESSION['langSessId']=='eng') {?>  MX Pesos <?php }elseif($_SESSION['langSessId']=='spn'){?> Pesos MX <?php } }?></td>
+                            <td colspan="6">
+                                <input type="hidden" name="ticket" value="<?php echo $obj_total->f('Total');?>" />
+                                <strong>Total : <?php echo number_format($_SESSION['total'],2,'.',',');?>
+                                <?php if($_SESSION['pay'] == 'us'){ if($_SESSION['langSessId']=='eng') {?>  US$ <?php }elseif($_SESSION['langSessId']=='spn'){?>EE.UU. $<?php } }elseif($_SESSION['pay'] == 'mx'){ if($_SESSION['langSessId']=='eng') {?>  MX Pesos <?php }elseif($_SESSION['langSessId']=='spn'){?> Pesos MX <?php } }?>
+                                </strong>
+                            </td>                            		                            
                         </tr>
                         <tr>
                           <td colspan="6" style="text-align:right;"><!--<input type="submit" value="Checkout" /> <input type="submit" value="Update" />--></td>
@@ -1345,7 +1355,7 @@ function change(eid,type) {
 		  <div class="clear"></div>
 				
 			
-              <div class="blue_bg" style="margin: 0 auto;"><?php if($_SESSION['langSessId']=='eng') {?>Buyers Information<?php }elseif($_SESSION['langSessId']=='spn'){?>Informaci&oacute;n del comprador<?php }?></div> 
+              <div class="blue_bg full-width border-box" style="margin: 0 auto;"><?php if($_SESSION['langSessId']=='eng') {?>Buyers Information<?php }elseif($_SESSION['langSessId']=='spn'){?>Informaci&oacute;n del comprador<?php }?></div> 
 	      <div class="clear"></div>
 	      
 		<!--------If User Not Logged In Checking Start-------------------->
@@ -1355,41 +1365,39 @@ function change(eid,type) {
 			  ?>
               <form method="post" action="" enctype="multipart/form-data" name="signin" id="signin" autocomplete="on">
               <!--<input type="hidden" name="hid_sign" id="hid_sign" value="1" />-->
-              <div class="account_bg" style=" width: 666px; height: 52px; margin: 0; border: 1px solid #555; border-top: 0px; border-bottom: 0px;">
-	      <?php if($_SESSION['langSessId']=='eng') {?>
-	      For your convenience and security,<br /> you can sign in with your social accounts:
-	      <?php }elseif($_SESSION['langSessId']=='spn'){?>
-	      Para su conveniencia y seguridad,<br /> puedes acceder con sus cuentas sociales:
-	      <?php }?>
-              <br />
-              <span class="field_bg" style="width: 349px;margin: -46px 10px; background: none; border: 0; text-align:center; font: normal 24px/46px Arial, Helvetica, sans-serif; color: #134f5c;">
-			  <?php if($_SESSION['langSessId']=='eng') {?>
-			  Sign in with
-			  <?php }elseif($_SESSION['langSessId']=='spn'){?>
-			  Entrar con
-			  <?php }?>
-			  <a href="<?php echo $loginUrl; ?>"><img src='<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif' width="40" height="46" border="0"/></a>
-			  <a href="<?php echo $authUrl; ?>"><img src='<?php echo $obj_base_path->base_path(); ?>/images/4google_blue.gif' width="40" height="46" border="0"/></a>
-			  <!--<strong>
-			  <?php if($_SESSION['langSessId']=='eng') {?>
-			  OR
-			  <?php }elseif($_SESSION['langSessId']=='spn'){?>
-			  O
-			  <?php }?>
-			  </strong> -->
-              <!--<input type="text" name="email_cell" id="email_cell" class="textbg_grey" placeholder="<?php if($_SESSION['langSessId']=='eng') {?>Email or Cell#<?php }elseif($_SESSION['langSessId']=='spn'){?>Email o celular #<?php }?>" style="width: 150px;"/>  
-              <input type="password" name="pass_signin" id="pass_signin" class="textbg_grey" placeholder="<?php if($_SESSION['langSessId']=='eng') {?>Password<?php }elseif($_SESSION['langSessId']=='spn'){?>ContraseÃ±a<?php }?>" style="width: 150px;"/>
-              <input type="submit" name="Submit" value="<?php if($_SESSION['langSessId']=='eng') {?>Sign in<?php }elseif($_SESSION['langSessId']=='spn'){?>Entrar<?php }?>" class="btn1_sudip"/>-->
-              </span>			    
-		 	 </div>
+                <div class="account_bg full-width" style="box-sizing: border-box; height: 62px; margin: 0; border: 1px solid #555; border-top: 0px; border-bottom: 0px;">	      
+                    <span class="field_bgs" style="width: 100%; background: none; border: 0; text-align:center; font: normal 24px/46px Arial, Helvetica, sans-serif; color: #134f5c;">
+                        <?php if($_SESSION['langSessId']=='eng') {?>
+                            Sign in with
+                        <?php }elseif($_SESSION['langSessId']=='spn'){?>
+                            Entrar con
+                        <?php }?>
+                        <a href="<?php echo $loginUrl; ?>">
+							<img src='<?php echo $obj_base_path->base_path(); ?>/images/facebook_blue.gif' style="margin-bottom: 15px;" width="40" height="46" border="0"/>
+						</a>
+                        <a href="<?php echo $authUrl; ?>">
+							<img src='<?php echo $obj_base_path->base_path(); ?>/images/4google_blue.gif' width="40" height="46" border="0"/>
+						</a>
+                        <!--<strong>
+                        <?php if($_SESSION['langSessId']=='eng') {?>
+                        OR
+                        <?php }elseif($_SESSION['langSessId']=='spn'){?>
+                        O
+                        <?php }?>
+                        </strong> -->
+                        <!--<input type="text" name="email_cell" id="email_cell" class="textbg_grey" placeholder="<?php if($_SESSION['langSessId']=='eng') {?>Email or Cell#<?php }elseif($_SESSION['langSessId']=='spn'){?>Email o celular #<?php }?>" style="width: 150px;"/>  
+                        <input type="password" name="pass_signin" id="pass_signin" class="textbg_grey" placeholder="<?php if($_SESSION['langSessId']=='eng') {?>Password<?php }elseif($_SESSION['langSessId']=='spn'){?>Contraseña<?php }?>" style="width: 150px;"/>
+                        <input type="submit" name="Submit" value="<?php if($_SESSION['langSessId']=='eng') {?>Sign in<?php }elseif($_SESSION['langSessId']=='spn'){?>Entrar<?php }?>" class="btn1_sudip"/>-->
+                        </span>			    
+                </div>
          	 </form>
          	 <?php }?>
 		 
 		  <!--------If User Not Logged In Checking End-------------------->
 		  
 		 <div class="clear"></div>
-		 <div class="account_box" style=" width: 682px; margin-bottom: 19px; margin-top: 0px;">
-		 <div class="account_left">
+		 <div class="account_box full-width" style="box-sizing: border-box; margin-bottom: 19px; margin-top: 0px;">
+		 <div class="account_left full-width">
          
          	<!--form-->
 	
@@ -1402,29 +1410,26 @@ function change(eid,type) {
 	    ?>
            <form method="post" action="" enctype="multipart/form-data" name="contact" id="contact" autocomplete = "off">
            <?php if($_SESSION['ses_admin_id'] == ''){?>
-           <table width="100%" align="center" border="0" cellpadding="4" cellspacing="4" style="border-collapse:separate;">
-           	 <tr>
-                <td width="40%" style=" vertical-align: middle; line-height: 24px;">
-		<?php if($_SESSION['langSessId']=='eng'){
-		  echo "Or letâ€™s check your email address ";
-		  }elseif($_SESSION['langSessId']=='spn'){
-		    echo "O vamos a comprobar su direcci&oacute;n de correo electr&oacute;nico.";
-		    } ?></td>
-                <td width="30%">
-                <input type="text" name="email_cell" id="email_cell" class="textbg_grey" style="width: 240px; height: 24px; border: 1px solid #777; margin: 0 6px; outline: none;" value="<?php echo $obj->f('email')?>" />
-                </td>
-                <td>
-		  <a href="javascript:void(0);" onClick="check_user();" class="checkbtn">
-		    <?php
-		      if($_SESSION['langSessId']=='eng'){
-			echo "Check";
-		      }
-		      elseif($_SESSION['langSessId']=='spn'){
-			echo "Compruebe";
-		      }
-		    ?>
-		  </a>
-		</td>
+			<table width="100%" align="center" border="0" cellpadding="4" cellspacing="4" style="border-collapse:separate;">
+				<tr>
+					<td width="100%" style=" vertical-align: middle; line-height: 24px;">
+						<?php if($_SESSION['langSessId']=='eng'){
+							echo "Or let's check your email address ";
+						}elseif($_SESSION['langSessId']=='spn'){
+							echo "O vamos a comprobar su direcci&oacute;n de correo electr&oacute;nico.";
+						} ?>
+						<br/>
+						<input type="text" name="email_cell" id="email_cell" class="textbg_grey payment-email-input" value="<?php echo $obj->f('email')?>" />
+						<a href="javascript:void(0);" onClick="check_user();" class="checkbtn float-left">
+							<?php
+								if($_SESSION['langSessId']=='eng') {
+									echo "Check";
+								} elseif($_SESSION['langSessId']=='spn'){
+									echo "Compruebe";
+								}
+							?>
+						</a>
+					</td>                
               </tr>
 	      <tr>
 		<td colspan="3"><div style="text-align:center;margin-bottom: 10px; color: red;"><?php if($_SESSION['err'] != ''){ echo $_SESSION['err']; unset($_SESSION['err']); }?></div>
@@ -1444,19 +1449,19 @@ function change(eid,type) {
 	  <input type="hidden" name="pay_eid" id="pay_eid" value="<?php echo $_SESSION['event_id'];?>">
 	  <input type="hidden" name="language" id="language" value="<?php echo $obj->f('language')?>" />
            <table width="100%" align="center" border="0" cellpadding="4" cellspacing="4" style="border-collapse:separate;">
-               <tr>
-                <td width="23%" style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "First Name";}elseif($_SESSION['langSessId']=='spn'){echo "Nombre";} ?> <span style="color:red;">*</span></td>
+				<tr>
+					<td width="23%"><?php if($_SESSION['langSessId']=='eng'){echo "First Name";}elseif($_SESSION['langSessId']=='spn'){echo "Nombre";} ?> <span style="color:red;">*</span></td>
                     <td width="77%"><input type="text" name="fname" id="fname" class="textbg_grey required" value="<?php echo $obj->f('fname')?>" style="width: 190px;" <?php if($_SESSION['ses_admin_id'] != ''){echo "readonly";}?>/><br/><span class="err" id="err_name"></span></td>
-              </tr>
+				</tr>
+				<tr>
+					<td><?php if($_SESSION['langSessId']=='eng'){echo "Last Name";}elseif($_SESSION['langSessId']=='spn'){ echo "Apellido";} ?><span style="color:red;">*</span></td>
+					<td>
+						<input type="text" name="lname" id="lname" class="textbg_grey required" value="<?php echo $obj->f('lname');?>" style="width: 190px;" <?php if($_SESSION['ses_admin_id'] != ''){echo "readonly";}?>/> <br/>
+						<span class="err" id="err_lname"></span>
+					</td>
+				</tr>						  
               <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "Last Name";}elseif($_SESSION['langSessId']=='spn'){ echo "Apellido";} ?><span style="color:red;">*</span></td>
-                <td>
-                    <input type="text" name="lname" id="lname" class="textbg_grey required" value="<?php echo $obj->f('lname');?>" style="width: 190px;" <?php if($_SESSION['ses_admin_id'] != ''){echo "readonly";}?>/> <br/>
-                    <span class="err" id="err_lname"></span>
-                </td>
-              </tr>						  
-              <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "Primary Email";}elseif($_SESSION['langSessId']=='spn'){ echo "Correo Electr&oacute;nico";} ?><span style="color:red;">*</span></td>
+                <td><?php if($_SESSION['langSessId']=='eng'){echo "Primary Email";}elseif($_SESSION['langSessId']=='spn'){ echo "Correo Electr&oacute;nico";} ?><span style="color:red;">*</span></td>
                 <td>
                 <input type="text" name="email" id="email" class="textbg_grey" style="width: 190px; margin-right: 6px;" value="<?php echo $obj->f('email')?>" <?php if($_SESSION['ses_admin_id'] != ''){echo "readonly";}?>/>
                 <input type="hidden" id="email_orig_hid" value="<?php echo $obj->f('email')?>"/>
@@ -1464,7 +1469,7 @@ function change(eid,type) {
               </tr>
                                           
               <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "Primary Mobile#";}elseif($_SESSION['langSessId']=='spn'){ echo "m&oacute;vil";}?></td>
+                <td><?php if($_SESSION['langSessId']=='eng'){echo "Primary Mobile#";}elseif($_SESSION['langSessId']=='spn'){ echo "m&oacute;vil";}?></td>
                 <td>
                     <select onChange="display();" name="mobile_code" id="mobile_code" class="textbg_grey" style="width:155px; margin-left:5px;">
                     <?php
@@ -1479,7 +1484,7 @@ function change(eid,type) {
                     ?>    
                     </select>
 
-                  <input onClick="display();" type="text" name="phone" id="phone" class="textbg_grey" value="<?php echo $obj->f('mobile')?>" style="width: 190px;" />
+                  <input onClick="display();" type="text" name="phone" id="phone" class="phone-input-payment textbg_grey" value="<?php echo $obj->f('mobile')?>" style="width: 190px;" />
                                             
                     <div id="sh_alt_phn" style="color:red; margin-left:6px;"></div>
                 </td>
@@ -1487,7 +1492,7 @@ function change(eid,type) {
               
               
               <tr>
-                <td style="padding-left: 18px;"><?php if($_SESSION['langSessId']=='eng'){echo "Country";}elseif($_SESSION['langSessId']=='spn'){ echo "PaÃ­s";}?><span style="color:red;">*</span></td>
+                <td><?php if($_SESSION['langSessId']=='eng'){echo "Country";}elseif($_SESSION['langSessId']=='spn'){ echo "País";}?><span style="color:red;">*</span></td>
                 <td>
                     <select onchange="display();" name="country_id" id="country_id" onChange="setCountryCode()" class="textbg_grey" style="width:205px;margin-left:5px;">
                     <?php
@@ -1519,8 +1524,14 @@ function change(eid,type) {
                     </select>
                     <input type="hidden" name="country_code" id="country_code" value="<?php echo $value_code;?>" />
                 </td>
-              </tr>              
-              <div id="display" style="display: none;"><input type="submit" value="<?php if($_SESSION['langSessId']=='eng'){echo "Update";}elseif($_SESSION['langSessId']=='spn'){ echo "Actualizar";}?>" class="btn1_sudip" /></div>
+              </tr>  
+				<tr>
+					<td colspan="2">			  
+						<span id="display" style="display: none; float: left; margin-bottom: 10px; margin-top: 15px;">
+							<input type="submit" value="<?php if($_SESSION['langSessId']=='eng'){echo "Update";}elseif($_SESSION['langSessId']=='spn'){ echo "Actualizar";}?>" class="btn1_sudip" />
+						</span>
+					</td>
+				</tr>
             </table>
 		   <?php
            }
@@ -1530,44 +1541,50 @@ function change(eid,type) {
          </div>		
 		 </div>
 		 <div class="clear"></div>
+		 
+		<?php if(!empty($_SESSION['ses_admin_id'])) : ?>
+			<?php $style = 'style="visibility: visible"'; ?>
+		<?php else : ?>
+			<?php $style = 'style="visibility: hidden"'; ?>
+		<?php endif; ?>
+			
+		<div id="submit-container-wrap" class="submit-container" <?php echo $style; ?>>
 
-
-         <?php if($_SESSION['langSessId']=='eng') {?>
-	By clicking the "Submit Order" button, you are agreeing to the <a href="<?php echo $obj_base_path->base_path(); ?>/about/privacy-terms">KPasapp.com Purchase Policy and Privacy Policy</a>. All orders are subject to payment approval and billing address verification. Please contact customer service if you have any questions regarding your order.
-	<?php }elseif($_SESSION['langSessId']=='spn'){?>
-	Al hacer clic en el bot&oacute;n "Enviar pedido", est&aacute;s aceptando la <a href="<?php echo $obj_base_path->base_path(); ?>/about/privacy-terms">PolÃ­tica de Compra y Pol'&#237';tica de Privacidad KPasapp.com</a>. Todos los pedidos est&aacute;n sujetos a la aprobaci&oacute;n de los pagos y a la verificaci&oacute;n de direcciones de facturaci&oacute;n. Por favor, p&oacute;ngase en contacto con atenci&oacute;n al cliente si tiene alguna pregunta acerca de su pedido.
-	<?php }?>
+			<?php if($_SESSION['langSessId']=='eng') {?>
+				By clicking the "Submit Order" button, you are agreeing to the <a href="<?php echo $obj_base_path->base_path(); ?>/about/privacy-terms">KPasapp.com Purchase Policy and Privacy Policy</a>. All orders are subject to payment approval and billing address verification. Please contact customer service if you have any questions regarding your order.
+			<?php }elseif($_SESSION['langSessId']=='spn'){?>
+				Al hacer clic en el bot&oacute;n "Enviar pedido", est&aacute;s aceptando la <a href="<?php echo $obj_base_path->base_path(); ?>/about/privacy-terms">Política de Compra y Pol'&#237';tica de Privacidad KPasapp.com</a>. Todos los pedidos est&aacute;n sujetos a la aprobaci&oacute;n de los pagos y a la verificaci&oacute;n de direcciones de facturaci&oacute;n. Por favor, p&oacute;ngase en contacto con atenci&oacute;n al cliente si tiene alguna pregunta acerca de su pedido.
+			<?php }?>
 	 
-	    <?php
-	    $obj_total_new = new user;
-	    $obj_total_new->totalTicket($_SESSION['ses_admin_id'],$_SESSION['unique']);
-	    $obj_total_new->next_record();
-	    ?>
-	<input type="hidden" name="event_id" value="<?php echo $event_id;?>" />
-	<input type="hidden" name="amount" id="amount" value="<?php echo round($_SESSION['total'],2);?>" />
-	<input type="hidden" name="payment_type" id="payment_type" value="" />
-	<!--<input type="hidden" name="tns" id="payment_type" value="" />-->
-	<input type="hidden" name="ticket_id" value="<?php echo $ticket_id;?>" />
-	<input type="hidden" name="multi_id" value="<?php echo $multi_id;?>" />
-	<input type="hidden" name="user_id" id="u_id" value="<?php echo $_SESSION['ses_admin_id'];?>" />
-	<input type="hidden" name="name" value="<?php echo $name;?>" />
-	<input type="hidden" name="ticket"  id="ticket_num" value="<?php echo $ticket;?>" />
-	<input type="hidden" name="cart_id" value="<?php echo $cart_id;?>" />
-	<input type="hidden" name="currency" value="<?php echo $_SESSION['pay'];?>" />
-	<input type="hidden" name="unique_id" value="<?php echo $_SESSION['unique'];?>" />
+			<?php
+				$obj_total_new = new user;
+				$obj_total_new->totalTicket($_SESSION['ses_admin_id'],$_SESSION['unique']);
+				$obj_total_new->next_record();
+			?>
+			<input type="hidden" name="event_id" value="<?php echo $event_id;?>" />
+			<input type="hidden" name="amount" id="amount" value="<?php echo round($_SESSION['total'],2);?>" />
+			<input type="hidden" name="payment_type" id="payment_type" value="" />
+			<!--<input type="hidden" name="tns" id="payment_type" value="" />-->
+			<input type="hidden" name="ticket_id" value="<?php echo $ticket_id;?>" />
+			<input type="hidden" name="multi_id" value="<?php echo $multi_id;?>" />
+			<input type="hidden" name="user_id" id="u_id" value="<?php echo $_SESSION['ses_admin_id'];?>" />
+			<input type="hidden" name="name" value="<?php echo $name;?>" />
+			<input type="hidden" name="ticket"  id="ticket_num" value="<?php echo $ticket;?>" />
+			<input type="hidden" name="cart_id" value="<?php echo $cart_id;?>" />
+			<input type="hidden" name="currency" value="<?php echo $_SESSION['pay'];?>" />
+			<input type="hidden" name="unique_id" value="<?php echo $_SESSION['unique'];?>" />
 	
-	 <?php
-	 //echo "attempt-id= ".$_GET['attempt_id'];
-	 if($_GET['attempt_id']>0) { ?>
-           <input type="hidden" name="attempt_id" value="<?php echo $_GET['attempt_id'];?>" />
-	 <?php  }
-          ?>
+			<?php if($_GET['attempt_id']>0) { ?>
+			   <input type="hidden" name="attempt_id" value="<?php echo $_GET['attempt_id'];?>" />
+			<?php  } ?>
 	
-	<input type="hidden" name="type" value="checkout" />
-         <div align="center">
-             <a href="<?php echo $eventURL; ?>" class="btn1_sudip btn_link">Cancel</a>
-             <input type="button" onclick="<?php if($_SESSION['ses_admin_id'] == ''){ echo 'check_user();'; } ?>pay_type('standard');new_checkout();" value="<?php if($_SESSION['langSessId']=='eng') {?>Submit Order<?php }elseif($_SESSION['langSessId']=='spn'){?>Enviar pedido<?php }?>" class="btn1_sudip" />             
-         </div>
+			<input type="hidden" name="type" value="checkout" />
+			<div align="center" style="margin-top: 15px; padding-bottom: 30px;">
+				 <a href="<?php echo $eventURL; ?>" class="btn1_sudip btn_link">Cancel</a>
+				 <input id="submit-order-button" type="button" onclick="<?php if($_SESSION['ses_admin_id'] == ''){ echo 'check_user();'; } ?>pay_type('standard');new_checkout();" value="<?php if($_SESSION['langSessId']=='eng') {?>Submit Order<?php }elseif($_SESSION['langSessId']=='spn'){?>Enviar pedido<?php }?>" class="btn1_sudip" />             
+			</div>
+		</div>
+		 
           </form>                 
           </div>
 
@@ -1583,10 +1600,12 @@ function change(eid,type) {
 <?php if($obj_venue->f('venue_name')!=$obj_venue_sub->f('venue_name')){?>
 <script type="text/javascript">
 $(document).ready(function(){
-	initialize('<?php echo $obj_venue->f('city'); ?>+<?php echo $obj_venue->f('st_name'); ?>+<?php echo $obj_venue->f('venue_zip'); ?>');
+	initialize('<?php echo $obj_venue->f('city'); ?>+<?php echo $obj_venue->f('st_name'); ?>+<?php echo $obj_venue->f('venue_zip'); ?>');		
 })
 </script>
 <?php } ?>
+
+
 
 </body>
 </html>

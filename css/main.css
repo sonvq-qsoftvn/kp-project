@@ -1863,7 +1863,7 @@ div#header_box {
     height: auto;
     display: block;
     margin: 0;
-    border-top: solid 2px;
+
     padding-top: 6px
 }
 .cheese_box {
@@ -4163,6 +4163,8 @@ table.event_review th {
 .Tchai_box1 {
     width: 100%
 }
+
+	
 @media screen and (max-width: 1024px) {
     .time_reviews_box {
         width: 100%
@@ -4306,6 +4308,88 @@ table.event_review th {
         width: 100%
     }
 }
+.boxads-container {
+	width: 285px;
+}
+
+.hidden-on-desktop {
+	display: none;
+}
+
+.hidden-on-mobile {
+	display: block;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.hidden-on-desktop {
+		display: block;
+	}
+	.hidden-on-mobile {
+		display: none;
+	}
+	.left_panel {
+		width: 70%;
+		box-sizing: border-box;
+	}
+	.right_panel {
+		width: 30%;
+		box-sizing: border-box;
+		margin: 0px;
+	}
+	.signupbox {
+		width: 100%;
+	}
+	.right_panel .signupbox .Tchai_box1 {
+		width: 100% !important;
+		overflow: hidden;
+	}
+	.right_panel .signupbox .fieldbox table td {
+		display: block;
+		float: left;
+		width: 100%;
+	}
+	.right_panel .signupbox .acc-text {
+		display: block;
+		width: 100%;
+	}
+	.right_panel .signupbox .or-text {
+		display: none;
+	}
+	.right_panel .signupbox input#pass_signin , .right_panel .signupbox input#email_cell{
+		float: left !important;
+		width: 85% !important;
+		text-indent: 10px;
+	}
+	.right_panel .signupbox .remember-me-container {
+		float: left !important;
+		display: block;
+		width: 100% !important;
+	}
+	.right_panel .signupbox #submit11 {
+		float: left !important;
+	}
+	.signupbox .fieldbox {
+		width: 87% !important;
+	}
+	.botaddbox2 {
+		width: 100% !important;
+		box-sizing: border-box;
+	}
+	.boxads-container {
+		width: 100%;
+	}
+	.botadd {
+		width: 100%;
+	}
+	.right_panel .botadd #wrapper {
+		margin-left: 0px !important;
+	}
+	.botaddbox {
+		width: 100% !important;
+		box-sizing: border-box;
+	}
+}
+
 @media screen and (max-width: 992px) {
     .eventgallery_box .bx-wrapper {
         width: 86% !important
@@ -4322,7 +4406,7 @@ table.event_review th {
         -o-border-radius: 0 0 0px 0px
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .eventgallery_box .bx-wrapper {
         width: 78% !important
     }
@@ -4673,7 +4757,7 @@ table.event_review th {
         width: 100%
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     #back_header_box {
         display: inline-block;
         width: auto;
@@ -4794,4 +4878,83 @@ table.event_review th {
 .pag_list .current_page span span {
     background: url(layout/site/tables/current_page_right.gif) no-repeat right center;
     padding: 0 5px
+}
+
+.ads-box.hidden-block {
+	display: none !important;
+}
+
+.ads-box {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.ads-box.full img {
+	width: 100%;
+}
+
+.ads-box.banner img {
+	width: 100%;
+}
+
+.ads-box.banner .ads-img-box {
+	width: 40%;
+    margin-right: 15px;
+}
+
+.ads-box a {
+    display: inline-block;
+    padding: 4px;	
+    color: #000000;    
+}
+
+.ads-box h4 a {
+	font-size: 18px;
+	font-family: arial;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 28px;
+}
+
+.ads-box.banner .ads-button a {
+	padding: 6px 8px;
+}
+
+.ads-box.full .ads-button a {
+	padding: 6px 16px;
+	float: right;
+}
+
+.ads-box.full .ads-text {
+	float: left;
+}
+
+
+.ads-button a {
+	background: none repeat scroll 0 0 #23446d;
+    color: #fff;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+.ads-button {
+	text-align: right;
+}
+.ads-box .ads-img-box {
+	border: 2px solid #ccc;
+    float: left;
+	margin-bottom: 12px;
+}
+
+@media screen and (min-width:550px) and (max-width: 768px) {
+	.ads-box.full .ads-text {
+		float: none;
+	}
+ 	.ads-box.full .ads-img-box {
+		margin-right: 12px;
+	}
 }
