@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'HandleeRegular';
-    src: url('handlee-regular.eot');
-    src: url('handlee-regular.eot') format('embedded-opentype'),
-         url('handlee-regular.woff') format('woff'),
-         url('handlee-regular.ttf') format('truetype'),
-         url('handlee-regular.svg#HandleeRegular') format('svg');
-}

@@ -32,7 +32,7 @@ $_SESSION['langSessId'] = 'spn';
 
 //echo $_SESSION['ses_admin_id']; exit;
 if($aid == ''){
-    $user_id = $obj_adduser->register_user($fname,$lname,$email,$phone,$country_id,$country_code,$password,$account_type,$language);
+    $user_id = $obj_adduser->register_user($fname,$lname,$email,$phone,$country_id,$country_code,$rem_password,$password,$account_type,$language);
     $aid = $user_id;
 }
 else

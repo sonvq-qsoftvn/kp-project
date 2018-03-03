@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'CuprumRegular';
-    src: url('cuprum-regular.eot');
-    src: url('cuprum-regular.eot') format('embedded-opentype'),
-         url('cuprum-regular.woff') format('woff'),
-         url('cuprum-regular.ttf') format('truetype'),
-         url('cuprum-regular.svg#CuprumRegular') format('svg');
-}

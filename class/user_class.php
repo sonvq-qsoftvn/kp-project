@@ -364,7 +364,7 @@ Ticket Hype</span>
 // =========================== end ================================	
 
 
-function register_user($fname,$lname,$email,$phone,$country_id,$country_code,$password,$account_type,$language,$province,$county,$city,$address,$postal_code,$mobile_code) 	
+function register_user($fname,$lname,$email,$phone,$country_id,$country_code,$rem_password,$password,$account_type,$language,$province,$county,$city,$address,$postal_code,$mobile_code) 	
 {
 
 	$sql="INSERT INTO ".$this->prefix()."admin SET username='".$email."',
@@ -416,6 +416,7 @@ function register_user_on_payment($fname,$lname,$email,$phone,$country_id,$count
 						       email='".$email."',
 						       language ='".$language."',						       
 						       mobile_code ='".$mobile_code."',
+							   post_datetime ='".date ("Y-m-d H:i:s", time())."',
 						       post_date ='".time()."'";
 
 	$this->query($sql);	
