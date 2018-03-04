@@ -20,6 +20,26 @@ class pdoDatabase {
         
         return null;
     }
+    
+    public function insertContactForm($first_name, $last_name, $email, $message) {
+        
+        $connection = $this->connection();
+        
+        if($connection != null) {
+            // prepare sql and bind parameters
+            $stmt = $connection->prepare("INSERT INTO kcp_contact_form (first_name, last_name, email, message) 
+            VALUES (:first_name, :last_name, :email, :message)");
+            $stmt->bindParam(':first_name', $first_name);
+            $stmt->bindParam(':last_name', $last_name);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':message', $message);           
+
+            $stmt->execute();
+            return true;
+        }
+        return false;
+    }
+    
 
     public function insertAdsClient($business_name, $cont_f_name, $cont_l_name, $address, $city, $zip, $email, $tel, $cell) {
         

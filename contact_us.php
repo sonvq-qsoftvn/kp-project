@@ -1,291 +1,262 @@
 <?php
 include('include/user_inc.php');
 
-//$page_id=$_REQUEST['page_id'];
-$page_name=$_REQUEST['page_name'];
-$lang=$_REQUEST['lang'];
-//echo "hii".$lang;
-$objintro=new user;
-$objintro->intro_page_path('contact_us');
-$objintro->num_rows();
+$lang = $_REQUEST['lang'];
 
-if($objintro->num_rows() > 0)
-$objintro->next_record();
+$objintro = new user;
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-//================================  for meta====================
-//print_r($_SESSION);
-$terms_en = preg_replace('#[^a-zA-Z0-9]#', ' ', trim($objintro->f('page_name')));
-$terms_sp = preg_replace('#[^a-zA-Z0-9]#', ' ', trim($objintro->f('title_sp')));
+if ($lang == "en") {
+    $social_lang = "en_US";
+} else {
+    $social_lang = "es_ES";
+}
 
-$terms_en = preg_replace('/\s{2,}/',' ', $terms_en);
-$terms_sp = preg_replace('/\s{2,}/',' ', $terms_sp);
-
-$terms_en = str_replace(' ', '-',strtolower($terms_en));
-$terms_sp = str_replace(' ', '-',strtolower($terms_sp));
-
-/*----------------------------------------------------------------------*/
-
-
-if($_SESSION['langSessId']=='eng')
+if($_SESSION['langSessId']=='eng') {
 	$_SESSION['set_lang_terms'] = 'en';
-else
+} else {
 	$_SESSION['set_lang_terms'] = 'es';
+}
 
-
+$correctURL = $obj_base_path->base_path()."/es/contactenos/";
 
 if($_REQUEST['lang']=="")
-{
-	
-	if($_SESSION['langSessId']=='eng')
-	{
-		header("location: ".$obj_base_path->base_path()."/en/".$terms_en."/");
+{	
+	if($_SESSION['langSessId']=='eng') {
+		$correctURL = $obj_base_path->base_path()."/en/contact-us/";
+		header("location: " . $correctURL);
 		exit;
-	}
-	else{
-		header("location: ".$obj_base_path->base_path()."/es/".$terms_sp."/");
-		exit;
-	}
-	
-}
-else if($_REQUEST['lang']!="" && $_REQUEST['lang']!=$_SESSION['set_lang_terms'])
-{
-	if($_SESSION['langSessId']=='eng')
-	{
-		$_SESSION['set_lang_terms'] = 'en';
-		header("location: ".$obj_base_path->base_path()."/en/".$terms_en."/");
-		exit;
-	}
-	else{ 
-		$_SESSION['set_lang_terms'] = 'es';
-		header("location: ".$obj_base_path->base_path()."/es/".$terms_sp."/");
+	} else{
+		$correctURL = $obj_base_path->base_path()."/es/contactenos/";
+		header("location: " . $correctURL);
 		exit;
 	}
 	
+} else if($_REQUEST['lang']!="" && $_REQUEST['lang']!=$_SESSION['set_lang_terms']) {
+	if($_SESSION['langSessId']=='eng') {
+        $_SESSION['set_lang_terms'] = 'en';
+		$correctURL = $obj_base_path->base_path()."/en/contact-us/";
+		header("location: " . $correctURL);
+		exit;
+	} else{ 
+        $_SESSION['set_lang_terms'] = 'es';
+		$correctURL = $obj_base_path->base_path()."/es/contactenos/";
+		header("location: " . $correctURL);
+		exit;
+	}	
 }
 
-/*-----------------------------------------------------------------------*/
+
+if (($_SERVER['REQUEST_METHOD'] === 'POST') && (isset($_REQUEST['contact_submit']))) {
+
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+	if (empty($first_name) || empty($last_name) || empty($email) || empty($message)) {     
+		$msg = "Please fill in mandatory fields";
+		$_SESSION['msg_type'] = 'error';
+        $_SESSION['msg'] = $msg;
+	} else if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $msg = "Invalid email format";
+		$_SESSION['msg_type'] = 'error';
+        $_SESSION['msg'] = $msg;
+    } else {
+        $objectContactPdo = new pdoDatabase();
+	
+        $result = $objectContactPdo->insertContactForm($first_name, $last_name, $email, $message);
+
+        if ($result) {
+            header("location:" . $correctURL);
+            $msg = "Contact form successfully sent.";
+            $_SESSION['msg_type'] = 'success';
+            $_SESSION['msg'] = $msg;
+            exit();
+        } else {
+            header("location:" . $correctURL);
+            $msg = "An error occurs, please try again later!";
+            $_SESSION['msg_type'] = 'error';
+            $_SESSION['msg'] = $msg;
+            exit();
+        }
+    }	    
+}
+
+/* ----------------------------------------------------------------------- */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta itemscope itemtype="http://schema.org/Article" /><!---------FOR G+ DESCRIPTION SHARE--------->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta itemscope itemtype="http://schema.org/Article" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<meta property="og:locale" content="<?php if($lang == 'en'){echo "en_US";}else{echo "es_ES";}?>" />
-<meta property="og:type" content="article" />
+        <title>
+            <?= CONTACT_US_TITLE ?>
+        </title>
+        <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>
 
-<?php $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-//$actual_link = "http://www.phppowerhousedemo.com/webroot/team5/kpasapp/blog/".$obj->f('page_link')."";
-?>
-<meta property="og:title" content="<?php if($lang == 'en'){echo $objintro->f('page_name');}else{echo $objintro->f('title_sp');}?>" />
-<meta property='og:site_name' content='Kpasapp' />
+        <link href="<?php echo $obj_base_path->base_path(); ?>/css/base.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $obj_base_path->base_path(); ?>/css/style99.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $obj_base_path->base_path(); ?>/css/header-frontend.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $obj_base_path->base_path(); ?>/css/pagination.css" rel="stylesheet" type="text/css" />
+        <?php include("include/analyticstracking.php") ?> <!-----for google analytics--------->
+    </head>
 
-<meta name="title" content="<?php if($lang == 'en'){echo $objintro->f('page_name');}else{echo $objintro->f('title_sp');}?>" />
+    <body>
 
-<meta property="og:url" content="<?php echo $actual_link;?>" />
-<meta itemprop="description" content="<?php if($lang == 'en'){echo strip_tags($objintro->f('page_content'));}else{echo strip_tags($objintro->f('page_content_sp'));}?>" />
-<meta property="og:description" content="<?php if($lang == 'en'){echo strip_tags($objintro->f('page_content'));}else{echo strip_tags($objintro->f('page_content_sp'));}?>" />
+        <?php include("include/secondary_header.php"); ?>
+        <?php include("include/menu_header.php"); ?>
 
-<?php if($objintro->f('photo') != ''){?>
-<meta property="og:image" content="<?php echo $obj_base_path->base_path(); ?>/files/event/large/<?php echo $objintro->f('photo');?>">
-<?php
-}
-else
-{
-?>
-<meta property="og:image" content="<?php echo $obj_base_path->base_path(); ?>/images/kpasapp_logo_fb.png">
-<?php
-}
-?>
-
-<title><?php if($lang == 'en'){echo $objintro->f('page_name');}else{echo $objintro->f('title_sp');}?></title>
-<script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>
-
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/base.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/style99.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/header-frontend.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $obj_base_path->base_path(); ?>/css/pagination.css" rel="stylesheet" type="text/css" />
-<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=AIzaSyCaEfiGqBVrb7GgQKoYeCkb7CNMcQGfT-s" type="text/javascript"></script>
-<?php include("include/analyticstracking.php")?> <!-----for google analytics--------->
-</head>
-
-<body>
-
-<?php include("include/secondary_header.php");?>
-<?php include("include/menu_header.php");?>
-
-<div id="maindiv">
-	
-	<div class="clear"></div>
-	<div class="body_bg">
-    	
-    	<div class="clear"></div>
-    	<div class="container">
-        	<div class="left_panel bg" >
-            	<div class="cheese_box">
-		 <div class="blue_box1">
-                   <div class="blue_boxh"><p><?php if($lang == 'en'){echo $objintro->f('page_name');}else{echo $objintro->f('title_sp');}?> </p></div>
-		   <?php //if($page_id=="blog"){
-			//$objprev=new user;
-			//$objprev->blog_prev('blog',$page_id);
-			//$num = $objprev->num_rows();
-			//
-			//if($objprev->num_rows()>0){
-			//$objprev->next_record();
-			//echo $objprev->f('page_id');
-			//}
-			//
-			//
-			//$objnext=new user;
-			//$objnext->blog_next('blog',$page_id);
-			//$num1 = $objnext->num_rows();
-			//
-			//if($objnext->num_rows()>0){
-			//$objnext->next_record();
-			//echo $objprev->f('page_id');
-			//}
-		   ?>
-		   <style>
-			.blue_boxr .previewbtn, .blue_boxr .nextbtn {
-				width: 20%;
-				font-size:  14px;
-				color: #fff;
-			}
-			.blue_boxr .previewbtn {
-				float:  left;
-				text-align: left;
-				margin: 20px 0 0 0;
-			}
-			.blue_boxr .nextbtn {
-				width: 16%;
-				float:  right;
-				text-align: right;
-				margin: 20px 0 0 0;
-			}
-			.blue_boxr .previewbtn a, .blue_boxr .nextbtn a{
-				font-size:  14px;
-				line-height: 20px;
-				color: #fff;
+        <style>
+            .blue_boxr .previewbtn, .blue_boxr .nextbtn {
+                width: 20%;
+                font-size:  14px;
+                color: #fff;
+            }
+            .blue_boxr .previewbtn {
+                float:  left;
+                text-align: left;
+                margin: 20px 0 0 0;
+            }
+            .blue_boxr .nextbtn {
+                width: 16%;
+                float:  right;
+                text-align: right;
+                margin: 20px 0 0 0;
+            }
+            .blue_boxr .previewbtn a, .blue_boxr .nextbtn a{
+                font-size:  14px;
+                line-height: 20px;
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+                cursor: pointer;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            .blue_boxr .content_info {
+                width: 54%;
+                margin: 11px 0 0 1%;
+                float:  left;
+                font-size:  14px;
+                color: #fff;
+                font-weight: bold;
+            }
+            #contact_form {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            #contact_form .form-row {
+                margin-bottom: 10px;
+            }
+            #contact_form .form-row label {
+                width: 20%;
+                display: inline-block;
+            }
+            #contact_form input, #contact_form textarea {
+                padding: 5px;
+                box-sizing: border-box;
+                width: 50%;
+            }
+            #contact_form #contact_submit {
+                background: url(../images/bgbtn.gif) repeat-x scroll center bottom #23446D;
+                border: 0 none;
+                color: #FFFFFF;
+                cursor: pointer;
+                display: inline-block;
+                font: bold 14px/24px Arial,Helvetica,sans-serif;
+                height: 24px;
+                margin-bottom: 30px;
+                margin-top: 10px;
+                margin-left: 20%;
+                outline: medium none;
+                padding: 0 10px;
+                text-align: center;
+                width: auto;
+            }
+			.cheese_box .Tchai_box .message_success {
+				color: green;
 				font-weight: bold;
-				text-decoration: none;
-				cursor: pointer;
-				margin: 0;
-				padding: 0;
-				display: block;
 			}
-			.blue_boxr .content_info {
-				width: 54%;
-				margin: 11px 0 0 1%;
-				float:  left;
-				font-size:  14px;
-				color: #fff;
+			.cheese_box .Tchai_box .message_error {
+				color: red;
 				font-weight: bold;
-				
 			}
-		   </style>
-                   <div class="blue_boxr" style="text-align: center;">
-			<div class="previewbtn">
-			<?php //if($num>0){?>
-			<!--<a href="<?php //echo $obj_base_path->base_path(); ?>/<?php //echo $lang;?>/blog/<?php //echo $objprev->f('page_id');?>/<?php //echo str_replace(" ","-",$objprev->f('page_name'));?>"><?php //if($_SESSION['langSessId']=='eng'){ ?><< Previous<?php //} else { ?><< Anterior<?php //}?></a>--> 
-			<?php //} ?>
-			</div>
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			
-			
-			<div class="content_info"><?php if($lang == 'en'){echo stripslashes($objintro->f('page_name'));}else{echo stripslashes($objintro->f('title_sp'));}?></div>
-			
-			
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			<div class="nextbtn">
-			<?php //if($num1>0){?>
-			<!--<a href="<?php //echo $obj_base_path->base_path(); ?>/<?php //echo $lang;?>/blog/<?php //echo $objnext->f('page_id');?>/<?php //echo str_replace(" ","-",$objnext->f('page_name'));?>"><?php //if($_SESSION['langSessId']=='eng'){?>Next >><?php// } //else{ ?> Siguiente>><?php //} ?> </a>-->
-			<?php //} ?>
-			</div>
-                   </div>
-		   <?php //} ?>
-		 </div>
-		 <div class="clear"></div>
-                 <div class="Tchai_box" style="width: auto;"> 
-                        <?php if($lang == 'en'){echo $objintro->f('page_content');}else{echo $objintro->f('page_content_sp');} ?>
-                  </div>
-		 
-                </div>
-               <div class="clear"></div>
-			<?php if($lang=="en")
-				{
-					$social_lang="en_US";
-				}
-				else
-				{
-					$social_lang="es_ES";
-				}
-			?>
-			<?php if($objintro->f('social')==1){?>
-			<div style="margin: 4px;float:left;padding: 5px;">
+            .contact-form-page .blue_box1 {
+                width: 100% !important;
+            }
+        </style>
 
-			<?php $url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>
-			
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/<?=$social_lang?>/all.js#xfbml=1&appId=149448255219243";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
-			
-			<div class="fb-share-button" data-href="<?php echo $url;?>" data-type="box_count"></div>
-			
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $url;?>" data-via="your_screen_name" data-lang="<?=$lang?>" data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a>
-			
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			
-			<!-- Place this tag where you want the +1 button to render. -->
-					<div class="g-plusone" data-size="tall"  lang="<?=$lang?>"></div>
-					
-					<!-- Place this tag after the last +1 button tag. -->
-					<script type="text/javascript">	    
-					(function() {
-					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-					po.src = 'https://apis.google.com/js/plusone.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-					})();
-					</script>
-			
-			
-			
-			<script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script>
-			
-			<!-- Place this tag where you want the su badge to render -->
-			<su:badge layout="5"></su:badge>
-			
-			<!-- Place this snippet wherever appropriate -->
-			<script type="text/javascript">
-			  (function() {
-			    var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
-			    li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
-			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
-			  })();
-			</script>
-			
-			
-			
-		    </div>
-		<?php } ?>
-   
+        <div id="maindiv" class="contact-form-page">	
+            <div class="clear"></div>
+            <div class="body_bg">    	
+                <div class="clear"></div>
+                <div class="container">
+                    <div class="left_panel bg" >
+                        <div class="cheese_box">
+                            <div class="blue_box1">
+                                <div class="blue_boxh">
+                                    <p>
+                                        <?= CONTACT_US_TITLE ?>
+                                    </p>
+                                </div>		  
+                            </div>
+                            <div class="clear"></div>
+                            <div class="Tchai_box" style="width: auto;"> 
+								<?php if (isset($_SESSION['msg']) && !empty($_SESSION['msg'])) : ?>
+									<p class="message_<?php echo $_SESSION['msg_type']; ?>">
+										<?php echo $_SESSION['msg']; ?>
+									</p>
+                                    <?php 
+                                        $_SESSION['msg_type'] = '';
+                                        $_SESSION['msg'] = '';
+                                    ?>
+								<?php endif; ?>
+                                <form action="" method="POST" id="contact_form">
+                                    <div class="form-row">
+                                        <label>
+                                            <?= FORM_FRIST_NAME ?>    
+                                        </label>
+                                        <input type="text" value="<?php if(isset($_POST['first_name'])){echo $_POST['first_name'];} ?>" required="true" name="first_name" placeholder="<?= FORM_FRIST_NAME ?>" />
+                                    </div>
+                                    <div class="form-row">
+                                        <label>
+                                            <?= FORM_LAST_NAME ?> 
+                                        </label>
+                                        <input type="text" value="<?php if(isset($_POST['last_name'])){echo $_POST['last_name'];} ?>" required="true" name="last_name" placeholder="<?= FORM_LAST_NAME ?>" />                                
+                                    </div>
+                                    <div class="form-row">
+                                        <label>
+                                            <?= FORM_EMAIL ?> 
+                                        </label>
+                                        <input type="text" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>" required="true" name="email" placeholder="<?= FORM_EMAIL ?>" />                                
+                                    </div>
+                                    <div class="form-row">
+                                        <label>
+                                            <?= FORM_MESSAGE ?> 
+                                        </label>
+                                        <textarea placeholder="<?= FORM_MESSAGE ?>" rows="4" name="message" required="true"><?php if(isset($_POST['message'])){echo $_POST['message'];} ?></textarea>
+                                    </div>
+                                    <div class="form-row">
+                                        <button type="submit" name="contact_submit" id="contact_submit"><?= FORM_SEND ?></button>
+                                    </div>
+                                </form>
+                            </div>		 
+                        </div>
+                        <div class="clear"></div>
+                        <?php require(__DIR__ . '/include/selection_button_social.php'); ?>
+
+                    </div>
+                    <?php include("include/frontend_rightsidebar.php"); ?>
+                    <div class="clear"></div>                
                 </div>
-            <?php include("include/frontend_rightsidebar.php");?>
-             <div class="clear"></div>
-                
+            </div>
+            <div class="clear"></div>
         </div>
 
-    </div>
-    <div class="clear"></div>
-	</div>
-    <div class="clear"></div>
-    <?php include("include/frontend_footer.php");?>
-</div>
-
-
-</body>
+        <?php include("include/frontend_footer.php"); ?>
+    </body>
 </html>

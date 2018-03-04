@@ -142,8 +142,15 @@ else // user logged in
 		$account_type = 0;
 		//$account_type = $_SESSION['account_type_google'];
 		
+        $language = 'English';						
+        if($_SESSION['langSessId'] == 'eng'){
+            $language = 'English'; 
+        } elseif($_SESSION['langSessId'] == 'spn') {
+            $language = 'Spanish';
+        }
+        
 		//insert value
-		$user_id_admin = $obj_adduser->register_user($user['given_name'],$user['family_name'],$email,$phone,$country_id,$country_code,$rem_password,$password,$account_type);
+		$user_id_admin = $obj_adduser->register_user($user['given_name'],$user['family_name'],$email,$phone,$country_id,$country_code,$rem_password,$password,$account_type,$language);
 		
 		//Update value
 		$obj_activate->activateUser($user_id_admin);

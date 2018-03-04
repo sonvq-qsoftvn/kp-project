@@ -1,7 +1,9 @@
 <?php
+define('SELECT_TICKETS', 'Seleccione Boleto');
+define('NO_TICKETS_AVAILABLE', 'Entrada libre');
 define("ABOUT_KCPASA","Acerca de Kpasapp");
 define("ABOUT_BAJASUR","Acerca de Baja California Sur");
-/*define("WHATS_UP","�Qu� pasa?");*/
+/*define("WHATS_UP","?Qu? pasa?");*/
 define("WHATS_UP","&iquest;Qu&eacute; pasa?");
 //define("CLASSIFIED","clasificado");
 define("RESOURCES","Recursos");
@@ -59,5 +61,15 @@ define('SIGNUP', 'Reg&#237strarse');
 // OG SEO TITLE
 define("OG_TITLE","Todos los eventos de Baja California Sur");
 define("OG_DESCRIPTION","Arte y cultura, m&#250;sica, gastronom&#237;a, deportes, festivales, conciertos, espect&#225;culos, conferencias, talleres, y m&#225;s: Ent&#233;rate de todos los eventos de Baja California Sur. Reservas y venta de entradas en l&#237;nea. Anuncie sus eventos tambi&#233;n.");
+
+define("TICKET_RESERVATION_REQUIRED","Necesita boleto / reservaci&#243;n");
+define("TICKET_RESERVATION_FROM","Boleto/Reservaci&#243;n desde");
+
+define("CONTACT_US_TITLE", "Contact Us");
+define("FORM_FRIST_NAME", "First Name");
+define("FORM_LAST_NAME", "Last Name");
+define("FORM_EMAIL", "Email address");
+define("FORM_MESSAGE", "Message");
+define("FORM_SEND", "Send");
 
 ?>

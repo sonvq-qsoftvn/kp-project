@@ -133,8 +133,14 @@ if (!empty($user_profile )) {
 					$country_id = '';
 					$country_code = 0;
 					
+					$language = 'English';						
+					if($_SESSION['langSessId'] == 'eng'){
+						$language = 'English'; 
+					} elseif($_SESSION['langSessId'] == 'spn') {
+						$language = 'Spanish';
+					}
 					//insert value
-					$user_id = $obj_adduser->register_user($fname,$lname,$email,$phone,$country_id,$country_code,$rem_password,$password,$account_type);
+					$user_id = $obj_adduser->register_user($fname,$lname,$email,$phone,$country_id,$country_code,$rem_password,$password,$account_type, $language);
 					
 					//Update value
 					$obj_activate->activateUser($user_id);

@@ -1,5 +1,7 @@
 <?php
 //==========HEADER PART===================//
+define('SELECT_TICKETS', 'Select Tickets');
+define('NO_TICKETS_AVAILABLE', 'Free admission');
 define("ABOUT_KCPASA","About KPasapp");
 define("ABOUT_BAJASUR","About Baja Sur");
 define("WHATS_UP","What's up?");
@@ -29,7 +31,7 @@ define("MY_TICKETS","My Tickets");
 define("EDIT_ACCOUNT","Edit Account");
 define("CHANGE_PASSWORD","Change Password");
 define("LOGIN","Login");
-define("FOOTER_TEXT","Use of KPasapp is subject to our Terms of Service. Copyright � 2011 KPasapp , Inc. All Rights Reserved.");
+define("FOOTER_TEXT","Use of KPasapp is subject to our Terms of Service. Copyright ? 2011 KPasapp , Inc. All Rights Reserved.");
 
 define('UPDATE_YOUR_PROFILE', 'Update your profile and favorites and never miss an event!');
 define('SYNCHRONIZE', 'Synchronize with your');
@@ -63,5 +65,14 @@ define('REMEMBER_ME', 'Remember me');
 define("OG_TITLE","All the events of Baja California Sur");
 define("OG_DESCRIPTION","Arts & culture, music, gastronomy, sports, festivals, concerts, shows, conferences, workshops, and more: Find out about all the events of Baja California Sur. Online reservations and ticketing. Announce your events too.");
 
+define("TICKET_RESERVATION_REQUIRED","Ticket/reservation required");
+define("TICKET_RESERVATION_FROM","Ticket/reservation: from");
+
+define("CONTACT_US_TITLE", "Contact Us");
+define("FORM_FRIST_NAME", "First Name");
+define("FORM_LAST_NAME", "Last Name");
+define("FORM_EMAIL", "Email address");
+define("FORM_MESSAGE", "Message");
+define("FORM_SEND", "Send");
 
 ?>
