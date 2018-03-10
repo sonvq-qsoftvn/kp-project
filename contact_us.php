@@ -4,6 +4,7 @@ include('include/user_inc.php');
 $lang = $_REQUEST['lang'];
 
 $objintro = new user;
+$contactSendMail = new user;
 $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 if ($lang == "en") {
@@ -55,7 +56,7 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && (isset($_REQUEST['contact_submit'
     $message = $_POST['message'];
 
 	if (empty($first_name) || empty($last_name) || empty($email) || empty($message)) {     
-		$msg = "Please fill in mandatory fields";
+		$msg = FORM_REQUIRED_FIELDS;
 		$_SESSION['msg_type'] = 'error';
         $_SESSION['msg'] = $msg;
 	} else if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -68,14 +69,16 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') && (isset($_REQUEST['contact_submit'
         $result = $objectContactPdo->insertContactForm($first_name, $last_name, $email, $message);
 
         if ($result) {
+            
+            $contactSendMail->sendEmailContact($first_name, $last_name, $email, $message);
             header("location:" . $correctURL);
-            $msg = "Contact form successfully sent.";
+            $msg = FORM_SEND_SUCCESS;
             $_SESSION['msg_type'] = 'success';
             $_SESSION['msg'] = $msg;
             exit();
         } else {
             header("location:" . $correctURL);
-            $msg = "An error occurs, please try again later!";
+            $msg = FORM_SEND_ERROR;
             $_SESSION['msg_type'] = 'error';
             $_SESSION['msg'] = $msg;
             exit();

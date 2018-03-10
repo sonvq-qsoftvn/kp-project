@@ -1699,6 +1699,14 @@ function showmoreSubevent(num){
                                     }
                                 }
                             ?>
+							
+							<?php 
+								$objLocation->getStateCountyByEventID($eachVal['id']);
+								$objLocation->next_record();
+								$text = ($_SESSION['set_lang_index'] == 'es') ? 'evento': 'event';  
+								$eventName = ($_SESSION['set_lang_index'] == 'es') ? stripslashes($eachVal['event_name_sp']) : stripslashes($eachVal['event_name_en']);  
+								$eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($eachVal['id'], $objLocation, $_SESSION['set_lang_index'], $text, $eventName);
+							?>
                             <div class="box1" style="height: auto;">                                
                                 <?php require(__DIR__ . '/include/index_feature_image.php'); ?>
                             </div>
@@ -1709,17 +1717,10 @@ function showmoreSubevent(num){
                             $objmul_id->next_record();
                             ?>
                             
-                            <div class="box2">      
-                                <?php 
-                                    $objLocation->getStateCountyByEventID($eachVal['id']);
-                                    $objLocation->next_record();
-                                    $text = ($_SESSION['set_lang_index'] == 'es') ? 'evento': 'event';  
-                                    $eventName = ($_SESSION['set_lang_index'] == 'es') ? stripslashes($eachVal['event_name_sp']) : stripslashes($eachVal['event_name_en']);  
-                                    $eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($eachVal['id'], $objLocation, $_SESSION['set_lang_index'], $text, $eventName);
-                                ?>
+                            <div class="box2">                                      
                                 <meta itemprop="url" content="<?php echo $eventURL; ?>" />
                                 <h2 class="heading" style="padding-right: 0;">
-                                    <a href="<?php echo $eventURL; ?>" >
+                                    <a target="_blank" href="<?php echo $eventURL; ?>" >
                                         <span itemprop="name">
                                             <?php if($_SESSION['langSessId']=='eng') { echo stripslashes($eachVal['event_name_en']); } else { echo stripslashes($eachVal['event_name_sp']);}?>
                                         </span>
@@ -1758,7 +1759,7 @@ function showmoreSubevent(num){
                                                             $objVenueLocation->getVenueLocationByVenueID($obj_venue->f('venue_id'));
                                                             $objVenueLocation->next_record();   
                                                         ?>
-                                                        <a style="color:#056A86" href="<?php echo $obj_base_path->base_path(). $objCommon->getCleanVenueURL($obj_venue->f('venue_id'), $objVenueLocation, $_SESSION['set_lang_index']); ?>">
+                                                        <a target="_blank" style="color:#056A86" href="<?php echo $obj_base_path->base_path(). $objCommon->getCleanVenueURL($obj_venue->f('venue_id'), $objVenueLocation, $_SESSION['set_lang_index']); ?>">
                                                             <strong><?php if($_SESSION['langSessId']=='eng') { echo substr($obj_venue->f('venue_name'),0,40); } else { echo substr($obj_venue->f('venue_name_sp'),0,40); };?></strong>
                                                         </a>
                                                     </span>
@@ -1775,7 +1776,7 @@ function showmoreSubevent(num){
                                 
                                 <!-- Description -->
                                 <p itemprop="description">                                    
-                                    <a href="<?php echo $eventURL; ?>" >
+                                    <a target="_blank" href="<?php echo $eventURL; ?>" >
                                         <?php 
                                             if($_SESSION['langSessId']=='eng') 
                                             { 
@@ -1932,21 +1933,21 @@ function showmoreSubevent(num){
                                     }
                                 }
                             ?>
+							<?php 
+								$objLocation->getStateCountyByEventID($eachVal['id']);
+								$objLocation->next_record();
+								$text = ($_SESSION['set_lang_index'] == 'es') ? 'evento': 'event';  
+								$eventName = ($_SESSION['set_lang_index'] == 'es') ? stripslashes($eachVal['event_name_sp']) : stripslashes($eachVal['event_name_en']);  
+								$eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($eachVal['id'], $objLocation, $_SESSION['set_lang_index'], $text, $eventName);
+							?>
                             <div class="box1">          
                                 <?php require(__DIR__ . '/include/index_feature_image.php'); ?>
                             </div>
 
-                            <div class="box2">
-                                <?php 
-                                    $objLocation->getStateCountyByEventID($eachVal['id']);
-                                    $objLocation->next_record();
-                                    $text = ($_SESSION['set_lang_index'] == 'es') ? 'evento': 'event';  
-                                    $eventName = ($_SESSION['set_lang_index'] == 'es') ? stripslashes($eachVal['event_name_sp']) : stripslashes($eachVal['event_name_en']);  
-                                    $eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($eachVal['id'], $objLocation, $_SESSION['set_lang_index'], $text, $eventName);
-                                ?>
+                            <div class="box2">                                
                                 <meta itemprop="url" content="<?php echo $eventURL; ?>" />
                                 <h2 class="heading09_head">
-                                    <a href="<?php echo $eventURL; ?>" >
+                                    <a target="_blank" href="<?php echo $eventURL; ?>" >
                                         <span itemprop="name">
                                             <?php if($_SESSION['langSessId']=='eng') { echo stripslashes($eachVal['event_name_en']); } else { echo stripslashes($eachVal['event_name_sp']);}?>
                                         </span>
@@ -1975,7 +1976,7 @@ function showmoreSubevent(num){
                                                 $objVenueLocation->getVenueLocationByVenueID($obj_venue->f('venue_id'));
                                                 $objVenueLocation->next_record();   
                                             ?>
-                                            <a style="color:#056A86" href="<?php echo $obj_base_path->base_path(). $objCommon->getCleanVenueURL($obj_venue->f('venue_id'), $objVenueLocation, $_SESSION['set_lang_index']); ?>">
+                                            <a target="_blank" style="color:#056A86" href="<?php echo $obj_base_path->base_path(). $objCommon->getCleanVenueURL($obj_venue->f('venue_id'), $objVenueLocation, $_SESSION['set_lang_index']); ?>">
                                                 <strong><?php if($_SESSION['langSessId']=='eng') { echo substr($obj_venue->f('venue_name'),0,40); } else { echo substr($obj_venue->f('venue_name_sp'),0,40); };?></strong>
                                             </a>
                                         </span>
@@ -1991,7 +1992,7 @@ function showmoreSubevent(num){
                                 ?>
                                 <div class="heading09">
                                     <span style="margin:0px;"><?php echo date('g:i A',strtotime($sub_event_time));?></span>
-                                    <a href="<?php echo $obj_base_path->base_path(); ?>/event/<?php echo $eachVal['id'];?>" ><?php if($_SESSION['langSessId']=='eng') { if(strlen($objsub_date->f('sub_eve_en'))>45) echo substr(stripslashes($objsub_date->f('sub_eve_en')),0,45)."..."; else echo stripslashes($objsub_date->f('sub_eve_en')); } else { if(strlen($objsub_date->f('sub_eve_sp'))>45) echo substr(stripslashes($objsub_date->f('sub_eve_sp')),0,45)."..."; else echo stripslashes($objsub_date->f('sub_eve_sp'));}?></a>
+                                    <a target="_blank" href="<?php echo $eventURL; ?>" ><?php if($_SESSION['langSessId']=='eng') { if(strlen($objsub_date->f('sub_eve_en'))>45) echo substr(stripslashes($objsub_date->f('sub_eve_en')),0,45)."..."; else echo stripslashes($objsub_date->f('sub_eve_en')); } else { if(strlen($objsub_date->f('sub_eve_sp'))>45) echo substr(stripslashes($objsub_date->f('sub_eve_sp')),0,45)."..."; else echo stripslashes($objsub_date->f('sub_eve_sp'));}?></a>
 
                                 <div class="clear"></div>
                                 <?php if($cnt==14){?><p>more</p><?php } ?></div>
@@ -2115,21 +2116,21 @@ function showmoreSubevent(num){
                                     }
                                 }
                             ?>
+							<?php 
+								$objLocation->getStateCountyByEventID($eachVal['id']);
+								$objLocation->next_record();
+								$text = ($_SESSION['set_lang_index'] == 'es') ? 'evento': 'event';  
+								$eventName = ($_SESSION['set_lang_index'] == 'es') ? stripslashes($eachVal['event_name_sp']) : stripslashes($eachVal['event_name_en']);  
+								$eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($eachVal['id'], $objLocation, $_SESSION['set_lang_index'], $text, $eventName);
+							?>
                             <div class="box1">
                                 <?php require(__DIR__ . '/include/index_feature_image.php'); ?>
                             </div>
                             
-                            <div class="box2">
-                                <?php 
-                                    $objLocation->getStateCountyByEventID($eachVal['id']);
-                                    $objLocation->next_record();
-                                    $text = ($_SESSION['set_lang_index'] == 'es') ? 'evento': 'event';  
-                                    $eventName = ($_SESSION['set_lang_index'] == 'es') ? stripslashes($eachVal['event_name_sp']) : stripslashes($eachVal['event_name_en']);  
-                                    $eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($eachVal['id'], $objLocation, $_SESSION['set_lang_index'], $text, $eventName);
-                                ?>
+                            <div class="box2">                                
                                 <meta itemprop="url" content="<?php echo $eventURL;?>" />
                                 <h2 class="heading" style="padding-right: 0;">
-                                    <a href="<?php echo $eventURL;?>" >
+                                    <a target="_blank" href="<?php echo $eventURL;?>" >
                                         <span itemprop="name">
                                             <?php if($_SESSION['langSessId']=='eng') { echo stripslashes($eachVal['event_name_en']); } else { echo stripslashes($eachVal['event_name_sp']);}?>
                                         </span>
@@ -2154,7 +2155,7 @@ function showmoreSubevent(num){
                                                     $objVenueLocation->getVenueLocationByVenueID($obj_venue->f('venue_id'));
                                                     $objVenueLocation->next_record();   
                                                 ?>
-                                                <a style="color:#056A86" href="<?php echo $obj_base_path->base_path(). $objCommon->getCleanVenueURL($obj_venue->f('venue_id'), $objVenueLocation, $_SESSION['set_lang_index']); ?>">
+                                                <a target="_blank" style="color:#056A86" href="<?php echo $obj_base_path->base_path(). $objCommon->getCleanVenueURL($obj_venue->f('venue_id'), $objVenueLocation, $_SESSION['set_lang_index']); ?>">
                                                     <strong><?php if($_SESSION['langSessId']=='eng') { echo substr($obj_venue->f('venue_name'),0,40); } else { echo substr($obj_venue->f('venue_name_sp'),0,40); };?></strong>
                                                 </a>
                                             </span>
@@ -2170,7 +2171,7 @@ function showmoreSubevent(num){
                                         $eventName = ($_SESSION['set_lang_index'] == 'es') ? stripslashes($eachVal['event_name_sp']) : stripslashes($eachVal['event_name_en']);  
                                         $eventURL = $obj_base_path->base_path() . $objCommon->getEventURLByEventID($eachVal['id'], $objLocation, $_SESSION['set_lang_index'], $text, $eventName);
                                     ?>
-                                    <a href="<?php echo $eventURL; ?>">
+                                    <a target="_blank" href="<?php echo $eventURL; ?>">
                                         <?php 
                                             if($_SESSION['langSessId']=='eng') 
                                             { 
@@ -2326,10 +2327,10 @@ $(document).ready(function(){
         showButtonPanel: true
     });
 
-    $(".feature").fancybox({ 
+    /*$(".feature").fancybox({ 
         'hideOnOverlayClick':false,
         'hideOnContentClick':false
-    });
+    });*/
     
     var slider=$('#slider2').show().bxSlider({
         controls: true,

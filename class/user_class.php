@@ -350,8 +350,7 @@ Ticket Hype</span>
 				$headers .= "--".$separator."--";
 				
 			}
-			if(mail($to, $subject, $body, $headers)){
-			//if(mail('unified.ujjal@gmail.com', $subject, $body, $headers)){
+			if(mail($to, $subject, $body, $headers)){			
 				return true;
 			}else{
 				
@@ -2674,7 +2673,76 @@ function getStateCountyByEventID($event_id){
 function getVenueLocationByVenueID($venue_id) {
     $sql='SELECT st.state_name, co.county_name, ci.city_name, ven.venue_name, ven.venue_name_sp FROM '.$this->prefix().'venue ven Inner join '.$this->prefix().'state st ON (ven.venue_state = st.id ) Inner join '.$this->prefix().'county co on (ven.venue_county = co.id) Inner join '.$this->prefix().'city ci on (ven.venue_city = ci.id) WHERE ven.venue_id="'.$venue_id.'"  ';	
     return $this->query($sql);	
-}   
+}
+
+function sendEmailContact($first_name, $last_name, $email, $message){
+	
+    $output='<table width="100%" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
+    <tbody>
+        <tr>
+            <td valign="top" align="center">
+                <table width="100%" cellspacing="0" cellpadding="0">                  			 
+                    <tbody>
+                        <tr>
+                            <td style="background-color:#1a1c35;border-top:1px solid #57658e;border-bottom:1px solid #262f47">
+                                <center>
+                                    <a target="_blank" style="color:#4c5a81;color:#4c5a81;color:#4c5a81" href="'.$this->base_path().'">
+                                        <img border="0" align="middle" alt="KPasapp" title="KPasapp" src="'.$this->base_path().'/images/KPasapp_logo.png">
+                                    </a>
+            					</center>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table width="550" cellspacing="0" cellpadding="20" bgcolor="#FFFFFF">
+                    <tbody>
+                        <tr>
+                            <td><strong>Email:</strong></td>
+                            <td>' . $email . '</td>
+                        </tr>
+                        <tr>
+                            <td><strong>First Name:</strong></td>
+                            <td>' . $first_name . '</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Last Name:</strong></td>
+                            <td>' . $last_name . '</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Message:</strong></td>
+                            <td>' . $message . '</td>
+                        </tr>                        
+                        <tr>
+                            <td colspan="2" valign="top" style="background-color:#e9e9e9;border-top:22px solid #f4f4f4;padding:10px 10px">
+                                <div style="font-size:10px;color:#666666;line-height:100%;font-family:verdana">
+                                    <div style="float:right">
+                                        <a target="_blank" href="https://twitter.com/KPasapp"><img width="43" border="0" height="43" src="'.$this->base_path().'/images/twitter_icon.png"></a>
+                                        <a target="_blank" href="https://www.facebook.com/master.kpasapp"><img width="43" border="0" height="43" src="'.$this->base_path().'/images/facebook_icon.png"></a>
+                                        <a target="_blank" href="#"><img width="43" border="0" src="'.$this->base_path().'/images/youtube_icon.png"></a>
+                                    </div>
+                                    <div>Copyright &copy; 2011 <span style="font-size:12px;color:#444444;line-height:150%;font-family:trebuchet ms">Kpasapp</span>, Inc. All rights reserved.</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>';
+
+    $this->admin_setting();
+    $this->next_record();
+
+    $from = $email;
+//    $to = 'main@kpasapp.com';
+    $to = 'vuquangson1610@gmail.com';
+    $subject='Kpasapp Contact Form (' . $email . ')';
+    $com_name='Kpasapp';
+
+    $this->send_mail($from,$to,$subject,$output,$com_name);
+}	
  
 };  
 ?>

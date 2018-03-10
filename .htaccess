@@ -79,6 +79,12 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^event/(.*)/lang/(.*) event.php?event_id=$1&lang=$2
 
+RewriteRule ^en/event-list event-iframe.php?lang=en
+RewriteRule ^es/event-list event-iframe.php?lang=es
+
+RewriteRule ^en/event-detail/(.*) event-detail-iframe.php?lang=en&event_id=$1
+RewriteRule ^es/event-detail/(.*) event-detail-iframe.php?lang=es&event_id=$1
+
 RewriteRule ^en/event/(.*)/(.*)/(.*)/(.*)/(.*) event.php?lang=en&event_id=$1&state=$2&county=$3&city=$4&eventname=$5
 RewriteRule ^es/evento/(.*)/(.*)/(.*)/(.*)/(.*) event.php?lang=es&event_id=$1&state=$2&county=$3&city=$4&eventname=$5
 
@@ -162,8 +168,9 @@ RewriteRule ^sub_payment/(.*)/sub_id/(.*) sub_payment.php?event_id=$1&sub_id=$2
 RewriteRule ^payment-receipt/(.*) payment-receipt.php?event=$1
 
 
-RewriteRule ^(.*)/home index.php?lang=$1
-RewriteRule ^(.*)/inicio index.php?lang=$1
+RewriteRule ^en/home index.php?lang=en
+RewriteRule ^es/inicio index.php?lang=es
+
 
 
 #RewriteRule ^test_event/(.*)/(.*)/(.*) test_event.php?event_id=$1&lang=$2&eventname=$3
@@ -182,11 +189,24 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
 RewriteCond %{HTTP_HOST} ^162\.214\.0\.134
 RewriteRule ^(.*)$ http://www.kpasapp.com/ [R=301,L]
 
+RewriteCond %{HTTP_HOST} ^162\.144\.201\.141
+RewriteRule ^(.*)$ http://www.kpasapp.com/ [R=301,L]
 
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
+### WWW & HTTPS
 
+# ensure www.
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ensure https
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+### WWW & HTTPS
 
 
 

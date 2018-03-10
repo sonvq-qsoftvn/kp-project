@@ -75,4 +75,9 @@ define("FORM_EMAIL", "Email address");
 define("FORM_MESSAGE", "Message");
 define("FORM_SEND", "Send");
 
+define("FORM_SEND_SUCCESS", "Contact form successfully sent.");
+define("FORM_SEND_ERROR", "An error occurs, please try again later!");
+define("FORM_REQUIRED_FIELDS", "Please fill in mandatory fields");
+define("FROM","from");
+
 ?>

@@ -65,11 +65,17 @@ define("OG_DESCRIPTION","Arte y cultura, m&#250;sica, gastronom&#237;a, deportes
 define("TICKET_RESERVATION_REQUIRED","Necesita boleto / reservaci&#243;n");
 define("TICKET_RESERVATION_FROM","Boleto/Reservaci&#243;n desde");
 
-define("CONTACT_US_TITLE", "Contact Us");
-define("FORM_FRIST_NAME", "First Name");
-define("FORM_LAST_NAME", "Last Name");
-define("FORM_EMAIL", "Email address");
-define("FORM_MESSAGE", "Message");
-define("FORM_SEND", "Send");
+define("CONTACT_US_TITLE", "Contactanos");
+define("FORM_FRIST_NAME", "Nombre");
+define("FORM_LAST_NAME", "Apellido");
+define("FORM_EMAIL", "Correo electronico");
+define("FORM_MESSAGE", "Mensaje");
+define("FORM_SEND", "Enviar");
+
+define("FORM_SEND_SUCCESS", "Formulario de contacto enviado con &#xE9;xito.");
+define("FORM_SEND_ERROR", "Se produce un error, intente de nuevo m&#xE1;s tarde.");
+define("FORM_REQUIRED_FIELDS", "Complete los campos obligatorios");
+
+define("FROM","desde");
 
 ?>
