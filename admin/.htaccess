@@ -5,6 +5,12 @@ RewriteRule ^add-meta  add_meta.php
 RewriteRule ^meta-list  meta_list.php
 RewriteRule ^dashboard/ dashboard.php
 RewriteRule ^add-client add_clients.php
+RewriteRule ^list-client list_clients.php
+
+RewriteRule ^add-sponsors add_sponsors.php
+RewriteRule ^list-sponsors list_sponsors.php
+RewriteRule ^edit-sponsors/(.*) edit-sponsors.php?sponsors_id=$1
+RewriteRule ^delete-sponsors/(.*) delete_sponsors.php?id=$1
 
 RewriteRule ^report/(.*) report.php?event_id=$1
 RewriteRule ^event-provisional-report provisional_report.php
@@ -28,7 +34,9 @@ RewriteRule ^add-promo-schedule/event/(.*) add_promo_schedule.php?event_id=$1
 RewriteRule ^add-ad/ add_ad.php
 RewriteRule ^ad-list/ ad_list.php
 RewriteRule ^delete-ad/(.*) delete_ad.php?id=$1
+RewriteRule ^delete-client/(.*) delete_client.php?id=$1
 RewriteRule ^edit-ad/(.*) edit-ad.php?ad_id=$1
+RewriteRule ^edit-client/(.*) edit-client.php?client_id=$1
 RewriteRule ^edit-meta/(.*) edit_meta.php?id=$1
 RewriteRule ^sitemap sitemap.php
 
@@ -44,9 +52,12 @@ RewriteRule ^duplicate-event/(.*) events_duplicate.php?id=$1
 RewriteRule ^venue-list/(.*) list_venues.php	
 RewriteRule ^edit-venue/(.*) editvenue.php?venue_id=$1
 RewriteRule ^delete-venue/(.*) delete_venue.php?venue_id=$1
-RewriteRule ^delete-page/(.*) delete_page.php?venue_id=$1
+RewriteRule ^delete-page/(.*) delete_page.php?page_id=$1
 RewriteRule ^duplicate-venue/(.*) duplicate_venue.php?venue_id=$1
 RewriteRule ^sub-events-edit/(.*) sub_events_edit.php?event_id=$1
+
+RewriteRule ^social-share/(.*) social_share.php	
+RewriteRule ^social-share-edit/(.*) social_share_edit.php?social_id=$1	
 
 RewriteRule ^edit_page/(.*) edit_page.php?page_id=$1
 
@@ -65,6 +76,7 @@ RewriteRule ^duplicate_performer/(.*) duplicate_performer.php?performer_id=$1
 
 RewriteRule ^list_personal_user/([^/]*)/?(.*)/(.*)$ list_personal_user.php?action=$1&id=$2&emailid=$3
 RewriteRule ^list_profession_user/([^/]*)/?(.*)/(.*)$ list_profession_user.php?action=$1&id=$2&emailid=$3
+RewriteRule ^list_admin_user/([^/]*)/?(.*)/(.*)$ list_admin_user.php?action=$1&id=$2&emailid=$3
 
 RewriteRule ^([^\.]+)$ $1.php [NC,L]	
 

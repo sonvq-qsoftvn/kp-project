@@ -12,8 +12,12 @@ include('../include/admin_inc.php');
 	
 if(isset($_REQUEST['action']) && $_REQUEST['action'] == "delete")	
 {
-	$obj_delete->deleteCity($_GET['id']);
-	$_SESSION['msg'] = "City deleted successfully";
+//	$obj_delete->deleteCity($_GET['id']);
+//	$_SESSION['msg'] = "City deleted successfully";
+//	header("Location:".$obj_base_path->base_path()."/admin/list_city");
+//	exit;
+    
+	$_SESSION['msg'] = "City cannot be deleted";
 	header("Location:".$obj_base_path->base_path()."/admin/list_city");
 	exit;
 }
@@ -198,7 +202,7 @@ function del(eID)
 					
 					<td width="10%">
                     	<a href="<?php echo $obj_base_path->base_path(); ?>/admin/edit_city/<?php echo $objlist->f('cty');?>"><img src="<?php echo $obj_base_path->base_path(); ?>/images/edit.gif" alt="" width="20" height="16" />Edit</a>
-                    	<a href="javascript:void(0);" onClick="del('<?php echo $objlist->f('cty');?>');"><img src="<?php echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" />Delete</a>
+<!--                    	<a href="javascript:void(0);" onClick="del('<?php //echo $objlist->f('cty');?>');"><img src="<?php //echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" />Delete</a>-->
                     </td>
 					</tr>
 					

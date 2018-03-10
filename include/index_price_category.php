@@ -7,17 +7,25 @@
 <?php elseif ($obj_min_ticket_cost->f('price_us') == "0.00" && $obj_min_ticket_cost->f('price_mx') == "0.00") : ?>
     <p><?= TICKET_RESERVATION_REQUIRED ?></p>    
 <?php else : ?>
-    <p><?= TICKET_RESERVATION_FROM ?> 
-        <?php if ($obj_min_ticket_cost->f('price_us') != "0.00" && $obj_min_ticket_cost->f('price_us') != null) : ?>
-            <a target="_blank" href="<?php echo $eventURL ?>">US $<?php echo number_format($obj_min_ticket_cost->f('price_us'), 2); ?> </a>
-        <?php endif; ?>
-        <?php if ($obj_min_ticket_cost->f('price_us') != "0.00" && $obj_min_ticket_cost->f('price_us') != null
-            && $obj_min_ticket_cost->f('price_mx') != "0.00" && $obj_min_ticket_cost->f('price_mx') != null) : ?>
-            <?php echo ' / '; ?>
-        <?php endif; ?>
-        <?php if ($obj_min_ticket_cost->f('price_mx') != "0.00" && $obj_min_ticket_cost->f('price_mx') != null) : ?>
-            <a target="_blank" href="<?php echo $eventURL; ?>">MXP <?php echo number_format($obj_min_ticket_cost->f('price_mx'), 2); ?></a>
-        <?php endif; ?>
+    <p>
+        <a target="_blank" href="<?php echo $eventURL ?>">
+            <?php if($_SESSION['langSessId']=='eng') {?>
+                <img style="display: inline-block; vertical-align: middle; width: 110px; margin-bottom: 5px; margin-top: 2px;" src="<?php echo $obj_base_path->base_path(); ?>/images/reserv_btn.gif" /> 
+            <?php } else {?>   
+                <img style="display: inline-block; vertical-align: middle; width: 110px; margin-bottom: 5px; margin-top: 2px;" src="<?php echo $obj_base_path->base_path(); ?>/images/spainreser_btn.gif" />
+            <?php } ?> 
+            <?= FROM ?> 
+            <?php if ($obj_min_ticket_cost->f('price_us') != "0.00" && $obj_min_ticket_cost->f('price_us') != null) : ?>
+                US $<?php echo number_format($obj_min_ticket_cost->f('price_us'), 2); ?> 
+            <?php endif; ?>
+            <?php if ($obj_min_ticket_cost->f('price_us') != "0.00" && $obj_min_ticket_cost->f('price_us') != null
+                && $obj_min_ticket_cost->f('price_mx') != "0.00" && $obj_min_ticket_cost->f('price_mx') != null) : ?>
+                <?php echo ' / '; ?>
+            <?php endif; ?>
+            <?php if ($obj_min_ticket_cost->f('price_mx') != "0.00" && $obj_min_ticket_cost->f('price_mx') != null) : ?>
+                MXP <?php echo number_format($obj_min_ticket_cost->f('price_mx'), 2); ?>
+            <?php endif; ?>
+        </a>
     </p>
 <?php endif; ?>
 

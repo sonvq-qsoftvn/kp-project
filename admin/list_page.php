@@ -55,7 +55,7 @@ $new_pattern = array("_", "-", "");
 
 function del(eID)
 {
-	if(confirm("Are you sure you want to delete this venue?"))
+	if(confirm("Are you sure you want to delete this page?"))
 	{
 		location.href="<?php echo $obj_base_path->base_path(); ?>/admin/delete-page/"+eID;
 	}

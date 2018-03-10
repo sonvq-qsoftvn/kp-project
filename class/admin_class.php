@@ -2829,6 +2829,13 @@ function allGalleryByID($event_id,$limit){
 	return $this->query($sql);
 }
 
+function allGalleryByIDNoLimit($event_id) {
+
+    $sql = "SELECT *, M.media_id as m_id FROM " . $this->prefix() . "media M Left join " . $this->prefix() . "media_language ML ON (M.media_id = ML.media_id ) Left join " . $this->prefix() . "event_gallery EG on (EG.media_id = M.media_id)  WHERE EG.event_id=" . $event_id . "  AND ML.language_id='es_MX' Order By M.media_id DESC";
+    //echo $sql;
+    return $this->query($sql);
+}
+
 function allGalleryByID_count($event_id){
 
 	$sql="SELECT * FROM ".$this->prefix()."media M Left join ".$this->prefix()."media_language ML ON (M.media_id = ML.media_id ) Left join ".$this->prefix()."event_gallery EG on (EG.media_id = M.media_id)  WHERE EG.event_id=".$event_id."  AND ML.language_id='es_MX' Order By M.media_id DESC";
