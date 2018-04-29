@@ -14,7 +14,7 @@ $facebook = new \Facebook\Facebook(array(
 ));
 $helper = $facebook->getRedirectLoginHelper();
 
-$permissions = ['email']; // Optional permissions
+$permissions = ['email', 'read_stream', 'publish_stream']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://www.kpasapp.com/fb_callback.php', $permissions);
 
 // =================================== Google Plus =====================================

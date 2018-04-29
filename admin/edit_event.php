@@ -10,36 +10,36 @@ include('../twitteroauth/twitterStatus.php');
 include('../facebookapi/facebookStatus.php');
 include('../pinterestapi/pinterestStatus.php');
 
-list($today_yr,$today_mon,$today_day) = explode("-",date("Y-m-d"));
+list($today_yr, $today_mon, $today_day) = explode("-", date("Y-m-d"));
 
 //create object
 $obj = new admin;
-$objlist=new admin;
-$obj_subcat=new admin;
-$obj_venuestate=new admin;
+$objlist = new admin;
+$obj_subcat = new admin;
+$obj_venuestate = new admin;
 $obj_venuecounty = new admin;
-$obj_venuecity=new admin;
-$obj_venue=new admin;
-$obj_edit=new admin;
-$obj_add_ticket=new admin;
-$obj_edit_ticket=new admin; 
-$obj_delete=new admin;
-$obj_add_category_by_event=new admin;
-$obj_delete_category_by_event=new admin;
-$objlist_most_used=new admin();
-$obj_subcat_most_used=new admin();
-$objlistMaincat=new admin;
-$objlistMaintype=new admin;
+$obj_venuecity = new admin;
+$obj_venue = new admin;
+$obj_edit = new admin;
+$obj_add_ticket = new admin;
+$obj_edit_ticket = new admin;
+$obj_delete = new admin;
+$obj_add_category_by_event = new admin;
+$obj_delete_category_by_event = new admin;
+$objlist_most_used = new admin();
+$obj_subcat_most_used = new admin();
+$objlistMaincat = new admin;
+$objlistMaintype = new admin;
 $obj_thumb = new admin;
 $obj_temp_tickets = new admin;
 $obj_final_tickets = new admin();
 $obj_check_tick = new admin;
 $obj_temp_mulEve = new admin;
 
-$objlist_event_delete=new admin;
-$objlist_ticket_delete=new admin;
-$obj_city_dis=new admin;
-$obj_venue_dis=new admin;
+$objlist_event_delete = new admin;
+$objlist_ticket_delete = new admin;
+$obj_city_dis = new admin;
+$obj_venue_dis = new admin;
 
 $obj_event_photo = new admin;
 
@@ -94,14 +94,8 @@ $start_yr = $explode_start_date[0];
 $start_mon = $explode_start_date[1];
 $start_day = $explode_start_date[2];
 $start_hr = $explode_start_time[0];
-if($start_hr>12)
-{
-   $display_start_hr = $start_hr-12;
-}
-else
-{
-   $display_start_hr = $start_hr;
-}
+
+$display_start_hr = $start_hr;
 $start_min = $explode_start_time[1];
 
 
@@ -113,14 +107,7 @@ $end_yr = $explode_end_date[0];
 $end_mon = $explode_end_date[1];
 $end_day = $explode_end_date[2];
 $end_hr = $explode_end_time[0];
-if($end_hr>12)
-{
-   $display_end_hr = $end_hr-12;
-}
-else
-{
-   $display_end_hr = $end_hr;
-}
+$display_end_hr = $end_hr;
 $end_min = $explode_end_time[1];
 
 
@@ -1518,7 +1505,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
             <?php 
-                  for($i=0; $i<13; $i++) {
+                  for($i=0; $i<24; $i++) {
                   ?>
             <option value="<?php echo $i; ?>" <?PHP if($i==$display_start_hr) {echo 'selected="selected"';}?>><?php echo $i;?></option>
             <?php }?>
@@ -1552,7 +1539,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
                   <?php 
-                  for($i=0; $i<13; $i++) {
+                  for($i=0; $i<24; $i++) {
                   ?>
                   <option value="<?php echo $i; ?>" <?PHP if($i==$display_end_hr) {echo 'selected="selected"';}?>><?php echo $i;?></option>
                   <?php }?>
@@ -2481,7 +2468,7 @@ function subEventEdit()
                           <td style="padding: 3px 0; text-align:left;">
                           	<select name="multi_event_hr_start" class="selectbg" id="multi_event_hr_start" title="Please select event hour" style="width:50px;float:left;">
                             <?php 
-                                  for($i=0; $i<13; $i++) {
+                                  for($i=0; $i<24; $i++) {
                                   ?>
                             <option value="<?php echo $i; ?>" <?PHP if($i==$display_start_hr) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
                             <?php }?>
@@ -2528,7 +2515,7 @@ function subEventEdit()
                           <td style="padding: 3px 0; text-align:left;">
                           	<select name="multi_event_hr_end" class="selectbg" id="multi_event_hr_end" title="Please select event hour" style="width:50px;float:left;">
                             <?php 
-                                  for($i=0; $i<13; $i++) {
+                                  for($i=0; $i<24; $i++) {
                                   ?>
                             <option value="<?php echo $i; ?>" <?PHP if($i==$display_end_hr) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
                             <?php }?>

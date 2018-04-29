@@ -60,6 +60,26 @@ $singleAds = array();
 $globalCounter = 0;
 $arrayAdsObject = [];
 
+//448658348882428?fields=description,end_time,name,place,start_time,id,cover,timezone,owner,attending_count,interested_count,maybe_count,declined_count,noreply_count
+//require './facebook-php/src/Facebook/autoload.php';
+//$fb = new \Facebook\Facebook(array(
+//      'app_id' => '445192265673724',
+//      'app_secret' => '41f5bccae260641bce323da48eb35776',
+//			'default_graph_version' => 'v2.5',
+//      'default_access_token' => '445192265673724|41f5bccae260641bce323da48eb35776'
+//));
+//
+//if (isset($_SESSION['fb_access_token']) && !empty($_SESSION['fb_access_token'])) {
+//    try {
+//        // Returns a `Facebook\FacebookResponse` object
+//        $response = $fb->get('/me/events', $_SESSION['fb_access_token']);
+//        var_dump($response);
+//    } catch(Facebook\Exceptions\FacebookResponseException $e) {
+//        echo 'Graph returned an error: ' . $e->getMessage();
+//    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+//        echo 'Facebook SDK returned an error: ' . $e->getMessage();
+//    }
+//}
 
 while($rows= $objright_banner->next_record()) {
     $singleAds = [];

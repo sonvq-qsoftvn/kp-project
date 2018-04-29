@@ -101,299 +101,283 @@ if(isset($_GET['action']) && $_GET['action']=="delete")
 
 
 
-if(isset($_POST['addevent']) && $_POST['addevent'] == '1')	
-{
-	//print_r($_POST); exit;
-	//$finalArray = array_merge($_POST['maincat'],$_POST['subcat']);
-	$finalArray = $_POST['maincat'];
-	
-	$event_name_sp = addslashes(str_replace("'"," ",$_POST['event_name_sp']));
-	$event_name_en = addslashes(str_replace("'"," ",$_POST['event_name_en']));
-	
-	$short_desc_sp = addslashes(str_replace("'"," ",$_POST['short_desc_sp']));
-	$short_desc_en = addslashes(str_replace("'"," ",$_POST['short_desc_en']));
-	
-	// Check weather short Description is empty
-	if($short_desc_sp==""){
-		$short_desc_sp = substr(trim(strip_tags(addslashes($_POST['page_content_sp']))),0,160);
-	}
-	
-	if($short_desc_en==""){
-		$short_desc_en = substr(trim(strip_tags(addslashes($_POST['page_content_en']))),0,160);
-	}
+if (isset($_POST['addevent']) && $_POST['addevent'] == '1') {
+    $finalArray = $_POST['maincat'];
 
-	//echo "hii".$event_name_en; exit;
-	
-	if($_POST['event_start_ampm'] == 'PM')
-	{
-		if($_POST['event_hr_st'] == 12)
-                  {
-		    $event_start_hour=12;
-		  }
-		  else
-		  {
-	            $event_start_hour = $_POST['event_hr_st']+12;
-		  }
-	}
-	else
-	{
-	    $event_start_hour = $_POST['event_hr_st'];
-	}
-	$event_start_date_time = $_POST['event_year_st']."-".$_POST['event_month_st']."-".$_POST['event_day_st']." ".$event_start_hour."-".$_POST['event_min_st']."-00";
-	$event_start_ampm = $_POST['event_start_ampm'];
-	if($_POST['event_end_ampm'] == 'PM')
-	{
-		if($_POST['event_hr_end']== 12)
-		{
-			$event_end_hour =12;
-		}
-	        else
-		  {
-			$event_end_hour = $_POST['event_hr_end']+12;
-		  }
-	    
-	}
-	else
-	{
-	    $event_end_hour = $_POST['event_hr_end'];
-	}
-	$event_end_date_time = $_POST['event_year_end']."-".$_POST['event_month_end']."-".$_POST['event_day_end']." ".$event_end_hour."-".$_POST['event_min_end']."-00";
-	$event_end_ampm = $_POST['event_end_ampm'];
-	$venue_state = addslashes($_POST['venue_state']);
-	$venue_county = addslashes($_POST['venue_county']);
-	$venue_city = addslashes($_POST['venue_city']);
-	$venue = addslashes($_POST['venue']);
-	$page_content_en = addslashes($_POST['page_content_en']);
-	$page_content_sp = addslashes($_POST['page_content_sp']);
-	$event_tag = addslashes($_POST['event_tag']);
-	
-	$event_day_st=$_POST['event_day_st'];
-	$event_year_st=$_POST['event_year_st'];
-	$event_month_st=$_POST['event_month_st'];
-	
-	$event_year_end=$_POST['event_year_end'];
-	$event_month_end=$_POST['event_month_end'];
-	$event_day_end=$_POST['event_day_end'];
-	//$file_name = $_POST['event_photo'];
-	
-	$identical_function = $_POST['identical_function'];
-	$recurring = $_POST['recurring'];
-	$sub_events = $_POST['sub_events'];
-	
-	
-	$Paypal = $_POST['Paypal'];
-	$Bank = $_POST['Bank'];
-	$Oxxo = $_POST['Oxxo'];
-	$Mobile = $_POST['Mobile'];
-	$Offline = $_POST['Offline'];
-	
-	//$publish_date = $_POST['year_1']."-".$_POST['month_1']."-".$_POST['day_1'];
-	if(isset($_POST['saveEvent_x']))
-	{
-		$publish_date = $_POST['multi_event_year1']."-".$_POST['multi_event_month1']."-".$_POST['multi_event_day1'];
-	}
-	else
-	{
-		$publish_date = $_POST['year_1']."-".$_POST['month_1']."-".$_POST['day_1'];
-	}
-	
-	$event_time = $_POST['event_time'];
-	$event_time_period = $_POST['event_time_period'];
-	$r_month = $_POST['r_month'];
-	$r_month_day = $_POST['r_month_day'];
-	$mon = $_POST['Mon'];
-	$tue = $_POST['Tue'];
-	$wed = $_POST['Wed'];
-	$thu = $_POST['Thu'];
-	$fri = $_POST['Fri'];
-	$sat = $_POST['Sat'];
-	$sun = $_POST['Sun'];
-	
-	$r_span_start = $_POST['r_span_start'];
-	/*print_r($a1);
-	$arr = explode("/",$a1);
-	
-	$a = array($arr[2],$arr[0],$arr[1]);
-	$r_span_start = implode("-",$a);*/
-	
-	$r_span_end = $_POST['r_span_end'];
-	/*$arr1 = explode("/",$b1);
-	$b = array($arr1[2],$arr1[0],$arr1[1]);
-	$r_span_end = implode("-",$b);*/
-	
-	$event_start = $_POST['event_start'];
-	$event_end = $_POST['event_end'];
-	$all_day = $_POST['all_day'];
-	$event_lasts = $_POST['event_lasts'];
-	
-	$attendees = $_POST['attendees'];
-	$invitation_only = $_POST['invitation_only'];
-	$password_protect_check = $_POST['password_protect_check'];
-	$pass_protected = $_POST['pass_protected'];
-	
-	$privacy = $_POST['privacy'];
-	
-	$radio_access = $_POST['radio_access'];
-	if($radio_access == 1){
-		$pay_ticket_fee = $_POST['pay_ticket_fee'];
-		$promo_charge = $_POST['promo_charge'];
-	}
-	else
-	{
-		$pay_ticket_fee = '';
-		$promo_charge = '';
-	}
-	
-	$event_types = $_POST['event_types'];
-	
-	$paper_less_mob_ticket = $_POST['paper_less_mob_ticket'];
-	$print = $_POST['print'];
-	$will_call = $_POST['will_call'];
-	
-	
-	if(isset($_POST['saveEvent_x']))
-	{
-		$status = 'saved';
-	}
-	else
-	{
-		$status = $_POST['status'];
-	}
-	
-	//$status = $_POST['status'];
-	//echo "hii".$publish_date; exit;
-	
-	$fetch_temp_tickets_num=$obj_temp_tickets_call->fetch_temp_tickets($_SESSION['unique_id']);
-	//echo $_POST['ticket_buy']; exit;
-	
-	if(($fetch_temp_tickets_num!=0 && $_POST['ticket_buy']==1) || $_POST['ticket_buy']==0)
-	{
-		
-		// Add Event Tickets
-		$obj_add_ticket->addFinalTicket($_SESSION['unique_id']);
-		
-	
-		// Delete Temp Event
-		$obj_delete->deleteTicket($_SESSION['unique_id']);
-	
-	}
-	/*else
-	{
-		$msg="You must add tickets!!!";
-	}*/
-	
-	// Add Event
-	//$last_event_id = $obj_add->addEvent($event_name_sp,$event_name_en,$short_desc_sp,$short_desc_en,$event_start_date_time,$event_start_ampm,$event_end_date_time,$event_end_ampm,$venue_state,$venue_county,$venue_city,$venue,$page_content_en,$page_content_sp,$event_tag,$file_name,$identical_function,$recurring,$sub_events,$Paypal,$Bank,$Oxxo,$Mobile,$Offline,$publish_date,$event_time,$event_time_period,$r_month,$r_month_day,$mon,$tue,$wed,$thu,$fri,$sat,$sun,$r_span_start,$r_span_end,$event_start,$event_end,$all_day,$event_lasts,$attendees,$invitation_only,$password_protect_check,$pass_protected,$radio_access,$pay_ticket_fee,$promo_charge,$paper_less_mob_ticket,$print,$will_call);
-	
-	$obj_get_event_id->get_event_id($_SESSION['unique_id']);
-	$obj_get_event_id->next_record();
-	$event_id = $obj_get_event_id->f('event_id');
-	//echo "hii".$event_id; exit;
-	
-	
- /*       
-try {
-        // post to twitter
-        $objLocation->getStateCountyByEventID($event_id);
-        $objLocation->next_record();  
-        $objVenueLocation->getVenueLocationByVenueID($venue);
-        $objVenueLocation->next_record();
-        
-        $urlEventEN = $obj_base_path->base_path(). $objCommon->getEventURLByEventID($event_id, $objLocation, 'en', 'event', $event_name_en);
-        $urlEventES = $obj_base_path->base_path(). $objCommon->getEventURLByEventID($event_id, $objLocation, 'es', 'evento', $event_name_sp);
-        
-        $twitterTime = substr($event_start_date_time, 0, 10);
+    $event_name_sp = addslashes(str_replace("'", " ", $_POST['event_name_sp']));
+    $event_name_en = addslashes(str_replace("'", " ", $_POST['event_name_en']));
 
-        $dateEN = date_create_from_format('Y-m-d', $twitterTime);
-        $twitterDateEN = date_format($dateEN, 'd-M');
+    $short_desc_sp = addslashes(str_replace("'", " ", $_POST['short_desc_sp']));
+    $short_desc_en = addslashes(str_replace("'", " ", $_POST['short_desc_en']));
 
-        setlocale(LC_TIME, 'es_ES');
-        $twitterDateES = strftime("%d-%b", strtotime($twitterTime));               
-        
-        $venueEN = $objVenueLocation->f('venue_name');
-        $venueES = $objVenueLocation->f('venue_name_sp');
-        $cityName = $objVenueLocation->f('city_name');
-        
-        $eventNameEN = $_POST['event_name_en'];
-        $eventNameES = $_POST['event_name_sp'];
-       
-        $statusTwitterEN = "$eventNameEN, $twitterDateEN, $venueEN, $cityName, visit: $urlEventEN";
-        $statusTwitterES = "$eventNameES, $twitterDateES, $venueES, $cityName, visit: $urlEventES";
-        //$objTwitter->postStatus($statusTwitterEN);
-        //$objTwitter->postStatus($statusTwitterES);               
-        
-        // Post to facebook
-        $statusFacebookEN = [
-            'link' => $urlEventEN,
-            'message' => "$eventNameEN, $twitterDateEN, $venueEN, $cityName",
-        ];
-        $statusFacebookES = [
-            'link' => $urlEventES,
-            'message' => "$eventNameES, $twitterDateES, $venueES, $cityName",
-        ];
-        //$objFacebook->postStatus($statusFacebookEN);
-        //$objFacebook->postStatus($statusFacebookES);
-        
-        
-        // Post to pinterest
-        $imagePinterestDefault = $obj_base_path->base_path() . '/images/kpasapp_logo_fb.png';
-        $obj_event_photo->getPhotoByEventId($event_id);
-        if($obj_event_photo->num_rows()){
-            $obj_event_photo->next_record();
-            if($obj_event_photo->f('event_photo') != "") {
-                $imagePinterestDefault = $obj_base_path->base_path() . '/files/event/large/' . $obj_event_photo->f('event_photo');
-            }
-        }
-        $statusPinterestEN = [
-            'url' => $urlEventEN,
-            'description' => "$eventNameEN, $twitterDateEN, $venueEN, $cityName",
-            'image' => $imagePinterestDefault
-        ];
-        $statusPinterestES = [
-            'url' => $urlEventES,
-            'description' => "$eventNameES, $twitterDateES, $venueES, $cityName",
-            'image' => $imagePinterestDefault
-        ];
-        
-        $objPinterest->postStatus($statusPinterestEN, $venue_county, 'en');
-        $objPinterest->postStatus($statusPinterestES, $venue_county, 'es');
-        
-        setlocale(LC_TIME, 'en_US');
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}   
-  */  
-	$last_event_id = $obj_add->editSavedEvent($_SESSION['ses_user_id'],$event_name_sp,$event_name_en,$short_desc_sp,$short_desc_en,$event_start_date_time,$event_start_ampm,$event_end_date_time,$event_end_ampm,$venue_state,$venue_county,$venue_city,$venue,$page_content_en,$page_content_sp,$event_tag,$identical_function,$recurring,$sub_events,$Paypal,$Bank,$Oxxo,$Mobile,$Offline,$publish_date,$event_time,$event_time_period,$r_month,$r_month_day,$mon,$tue,$wed,$thu,$fri,$sat,$sun,$r_span_start,$r_span_end,$event_start,$event_end,$all_day,$event_lasts,$attendees,$invitation_only,$password_protect_check,$pass_protected,$radio_access,$pay_ticket_fee,$promo_charge,$paper_less_mob_ticket,$print,$will_call,$status,$privacy,$_SESSION['unique_id']);
-	
-	// Add Multiple Events
-	$obj_multi->addMultipleEvent($_SESSION['unique_id'],$event_id);
-	
-	// Add category Event
-	$obj_add_category_by_event->addCategoryByEvent($finalArray,$event_id);
-	
-	// Add Event Type
-	
-	$obj_add_eventtype->addEventType($event_types,$event_id);
-	
-	// Update event Id
-	//$obj_edit_ticket->editTicketByEvent($_SESSION['unique_id'],$last_event_id);
-	//echo "hii";
-	//
-	if(isset($_POST['saveEvent_x']))
-	{
-	    $_SESSION['msg'] = "Event saved successfully";
+    // Check weather short Description is empty
+    if ($short_desc_sp == "") {
+        $short_desc_sp = substr(trim(strip_tags(addslashes($_POST['page_content_sp']))), 0, 160);
+    }
 
-	}
-	else
-	{
-		$_SESSION['msg'] = "Event created successfully";
-	}
-	
+    if ($short_desc_en == "") {
+        $short_desc_en = substr(trim(strip_tags(addslashes($_POST['page_content_en']))), 0, 160);
+    }
 
+//	if($_POST['event_start_ampm'] == 'PM') {
+//            if($_POST['event_hr_st'] == 12) {
+//                $event_start_hour=12;
+//            } else {
+//                $event_start_hour = $_POST['event_hr_st']+12;
+//            }
+//	} else {
+//	    $event_start_hour = $_POST['event_hr_st'];
+//	}
         
-        
-	header("Location:".$obj_base_path->base_path()."/admin/events");
-	exit;
+    $event_start_hour = $_POST['event_hr_st'];    
+    $event_start_date_time = $_POST['event_year_st'] . "-" . $_POST['event_month_st'] . "-" . $_POST['event_day_st'] . " " . $event_start_hour . "-" . $_POST['event_min_st'] . "-00";
+    if ($event_start_hour < 12) {
+        $event_start_ampm = 'AM';  
+    } else {
+        $event_start_ampm = 'PM';  
+    }
+//    $event_start_ampm = $_POST['event_start_ampm'];
+//    if ($_POST['event_end_ampm'] == 'PM') {
+//        if ($_POST['event_hr_end'] == 12) {
+//            $event_end_hour = 12;
+//        } else {
+//            $event_end_hour = $_POST['event_hr_end'] + 12;
+//        }
+//    } else {
+//        $event_end_hour = $_POST['event_hr_end'];
+//    }
+    $event_end_hour = $_POST['event_hr_end'];
+    
+    $event_end_date_time = $_POST['event_year_end'] . "-" . $_POST['event_month_end'] . "-" . $_POST['event_day_end'] . " " . $event_end_hour . "-" . $_POST['event_min_end'] . "-00";
+//    $event_end_ampm = $_POST['event_end_ampm'];
+    
+    if ($event_end_hour < 12) {
+        $event_end_ampm = 'AM';  
+    } else {
+        $event_end_ampm = 'PM';  
+    }
+    
+    $venue_state = addslashes($_POST['venue_state']);
+    $venue_county = addslashes($_POST['venue_county']);
+    $venue_city = addslashes($_POST['venue_city']);
+    $venue = addslashes($_POST['venue']);
+    $page_content_en = addslashes($_POST['page_content_en']);
+    $page_content_sp = addslashes($_POST['page_content_sp']);
+    $event_tag = addslashes($_POST['event_tag']);
+
+    $event_day_st = $_POST['event_day_st'];
+    $event_year_st = $_POST['event_year_st'];
+    $event_month_st = $_POST['event_month_st'];
+
+    $event_year_end = $_POST['event_year_end'];
+    $event_month_end = $_POST['event_month_end'];
+    $event_day_end = $_POST['event_day_end'];
+    //$file_name = $_POST['event_photo'];
+
+    $identical_function = $_POST['identical_function'];
+    $recurring = $_POST['recurring'];
+    $sub_events = $_POST['sub_events'];
+
+
+    $Paypal = $_POST['Paypal'];
+    $Bank = $_POST['Bank'];
+    $Oxxo = $_POST['Oxxo'];
+    $Mobile = $_POST['Mobile'];
+    $Offline = $_POST['Offline'];
+
+    //$publish_date = $_POST['year_1']."-".$_POST['month_1']."-".$_POST['day_1'];
+    if (isset($_POST['saveEvent_x'])) {
+        $publish_date = $_POST['multi_event_year1'] . "-" . $_POST['multi_event_month1'] . "-" . $_POST['multi_event_day1'];
+    } else {
+        $publish_date = $_POST['year_1'] . "-" . $_POST['month_1'] . "-" . $_POST['day_1'];
+    }
+
+    $event_time = $_POST['event_time'];
+    $event_time_period = $_POST['event_time_period'];
+    $r_month = $_POST['r_month'];
+    $r_month_day = $_POST['r_month_day'];
+    $mon = $_POST['Mon'];
+    $tue = $_POST['Tue'];
+    $wed = $_POST['Wed'];
+    $thu = $_POST['Thu'];
+    $fri = $_POST['Fri'];
+    $sat = $_POST['Sat'];
+    $sun = $_POST['Sun'];
+
+    $r_span_start = $_POST['r_span_start'];
+    /* print_r($a1);
+      $arr = explode("/",$a1);
+
+      $a = array($arr[2],$arr[0],$arr[1]);
+      $r_span_start = implode("-",$a); */
+
+    $r_span_end = $_POST['r_span_end'];
+    /* $arr1 = explode("/",$b1);
+      $b = array($arr1[2],$arr1[0],$arr1[1]);
+      $r_span_end = implode("-",$b); */
+
+    $event_start = $_POST['event_start'];
+    $event_end = $_POST['event_end'];
+    $all_day = $_POST['all_day'];
+    $event_lasts = $_POST['event_lasts'];
+
+    $attendees = $_POST['attendees'];
+    $invitation_only = $_POST['invitation_only'];
+    $password_protect_check = $_POST['password_protect_check'];
+    $pass_protected = $_POST['pass_protected'];
+
+    $privacy = $_POST['privacy'];
+
+    $radio_access = $_POST['radio_access'];
+    if ($radio_access == 1) {
+        $pay_ticket_fee = $_POST['pay_ticket_fee'];
+        $promo_charge = $_POST['promo_charge'];
+    } else {
+        $pay_ticket_fee = '';
+        $promo_charge = '';
+    }
+
+    $event_types = $_POST['event_types'];
+
+    $paper_less_mob_ticket = $_POST['paper_less_mob_ticket'];
+    $print = $_POST['print'];
+    $will_call = $_POST['will_call'];
+
+
+    if (isset($_POST['saveEvent_x'])) {
+        $status = 'saved';
+    } else {
+        $status = $_POST['status'];
+    }
+
+    //$status = $_POST['status'];
+    //echo "hii".$publish_date; exit;
+
+    $fetch_temp_tickets_num = $obj_temp_tickets_call->fetch_temp_tickets($_SESSION['unique_id']);
+    //echo $_POST['ticket_buy']; exit;
+
+    if (($fetch_temp_tickets_num != 0 && $_POST['ticket_buy'] == 1) || $_POST['ticket_buy'] == 0) {
+
+        // Add Event Tickets
+        $obj_add_ticket->addFinalTicket($_SESSION['unique_id']);
+
+
+        // Delete Temp Event
+        $obj_delete->deleteTicket($_SESSION['unique_id']);
+    }
+    /* else
+      {
+      $msg="You must add tickets!!!";
+      } */
+
+    // Add Event
+    //$last_event_id = $obj_add->addEvent($event_name_sp,$event_name_en,$short_desc_sp,$short_desc_en,$event_start_date_time,$event_start_ampm,$event_end_date_time,$event_end_ampm,$venue_state,$venue_county,$venue_city,$venue,$page_content_en,$page_content_sp,$event_tag,$file_name,$identical_function,$recurring,$sub_events,$Paypal,$Bank,$Oxxo,$Mobile,$Offline,$publish_date,$event_time,$event_time_period,$r_month,$r_month_day,$mon,$tue,$wed,$thu,$fri,$sat,$sun,$r_span_start,$r_span_end,$event_start,$event_end,$all_day,$event_lasts,$attendees,$invitation_only,$password_protect_check,$pass_protected,$radio_access,$pay_ticket_fee,$promo_charge,$paper_less_mob_ticket,$print,$will_call);
+
+    $obj_get_event_id->get_event_id($_SESSION['unique_id']);
+    $obj_get_event_id->next_record();
+    $event_id = $obj_get_event_id->f('event_id');
+    //echo "hii".$event_id; exit;
+
+
+    /*
+      try {
+      // post to twitter
+      $objLocation->getStateCountyByEventID($event_id);
+      $objLocation->next_record();
+      $objVenueLocation->getVenueLocationByVenueID($venue);
+      $objVenueLocation->next_record();
+
+      $urlEventEN = $obj_base_path->base_path(). $objCommon->getEventURLByEventID($event_id, $objLocation, 'en', 'event', $event_name_en);
+      $urlEventES = $obj_base_path->base_path(). $objCommon->getEventURLByEventID($event_id, $objLocation, 'es', 'evento', $event_name_sp);
+
+      $twitterTime = substr($event_start_date_time, 0, 10);
+
+      $dateEN = date_create_from_format('Y-m-d', $twitterTime);
+      $twitterDateEN = date_format($dateEN, 'd-M');
+
+      setlocale(LC_TIME, 'es_ES');
+      $twitterDateES = strftime("%d-%b", strtotime($twitterTime));
+
+      $venueEN = $objVenueLocation->f('venue_name');
+      $venueES = $objVenueLocation->f('venue_name_sp');
+      $cityName = $objVenueLocation->f('city_name');
+
+      $eventNameEN = $_POST['event_name_en'];
+      $eventNameES = $_POST['event_name_sp'];
+
+      $statusTwitterEN = "$eventNameEN, $twitterDateEN, $venueEN, $cityName, visit: $urlEventEN";
+      $statusTwitterES = "$eventNameES, $twitterDateES, $venueES, $cityName, visit: $urlEventES";
+      //$objTwitter->postStatus($statusTwitterEN);
+      //$objTwitter->postStatus($statusTwitterES);
+
+      // Post to facebook
+      $statusFacebookEN = [
+      'link' => $urlEventEN,
+      'message' => "$eventNameEN, $twitterDateEN, $venueEN, $cityName",
+      ];
+      $statusFacebookES = [
+      'link' => $urlEventES,
+      'message' => "$eventNameES, $twitterDateES, $venueES, $cityName",
+      ];
+      //$objFacebook->postStatus($statusFacebookEN);
+      //$objFacebook->postStatus($statusFacebookES);
+
+
+      // Post to pinterest
+      $imagePinterestDefault = $obj_base_path->base_path() . '/images/kpasapp_logo_fb.png';
+      $obj_event_photo->getPhotoByEventId($event_id);
+      if($obj_event_photo->num_rows()){
+      $obj_event_photo->next_record();
+      if($obj_event_photo->f('event_photo') != "") {
+      $imagePinterestDefault = $obj_base_path->base_path() . '/files/event/large/' . $obj_event_photo->f('event_photo');
+      }
+      }
+      $statusPinterestEN = [
+      'url' => $urlEventEN,
+      'description' => "$eventNameEN, $twitterDateEN, $venueEN, $cityName",
+      'image' => $imagePinterestDefault
+      ];
+      $statusPinterestES = [
+      'url' => $urlEventES,
+      'description' => "$eventNameES, $twitterDateES, $venueES, $cityName",
+      'image' => $imagePinterestDefault
+      ];
+
+      $objPinterest->postStatus($statusPinterestEN, $venue_county, 'en');
+      $objPinterest->postStatus($statusPinterestES, $venue_county, 'es');
+
+      setlocale(LC_TIME, 'en_US');
+      } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+      }
+     */
+    $last_event_id = $obj_add->editSavedEvent($_SESSION['ses_user_id'], $event_name_sp, $event_name_en, $short_desc_sp, $short_desc_en, $event_start_date_time, $event_start_ampm, $event_end_date_time, $event_end_ampm, $venue_state, $venue_county, $venue_city, $venue, $page_content_en, $page_content_sp, $event_tag, $identical_function, $recurring, $sub_events, $Paypal, $Bank, $Oxxo, $Mobile, $Offline, $publish_date, $event_time, $event_time_period, $r_month, $r_month_day, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $r_span_start, $r_span_end, $event_start, $event_end, $all_day, $event_lasts, $attendees, $invitation_only, $password_protect_check, $pass_protected, $radio_access, $pay_ticket_fee, $promo_charge, $paper_less_mob_ticket, $print, $will_call, $status, $privacy, $_SESSION['unique_id']);
+
+    // Add Multiple Events
+    $obj_multi->addMultipleEvent($_SESSION['unique_id'], $event_id);
+
+    // Add category Event
+    $obj_add_category_by_event->addCategoryByEvent($finalArray, $event_id);
+
+    // Add Event Type
+
+    $obj_add_eventtype->addEventType($event_types, $event_id);
+
+    // Update event Id
+    //$obj_edit_ticket->editTicketByEvent($_SESSION['unique_id'],$last_event_id);
+    //echo "hii";
+    //
+	if (isset($_POST['saveEvent_x'])) {
+        $_SESSION['msg'] = "Event saved successfully";
+    } else {
+        $_SESSION['msg'] = "Event created successfully";
+    }
+
+
+
+
+    header("Location:" . $obj_base_path->base_path() . "/admin/events");
+    exit;
 }
 /*else
 {*/
@@ -522,7 +506,7 @@ $(document).ready(function() {
 				
 				$('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">7</span>');
 				$('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : 00 </span>');
-				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
+//				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
 	
 			// +============= For multi-function: +=====================
 		}
@@ -584,7 +568,7 @@ $(document).ready(function() {
 				
 				$('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">7</span>');
 				$('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : 00 </span>');
-				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
+//				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
 	
 			// +============= For multi-function: +=====================
 			
@@ -647,7 +631,7 @@ $(document).ready(function() {
 				
 				$('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">7</span>');
 				$('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : 00 </span>');
-				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
+//				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
 	
 			// +============= For multi-function: +=====================
 		}
@@ -934,57 +918,46 @@ function changeTime(starttime)
 {
 	
    var endtime = parseInt(starttime)+2;
+   if (endtime > 23) {
+       endtime = 23;
+   }
    $('#event_hr_end').val(endtime);
    
 // +============= For multi-function: +=====================
 
-	// For Start Date
-	$('#multi_event_hr_start').val(parseInt(starttime));
+    // For Start Date
+    $('#multi_event_hr_start').val(parseInt(starttime));
 
-	// For End Date
-	$('#multi_event_hr_end').val(endtime);
-	
-	$('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">'+starttime+'</span>');
+    // For End Date
+    $('#multi_event_hr_end').val(parseInt(endtime));
+
+    $('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">'+starttime+'</span>');
 
 // +============= For multi-function: +=====================
    
-   var ampm=$('#event_end_ampm').val();
-  // alert(ampm);
-   if(starttime == '11')
-   {
-	  $('#event_hr_end').val(1);
-	  
-	  if (ampm=='PM')
-	   {
-		$('#event_end_ampm').val('AM');
-	   }
-	   else
-	   {
-		$('#event_end_ampm').val('PM')
-	   }
-   }
-   else if (starttime == '12') 
-   {
-	  $('#event_hr_end').val(2);
-	  //$('#event_end_ampm').val('PM');
-	  if (ampm=='PM')
-	   {
-		$('#event_end_ampm').val('AM');
-	   }
-	   else
-	   {
-		$('#event_end_ampm').val('PM')
-	   }
-   }
+    if (starttime < 12) {
+       $('#event_start_ampm').val('AM');
+       $('#multi_event_start_ampm').val('AM');
+    } else {
+       $('#event_start_ampm').val('PM');
+       $('#multi_event_start_ampm').val('PM');
+    }
+   
+    if (endtime < 12) {
+       $('#event_end_ampm').val('AM');
+    } else {
+        $('#event_end_ampm').val('PM');
+    }
 }
 function changeminTime(starttime)
 {
-	$('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : '+starttime+'</span>');
+
+    $('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : '+starttime+'</span>');
 }
-function changeAMPM(starttime)
-{
-	$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> - '+starttime+'</span>');
-}
+//function changeAMPM(starttime)
+//{
+//    $('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> - '+starttime+'</span>');
+//}
 
 
 </script>
@@ -1696,30 +1669,40 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
             <?php 
-                  for($i=0; $i<13; $i++) {
+                  for($i=0; $i<24; $i++) {
                   ?>
-            <option value="<?php echo $i; ?>" <?PHP if($i==7) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
+            <option value="<?php echo $i; ?>" <?PHP if($i==19) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
             <?php }?>
           </select></td>
           <td style="padding: 9px 0;">&nbsp;</td>
           <td style="padding: 9px 0;"><select name="event_min_st" class="selectbg" id="event_min_st" title="Please select event miniute" style="width:50px;float:left;"  onChange="changeminTime(this.value);">
                   <?php 
-                  for($j=00; $j<60; $j++) {
+                  for($j=0; $j<60; $j = $j + 5) {
                   ?>
-                  <option value="<?php echo $j; ?>" <?PHP if($j==00) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
+                  <option value="<?php echo $j; ?>" <?PHP if($j==0) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
 
                 </select></td>
-          <td style="padding: 9px 0;">&nbsp;</td>
-          <td style="padding: 9px 0;"><select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="changeAMPM(this.value);">
-                  <option value="AM">AM</option>
-                  <option value="PM" selected="selected">PM</option>
-                </select></td>
+            <td style="padding: 9px 0;">&nbsp;</td>
+            <td style="padding: 9px 0; visibility: hidden">
+                <select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="changeAMPM(this.value);">
+                    <option value="AM">AM</option>
+                    <option value="PM" selected="selected">PM</option>
+                </select>
+            </td>
           <td style="padding: 9px 0;"></td>
         </tr>
       </table></td>
       <td><h1 style="padding: 35px 0 0 10px;"><?=AD_ENDS;?></h1></td>
-      <td><table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 0 0 0;">
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>DD</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>MM</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>YYYY</strong></td>
+        </tr>
         <tr>
           <td><input type="text" name="event_day_end" id="event_date_end" value="<?php if($msg!="" && $event_day_end!=""){echo $event_day_end;}else{echo 00;}?>" class="textbg_grey" style="width: 30px;"/></td>
           <td>/</td>
@@ -1730,25 +1713,27 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
                   <?php 
-                  for($i=0; $i<13; $i++) {
+                  for($i=0; $i<24; $i++) {
                   ?>
-                  <option value="<?php echo $i; ?>" <?PHP if($i==9) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
+                  <option value="<?php echo $i; ?>" <?PHP if($i==21) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
                   <?php }?>
                 </select></td>
           <td style="padding: 9px 0;">/</td>
          <td style="padding: 9px 0;"><select name="event_min_end" class="selectbg" id="event_min_end" title="Please select event miniute" style="width:50px;float:left;">
                   <?php 
-                  for($j=0; $j<60; $j++) {
+                  for($j=0; $j<60; $j = $j + 5) {
                   ?>
-                  <option value="<?php echo $j; ?>" <?PHP if($j==00) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
+                  <option value="<?php echo $j; ?>" <?PHP if($j==0) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
                 </select></td>
-          <td style="padding: 9px 0;">/</td>
-         <td style="padding: 9px 0;"><select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;" onchange="saveAutoEvent();">
-                  <option value="AM">AM</option>
-                  <option value="PM" selected="selected">PM</option>
-                </select></td>
-          <td></td>
+            <td style="padding: 9px 0; visibility: hidden">/</td>
+            <td style="padding: 9px 0; visibility: hidden">
+                <select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;" onchange="saveAutoEvent();">
+                    <option value="AM">AM</option>
+                    <option value="PM" selected="selected">PM</option>
+                </select>
+            </td>
+            <td></td>
           
         </tr>
       </table></td>
@@ -2728,27 +2713,29 @@ function media_library()
                       <td style="padding: 3px 0; text-align:left;">
                         <select name="multi_event_hr_start" class="selectbg" id="multi_event_hr_start" title="Please select event hour" style="width:50px;float:left;">
                         <?php 
-                              for($i=0; $i<13; $i++) {
+                              for($i=0; $i<24; $i++) {
                               ?>
-                        <option value="<?php echo $i; ?>" <?PHP if($i==7) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
+                        <option value="<?php echo $i; ?>" <?PHP if($i==19) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
                         <?php }?>
                       </select></td>
                       <td style="padding: 3px 0; text-align:left;">&nbsp;</td>
                       <td style="padding: 3px 0 0 0;">
                             <select name="multi_event_min_start" class="selectbg" id="multi_event_min_start" title="Please select event miniute" style="width:50px;float:left;">
                               <?php 
-                              for($j=00; $j<60; $j++) {
+                              for($j=00; $j<60; $j = $j + 5) {
                               ?>
                               <option value="<?php echo $j; ?>" <?PHP if($j==00) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                               <?php }?>
                                   
                             </select></td>
-                      <td style="padding: 3px 0; text-align:left;">&nbsp;</td>
-                      <td style="padding: 3px 0; text-align:left;"><select name="multi_event_start_ampm" class="selectbg" id="multi_event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;">
-                              <option value="AM">AM</option>
-                              <option value="PM" selected="selected">PM</option>
-                            </select></td>
-                      </tr>
+                        <td style="padding: 3px 0; text-align:left;">&nbsp;</td>
+                            <td style="padding: 3px 0; text-align:left; visibility: hidden">
+                                <select name="multi_event_start_ampm" class="selectbg" id="multi_event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;">
+                                    <option value="AM">AM</option>
+                                    <option value="PM" selected="selected">PM</option>
+                                </select>
+                            </td>
+                        </tr>
                   </table>
                   </td>
                  </tr>
@@ -2776,9 +2763,9 @@ function media_library()
                       <td style="padding: 3px 0; text-align:left;">
                         <select name="multi_event_hr_end" class="selectbg" id="multi_event_hr_end" title="Please select event hour" style="width:50px;float:left;">
                         <?php 
-                              for($i=0; $i<13; $i++) {
+                              for($i=0; $i<23; $i++) {
                               ?>
-                        <option value="<?php echo $i; ?>" <?PHP if($i==9) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
+                        <option value="<?php echo $i; ?>" <?PHP if($i==21) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
                         <?php }?>
                       </select></td>
                       <td style="padding: 3px 0; text-align:left;">&nbsp;</td>
