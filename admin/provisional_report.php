@@ -173,15 +173,9 @@ function allReportCheck(source) {
 				<td width="9%" class="top_txt"><input type="checkbox" name="report_check[]" id="report_check" value="<?php echo $objEventDetails->f('e_id'); ?>"></td>
 				<td><?php echo stripslashes($objEventDetails->f('event_name_en'));?></td>
 				<td><?php 
-				if($ev_hr>12){
-				$hr = $ev_hr - 12;
-				}
-				else
-				{
 				$hr = $ev_hr;
-				}
 				
-				echo $ev_day."/".$ev_mon."/".$ev_year." - ".$hr.":".$ev_min." ".$objEventDetails->f('event_start_ampm');?></td>
+				echo $ev_day."/".$ev_mon."/".$ev_year." - ".$hr.":".$ev_min;?></td>
 				<td><?php echo $objEventDetails->f('venue_name');?></td>
 				<td style="padding: 5px 0;"><?php echo $objEventDetails->f('city_name');?></td>
 				</tr>

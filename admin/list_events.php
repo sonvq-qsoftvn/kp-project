@@ -374,15 +374,9 @@ function submit_by_js(){
         <?php endif; ?>
         <td><?php echo stripslashes($objlist->f('event_name_'.$_SESSION['langAdminSelected']));?></td>
         <td><?php 
-		if($ev_hr>12){
-			$hr = $ev_hr - 12;
-		}
-		else
-		{
-			$hr = $ev_hr;
-		}
+		$hr = $ev_hr;
 		
-		echo $ev_day."/".$ev_mon."/".$ev_year." - ".$hr.":".$ev_min." ".$objlist->f('event_start_ampm');?>
+		echo $ev_day."/".$ev_mon."/".$ev_year." - ".$hr.":".$ev_min;?>
 		</td>
         <td><?php echo $objlist->f('venue_name');?></td>
         <td style="padding: 5px 0;"><?php echo $objlist->f('city_name');?></td>

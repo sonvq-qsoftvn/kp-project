@@ -35,24 +35,13 @@ $short_desc_sp = addslashes($_POST['short_desc_sp']);
 $short_desc_en = addslashes($_POST['short_desc_en']);
 
 
-if($_POST['event_start_ampm'] == 'PM')
-{
-	$event_start_hour = $_POST['event_hr_st']+12;
-}
-else
-{
-	$event_start_hour = $_POST['event_hr_st'];
-}
+$event_start_hour = $_POST['event_hr_st'];
+
 $event_start_date_time = $_POST['event_year_st']."-".$_POST['event_month_st']."-".$_POST['event_day_st']." ".$event_start_hour."-".$_POST['event_min_st']."-00";
 $event_start_ampm = $_POST['event_start_ampm'];
-if($_POST['event_end_ampm'] == 'PM')
-{
-	$event_end_hour = $_POST['event_hr_end']+12;
-}
-else
-{
-	$event_end_hour = $_POST['event_hr_end'];
-}
+
+$event_end_hour = $_POST['event_hr_end'];
+
 $event_end_date_time = $_POST['event_year_end']."-".$_POST['event_month_end']."-".$_POST['event_day_end']." ".$event_end_hour."-".$_POST['event_min_end']."-00";
 $event_end_ampm = $_POST['event_end_ampm'];
 $venue_state = addslashes($_POST['venue_state']);

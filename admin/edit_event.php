@@ -173,69 +173,42 @@ if(isset($_GET['action']) && $_GET['action']=="delete")
 
 if(isset($_POST['editevent']) && $_POST['editevent'] == '1')	
 {
+    $finalArray = $_POST['maincat'];
 	
-	//print_r($_POST);exit;
-	$finalArray = $_POST['maincat'];
+    $event_name_sp = addslashes(str_replace("'"," ",$_POST['event_name_sp']));
+    $event_name_en = addslashes(str_replace("'"," ",$_POST['event_name_en']));
 	
-	$event_name_sp = addslashes(str_replace("'"," ",$_POST['event_name_sp']));
-	$event_name_en = addslashes(str_replace("'"," ",$_POST['event_name_en']));
-	
-	$short_desc_sp = addslashes(str_replace("'"," ",$_POST['short_desc_sp']));
-	$short_desc_en = addslashes(str_replace("'"," ",$_POST['short_desc_en']));
+    $short_desc_sp = addslashes(str_replace("'"," ",$_POST['short_desc_sp']));
+    $short_desc_en = addslashes(str_replace("'"," ",$_POST['short_desc_en']));
 
-	// Check weather short Description is empty
-	if($short_desc_sp==""){
-		$short_desc_sp = substr(trim(strip_tags(addslashes($_POST['page_content_sp']))),0,160);
-	}
-	
-	if($short_desc_en==""){
-		$short_desc_en = substr(trim(strip_tags(addslashes($_POST['page_content_en']))),0,160);
-	}
+    // Check weather short Description is empty
+    if($short_desc_sp==""){
+        $short_desc_sp = substr(trim(strip_tags(addslashes($_POST['page_content_sp']))),0,160);
+    }
 
-	
-	//echo "hii".$event_name_en; exit;
-	
-	if($_POST['event_start_ampm'] == 'PM')
-	{
-          //echo "1st str=".$_POST['event_hr_st'];
-          if($_POST['event_hr_st'] == 12)
-             {
-               $event_start_hour=12;
-             }
-             else{
-	    $event_start_hour = $_POST['event_hr_st']+12;
-            //echo "evt_st_hr=".$event_start_hour;
-             }
-	}
-	else
-	{
-	    $event_start_hour = $_POST['event_hr_st'];
-            // echo "evt_st_hr_else=".$event_start_hour;
-	}
-	$event_start_date_time = $_POST['event_year_st']."-".$_POST['event_month_st']."-".$_POST['event_day_st']." ".$event_start_hour."-".$_POST['event_min_st']."-00";
-	//echo "st_date_check=".$event_start_date_time;
-        $event_start_ampm = $_POST['event_start_ampm'];
-        //echo "st_ampm_check2=".$event_start_ampm;
-	if($_POST['event_end_ampm'] == 'PM')
-	{
-          if($_POST['event_hr_end'] == 12)
-             {
-               $event_end_hour=12;
-             }
-          else{ 
-	    $event_end_hour = $_POST['event_hr_end']+12;
-            //echo "evnt_hr=".$event_end_hour ;
-            }
-            
-	}
-	else
-	{
-	    $event_end_hour = $_POST['event_hr_end'];
-            //echo "evnt_hr_else=".$event_end_hour ;
-	}
-	$event_end_date_time = $_POST['event_year_end']."-".$_POST['event_month_end']."-".$_POST['event_day_end']." ".$event_end_hour."-".$_POST['event_min_end']."-00";
-	//echo "end_date_check=".$event_end_date_time;
-        $event_end_ampm = $_POST['event_end_ampm'];
+    if($short_desc_en==""){
+        $short_desc_en = substr(trim(strip_tags(addslashes($_POST['page_content_en']))),0,160);
+    }
+
+    $event_start_hour = $_POST['event_hr_st'];
+        
+    $event_start_date_time = $_POST['event_year_st']."-".$_POST['event_month_st']."-".$_POST['event_day_st']." ".$event_start_hour."-".$_POST['event_min_st']."-00";
+    //echo "st_date_check=".$event_start_date_time;
+    if ($event_start_hour < 12) {
+        $event_start_ampm = 'AM';  
+    } else {
+        $event_start_ampm = 'PM';  
+    }
+    //echo "st_ampm_check2=".$event_start_ampm;
+    $event_end_hour = $_POST['event_hr_end'];
+
+    $event_end_date_time = $_POST['event_year_end']."-".$_POST['event_month_end']."-".$_POST['event_day_end']." ".$event_end_hour."-".$_POST['event_min_end']."-00";
+    //echo "end_date_check=".$event_end_date_time;
+    if ($event_end_hour < 12) {
+        $event_end_ampm = 'AM';  
+    } else {
+        $event_end_ampm = 'PM';  
+    }
         //echo "end_ampm_check=".$event_end_ampm;
         //exit;
 	$venue_state = addslashes($_POST['venue_state']);
@@ -852,22 +825,35 @@ $(function(){
 //		
 //	});
 	
+        function changeTimeMultiple (starttime) {
+            if (starttime < 12) {
+                $('#multi_event_start_ampm').val('AM');
+            } else {
+                $('#multi_event_start_ampm').val('PM');
+            }
+        }
 	
 	function changeTime(starttime)
 	{
-	   var endtime = parseInt(starttime)+2;
-	   $('#event_hr_end').val(endtime);
-	   
-	   if(starttime == '11' || starttime == '12')
-	   {
-          $('#event_hr_end').val(endtime);
-		  $('#event_end_ampm').val('AM');
-	   }
-	   else
-	   {
-		  $('#event_hr_end').val(endtime);
-		  //$('#event_end_ampm').val('PM');
-	   }
+            var endtime = parseInt(starttime)+2;
+            if (endtime > 23) {
+                endtime = 23;
+            }
+            $('#event_hr_end').val(endtime);
+
+            if (starttime < 12) {
+                $('#event_start_ampm').val('AM');
+                $('#multi_event_start_ampm').val('AM');
+            } else {
+                $('#event_start_ampm').val('PM');
+                $('#multi_event_start_ampm').val('PM');
+            }
+
+            if (endtime < 12) {
+                $('#event_end_ampm').val('AM');
+            } else {
+                $('#event_end_ampm').val('PM');
+            }
 	}
 	
 	
@@ -1510,25 +1496,35 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
             <option value="<?php echo $i; ?>" <?PHP if($i==$display_start_hr) {echo 'selected="selected"';}?>><?php echo $i;?></option>
             <?php }?>
           </select></td>
-          <td style="padding: 9px 0;">&nbsp;</td>
-          <td style="padding: 9px 0;"><select name="event_min_st" class="selectbg" id="event_min_st" title="Please select event miniute" style="width:50px;float:left;">
-                  <?php 
-                  for($j=00; $j<60; $j++) {
-                  ?>
-                  <option value="<?php echo $j; ?>" <?PHP if($j==$start_min) {echo 'selected="selected"';}?>><?php echo $j;?></option>
-                  <?php }?>
-                      
-                </select></td>
-          <td style="padding: 9px 0;">&nbsp;</td>
-          <td style="padding: 9px 0;"><select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="saveAutoEvent();">
-			    <option value="AM" <?php if($obj->f('event_start_ampm') == 'AM') {  ?> selected=selected <?php } ?>>AM</option>
-			    <option value="PM" <?php if($obj->f('event_start_ampm') == 'PM') {  ?> selected=selected <?php } ?>>PM</option>
-                </select></td>
-          <td style="padding: 9px 0;"></td>
+          <td style="padding: 9px 0;">/</td>
+            <td style="padding: 9px 0;">
+                <select name="event_min_st" class="selectbg" id="event_min_st" title="Please select event miniute" style="width:50px;float:left;">
+                    <?php 
+                        for($j=00; $j<60; $j = $j + 5) {
+                    ?>
+                        <option value="<?php echo $j; ?>" <?PHP if($j==$start_min) {echo 'selected="selected"';}?>><?php echo $j;?></option>
+                    <?php }?>                      
+                </select>
+            </td>
+            <td style="padding: 9px 0;">&nbsp;</td>
+            <td style="padding: 9px 0; visibility: hidden">
+                <select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="saveAutoEvent();">
+                    <option value="AM" <?php if($display_start_hr < 12) {  ?> selected=selected <?php } ?>>AM</option>
+                    <option value="PM" <?php if($display_start_hr >= 12) {  ?> selected=selected <?php } ?>>PM</option>
+                </select>
+            </td>
+            <td style="padding: 9px 0;"></td>
         </tr>
       </table></td>
       <td><h1 style="padding: 35px 0 0 10px;"><?= AD_ENDS ?></h1></td>
-      <td><table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 0 0 0;">
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>DD</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>MM</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong><?= AD_YEAR_FORMAT ?></strong></td>
+        </tr>
         <tr>
           <td><input type="text" name="event_day_end" id="event_date_end" value="<?php echo $end_day;?>" class="textbg_grey" style="width: 30px;"/></td>
           <td>/</td>
@@ -1547,16 +1543,18 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
           <td style="padding: 9px 0;">/</td>
          <td style="padding: 9px 0;"><select name="event_min_end" class="selectbg" id="event_min_end" title="Please select event miniute" style="width:50px;float:left;">
                   <?php 
-                  for($j=0; $j<60; $j++) {
+                  for($j=0; $j<60; $j = $j + 5) {
                   ?>
                   <option value="<?php echo $j; ?>" <?PHP if($j==$end_min) {echo 'selected="selected"';}?>><?php echo $j;?></option>
                   <?php }?>
                 </select></td>
-          <td style="padding: 9px 0;">/</td>
-         <td style="padding: 9px 0;"><select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;" onchange="saveAutoEvent();">
-				  <option value="AM" <?php if($obj->f('event_end_ampm') == 'AM') {  ?> selected=selected <?php } ?>>AM</option>
-				  <option value="PM" <?php if($obj->f('event_end_ampm') == 'PM') {  ?> selected=selected <?php } ?>>PM</option>
-                </select></td>
+            <td style="padding: 9px 0;">&nbsp;</td>
+            <td style="padding: 9px 0; visibility: hidden">
+                <select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;" onchange="saveAutoEvent();">
+                    <option value="AM" <?php if($display_end_hr < 12) {  ?> selected=selected <?php } ?>>AM</option>
+                    <option value="PM" <?php if($display_end_hr >= 12) {  ?> selected=selected <?php } ?>>PM</option>
+                </select>
+            </td>
           <td></td>
           
         </tr>
@@ -2191,15 +2189,8 @@ function edit_multipleEvents(temp_multi_event_id)
 	   getVenue_multi(data['multi_venue_city'],data['multi_venue'])*/
 	   
 	   //alert(data);
-	   if(parseInt(data['multi_tm_hr_start']) > 12)
-		   show_hr_val_start = (parseInt(data['multi_tm_hr_start']) - 12);
-		else
-			show_hr_val_start = parseInt(data['multi_tm_hr_start']);
-			
-	   if(parseInt(data['multi_tm_hr_end']) > 12)
-		   show_hr_val_end = (parseInt(data['multi_tm_hr_end']) - 12);
-		else
-			show_hr_val_end = parseInt(data['multi_tm_hr_end']);
+	   show_hr_val_start = parseInt(data['multi_tm_hr_start']);			
+	   show_hr_val_end = parseInt(data['multi_tm_hr_end']);
 			
 		// Fill the Text field
 	   $('#multi_event_day_start').val(data['multi_day_start']);
@@ -2398,7 +2389,7 @@ function subEventEdit()
                 	<span style="font-weight: bold;font-size:16px; padding: 0; margin:5px 0 0 14px; width: 240px; display: inline-block;"><?php echo stripslashes($event_name_show);?>,</span>
                 	<span style="font-weight:bold; padding: 0; margin: 0; font-size:16px;"><?php echo date("D",strtotime($explode_start_date_time_all[0]));?><span style="color:#0094A4;font-weight:bold; font-size:16px;"><?php echo date("M",strtotime($explode_start_date_time_all[0]))." ".date("d",strtotime($explode_start_date_time_all[0]));?></span></span>
                 	<span style="font-weight:bold; padding: 0; margin: 0; font-size:16px;color:#0094A4; padding-left:5px;">-</span>
-                	<span style="font-weight:bold; padding: 0; margin: 0; font-size:16px;color:#0094A4; padding-left:5px;"><?php echo date('g:i A',strtotime($explode_start_date_time_all[1]));?></span>                </div>
+                	<span style="font-weight:bold; padding: 0; margin: 0; font-size:16px;color:#0094A4; padding-left:5px;"><?php echo date('H:i',strtotime($explode_start_date_time_all[1]));?></span>                </div>
 				<div id="show_multi_events"  style="margin: 0 auto 5px auto;">
 				<?php				
 				echo '<div style=" max-height:95px;">';
@@ -2416,11 +2407,11 @@ function subEventEdit()
 				<div id="<?php echo $obj_temp_mulEve->f('multi_id');?>">
 				<div style="float: left; width: 420px;">
 				<?php /*?><p style="float: left; margin:0 auto;"><?php echo $obj_temp_mulEve->f('venue_name_multi').". ".$obj_temp_mulEve->f('city_name_multi').". ".$obj_temp_mulEve->f('state_name_multi')?></p><?php */?>
-				<span style="float: right; margin:0 auto; padding: 5px 0 0 0;"><?php echo date("D",strtotime($event_date))." ".date("M",strtotime($event_date))." ".date("d",strtotime($event_date)).", ".date("Y",strtotime($event_date));?> at <?php echo date('g:i A',strtotime($event_time)); ?></span>
+				<span style="float: right; margin:0 auto; padding: 5px 0 0 0;"><?php echo date("D",strtotime($event_date))." ".date("M",strtotime($event_date))." ".date("d",strtotime($event_date)).", ".date("Y",strtotime($event_date));?> at <?php echo date('H:i',strtotime($event_time)); ?></span>
 				</div>
 				<!--<div class="clear"></div>-->
 				<div style="float: right; width: 420px;">
-					<!--<span><?php echo date("D",strtotime($event_date))." ".date("M",strtotime($event_date))." ".date("d",strtotime($event_date)).", ".date("Y",strtotime($event_date));?> - <?php echo date('g:i a A',strtotime($event_time)); ?></span>-->
+					<!--<span><?php echo date("D",strtotime($event_date))." ".date("M",strtotime($event_date))." ".date("d",strtotime($event_date)).", ".date("Y",strtotime($event_date));?> - <?php echo date('H:i',strtotime($event_time)); ?></span>-->
 					    <span class="edit_del">
 						<span style="cursor:pointer;" onclick="edit_multipleEvents(<?php echo $obj_temp_mulEve->f('multi_id');?>)"><img src="<?php echo $obj_base_path->base_path(); ?>/images/edit.gif" alt="" width="20" height="16" border="0" align="absmiddle"/> <?= AD_EDIT ?></span> 
 						<span style="cursor:pointer;" onclick="delete_multipleEvents('<?php echo $obj_temp_mulEve->f('multi_id');?>','<?php echo $_GET['id'];?>')"><img src="<?php echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" border="0" align="absmiddle"/> <?= AD_DELETE ?></span>
@@ -2466,7 +2457,7 @@ function subEventEdit()
                         </tr>
                         <tr>
                           <td style="padding: 3px 0; text-align:left;">
-                          	<select name="multi_event_hr_start" class="selectbg" id="multi_event_hr_start" title="Please select event hour" style="width:50px;float:left;">
+                          	<select name="multi_event_hr_start" onchange="changeTimeMultiple(this.value);" class="selectbg" id="multi_event_hr_start" title="Please select event hour" style="width:50px;float:left;">
                             <?php 
                                   for($i=0; $i<24; $i++) {
                                   ?>
@@ -2477,17 +2468,19 @@ function subEventEdit()
                           <td style="padding: 3px 0 0 0;">
                           		<select name="multi_event_min_start" class="selectbg" id="multi_event_min_start" title="Please select event miniute" style="width:50px;float:left;">
                                   <?php 
-                                  for($j=00; $j<60; $j++) {
+                                  for($j=00; $j<60; $j = $j + 5) {
                                   ?>
                                   <option value="<?php echo $j; ?>"<?PHP if($j==$start_min) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                                   <?php }?>
                                       
                                 </select></td>
                           <td style="padding: 3px 0; text-align:left;">&nbsp;</td>
-                          <td style="padding: 3px 0; text-align:left;"><select name="multi_event_start_ampm" class="selectbg" id="multi_event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;">
-                                  <option value="AM" <?php if($obj->f('multi_event_start_ampm') == 'AM') {  ?> selected=selected <?php } ?>>AM</option>
-                                  <option value="PM" <?php if($obj->f('multi_event_start_ampm') == 'PM') {  ?> selected=selected <?php } ?>>PM</option>
-                                </select></td>
+                            <td style="padding: 3px 0; text-align:left; visibility: hidden">
+                                <select name="multi_event_start_ampm" class="selectbg" id="multi_event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;">
+                                    <option value="AM" <?php if($display_start_hr < 12) {  ?> selected=selected <?php } ?>>AM</option>
+                                    <option value="PM" <?php if($display_start_hr >= 12) {  ?> selected=selected <?php } ?>>PM</option>
+                                </select>
+                            </td>
                           </tr>
                       </table></td>
                      </tr>
@@ -2812,7 +2805,7 @@ function subEventEdit()
             <td style="text-align:left"><?php echo stripslashes($obj_subEv->f('event_name_en'));?></td>
             <td style="text-align:left"><?php echo $obj_subEv->f('venue_name');?></td>
             <td style="text-align:left"><?php echo $ev_st_day."/".$ev_st_mon."/".$ev_st_yr;?></td>
-            <td style="text-align:left"><?php echo date('g:i A',strtotime($eve_time_st))." - ".date('g:i A',strtotime($eve_time_end));?></td>
+            <td style="text-align:left"><?php echo date('H:i',strtotime($eve_time_st))." - ".date('H:i',strtotime($eve_time_end));?></td>
             <td style="text-align:left"><a href="<?php echo $obj_base_path->base_path(); ?>/admin/edit_sub_events_edit.php?sub_event_id=<?php echo $obj_subEv->f('event_id')?>&event_id=<?php echo $_GET['id'];?>"><img src="<?php echo $obj_base_path->base_path(); ?>/images/edit.gif" alt="" width="20" height="16" /></a></td>
             <td style="text-align:left"><a href="javascript:void(0);" onclick="deleteSubEvent('<?php echo $obj_subEv->f('event_id')?>','<?php echo $_GET['id'];?>');"><img src="<?php echo $obj_base_path->base_path(); ?>/images/cross.gif" alt="" width="20" height="16" /></a></td>
           </tr>

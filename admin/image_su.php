@@ -673,7 +673,7 @@ function save_new_popup()
 			 // Place the placeholder
 			 $("#ticket_name_sp").val("Nombre");
 			 $("#ticket_name_en").val("Name");
-			 $("#description_sp").val("DescripciÃ³n");
+			 $("#description_sp").val("Descripción");
 			 $("#description_en").val("Description");
 			 
 			 $('#ticket_num').css("border", "1px solid #CCCCCC");
@@ -3128,7 +3128,7 @@ You can also add photos or videos to your media library.</span>
          	</span>	
         <br/>
         	<span class="event_fieldbg8">
-            	<textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripciÃ³n</textarea>
+            	<textarea name="description_sp" id="description_sp" class="event_field" style="width: 290px; margin: 5px 0; height: 60px;" onClick="if(this.defaultValue==this.value) this.value=''" onBlur="if (this.value=='') this.value=this.defaultValue">Breve descripción</textarea>
             </span>
         </div>
         <div style="float: right; margin: 0 auto;">	

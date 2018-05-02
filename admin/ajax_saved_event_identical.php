@@ -9,12 +9,8 @@ $obj_edit_tic = new admin;
 $obj_check_saved = new admin;
 //print_r($_POST);exit;
 
-if($_POST['multi_event_start_ampm'] == 'PM'){
-	$event_start_hour = $_POST['multi_event_hr']+12;
-}
-else{
-	$event_start_hour = $_POST['multi_event_hr'];
-}
+$event_start_hour = $_POST['multi_event_hr'];
+
 $event_start_date_time = $_POST['multi_event_year']."-".$_POST['multi_event_month']."-".$_POST['multi_event_day']." ".$event_start_hour."-".$_POST['multi_event_min']."-00";
 $event_start_ampm = $_POST['multi_event_start_ampm'];
 $multi_venue_state = $_POST['multi_venue_state'];

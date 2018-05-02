@@ -913,15 +913,20 @@ $(function(){
 //		
 //	});
 
-
+function changeTimeMultiple (starttime) {
+    if (starttime < 12) {
+        $('#multi_event_start_ampm').val('AM');
+    } else {
+        $('#multi_event_start_ampm').val('PM');
+    }
+}
 function changeTime(starttime)
-{
-	
-   var endtime = parseInt(starttime)+2;
-   if (endtime > 23) {
+{	
+    var endtime = parseInt(starttime)+2;
+    if (endtime > 23) {
        endtime = 23;
-   }
-   $('#event_hr_end').val(endtime);
+    }
+    $('#event_hr_end').val(endtime);
    
 // +============= For multi-function: +=====================
 
@@ -1674,7 +1679,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
             <option value="<?php echo $i; ?>" <?PHP if($i==19) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
             <?php }?>
           </select></td>
-          <td style="padding: 9px 0;">&nbsp;</td>
+          <td style="padding: 9px 0;">/</td>
           <td style="padding: 9px 0;"><select name="event_min_st" class="selectbg" id="event_min_st" title="Please select event miniute" style="width:50px;float:left;"  onChange="changeminTime(this.value);">
                   <?php 
                   for($j=0; $j<60; $j = $j + 5) {
@@ -2395,15 +2400,9 @@ function edit_multipleEvents(temp_multi_event_id)
 	   data: data,   
 	   success: function(data){ 
 	   
-	   if(parseInt(data['multi_tm_hr_start']) > 12)
-		   show_hr_val_start = (parseInt(data['multi_tm_hr_start']) - 12);
-		else
-			show_hr_val_start = parseInt(data['multi_tm_hr_start']);
+	   show_hr_val_start = parseInt(data['multi_tm_hr_start']);
 			
-	   if(parseInt(data['multi_tm_hr_end']) > 12)
-		   show_hr_val_end = (parseInt(data['multi_tm_hr_end']) - 12);
-		else
-			show_hr_val_end = parseInt(data['multi_tm_hr_end']);
+	   show_hr_val_end = parseInt(data['multi_tm_hr_end']);
 			
 	  /* getCounty_multi(data['multi_venue_state'],data['venue_county_multi']);
 	   getCity_multi(data['venue_county_multi'],data['multi_venue_city']);
@@ -2711,7 +2710,7 @@ function media_library()
                     </tr>
                     <tr>
                       <td style="padding: 3px 0; text-align:left;">
-                        <select name="multi_event_hr_start" class="selectbg" id="multi_event_hr_start" title="Please select event hour" style="width:50px;float:left;">
+                        <select name="multi_event_hr_start" onchange="changeTimeMultiple(this.value);" class="selectbg" id="multi_event_hr_start" title="Please select event hour" style="width:50px;float:left;">
                         <?php 
                               for($i=0; $i<24; $i++) {
                               ?>

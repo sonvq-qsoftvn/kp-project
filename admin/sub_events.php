@@ -235,24 +235,13 @@ else if(isset($_POST['addevent']) && $_POST['addevent'] == '1')
 		$short_desc_en = substr(trim(strip_tags(addslashes($_POST['page_content_en']))),0,160);
 	}
 
-	if($_POST['event_start_ampm'] == 'PM')
-	{
-	    $event_start_hour = $_POST['event_hr_st']+12;
-	}
-	else
-	{
-	    $event_start_hour = $_POST['event_hr_st'];
-	}
+	$event_start_hour = $_POST['event_hr_st'];
+        
 	$event_start_date_time = $_POST['event_year_st']."-".$_POST['event_month_st']."-".$_POST['event_day_st']." ".$event_start_hour."-".$_POST['event_min_st']."-00";
 	$event_start_ampm = $_POST['event_start_ampm'];
-	if($_POST['event_end_ampm'] == 'PM')
-	{
-	    $event_end_hour = $_POST['event_hr_end']+12;
-	}
-	else
-	{
-	    $event_end_hour = $_POST['event_hr_end'];
-	}
+	
+        $event_end_hour = $_POST['event_hr_end'];
+        
 	$event_end_date_time = $_POST['event_year_end']."-".$_POST['event_month_end']."-".$_POST['event_day_end']." ".$event_end_hour."-".$_POST['event_min_end']."-00";
 	$event_end_ampm = $_POST['event_end_ampm'];
 	$venue_state = addslashes($_POST['venue_state']);
@@ -582,7 +571,7 @@ function save_new_popup()
 			 // Place the placeholder
 			 $("#ticket_name_sp").val("Nombre");
 			 $("#ticket_name_en").val("Name");
-			 $("#description_sp").val("DescripciÃ³n");
+			 $("#description_sp").val("Descripción");
 			 $("#description_en").val("Description");
 		 	$('#ticket_num').css("border", "1px solid #CCCCCC");
 			 
@@ -718,19 +707,23 @@ $(function(){
 
 function changeTime(starttime)
 {
-   var endtime = parseInt(starttime)+2;
-   $('#event_hr_end').val(endtime);
+    var endtime = parseInt(starttime)+2;
+    if (endtime > 23) {
+       endtime = 23;
+    }
+    $('#event_hr_end').val(endtime);
    
-   if(starttime == '11' || starttime == '12')
-   {
-	  $('#event_hr_end').val(endtime);
-	  $('#event_end_ampm').val('AM');
-   }
-   else
-   {
-	  $('#event_hr_end').val(endtime);
-	  //$('#event_end_ampm').val('PM');
-   }
+   if (starttime < 12) {
+       $('#event_start_ampm').val('AM');
+    } else {
+       $('#event_start_ampm').val('PM');
+    }
+   
+    if (endtime < 12) {
+       $('#event_end_ampm').val('AM');
+    } else {
+        $('#event_end_ampm').val('PM');
+    }
 }
 </script>
 
@@ -1169,7 +1162,7 @@ function setmultivenue()
 		<!--<td width="15%"><?php echo $objlist->f('city_name');?></td>-->
 		<td width="18%"><?php echo $objlist->f('venue_name');?></td>
 		<td width="12%"><?php list($event_date1,$event_time1) = explode(" ",$objlist->f('event_start_date_time')); echo date("d/m/Y",strtotime($event_date1));?></td>
-		<td width="19%"><?php echo date("g:i A",strtotime($objlist->f('event_start_date_time')))." - ".date("g:i A",strtotime($objlist->f('event_end_date_time')));?></td>
+		<td width="19%"><?php echo date("H:i",strtotime($objlist->f('event_start_date_time')))." - ".date("H:i",strtotime($objlist->f('event_end_date_time')));?></td>
 		<td width="5%">
         	<a href="<?php echo $obj_base_path->base_path(); ?>/admin/edit_sub_events_edit.php?sub_event_id=<?php echo $objlist->f('event_id')?>&event_id=<?php echo $obj_parent->f('event_id');?>&mode=1"><img src="<?php echo $obj_base_path->base_path(); ?>/images/edit.gif" alt="" width="20" height="16" /></a>
             <?php /*?><a href="javascript:void(0);" onclick="EditSubEvent('<?php echo $objlist->f('event_id')?>','<?php echo $obj_parent->f('event_id');?>');"><img src="<?php echo $obj_base_path->base_path(); ?>/images/edit.gif" alt="" width="20" height="16" /></a><?php */?>
@@ -1237,32 +1230,44 @@ function setmultivenue()
           <td></td>
         </tr>
         <tr>
-          <td style="padding: 9px 0;"><select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
-            <?php echo $st_eve_hr;
-                  for($i=0; $i<13; $i++) {
-                  ?>
-            <option value="<?php echo $i; ?>" <?PHP if($i==7) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
-            <?php }?>
-          </select></td>
-          <td style="padding: 9px 0;">&nbsp;</td>
+            <td style="padding: 9px 0;">
+                <select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
+                    <?php echo $st_eve_hr;
+                        for($i=0; $i<24; $i++) {
+                    ?>
+                        <option value="<?php echo $i; ?>" <?PHP if($i==19) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
+                    <?php }?>
+                </select>
+            </td>
+          <td style="padding: 9px 0;">/</td>
           <td style="padding: 9px 0;"><select name="event_min_st" class="selectbg" id="event_min_st" title="Please select event miniute" style="width:50px;float:left;">
                   <?php 
-                  for($j=00; $j<60; $j++) {
+                  for($j=00; $j<60; $j = $j + 5) {
                   ?>
                   <option value="<?php echo $j; ?>" <?PHP if($j==00) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
                       
                 </select></td>
           <td style="padding: 9px 0;">&nbsp;</td>
-          <td style="padding: 9px 0;"><select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="saveAutoEvent();">
-                  <option value="AM">AM</option>
-                  <option value="PM" selected="selected">PM</option>
-                </select></td>
+            <td style="padding: 9px 0; visibility: hidden">
+                <select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;" onchange="saveAutoEvent();">
+                    <option value="AM">AM</option>
+                    <option value="PM" selected="selected">PM</option>
+                </select>
+            </td>
           <td style="padding: 9px 0;"></td>
         </tr>
       </table></td>
       <td><h1 style="padding: 35px 0 0 10px;"><?=AD_ENDS;?></h1></td>
-      <td><table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 0 0 0;">
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>DD</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>MM</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong><?= AD_YEAR_FORMAT ?></strong></td>
+        </tr>
         <tr>
           <td><input type="text" name="event_day_end" id="event_date_end" value="<?php if($end_eve_dy!=""){echo $end_eve_dy;}else{echo 00;}?>" class="textbg_grey" style="width: 30px;"/></td>
           <td>/</td>
@@ -1271,26 +1276,30 @@ function setmultivenue()
           <td><input type="text" name="event_year_end" id="event_year_end" value="<?php if($end_eve_yr!=""){echo $end_eve_yr;}else{echo 0000;}?>"  class="textbg_grey" style="width: 40px;"/></td>
         </tr>
         <tr>
-          <td style="padding: 9px 0;"><select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
-                  <?php 
-                  for($i=0; $i<13; $i++) {
-                  ?>
-                  <option value="<?php echo $i; ?>" <?PHP if($i==9) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
-                  <?php }?>
-                </select></td>
+            <td style="padding: 9px 0;">
+                <select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
+                    <?php 
+                      for($i=0; $i<24; $i++) {
+                    ?>
+                        <option value="<?php echo $i; ?>" <?PHP if($i==21) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
+                    <?php }?>
+                </select>
+            </td>
           <td style="padding: 9px 0;">/</td>
          <td style="padding: 9px 0;"><select name="event_min_end" class="selectbg" id="event_min_end" title="Please select event miniute" style="width:50px;float:left;">
                   <?php 
-                  for($j=0; $j<60; $j++) {
+                  for($j=0; $j<60; $j = $j + 5) {
                   ?>
                   <option value="<?php echo $j; ?>" <?PHP if($j==00) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
                 </select></td>
-          <td style="padding: 9px 0;">/</td>
-         <td style="padding: 9px 0;"><select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;" onchange="saveAutoEvent();">
-                  <option value="AM">AM</option>
-                  <option value="PM" selected="selected">PM</option>
-                </select></td>
+          <td style="padding: 9px 0;">&nbsp;</td>
+            <td style="padding: 9px 0; visibility: hidden">
+                <select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;" onchange="saveAutoEvent();">
+                    <option value="AM">AM</option>
+                    <option value="PM" selected="selected">PM</option>
+                </select>
+            </td>
           <td></td>
           
         </tr>

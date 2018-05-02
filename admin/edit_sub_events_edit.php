@@ -120,9 +120,7 @@ list($st_eve_yr_sub,$st_eve_mn_sub,$st_eve_dy_sub) = explode("-",$start_eve_dt_s
 // Time
 list($st_eve_hr_sub,$st_eve_min_sub,$st_eve_sec_sub) = explode(":",$start_eve_tm_sub);
 $st_eve_hr_sub = (int)$st_eve_hr_sub;
-if($st_eve_hr_sub > 12){
-	$st_eve_hr_sub = $st_eve_hr_sub - 12;
-}
+
 $st_eve_min_sub = (int)$st_eve_min_sub;
 
 $event_end_date_time_sub = $obj_subev->f('event_end_date_time');
@@ -131,9 +129,7 @@ list($end_eve_yr_sub,$end_eve_mn_sub,$end_eve_dy_sub) = explode("-",$end_eve_dt_
 // Time
 list($end_eve_hr_sub,$end_eve_min_sub,$end_eve_sec_sub) = explode(":",$end_eve_tm_sub);
 $end_eve_hr_sub = (int)$end_eve_hr_sub;
-if($end_eve_hr_sub > 12){
-	$end_eve_hr_sub = $end_eve_hr_sub - 12;
-}
+
 $end_eve_min_sub = (int)$end_eve_min_sub;
 
 
@@ -185,24 +181,13 @@ if(isset($_POST['addevent']) && $_POST['addevent'] == '1')
 		$short_desc_en = substr(trim(strip_tags(addslashes($_POST['page_content_en']))),0,160);
 	}
 
-	if($_POST['event_start_ampm'] == 'PM')
-	{
-	    $event_start_hour = $_POST['event_hr_st']+12;
-	}
-	else
-	{
-	    $event_start_hour = $_POST['event_hr_st'];
-	}
+	$event_start_hour = $_POST['event_hr_st'];
+        
 	$event_start_date_time = $_POST['event_year_st']."-".$_POST['event_month_st']."-".$_POST['event_day_st']." ".$event_start_hour."-".$_POST['event_min_st']."-00";
 	$event_start_ampm = $_POST['event_start_ampm'];
-	if($_POST['event_end_ampm'] == 'PM')
-	{
-	    $event_end_hour = $_POST['event_hr_end']+12;
-	}
-	else
-	{
-	    $event_end_hour = $_POST['event_hr_end'];
-	}
+	
+        $event_end_hour = $_POST['event_hr_end'];
+        
 	$event_end_date_time = $_POST['event_year_end']."-".$_POST['event_month_end']."-".$_POST['event_day_end']." ".$event_end_hour."-".$_POST['event_min_end']."-00";
 	$event_end_ampm = $_POST['event_end_ampm'];
 	$venue_state = addslashes($_POST['venue_state']);
@@ -484,7 +469,7 @@ function save_new_popup()
 			 // Place the placeholder
 			 $("#ticket_name_sp").val("Nombre");
 			 $("#ticket_name_en").val("Name");
-			 $("#description_sp").val("DescripciÃ³n");
+			 $("#description_sp").val("Descripción");
 			 $("#description_en").val("Description");
 		 	$('#ticket_num').css("border", "1px solid #CCCCCC");
 			 
@@ -620,19 +605,24 @@ $(function(){
 
 function changeTime(starttime)
 {
-   var endtime = parseInt(starttime)+2;
-   $('#event_hr_end').val(endtime);
+    var endtime = parseInt(starttime)+2;
+    if (endtime > 23) {
+       endtime = 23;
+    }
+    $('#event_hr_end').val(endtime);
    
-   if(starttime == '11' || starttime == '12')
-   {
-	  $('#event_hr_end').val(endtime);
-	  $('#event_end_ampm').val('AM');
-   }
-   else
-   {
-	  $('#event_hr_end').val(endtime);
-	  //$('#event_end_ampm').val('PM');
-   }
+   if (starttime < 12) {
+       $('#event_start_ampm').val('AM');
+    } else {
+       $('#event_start_ampm').val('PM');
+    }
+   
+    if (endtime < 12) {
+       $('#event_end_ampm').val('AM');
+    } else {
+        $('#event_end_ampm').val('PM');
+    }
+    
 }
 </script>
 
@@ -1031,32 +1021,43 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
           <td></td>
         </tr>
         <tr>
-          <td style="padding: 9px 0;"><select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
-            <?php 
-                  for($i=0; $i<13; $i++) {
-                  ?>
+          <td style="padding: 9px 0;">
+            <select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
+                <?php 
+                  for($i=0; $i<24; $i++) {
+                ?>
             <option value="<?php echo $i; ?>" <?PHP if($i==$st_eve_hr_sub) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
             <?php }?>
           </select></td>
-          <td style="padding: 9px 0;">&nbsp;</td>
-          <td style="padding: 9px 0;"><select name="event_min_st" class="selectbg" id="event_min_st" title="Please select event miniute" style="width:50px;float:left;">
+          <td style="padding: 9px 0;">/</td>
+            <td style="padding: 9px 0;"><select name="event_min_st" class="selectbg" id="event_min_st" title="Please select event miniute" style="width:50px;float:left;">
                   <?php 
-                  for($j=00; $j<60; $j++) {
+                  for($j=00; $j<60; $j = $j + 5) {
                   ?>
                   <option value="<?php echo $j; ?>" <?PHP if($j==$st_eve_min_sub) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
                       
-                </select></td>
+                </select>
+            </td>
           <td style="padding: 9px 0;">&nbsp;</td>
-          <td style="padding: 9px 0;"><select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;">
-                  <option value="AM" <?php if($obj_subev->f('event_start_ampm')=="AM"){?> selected="selected" <?php } ?>>AM</option>
-                  <option value="PM" <?php if($obj_subev->f('event_start_ampm')=="PM"){?> selected="selected" <?php } ?>>PM</option>
-                </select></td>
+            <td style="padding: 9px 0; visibility: hidden">
+                <select name="event_start_ampm" class="selectbg" id="event_start_ampm" title="Please select AM or PM" style="width:50px;float:left;">
+                    <option value="AM" <?php if($obj_subev->f('event_start_ampm')=="AM"){?> selected="selected" <?php } ?>>AM</option>
+                    <option value="PM" <?php if($obj_subev->f('event_start_ampm')=="PM"){?> selected="selected" <?php } ?>>PM</option>
+                </select>
+            </td>
           <td style="padding: 9px 0;"></td>
         </tr>	
       </table></td>
       <td><h1 style="padding: 35px 0 0 10px;"><?= AD_ENDS ?></h1></td>
-      <td><table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 0 0 0;">
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>DD</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>MM</strong></td>
+            <td style="color:#FF0000; padding: 0;"><strong>/</strong></td>
+            <td style="color:#FF0000; padding: 0 0 0 13px;"><strong><?= AD_YEAR_FORMAT ?></strong></td>
+        </tr>
         <tr>
           <td><input type="text" name="event_day_end" id="event_date_end" value="<?php if($end_eve_dy_sub!=""){echo $end_eve_dy_sub;}else{echo 00;}?>" class="textbg_grey" style="width: 30px;"/></td>
           <td>/</td>
@@ -1067,7 +1068,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
                   <?php 
-                  for($i=0; $i<13; $i++) {
+                  for($i=0; $i<24; $i++) {
                   ?>
                   <option value="<?php echo $i; ?>" <?PHP if($i==$end_eve_hr_sub) {echo 'selected="selected"';}?>><?php echo $i; ?></option>
                   <?php }?>
@@ -1075,16 +1076,18 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
           <td style="padding: 9px 0;">/</td>
          <td style="padding: 9px 0;"><select name="event_min_end" class="selectbg" id="event_min_end" title="Please select event miniute" style="width:50px;float:left;">
                   <?php 
-                  for($j=0; $j<60; $j++) {
+                  for($j=0; $j<60; $j = $j + 5) {
                   ?>
                   <option value="<?php echo $j; ?>" <?PHP if($j==$end_eve_min_sub) {echo 'selected="selected"';}?>><?php echo $j; ?></option>
                   <?php }?>
                 </select></td>
-          <td style="padding: 9px 0;">/</td>
-         <td style="padding: 9px 0;"><select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;">
-                  <option value="AM" <?php if($obj_subev->f('event_end_ampm')=="AM"){?> selected="selected" <?php } ?>>AM</option>
-                  <option value="PM" <?php if($obj_subev->f('event_end_ampm')=="PM"){?> selected="selected" <?php } ?>>PM</option>
-                </select></td>
+          <td style="padding: 9px 0;">&nbsp;</td>
+            <td style="padding: 9px 0; visibility: hidden">
+               <select name="event_end_ampm" class="selectbg" id="event_end_ampm" title="Please select event miniute" style="width:50px;float:left;">
+                   <option value="AM" <?php if($obj_subev->f('event_end_ampm')=="AM"){?> selected="selected" <?php } ?>>AM</option>
+                   <option value="PM" <?php if($obj_subev->f('event_end_ampm')=="PM"){?> selected="selected" <?php } ?>>PM</option>
+               </select>
+            </td>
           <td></td>
           
         </tr>
@@ -1187,6 +1190,7 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
        $CKeditor->editor('page_content_sp', stripslashes($obj_subev->f('event_details_sp')));
 	?>
     </div>
+
     <div class="TabbedPanelsContent2">
 
      <?php 
