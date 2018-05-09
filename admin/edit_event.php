@@ -482,154 +482,60 @@ else
 
 
 $(document).ready(function() {
-	$('#event_month_st').datepicker({
-		firstDay: 1,
-		showButtonPanel: true,
-    	onSelect:function(theDate) 
-		{
-			$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_month_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-			
-			var n=theDate.split("/");
-			$("input[name='event_month_st']").val(n[0]);
-			$("input[name='event_day_st']").val(n[1]);
-			$("input[name='event_year_st']").val(n[2]);
-			
-			$('#event_month_end').val(n[0]);
-			$('#event_date_end').val(n[1]);
-			$('#event_year_end').val(n[2]);
+    $('#event_date_st, #event_month_st, #event_year_st').bind( "click", function(e) {           
+        $(this).siblings('.event_start_datepicker').show().focus().hide();            
+    });
+        
+    $('.event_start_datepicker').datepicker({	
+        firstDay: 1,   
+        showButtonPanel: true,
+        onSelect: function(theDate) {           			
+            $('.event_start_datepicker').datepicker('setDate', theDate);
+            $('.event_end_datepicker').datepicker('setDate', theDate); 
 
-			// For Span Start Date
-			var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
-			$('#r_span_start').val(r_span_start);
-			
-			var next_year = parseInt(n[2]) + 1;
-			var r_span_end = next_year+"-"+n[0]+"-"+n[1];
-			$('#r_span_end').val(r_span_end);
-		}
-	});
-	
-	$('#event_date_st').datepicker({	
-		firstDay: 1,   
-		showButtonPanel: true,
-		onSelect: function(theDate) 
-		{
-           			
-			$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_month_end').datepicker('option', 'defaultDate', theDate);	
-			$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-				
-			var n=theDate.split("/");
-			
-			$("input[name='to_ticket']").val(theDate);
-			
-			$("input[name='event_month_st']").val(n[0]);
-			$("input[name='event_day_st']").val(n[1]);
-			$("input[name='event_year_st']").val(n[2]);
-			
-			$('#event_month_end').val(n[0]);
-			$('#event_date_end').val(n[1]);
-			$('#event_year_end').val(n[2]);			
+            var n=theDate.split("/");
 
-			// For Span Start Date
-			var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
-			$('#r_span_start').val(r_span_start);
-			
-			var next_year = parseInt(n[2]) + 1;
-			var r_span_end = next_year+"-"+n[0]+"-"+n[1];
-			$('#r_span_end').val(r_span_end);
-        }
-		
-	});
-	
-	$('#event_year_st').datepicker({
-		showButtonPanel: true,
-		firstDay: 1,
-   		onSelect:function(theDate) 
-		{
-				$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-				$('#event_month_end').datepicker('option', 'defaultDate', theDate);
-				$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-				
-				var n=theDate.split("/");
-				$("input[name='event_month_st']").val(n[0]);
-				$("input[name='event_day_st']").val(n[1]);
-				$("input[name='event_year_st']").val(n[2]);
-				
-				$('#event_month_end').val(n[0]);
-				$('#event_date_end').val(n[1]);
-				$('#event_year_end').val(n[2]);
+            $("input[name='to_ticket']").val(theDate);
 
-			// For Span Start Date
-			var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
-			$('#r_span_start').val(r_span_start);
-			
-			var next_year = parseInt(n[2]) + 1;
-			var r_span_end = next_year+"-"+n[0]+"-"+n[1];
-			$('#r_span_end').val(r_span_end);
-		}
-	});
+            $("input[name='event_month_st']").val(n[0]);
+            $("input[name='event_day_st']").val(n[1]);
+            $("input[name='event_year_st']").val(n[2]);
+
+            $('#event_month_end').val(n[0]);
+            $('#event_date_end').val(n[1]);
+            $('#event_year_end').val(n[2]);			
+
+            // For Span Start Date
+            var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
+            $('#r_span_start').val(r_span_start);
+
+            var next_year = parseInt(n[2]) + 1;
+            var r_span_end = next_year+"-"+n[0]+"-"+n[1];
+            $('#r_span_end').val(r_span_end);
+        }		
+    });
 	
-	$('#event_month_end').datepicker({
-		firstDay: 1,
-		showButtonPanel: true,
-		beforeShow:function (textbox) 
-		{
-          setTimeout(function () 
-          {
-           $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
-          }, 300);
+        
+    $('#event_month_end, #event_date_end, #event_year_end').bind( "click", function(e) {           
+        $(this).siblings('.event_end_datepicker').show().focus().hide();            
+    });  
+    
+    $('.event_end_datepicker').datepicker({
+        firstDay: 1,
+        showButtonPanel: true,
+        beforeShow:function (textbox) {
+            setTimeout(function () {
+                $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
+            }, 300);
         },
     	onSelect:function(theDate) {
-		var n=theDate.split("/");
-		$("input[name='event_month_end']").val(n[0]);
-		$("input[name='event_day_end']").val(n[1]);
-		$("input[name='event_year_end']").val(n[2]);
-		}
-	});
-	
-	$('#event_date_end').datepicker({
-		firstDay: 1,
-		showButtonPanel: true,
-		beforeShow:function (textbox) 
-		{
-          setTimeout(function () 
-          {
-           $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
-          }, 300);
-        },
-    	onSelect:function(theDate) 
-		{
-				var n=theDate.split("/");
-				$("input[name='event_month_end']").val(n[0]);
-				$("input[name='event_day_end']").val(n[1]);
-				$("input[name='event_year_end']").val(n[2]);			
-				
-		}
-	});
-	
-	
-	$('#event_year_end').datepicker({
-		firstDay: 1,
-		showButtonPanel: true,
-		beforeShow:function (textbox) 
-		{
-          setTimeout(function () 
-          {
-           $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
-          }, 300);
-        },
-   		onSelect:function(theDate) {
-		var n=theDate.split("/");
-		$("input[name='event_month_end']").val(n[0]);
-		$("input[name='event_day_end']").val(n[1]);
-		$("input[name='event_year_end']").val(n[2]);
-		}
-	});
-	
-	
-	
+            $('.event_end_datepicker').datepicker('setDate', theDate);  
+            var n=theDate.split("/");
+            $("input[name='event_month_end']").val(n[0]);
+            $("input[name='event_day_end']").val(n[1]);
+            $("input[name='event_year_end']").val(n[2]);							
+        }
+    });
 	
 });
 //add description
@@ -1481,11 +1387,20 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
             <td style="color:#FF0000; padding: 0 0 0 13px;"><strong><?= AD_YEAR_FORMAT ?></strong></td>
         </tr>
         <tr>
-          <td><input type="text" name="event_day_st" id="event_date_st" value="<?php echo $start_day;?>"  class="textbg_grey"  style="width: 30px;" /></td>
+          <td style="position: relative">
+              <input type="text" value="<?php echo $start_mon . '/' . $start_day . '/' . $start_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_start_datepicker"/>
+              <input type="text" name="event_day_st" id="event_date_st" value="<?php echo $start_day;?>"  class="textbg_grey"  style="width: 30px;" />
+          </td>
           <td>/</td>
-          <td><input type="text" name="event_month_st" id="event_month_st" value="<?php echo $start_mon;?>" class="textbg_grey"  style="width: 30px;" /></td>
+          <td style="position: relative">
+              <input type="text" value="<?php echo $start_mon . '/' . $start_day . '/' . $start_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_start_datepicker"/>
+              <input type="text" name="event_month_st" id="event_month_st" value="<?php echo $start_mon;?>" class="textbg_grey"  style="width: 30px;" />
+          </td>
           <td>/</td>
-          <td><input type="text" name="event_year_st" id="event_year_st"  value="<?php echo $start_yr;?>" class="textbg_grey"  style="width: 40px;" /></td>
+          <td style="position: relative">
+              <input type="text" value="<?php echo $start_mon . '/' . $start_day . '/' . $start_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_start_datepicker"/>
+              <input type="text" name="event_year_st" id="event_year_st"  value="<?php echo $start_yr;?>" class="textbg_grey"  style="width: 40px;" />
+          </td>
           <td></td>
         </tr>
         <tr>
@@ -1526,11 +1441,20 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
             <td style="color:#FF0000; padding: 0 0 0 13px;"><strong><?= AD_YEAR_FORMAT ?></strong></td>
         </tr>
         <tr>
-          <td><input type="text" name="event_day_end" id="event_date_end" value="<?php echo $end_day;?>" class="textbg_grey" style="width: 30px;"/></td>
+          <td style="position: relative">
+              <input type="text" value="<?php echo $end_mon . '/' . $end_day . '/' . $end_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_end_datepicker"/>
+              <input type="text" name="event_day_end" id="event_date_end" value="<?php echo $end_day;?>" class="textbg_grey" style="width: 30px;"/>
+          </td>
           <td>/</td>
-          <td><input type="text" name="event_month_end" id="event_month_end" value="<?php echo $end_mon;?>"  class="textbg_grey" style="width: 30px;"/></td>
+          <td style="position: relative">
+              <input type="text" value="<?php echo $end_mon . '/' . $end_day . '/' . $end_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_end_datepicker"/>
+              <input type="text" name="event_month_end" id="event_month_end" value="<?php echo $end_mon;?>"  class="textbg_grey" style="width: 30px;"/>
+          </td>
           <td>/</td>
-          <td><input type="text" name="event_year_end" id="event_year_end" value="<?php echo $end_yr;?>"  class="textbg_grey" style="width: 40px;"/></td>
+          <td style="position: relative">
+              <input type="text" value="<?php echo $end_mon . '/' . $end_day . '/' . $end_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_end_datepicker"/>
+              <input type="text" name="event_year_end" id="event_year_end" value="<?php echo $end_yr;?>"  class="textbg_grey" style="width: 40px;"/>
+          </td>
         </tr>
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
@@ -1724,82 +1648,35 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
 
 	//calendar
 	$(document).ready(function() {
-		$('#multi_event_day_start').datepicker({
-			firstDay: 1 ,	
-			showButtonPanel: true,
-			onSelect:function(theDate) 
-			{
-				var n=theDate.split("/");
-				$("input[name='multi_event_month_start']").val(n[0]);
-				$("input[name='multi_event_day_start']").val(n[1]);
-				$("input[name='multi_event_year_start']").val(n[2]);
+            $('#multi_event_day_start, #multi_event_month_start, #multi_event_year_start').bind( "click", function(e) {           
+                $(this).siblings('.multi_event_start_datepicker').show().focus().hide();            
+            });
 
-				var currentDate = new Date(theDate);
-				var valueofcurrentDate = currentDate.valueOf();
-				var newDate = new Date(valueofcurrentDate);
-				
-				$("#multi_event_month_end").datepicker("option", "minDate", newDate);
-				$("#multi_event_day_end").datepicker("option", "minDate", newDate);
-				$("#multi_event_year_end").datepicker("option", "minDate", newDate);
-				var n1=theDate.split("/");
-				
-				$("input[name='multi_event_month_end']").val(n1[0]);
-				$("input[name='multi_event_day_end']").val(n1[1]);
-				$("input[name='multi_event_year_end']").val(n1[2]);
+            $('.multi_event_start_datepicker').datepicker({
+                firstDay: 1 ,	
+                showButtonPanel: true,
+                onSelect:function(theDate) {
+                    $('.multi_event_start_datepicker').datepicker('setDate', theDate);
+                    
+                    var n=theDate.split("/");
+                    $("input[name='multi_event_month_start']").val(n[0]);
+                    $("input[name='multi_event_day_start']").val(n[1]);
+                    $("input[name='multi_event_year_start']").val(n[2]);
 
-			}
-		});
-		
-		$('#multi_event_month_start').datepicker({
-			firstDay: 1 ,	   
-			showButtonPanel: true,
-			onSelect: function(theDate) 
-			{
-				var n=theDate.split("/");
-				$("input[name='multi_event_month_start']").val(n[0]);
-				$("input[name='multi_event_day_start']").val(n[1]);
-				$("input[name='multi_event_year_start']").val(n[2]);
+                    var currentDate = new Date(theDate);
+                    var valueofcurrentDate = currentDate.valueOf();
+                    var newDate = new Date(valueofcurrentDate);
 
-				var currentDate = new Date(theDate);
-				var valueofcurrentDate = currentDate.valueOf();
-				var newDate = new Date(valueofcurrentDate);
-				
-				$("#multi_event_month_end").datepicker("option", "minDate", newDate);
-				$("#multi_event_day_end").datepicker("option", "minDate", newDate);
-				$("#multi_event_year_end").datepicker("option", "minDate", newDate);
-				var n1=theDate.split("/");
-				
-				$("input[name='multi_event_month_end']").val(n1[0]);
-				$("input[name='multi_event_day_end']").val(n1[1]);
-				$("input[name='multi_event_year_end']").val(n1[2]);
-			}
-			
-		});
-		
-		$('#multi_event_year_start').datepicker({
-			firstDay: 1 ,	
-			showButtonPanel: true,
-			onSelect:function(theDate) 
-			{
-				var n=theDate.split("/");
-				$("input[name='multi_event_month_start']").val(n[0]);
-				$("input[name='multi_event_day_start']").val(n[1]);
-				$("input[name='multi_event_year_start']").val(n[2]);
+                    $("#multi_event_month_end").datepicker("option", "minDate", newDate);
+                    $("#multi_event_day_end").datepicker("option", "minDate", newDate);
+                    $("#multi_event_year_end").datepicker("option", "minDate", newDate);
+                    var n1=theDate.split("/");
 
-				var currentDate = new Date(theDate);
-				var valueofcurrentDate = currentDate.valueOf();
-				var newDate = new Date(valueofcurrentDate);
-				
-				$("#multi_event_month_end").datepicker("option", "minDate", newDate);
-				$("#multi_event_day_end").datepicker("option", "minDate", newDate);
-				$("#multi_event_year_end").datepicker("option", "minDate", newDate);
-				var n1=theDate.split("/");
-				
-				$("input[name='multi_event_month_end']").val(n1[0]);
-				$("input[name='multi_event_day_end']").val(n1[1]);
-				$("input[name='multi_event_year_end']").val(n1[2]);
-			}
-		});
+                    $("input[name='multi_event_month_end']").val(n1[0]);
+                    $("input[name='multi_event_day_end']").val(n1[1]);
+                    $("input[name='multi_event_year_end']").val(n1[2]);
+                }
+            });				
 		
 		$('#multi_event_day_end').datepicker({
 			firstDay: 1 ,	
@@ -2443,17 +2320,20 @@ function subEventEdit()
 							<td style="color:#FF0000; padding: 0 0 0 13px;"><strong><?= AD_YEAR_FORMAT ?></strong></td>
 						</tr> 
                         <tr>
-                          <td style="text-align:left; padding: 0;">
-                          	<input type="text" name="multi_event_day_start" id="multi_event_day_start" value="<?php echo $start_day;?>"  class="textbg_grey"  style="width:40px;"/>
-                          </td>
-                          <td style="text-align: center; padding: 0 0 0 9px;">/</td>
-                          <td style="text-align:left;">
-                           <input type="text" name="multi_event_month_start" id="multi_event_month_start" value="<?php echo $start_mon;?>" class="textbg_grey" style="width:40px;"/>
-                          </td>
-                          <td style="text-align: center; padding: 0;">/</td>
-                          <td style="text-align:left; padding: 0;">
+                            <td style="text-align:left; padding: 0; position: relative">
+                                <input type="text" value="<?php echo $start_mon . '/' . $start_day . '/' . $start_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey multi_event_start_datepicker"/>
+                                <input type="text" name="multi_event_day_start" id="multi_event_day_start" value="<?php echo $start_day;?>"  class="textbg_grey"  style="width:40px;"/>
+                            </td>
+                            <td style="text-align: center; padding: 0 0 0 9px;">/</td>
+                            <td style="text-align:left; position: relative">
+                                <input type="text" value="<?php echo $start_mon . '/' . $start_day . '/' . $start_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey multi_event_start_datepicker"/>
+                                <input type="text" name="multi_event_month_start" id="multi_event_month_start" value="<?php echo $start_mon;?>" class="textbg_grey" style="width:40px;"/>
+                            </td>
+                            <td style="text-align: center; padding: 0;">/</td>
+                            <td style="text-align:left; padding: 0; position: relative">
+                                <input type="text" value="<?php echo $start_mon . '/' . $start_day . '/' . $start_yr; ?>" style="display: none; width: 30px; position: absolute;" class="textbg_grey multi_event_start_datepicker"/>
                           	<input type="text" name="multi_event_year_start" id="multi_event_year_start" value="<?php echo $start_yr;?>" class="textbg_grey" style="width: 40px;"/>
-                          </td>
+                            </td>
                         </tr>
                         <tr>
                           <td style="padding: 3px 0; text-align:left;">

@@ -74,7 +74,7 @@
     }
 
     $admin = $_SESSION['ses_user_id'];
-    $obj_media_gallery->allGalleryNotInEvent($event_id,$admin);		
+    $obj_media_gallery->allGalleryNotInEventPagination($event_id, $admin, 15, 0);		
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -90,13 +90,6 @@
     <!-- Ajax File Upload -->
     <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/ajax_upload_multiple.js" ></script>
     <!-- Ajax File Upload -->
-
-
-    <script src="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
-    <link href="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css"/>
-
-    <script src="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets2/SpryTabbedPanels.js" type="text/javascript"></script>
-    <link href="<?php echo $obj_base_path->base_path(); ?>/css/SpryAssets2/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $obj_base_path->base_path(); ?>/js/custom-form-elements.js"></script>
@@ -114,6 +107,50 @@
     <!--jquery tooltips -->
 
     <script language="javascript" type="text/javascript">
+        var executed = false;
+        $( document ).ready(function(){
+            setTimeout(function(){
+                $(window).scroll(function() {
+                    if(($(window).scrollTop() + $(window).height() > $(document).height() - 300) 
+                     && ($('#type_gal').is(':checked'))){
+                        callGetAjaxGallery();
+                    }
+                });
+            }, 1000);
+        });
+        
+        /**
+         * Show loading indicator when calling ajax 
+         */
+        $(document).ajaxSend(function(event, request, settings) {
+            $('#loading-indicator').show();
+        });
+
+        $(document).ajaxComplete(function(event, request, settings) {
+            $('#loading-indicator').hide();
+        });
+        
+        function callGetAjaxGallery() {
+            if (!executed) {
+                executed = true;
+                var offset = $('.gallery-container').attr('data-offset');
+                var newOffset = parseInt(offset) + 15;
+                console.log(offset);
+                var data = "event_id=<?php echo $event_id; ?>&admin=<?php echo $admin; ?>&limit=15&offset="+offset;
+                $.ajax({ 
+                    url: "<?php echo $obj_base_path->base_path(); ?>/admin/ajax_get_gallery.php",
+                    cache: false,
+                    type: "POST",
+                    data: data,   
+                    success: function(data){ 
+                        executed = false;
+                        $('.gallery-container').attr('data-offset', newOffset);
+                        $(".gallery-container").append(data);
+                    }
+                });
+            }
+        }
+        
         function allMediaCheck(source) {
             checkboxes = document.getElementsByName('gallery_media[]');
             for(var i=0, n=checkboxes.length;i<n;i++) {
@@ -334,7 +371,7 @@
         function check_type(getval) {
             var type=getval;
             if (type=="select_gal") {
-                $('#radio_all').css({'padding-left':120+'px'});
+                $('#radio_all').css({'padding-left':135+'px'});
                 $(".fromgallery").show();
                 $(".mediaimage").hide();
                 $(".mediaurl").hide();
@@ -361,6 +398,15 @@
     <!---cancel media Ajax end------->
 
     <style>
+        #loading-indicator, #page-loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(/images/ajax.gif) center center no-repeat rgba(0,0,0,.8);
+            z-index: 999999;
+        }
         .mediaurl {
             display: none;
         }
@@ -407,6 +453,7 @@
 </head>
 
 <body class="body1">
+    <div id="loading-indicator" style="display: none;"></div>
     <?php
         function videoType($video_url) {
             if (strpos($video_url, 'youtube') > 0) {
@@ -453,7 +500,7 @@
     
             <div class="myevent_box" style="position:relative">
                 <div id="radio_all" >
-                    <input type="radio" name="type" id="type_gal" value="from_gal"  onclick="check_type('select_gal')"><?= AD_SELECT_FROM_YOUR_GALLERY ?> <br>
+                    <input type="radio" name="type" id="type_gal" value="from_gal"  onclick="check_type('select_gal')"> <?= AD_SELECT_FROM_YOUR_GALLERY ?> <br>
                     <input type="radio" name="type" id="type_image" value="media_image"  onclick="show_upload_media('select_image')"> <?= AD_UPLOAD_NEW_MEDIA ?><br>
                     <input type="radio" name="type" id="type_url" value="media_url"  onclick="show_upload_media('select_url')"> <?= AD_MEDIA_URL ?><br>
                     <br/>   
@@ -462,54 +509,53 @@
 
                 <form name="frm" method="post" action="<?php echo $obj_base_path->base_path(); ?>/admin/process_gallery.php" enctype="multipart/form-data">	
                     <div class="fromgallery">
-                        <input type="submit" name="check_submit" value="Save &amp; exit" class="createbtn" style="position: absolute; left: 0px; margin-top: 0px; top: 6px;" />
+                        <input type="submit" name="check_submit" value="<?= AD_SAVE_EXIT ?>" class="createbtn" style="position: absolute; left: 0px; margin-top: 0px; top: 6px;" />
                         <table width="80%" border=0 align="center" cellpadding="0" cellspacing="0">
                             <input type="hidden" name="event_id" value="<?php echo $event_id;?>"/>
-                            <tr>
-                                <td><input type="checkbox" name="gal_media" id="checkAllMedia" onClick="allMediaCheck(this)" value="gal_media"></td>
-                                <td></td>
-                                <td width="80%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><strong><?= AD_FILE ?> </strong></td>
-                                <td width="20%"><strong><?= AD_CREATION_DATE ?></strong></td>
-                            </tr>
-                            <?php while($row = $obj_media_gallery->next_record()) {
-                                $arr_url=explode('=',$obj_media_gallery->f('media_url'));
-                                $video_url=$obj_media_gallery->f('media_url');
-                                $var=videoType($video_url);
-                            ?>
-                            <tr>
-                                <td><input type="checkbox" name="gallery_media[]" value="<?php echo $obj_media_gallery->f('m_id'); ?>"  id="gal_media"></td>
-                                <td>
-                                    <?php if($obj_media_gallery->f('media_format')!="video") { ?>
-                                        <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url'); ?>"/><img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/<?php echo $obj_media_gallery->f('media_url'); ?>" alt="" />
-                                    <?php } else { ?>
-                                        <?php  if($var=="youtube") { ?>
-                                            <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>" /><iframe width="150" height="90" src="//www.youtube.com/embed/<?php echo end(explode('=',$obj_media_gallery->f('media_url')));?>" frameborder="0" allowfullscreen></iframe>
-                                        <?php } elseif($var=="vimeo") {  ?>
-                                            <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe src="//player.vimeo.com/video/<?php echo  end(explode('/',$obj_media_gallery->f('media_url')));?>" width="150" height="90" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                        <?php } elseif($var=="dailymotion") {  
-                                            $dm_vid_arr=explode('_',end(explode('/',$obj_media_gallery->f('media_url'))));
-                                            $dm_vid = $dm_vid_arr[0];
-                                        ?>
-                                            <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe frameborder="0" width="150" height="90" src="//www.dailymotion.com/embed/video/<?php echo  $dm_vid;?>" allowfullscreen></iframe>
-                                       <?php } ?>
-                                    <?php } ?>
-                                </td>
-                                <td><input type="hidden" name="media_name[]" value="<?php echo $obj_media_gallery->f('media_name'); ?>"/><?php echo  $obj_media_gallery->f('media_name'); ?>&nbsp
-                                <input type="hidden" name="media_format[]" value="<?php echo $obj_media_gallery->f('media_format'); ?>"/><?php echo $obj_media_gallery->f('media_format'); ?></td>
-                                <td><?php echo $obj_media_gallery->f('upload_date'); ?></td>
-                                <input type="hidden" name="caption[]" value="<?php echo $obj_media_gallery->f('caption'); ?>"/>
-                                <input type="hidden" name="set_privacy_all[]" value="<?php echo $obj_media_gallery->f('set_privacy'); ?>"/>
-                                <input type="hidden" name="language_all[]" value="<?php echo $obj_media_gallery->f('language_id'); ?>"/>
-                                <input type="hidden" name="alternet_text_all[]" value="<?php echo $obj_media_gallery->f('alternative_text'); ?>"/>
-                                <input type="hidden" name="description_all[]" value="<?php echo $obj_media_gallery->f('description'); ?>"/>
-                            </tr>
-                            <tr>
-                               <td>&nbsp;</td>
-                            </tr>
-                            <?php } ?>
-                            <tr>
-                                <td>&nbsp;</td>				
-                            </tr>
+                            <tbody class="gallery-container" data-offset="15">
+                                <tr>
+                                    <td><input type="checkbox" name="gal_media" id="checkAllMedia" onClick="allMediaCheck(this)" value="gal_media"></td>
+                                    <td></td>
+                                    <td width="80%" style="font: normal 12px/18px Arial, Helvetica, sans-serif; padding: 0;"><strong><?= AD_FILE ?> </strong></td>
+                                    <td width="20%"><strong><?= AD_CREATION_DATE ?></strong></td>
+                                </tr>
+                                <?php while($row = $obj_media_gallery->next_record()) {
+                                    $arr_url=explode('=',$obj_media_gallery->f('media_url'));
+                                    $video_url=$obj_media_gallery->f('media_url');
+                                    $var=videoType($video_url);
+                                ?>
+                                    <tr>
+                                        <td><input type="checkbox" name="gallery_media[]" value="<?php echo $obj_media_gallery->f('m_id'); ?>"  id="gal_media"></td>
+                                        <td>
+                                            <?php if($obj_media_gallery->f('media_format')!="video") { ?>
+                                                <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url'); ?>"/><img src="<?php echo $obj_base_path->base_path(); ?>/files/event/thumb/<?php echo $obj_media_gallery->f('media_url'); ?>" alt="" />
+                                            <?php } else { ?>
+                                                <?php  if($var=="youtube") { ?>
+                                                    <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>" /><iframe width="150" height="90" src="//www.youtube.com/embed/<?php echo end(explode('=',$obj_media_gallery->f('media_url')));?>" frameborder="0" allowfullscreen></iframe>
+                                                <?php } elseif($var=="vimeo") {  ?>
+                                                    <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe src="//player.vimeo.com/video/<?php echo  end(explode('/',$obj_media_gallery->f('media_url')));?>" width="150" height="90" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                                <?php } elseif($var=="dailymotion") {  
+                                                    $dm_vid_arr=explode('_',end(explode('/',$obj_media_gallery->f('media_url'))));
+                                                    $dm_vid = $dm_vid_arr[0];
+                                                ?>
+                                                    <input type="hidden" name="media_url_all[]" value="<?php echo $obj_media_gallery->f('media_url');?>"/><iframe frameborder="0" width="150" height="90" src="//www.dailymotion.com/embed/video/<?php echo  $dm_vid;?>" allowfullscreen></iframe>
+                                               <?php } ?>
+                                            <?php } ?>
+                                        </td>
+                                        <td><input type="hidden" name="media_name[]" value="<?php echo $obj_media_gallery->f('media_name'); ?>"/><?php echo  $obj_media_gallery->f('media_name'); ?>&nbsp
+                                        <input type="hidden" name="media_format[]" value="<?php echo $obj_media_gallery->f('media_format'); ?>"/><?php echo $obj_media_gallery->f('media_format'); ?></td>
+                                        <td><?php echo $obj_media_gallery->f('upload_date'); ?></td>
+                                        <input type="hidden" name="caption[]" value="<?php echo $obj_media_gallery->f('caption'); ?>"/>
+                                        <input type="hidden" name="set_privacy_all[]" value="<?php echo $obj_media_gallery->f('set_privacy'); ?>"/>
+                                        <input type="hidden" name="language_all[]" value="<?php echo $obj_media_gallery->f('language_id'); ?>"/>
+                                        <input type="hidden" name="alternet_text_all[]" value="<?php echo $obj_media_gallery->f('alternative_text'); ?>"/>
+                                        <input type="hidden" name="description_all[]" value="<?php echo $obj_media_gallery->f('description'); ?>"/>
+                                    </tr>
+                                    <tr>
+                                       <td>&nbsp;</td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
                         </table>
                     </div>
                 </form><!-----------that is  for  form gallery--------------------->
@@ -546,7 +592,7 @@
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>				
-                                <td><input type="button" name="submit" value="Next >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" style="height: 28px; display: none;" id="up_image_next"></td>
+                                <td><input type="button" name="submit" value="<?= AD_NEXT_BUTTON ?> >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" style="height: 28px; display: none;" id="up_image_next"></td>
                             </tr>
                         </table>
                     </form>
@@ -638,7 +684,7 @@
                             <tr>
                                 <td>&nbsp;</td>				
                                 <td>
-                                    <input type="button" name="buttonsave" value="Next >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" />
+                                    <input type="button" name="buttonsave" value="<?= AD_NEXT_BUTTON ?> >>" class="createbtn" onclick="ajaxSaveUploadMedia(<?php echo $event_id;?>)" />
                                 </td>
                             </tr>
                         </table>	
@@ -731,9 +777,7 @@
     <!------------------------end maindiv----------------------------------------------- -->
     <?php include("admin_footer.php"); ?>
 
-    <script type="text/javascript">
-        var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2" , {defaultTab:0});
-    </script>
+
     <div style="display: none">
         <p id="file-being-uploaded"><?= AD_YOUR_FILE_IS_BEING_UPLOADED ?></p>
         <p id="something-went-wrong"><?= AD_SOMETHING_WENT_WRONG ?></p>

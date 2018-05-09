@@ -2857,6 +2857,13 @@ function allGalleryNotInEvent($event_id,$admin_id){
 	return $this->query($sql);
 }
 
+function allGalleryNotInEventPagination($event_id, $admin_id, $limit, $offset){
+
+  $sql="SELECT *,km.media_id as m_id FROM ".$this->prefix()."media as km, ".$this->prefix()."media_language as kml  WHERE km.media_id=kml.media_id and km.media_id NOT IN (SELECT media_id FROM ".$this->prefix()."event_gallery WHERE event_id ='".$event_id."') and (km.set_privacy='0' OR (km.admin_id='".$admin_id."' AND km.set_privacy='1'))  and kml.language_id='es_MX' GROUP BY km.media_id order by km.media_id DESC LIMIT $limit OFFSET $offset";
+	//echo $sql;
+	return $this->query($sql);
+}
+
 function deleteMedia($media_id){
 
   $sql="DELETE ".$this->prefix()."media ,".$this->prefix()."media_language,".$this->prefix()."event_gallery FROM ". $this->prefix()."media INNER JOIN " .$this->prefix()."media_language INNER JOIN ".$this->prefix()."event_gallery  WHERE ".$this->prefix()."media.media_id=".$this->prefix()."media_language.media_id AND ".$this->prefix()."media_language.media_id=".$this->prefix()."event_gallery.media_id AND ".$this->prefix()."media.media_id=".$media_id;

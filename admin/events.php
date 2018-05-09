@@ -451,267 +451,91 @@ if (isset($_POST['addevent']) && $_POST['addevent'] == '1') {
 
 //calendar
 $(document).ready(function() {
-	$('#event_month_st').datepicker({
-		firstDay: 1 ,	
-		showButtonPanel: true,
-    	onSelect:function(theDate) 
-		{
-			$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_month_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-			
-			$('#multi_event_day_start').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_month_start').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_year_start').datepicker('option', 'defaultDate', theDate);
-				
-			$('#multi_event_day_end').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_month_end').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_year_end').datepicker('option', 'defaultDate', theDate);
-			var n=theDate.split("/");
-			$("input[name='event_month_st']").val(n[0]);
-			$("input[name='event_day_st']").val(n[1]);
-			$("input[name='event_year_st']").val(n[2]);
-			
-			$('#event_month_end').val(n[0]);
-			$('#event_date_end').val(n[1]);
-			$('#event_year_end').val(n[2]);
+        $('#event_date_st, #event_month_st, #event_year_st').bind( "click", function(e) {           
+            $(this).siblings('.event_start_datepicker').show().focus().hide();            
+        });
+	
+	$('.event_start_datepicker').datepicker({
+            firstDay: 1 ,	   
+            showButtonPanel: true,
+            beforeShow:function (textbox) {
+                setTimeout(function () {
+                    $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
+                }, 300);
+            },
+            onSelect: function(theDate) {
+                $('.event_start_datepicker').datepicker('setDate', theDate);
+                $('.event_end_datepicker').datepicker('setDate', theDate);   
 
-			// For tickets
-			var ticket_to_date = n[1]+"-"+n[0]+"-"+n[2];
-			$('#to_ticket').val(ticket_to_date);
-			
-			// For Span Start Date
-			var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
-			$('#r_span_start').val(r_span_start);
-			
-			var next_year = parseInt(n[2]) + 1;
-			var r_span_end = next_year+"-"+n[0]+"-"+n[1];
-			$('#r_span_end').val(r_span_end);
-			
-			// +============= For multi-function: +=====================
-				// For Start Date
-				$('#multi_event_month_start').val(n[0]);
-				$('#multi_event_day_start').val(n[1]);
-				$('#multi_event_year_start').val(n[2]);
-			
-				// For End Date
-				$('#multi_event_month_end').val(n[0]);
-				$('#multi_event_day_end').val(n[1]);
-				$('#multi_event_year_end').val(n[2]);
-				
-				// Set Parent Date
-				   var dt = new Date(n[0]+" "+n[1]+" , "+n[2]);
-				   var month_no = parseInt(n[0]);
-					$('#showEveDate').html('<span style="font-weight:bold; font-size:16px;">'+day_name[dt.getDay()]+'</span><span style="font-weight:bold;color:#0094A4;font-size:16px;">'+monthNames[month_no]+'</span><span style="font-weight:bold; font-size:16px;color:#0094A4">'+n[1]+'</span>');
-				
-				$('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">7</span>');
-				$('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : 00 </span>');
-//				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
-	
-			// +============= For multi-function: +=====================
-		}
-	});
-	
-	$('#event_date_st').datepicker({
-		firstDay: 1 ,	   
-		showButtonPanel: true,
-		onSelect: function(theDate) 
-		{
-			$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_month_end').datepicker('option', 'defaultDate', theDate);	
-			$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-			
-			$('#multi_event_day_start').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_month_start').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_year_start').datepicker('option', 'defaultDate', theDate);
-				
-			$('#multi_event_day_end').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_month_end').datepicker('option', 'defaultDate', theDate);
-			$('#multi_event_year_end').datepicker('option', 'defaultDate', theDate);
-			
-			var n=theDate.split("/");
-			$("input[name='event_month_st']").val(n[0]);
-			$("input[name='event_day_st']").val(n[1]);
-			$("input[name='event_year_st']").val(n[2]);
-			
-			$('#event_month_end').val(n[0]);
-			$('#event_date_end').val(n[1]);
-			$('#event_year_end').val(n[2]);
-			var ticket_to_date = n[1]+"-"+n[0]+"-"+n[2];
-			$('#to_ticket').val(ticket_to_date);
+                $('#multi_event_day_start').datepicker('option', 'defaultDate', theDate);
+                $('#multi_event_month_start').datepicker('option', 'defaultDate', theDate);
+                $('#multi_event_year_start').datepicker('option', 'defaultDate', theDate);
 
-			// For Span Start Date
-			var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
-			$('#r_span_start').val(r_span_start);
+                $('#multi_event_day_end').datepicker('option', 'defaultDate', theDate);
+                $('#multi_event_month_end').datepicker('option', 'defaultDate', theDate);
+                $('#multi_event_year_end').datepicker('option', 'defaultDate', theDate);
 			
-			var next_year = parseInt(n[2]) + 1;
-			var r_span_end = next_year+"-"+n[0]+"-"+n[1];
-			$('#r_span_end').val(r_span_end);
-			
-			// +============= For multi-function: +=====================
-			
-				// For Start Date
-				$('#multi_event_month_start').val(n[0]);
-				$('#multi_event_day_start').val(n[1]);
-				$('#multi_event_year_start').val(n[2]);
-			
-				// For End Date
-				$('#multi_event_month_end').val(n[0]);
-				$('#multi_event_day_end').val(n[1]);
-				$('#multi_event_year_end').val(n[2]);
-				
-				// Set Parent Date
-				   var dt = new Date(n[0]+" "+n[1]+" , "+n[2]);
-				   var month_no = parseInt(n[0])-1;
-				   //alert(month_no);
-					$('#showEveDate').html('<span style="font-weight:bold; font-size:16px;">'+day_name[dt.getDay()]+'</span><span style="font-weight:bold;color:#0094A4;font-size:16px;">'+monthNames[month_no]+'</span><span style="font-weight:bold; font-size:16px;color:#0094A4">'+n[1]+'</span>');
-				
-				$('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">7</span>');
-				$('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : 00 </span>');
-//				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
-	
-			// +============= For multi-function: +=====================
-			
-        }
-		
-	});
-	
-	$('#event_year_st').datepicker({
-		firstDay: 1 ,	
-		showButtonPanel: true,
-   		onSelect:function(theDate) 
-		{
-				$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-				$('#event_month_end').datepicker('option', 'defaultDate', theDate);
-				$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-				
-				$('#multi_event_day_start').datepicker('option', 'defaultDate', theDate);
-				$('#multi_event_month_start').datepicker('option', 'defaultDate', theDate);
-				$('#multi_event_year_start').datepicker('option', 'defaultDate', theDate);
-					
-				$('#multi_event_day_end').datepicker('option', 'defaultDate', theDate);
-				$('#multi_event_month_end').datepicker('option', 'defaultDate', theDate);
-				$('#multi_event_year_end').datepicker('option', 'defaultDate', theDate);
-					
-				var n=theDate.split("/");
-				$("input[name='event_month_st']").val(n[0]);
-				$("input[name='event_day_st']").val(n[1]);
-				$("input[name='event_year_st']").val(n[2]);
-				
-				$('#event_month_end').val(n[0]);
-				$('#event_date_end').val(n[1]);
-				$('#event_year_end').val(n[2]);
-				var ticket_to_date = n[1]+"-"+n[0]+"-"+n[2];
-				$('#to_ticket').val(ticket_to_date);
+                var n = theDate.split("/");
+                $("input[name='event_month_st']").val(n[0]);
+                $("input[name='event_day_st']").val(n[1]);
+                $("input[name='event_year_st']").val(n[2]);
 
-				// For Span Start Date
-				var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
-				$('#r_span_start').val(r_span_start);
-				
-				var next_year = parseInt(n[2]) + 1;
-				var r_span_end = next_year+"-"+n[0]+"-"+n[1];
-				$('#r_span_end').val(r_span_end);
-				
-			// +============= For multi-function: +=====================
-			
-				// For Start Date
-				$('#multi_event_month_start').val(n[0]);
-				$('#multi_event_day_start').val(n[1]);
-				$('#multi_event_year_start').val(n[2]);
-			
-				// For End Date
-				$('#multi_event_month_end').val(n[0]);
-				$('#multi_event_day_end').val(n[1]);
-				$('#multi_event_year_end').val(n[2]);
-				
-				// Set Parent Date
-				   var dt = new Date(n[0]+" "+n[1]+" , "+n[2]);
-				   var month_no = parseInt(n[0]);
-					$('#showEveDate').html('<span style="font-weight:bold; font-size:16px;">'+day_name[dt.getDay()]+'</span><span style="font-weight:bold;color:#0094A4;font-size:16px;">'+monthNames[month_no]+'</span><span style="font-weight:bold; font-size:16px;color:#0094A4">'+n[1]+'</span>');
-				
-				$('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">7</span>');
-				$('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : 00 </span>');
-//				$('#showEveampm').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> PM</span>');
-	
-			// +============= For multi-function: +=====================
-		}
+                $('#event_month_end').val(n[0]);
+                $('#event_date_end').val(n[1]);
+                $('#event_year_end').val(n[2]);
+                var ticket_to_date = n[1]+"-"+n[0]+"-"+n[2];
+                $('#to_ticket').val(ticket_to_date);
+
+                // For Span Start Date
+                var r_span_start = n[2]+"-"+n[0]+"-"+n[1];
+                $('#r_span_start').val(r_span_start);
+
+                var next_year = parseInt(n[2]) + 1;
+                var r_span_end = next_year+"-"+n[0]+"-"+n[1];
+                $('#r_span_end').val(r_span_end);
+
+                // +============= For multi-function: +=====================
+                // For Start Date
+                $('#multi_event_month_start').val(n[0]);
+                $('#multi_event_day_start').val(n[1]);
+                $('#multi_event_year_start').val(n[2]);
+
+                // For End Date
+                $('#multi_event_month_end').val(n[0]);
+                $('#multi_event_day_end').val(n[1]);
+                $('#multi_event_year_end').val(n[2]);
+
+                // Set Parent Date
+                var dt = new Date(n[0]+" "+n[1]+" , "+n[2]);
+                var month_no = parseInt(n[0])-1;
+                
+                $('#showEveDate').html('<span style="font-weight:bold; font-size:16px;">'+day_name[dt.getDay()]+'</span><span style="font-weight:bold;color:#0094A4;font-size:16px;">'+monthNames[month_no]+'</span><span style="font-weight:bold; font-size:16px;color:#0094A4">'+n[1]+'</span>');
+                $('#showEvehr').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;">7</span>');
+                $('#showEvemin').html('<span style="font-weight:bold; font-size:16px;padding:0px;color:#0094A4;"> : 00 </span>');	
+            }		
 	});
-	
-	$('#event_month_end').datepicker({
-		firstDay: 1 ,	
-		showButtonPanel: true,
-		beforeShow:function (textbox) 
-		{
-          setTimeout(function () 
-          {
-           $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
-          }, 300);
-        },
-    	onSelect:function(theDate) {
-			
-		$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-		$('#event_month_end').datepicker('option', 'defaultDate', theDate);	
-		$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-		
+        
+        $('#event_month_end, #event_date_end, #event_year_end').bind( "click", function(e) {           
+            $(this).siblings('.event_end_datepicker').show().focus().hide();            
+        });      
+            
+	$('.event_end_datepicker').datepicker({
+            firstDay: 1 ,	
+            showButtonPanel: true,
+            beforeShow:function (textbox) {
+                setTimeout(function () {
+                    $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
+                }, 300);
+            },
+            onSelect:function(theDate) {	
+                $('.event_end_datepicker').datepicker('setDate', theDate);                		
 		var n=theDate.split("/");
 		$("input[name='event_month_end']").val(n[0]);
 		$("input[name='event_day_end']").val(n[1]);
 		$("input[name='event_year_end']").val(n[2]);
-		}
-	});
-	
-	$('#event_date_end').datepicker({
-		firstDay: 1 ,	
-		showButtonPanel: true,
-		beforeShow:function (textbox) 
-		{
-          setTimeout(function () 
-          {
-           $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
-          }, 300);
-        },
-    	onSelect:function(theDate) 
-		{
-			$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_month_end').datepicker('option', 'defaultDate', theDate);	
-			$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-			
-			var n=theDate.split("/");
-			$("input[name='event_month_end']").val(n[0]);
-			$("input[name='event_day_end']").val(n[1]);
-			$("input[name='event_year_end']").val(n[2]);			
-		}
-	});
-	
-	
-	$('#event_year_end').datepicker({
-		firstDay: 1 ,	
-		showButtonPanel: true,
-		beforeShow:function (textbox) 
-		{
-          setTimeout(function () 
-          {
-           $("#ui-datepicker-div td.ui-datepicker-today a.ui-state-highlight").removeClass('ui-state-highlight');		     
-          }, 300);
-        },
-   		onSelect:function(theDate) {
-			$('#event_date_end').datepicker('option', 'defaultDate', theDate);
-			$('#event_month_end').datepicker('option', 'defaultDate', theDate);	
-			$('#event_year_end').datepicker('option', 'defaultDate', theDate);
-			
-			var n=theDate.split("/");
-			$("input[name='event_month_end']").val(n[0]);
-			$("input[name='event_day_end']").val(n[1]);
-			$("input[name='event_year_end']").val(n[2]);
-		}
-	});
-	
-	
-	
-	
+            }
+	});					
 });
-
-
 </script>
 
 <script type="text/javascript">
@@ -1664,12 +1488,21 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
             <td style="color:#FF0000; padding: 0 0 0 13px;"><strong><?= AD_YEAR_FORMAT ?></strong></td>
         </tr>
         <tr>
-          <td><input type="text" name="event_day_st" id="event_date_st" value="<?php if($msg!="" && $event_day_st!=""){echo $event_day_st;}else{echo 00;}?>"  class="textbg_grey"  style="width: 30px;" /></td>
-          <td>/</td>
-          <td><input type="text" name="event_month_st" id="event_month_st" value="<?php if($msg!="" && $event_month_st!=""){echo $event_month_st;}else{echo 00;}?>" class="textbg_grey"  style="width: 30px;" /></td>
-          <td>/</td>
-          <td><input type="text" name="event_year_st" id="event_year_st"  value="<?php if($msg!="" && $event_year_st!=""){echo $event_year_st;}else{echo 0000;}?>" class="textbg_grey"  style="width: 40px;" /></td>
-          <td></td>
+            <td style="position: relative">
+                <input type="text" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_start_datepicker"/>
+                <input type="text" name="event_day_st" id="event_date_st" value="<?php if($msg!="" && $event_day_st!=""){echo $event_day_st;}else{echo 00;}?>"  class="textbg_grey"  style="width: 30px;" />              
+            </td>
+            <td>/</td>
+            <td style="position: relative">
+                <input type="text" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_start_datepicker"/>
+                <input type="text" name="event_month_st" id="event_month_st" value="<?php if($msg!="" && $event_month_st!=""){echo $event_month_st;}else{echo 00;}?>" class="textbg_grey"  style="width: 30px;" />
+            </td>
+            <td>/</td>
+            <td style="position: relative">
+                <input type="text" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_start_datepicker"/>
+                <input type="text" name="event_year_st" id="event_year_st"  value="<?php if($msg!="" && $event_year_st!=""){echo $event_year_st;}else{echo 0000;}?>" class="textbg_grey"  style="width: 40px;" />
+            </td>
+            <td></td>
         </tr>
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_st" class="selectbg" id="event_hr_st" title="Please select event hour" style="width:50px;float:left;" onChange="changeTime(this.value);">
@@ -1709,11 +1542,20 @@ width:150px !important; height: 20px; float:left; margin: 2px 0;
             <td style="color:#FF0000; padding: 0 0 0 13px;"><strong>YYYY</strong></td>
         </tr>
         <tr>
-          <td><input type="text" name="event_day_end" id="event_date_end" value="<?php if($msg!="" && $event_day_end!=""){echo $event_day_end;}else{echo 00;}?>" class="textbg_grey" style="width: 30px;"/></td>
+          <td style="position: relative">
+              <input type="text" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_end_datepicker"/>
+              <input type="text" name="event_day_end" id="event_date_end" value="<?php if($msg!="" && $event_day_end!=""){echo $event_day_end;}else{echo 00;}?>" class="textbg_grey" style="width: 30px;"/>
+          </td>
           <td>/</td>
-          <td><input type="text" name="event_month_end" id="event_month_end" value="<?php if($msg!="" && $event_month_end!=""){echo $event_month_end;}else{echo 00;}?>"  class="textbg_grey" style="width: 30px;"/></td>
+          <td style="position: relative">
+              <input type="text" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_end_datepicker"/>
+              <input type="text" name="event_month_end" id="event_month_end" value="<?php if($msg!="" && $event_month_end!=""){echo $event_month_end;}else{echo 00;}?>"  class="textbg_grey" style="width: 30px;"/>
+          </td>
           <td>/</td>
-          <td><input type="text" name="event_year_end" id="event_year_end" value="<?php if($msg!="" && $event_year_end!=""){echo $event_year_end;}else{echo 0000;}?>"  class="textbg_grey" style="width: 40px;"/></td>
+          <td style="position: relative">
+              <input type="text" style="display: none; width: 30px; position: absolute;" class="textbg_grey event_end_datepicker"/>
+              <input type="text" name="event_year_end" id="event_year_end" value="<?php if($msg!="" && $event_year_end!=""){echo $event_year_end;}else{echo 0000;}?>"  class="textbg_grey" style="width: 40px;"/>
+          </td>
         </tr>
         <tr>
           <td style="padding: 9px 0;"><select name="event_hr_end" class="selectbg" id="event_hr_end" title="Please select event hour" style="width:50px;float:left;">
